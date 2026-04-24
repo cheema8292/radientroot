@@ -113,6 +113,71 @@
     text-decoration-color: {{ settings.global_section_text_color }} !important;
   }
   {% endif %}
+
+  /* ── Professional nav hover animation ── */
+  .header__inline-menu .header__menu-item {
+    position: relative;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__inline-menu .header__menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1.5px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header__inline-menu .header__menu-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  /* ── Sticky header elevation & glass effect ── */
+  .shopify-section-header-sticky .header-wrapper {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* ── Smooth reveal animation when header comes back ── */
+  .shopify-section-header-sticky.animate .header-wrapper {
+    animation: headerReveal 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  @keyframes headerReveal {
+    from { transform: translateY(-100%); }
+    to   { transform: translateY(0); }
+  }
+
+  /* ── Cart count bubble polish ── */
+  .cart-count-bubble {
+    min-width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Header icon hover polish ── */
+  .header__icon {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .header__icon:hover {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
 </style>
 
 {%- style -%}
@@ -847,7 +912,8 @@ assign header_gradient = 'var(--gradient-background)'
   ],
   "blocks": [
     {
-      "type": "@app"
+      "type": "@app",
+      "name": "App block"
     }
   ]
 }

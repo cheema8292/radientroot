@@ -304,6 +304,143 @@
         "padding_horizontal": 48
       }
     },
+    "rd_why_choose_us": {
+      "type": "rd-why-choose-us",
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "icon": "leaf",
+            "title": "100% Natural Ingredients",
+            "description": "Every ingredient is carefully sourced from nature. No synthetic chemicals, no harsh additives — just pure botanical goodness."
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "icon": "shield",
+            "title": "Dermatologist Tested",
+            "description": "All our formulas are clinically tested and dermatologist-approved to be safe and effective for all hair and scalp types."
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "icon": "flask",
+            "title": "Science-Backed Formulas",
+            "description": "Our cosmetic scientists combine ancient botanical wisdom with modern hair science for results you can see and feel."
+          }
+        },
+        "reason_4": {
+          "type": "reason",
+          "settings": {
+            "icon": "award",
+            "title": "Award-Winning Results",
+            "description": "With over 137,000 five-star reviews, our products have earned the trust of customers across the globe."
+          }
+        },
+        "reason_5": {
+          "type": "reason",
+          "settings": {
+            "icon": "heart",
+            "title": "Cruelty-Free & Vegan",
+            "description": "We never test on animals. Our entire range is 100% vegan and cruelty-free, because we care about all living things."
+          }
+        },
+        "reason_6": {
+          "type": "reason",
+          "settings": {
+            "icon": "truck",
+            "title": "Fast & Free Shipping",
+            "description": "Orders over $50 ship free. We process most orders within 24 hours so you get your products fast."
+          }
+        }
+      },
+      "block_order": ["reason_1", "reason_2", "reason_3", "reason_4", "reason_5", "reason_6"],
+      "settings": {
+        "eyebrow": "Why Choose Us",
+        "heading": "The Radéant Difference",
+        "subheading": "We've crafted every formula with one goal in mind — giving you the healthiest hair of your life.",
+        "bg_color": "#FFFFFF",
+        "heading_color": "#1A1A1A",
+        "eyebrow_color": "#B8956A",
+        "subheading_color": "#555555",
+        "card_bg_color": "#F7F3EE",
+        "card_heading_color": "#1A1A1A",
+        "card_text_color": "#555555",
+        "icon_color": "#B8956A",
+        "icon_bg_color": "#FFFFFF",
+        "padding_top": 88,
+        "padding_bottom": 88,
+        "padding_horizontal": 48
+      }
+    },
+    "rd_faq": {
+      "type": "rd-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long until I see results?",
+            "answer": "<p>Most customers notice visible improvements within 2–4 weeks of consistent use. For best results, use our shampoo and conditioner together daily and allow the formula to fully absorb before rinsing.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your products suitable for all hair types?",
+            "answer": "<p>Yes! Our formulas are designed to work for all hair types — straight, wavy, curly, coily, fine, thick, color-treated, or natural. The gentle botanical blend nourishes without weighing hair down.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your products sulfate and paraben free?",
+            "answer": "<p>Absolutely. Every Radéant product is 100% free from sulfates, parabens, silicones, and artificial fragrances. We use only clean, plant-derived ingredients that are gentle on your scalp and hair.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I use the rosemary shampoo?",
+            "answer": "<p>Apply a generous amount to wet hair and gently massage into your scalp for 60 seconds to activate the rosemary. Leave on for 2–3 minutes, then rinse thoroughly with cool water.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer free shipping?",
+            "answer": "<p>Yes — we offer free standard shipping on all orders over $50. Orders typically ship within 1–2 business days and arrive in 3–7 business days depending on your location.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not completely happy with your purchase for any reason, contact our support team and we'll make it right with a full refund or replacement — no questions asked.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6"],
+      "settings": {
+        "eyebrow": "Got Questions?",
+        "heading": "Frequently Asked Questions",
+        "subheading": "Everything you need to know about our products and your hair care journey.",
+        "bg_color": "#F7F3EE",
+        "heading_color": "#1A1A1A",
+        "eyebrow_color": "#B8956A",
+        "subheading_color": "#555555",
+        "question_color": "#1A1A1A",
+        "answer_color": "#555555",
+        "border_color": "#E5DDD4",
+        "icon_color": "#B8956A",
+        "active_bg_color": "#EDE8E1",
+        "content_max_width": 840,
+        "padding_top": 88,
+        "padding_bottom": 88,
+        "padding_horizontal": 48
+      }
+    },
     "176411322819ac725f": {
       "type": "apps",
       "settings": {
@@ -316,8 +453,10 @@
     "rd_marquee",
     "rd_benefits_bar",
     "rd_featured_products",
+    "rd_why_choose_us",
     "rd_story_ingredients",
     "rd_testimonials",
+    "rd_faq",
     "rd_newsletter",
     "176411322819ac725f"
   ]
