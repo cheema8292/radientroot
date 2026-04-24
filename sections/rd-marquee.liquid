@@ -1,0 +1,124 @@
+<style>
+  .rd-marquee-bar {
+    background: {{ section.settings.bg_color | default: '#1A1A1A' }};
+    padding: {{ section.settings.padding_vertical | default: 14 }}px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .rd-marquee-track {
+    display: inline-flex;
+    animation: rd-marquee {{ section.settings.speed | default: 30 }}s linear infinite;
+  }
+  .rd-marquee-bar:hover .rd-marquee-track {
+    animation-play-state: paused;
+  }
+  .rd-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color | default: '#D4B896' }};
+  }
+  .rd-marquee-dot {
+    width: 4px;
+    height: 4px;
+    background: {{ section.settings.dot_color | default: '#B8956A' }};
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @keyframes rd-marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<div class="rd-marquee-bar">
+  <div class="rd-marquee-track">
+    {% comment %} Duplicate items for seamless loop {% endcomment %}
+    {% for block in section.blocks %}{% if block.type == 'item' %}
+      <span class="rd-marquee-item" {{ block.shopify_attributes }}><span class="rd-marquee-dot"></span>{{ block.settings.text }}</span>
+    {% endif %}{% endfor %}
+    {% for block in section.blocks %}{% if block.type == 'item' %}
+      <span class="rd-marquee-item"><span class="rd-marquee-dot"></span>{{ block.settings.text }}</span>
+    {% endif %}{% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marquee Ticker",
+  "tag": "div",
+  "class": "section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Colour",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Colour",
+      "default": "#D4B896"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dot Colour",
+      "default": "#B8956A"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Padding",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll Speed (seconds)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ticker Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Sulfate Free"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Ticker",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Sulfate Free" } },
+        { "type": "item", "settings": { "text": "Paraben Free" } },
+        { "type": "item", "settings": { "text": "Cruelty Free" } },
+        { "type": "item", "settings": { "text": "Natural Ingredients" } },
+        { "type": "item", "settings": { "text": "Dermatologist Tested" } },
+        { "type": "item", "settings": { "text": "Made in USA" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,302 @@
+<style>
+  .rd-testimonials-section {
+    background: {{ section.settings.bg_color | default: '#F7F3EE' }};
+    padding: {{ section.settings.padding_top | default: 90 }}px {{ section.settings.padding_horizontal | default: 48 }}px;
+  }
+  .rd-testimonials-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .rd-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    gap: 20px;
+  }
+  .rd-section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #B8956A;
+    margin-bottom: 8px;
+  }
+  .rd-section-heading {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 300;
+    color: #1A1A1A;
+  }
+  .rd-section-link {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #555555;
+    text-decoration: none;
+    border-bottom: 1px solid #D4B896;
+    padding-bottom: 2px;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .rd-section-link:hover { color: #B8956A; border-color: #B8956A; }
+  .rd-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .rd-testimonial-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 30px;
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: all 0.3s;
+  }
+  .rd-testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+  }
+  .rd-testimonial-stars {
+    color: #B8956A;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .rd-testimonial-text {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #2D2D2D;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .rd-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .rd-testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4B896, #96754A);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .rd-testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .rd-testimonial-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1A1A1A;
+  }
+  .rd-testimonial-verified {
+    font-size: 10px;
+    color: #8A8A8A;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .rd-testimonial-verified svg { width: 10px; height: 10px; color: #4CAF50; }
+  @media (max-width: 1024px) {
+    .rd-testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .rd-testimonials-section { padding: 60px 20px; }
+    .rd-testimonials-grid { grid-template-columns: 1fr; }
+    .rd-section-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<section class="rd-testimonials-section">
+  <div class="rd-testimonials-inner">
+    <div class="rd-section-header rd-reveal">
+      <div>
+        {% if section.settings.eyebrow != blank %}
+          <div class="rd-section-eyebrow">{{ section.settings.eyebrow }}</div>
+        {% endif %}
+        <h2 class="rd-section-heading">{{ section.settings.heading }}</h2>
+      </div>
+      {% if section.settings.link_text != blank %}
+        <a href="{{ section.settings.link_url }}" class="rd-section-link">{{ section.settings.link_text }}</a>
+      {% endif %}
+    </div>
+
+    <div class="rd-testimonials-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'testimonial' %}
+          <div class="rd-testimonial-card rd-reveal" {{ block.shopify_attributes }}>
+            <div class="rd-testimonial-stars">
+              {% assign stars = block.settings.rating | default: 5 %}
+              {% for i in (1..stars) %}★{% endfor %}
+            </div>
+            <p class="rd-testimonial-text">"{{ block.settings.review_text }}"</p>
+            <div class="rd-testimonial-author">
+              <div class="rd-testimonial-avatar">
+                {% if block.settings.avatar %}
+                  <img src="{{ block.settings.avatar | img_url: '80x80', crop: 'center' }}" alt="{{ block.settings.author_name | escape }}" loading="lazy">
+                {% else %}
+                  {{ block.settings.author_name | slice: 0 }}
+                {% endif %}
+              </div>
+              <div>
+                <div class="rd-testimonial-name">{{ block.settings.author_name }}</div>
+                {% if block.settings.verified %}
+                  <div class="rd-testimonial-verified">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Verified Purchase
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Label",
+      "default": "Real Results"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Read All Reviews"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Colour",
+      "default": "#F7F3EE"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top/Bottom",
+      "min": 40,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding Horizontal",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "This product has transformed my hair. Highly recommend!"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Happy Customer"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Author Avatar",
+          "info": "Leave blank to show initials."
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show Verified Badge",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "My hair has never felt this soft and healthy. After just two weeks, I noticed less breakage and more shine. This is the real deal.",
+            "author_name": "Sarah M.",
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "I was skeptical at first but the results are undeniable. My hair is noticeably fuller and stronger. Worth every penny.",
+            "author_name": "Jessica L.",
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Finally a shampoo that actually delivers on its promises. The rosemary scent is amazing and my scalp feels so healthy.",
+            "author_name": "Priya K.",
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

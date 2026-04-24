@@ -1,0 +1,570 @@
+/* =============================================================
+   PREMIUM DESIGN ENHANCEMENTS — RadiantRoot
+   Pure visual overrides. Zero functionality changes.
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   1. BRAND TOKENS — single source of truth
+   ------------------------------------------------------------- */
+:root {
+  --rr-gold:        #B8956A;
+  --rr-gold-light:  #D4B896;
+  --rr-dark:        #1A1A1A;
+  --rr-warm-white:  #F7F3EE;
+  --rr-border:      #E8E0D8;
+  --rr-radius-card: 14px;
+  --rr-radius-btn:  8px;
+  --rr-radius-pill: 50px;
+  --rr-transition:  0.28s ease;
+}
+
+
+/* =============================================================
+   2. ANNOUNCEMENT BAR — warmer, on-brand dark
+   ============================================================= */
+.announcement-bar,
+.shopify-section-announcement-bar {
+  background-color: #1A1A1A !important;
+}
+
+.announcement-bar__message,
+.announcement-bar p,
+.announcement-bar a {
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+
+/* =============================================================
+   3. NAVBAR / HEADER
+   ============================================================= */
+
+/* Sticky blur glass effect */
+.header-wrapper {
+  transition: background-color var(--rr-transition),
+              box-shadow var(--rr-transition),
+              backdrop-filter var(--rr-transition);
+}
+
+sticky-header.scrolled .header-wrapper,
+.scrolled-past-header .header-wrapper,
+.header-wrapper.header-wrapper--border-bottom {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 1px 0 0 var(--rr-border) !important;
+}
+
+/* Nav link — animated gold underline on hover */
+.header__menu-item,
+.list-menu__item--link {
+  position: relative;
+  text-decoration: none !important;
+  transition: color var(--rr-transition);
+}
+
+.header__menu-item::after,
+.list-menu__item--link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--rr-gold);
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__menu-item:hover::after,
+.list-menu__item--link:hover::after {
+  width: 100%;
+}
+
+.header__menu-item:hover,
+.list-menu__item--link:hover {
+  color: var(--rr-gold) !important;
+  opacity: 1 !important;
+}
+
+/* Account icon — reduce from 40px → 22px */
+.header__icon--account .svg-wrapper svg,
+.header__icon--account account-icon svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+/* Cart icon — consistent size */
+.cart-bag-icon {
+  height: 24px !important;
+  width: 24px !important;
+}
+
+/* Cart count bubble — gold background */
+.cart-count-bubble {
+  background-color: var(--rr-gold) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  min-width: 18px;
+  height: 18px;
+  border-radius: var(--rr-radius-pill);
+  font-size: 10px;
+}
+
+/* Header icons subtle hover */
+.header__icon:hover {
+  opacity: 0.75;
+  transition: opacity var(--rr-transition);
+}
+
+/* Logo scale transition — smoother */
+.scrolled-past-header .header__heading-logo-wrapper {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Mobile drawer — brand divider between items */
+.menu-drawer__navigation .list-menu__item--link {
+  border-bottom: 1px solid var(--rr-border);
+  padding: 1.2rem 0;
+}
+
+.menu-drawer__navigation .list-menu__item--link:last-child {
+  border-bottom: none;
+}
+
+.menu-drawer__navigation .list-menu__item--link:hover {
+  color: var(--rr-gold) !important;
+  padding-left: 6px;
+  transition: padding-left 0.2s ease, color 0.2s ease;
+}
+
+
+/* =============================================================
+   4. HERO SECTION
+   ============================================================= */
+
+/* Minimum height */
+.custom-hero {
+  min-height: 560px;
+}
+
+@media screen and (max-width: 749px) {
+  .custom-hero {
+    min-height: 420px;
+  }
+  /* Center-align text on mobile for premium beauty feel */
+  .custom-hero .custom-hero__content-wrapper {
+    text-align: center !important;
+    align-items: center !important;
+  }
+  .custom-hero__button-wrapper,
+  .custom-hero__rating-wrapper {
+    justify-content: center !important;
+  }
+}
+
+/* Heading — slightly more breathing room */
+.custom-hero__title {
+  line-height: 1.18 !important;
+}
+
+/* Rating text — darken from #8A8A8A → #4A4A4A */
+.custom-hero__rating-text p,
+.custom-hero__rating-text {
+  color: #4A4A4A !important;
+}
+
+/* Stars stay gold */
+.custom-hero__rating .icon-star,
+.custom-hero__rating svg {
+  color: var(--rr-gold) !important;
+  fill: var(--rr-gold) !important;
+}
+
+/* Secondary button — outlined gold style */
+.custom-hero .custom-hero__button--secondary,
+.custom-hero .button--secondary {
+  background-color: transparent !important;
+  border: 1.5px solid var(--rr-gold) !important;
+  color: var(--rr-dark) !important;
+  transition: background-color var(--rr-transition),
+              color var(--rr-transition) !important;
+}
+
+.custom-hero .custom-hero__button--secondary:hover,
+.custom-hero .button--secondary:hover {
+  background-color: var(--rr-gold) !important;
+  color: #ffffff !important;
+}
+
+/* Primary button — smooth hover */
+.custom-hero .custom-hero__button--primary,
+.custom-hero .button--primary {
+  transition: opacity var(--rr-transition),
+              transform var(--rr-transition) !important;
+}
+
+.custom-hero .custom-hero__button--primary:hover,
+.custom-hero .button--primary:hover {
+  opacity: 0.88 !important;
+  transform: translateY(-1px) !important;
+}
+
+
+/* =============================================================
+   5. PRODUCT CARDS
+   ============================================================= */
+
+/* Uniform card radius */
+.card-wrapper,
+.card,
+.card__inner {
+  border-radius: var(--rr-radius-card) !important;
+}
+
+/* Image area — always cover, never contain */
+.card__media img,
+.card__media .media {
+  object-fit: cover !important;
+}
+
+/* Smooth image zoom on hover */
+.card__media img {
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.card-wrapper:hover .card__media img {
+  transform: scale(1.04) !important;
+}
+
+/* Card shadow lift on hover */
+.card-wrapper {
+  transition: box-shadow var(--rr-transition),
+              transform var(--rr-transition);
+}
+
+.card-wrapper:hover {
+  box-shadow: 0 8px 28px rgba(26, 26, 26, 0.10) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* Card info section — more breathing room */
+.card .card__information {
+  padding: 14px 16px 16px !important;
+}
+
+/* Product title */
+.card__heading a,
+.card__heading {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em;
+  transition: color var(--rr-transition);
+}
+
+.card-wrapper:hover .card__heading a {
+  color: var(--rr-gold) !important;
+}
+
+/* Price — actual price prominent, compare price subtle */
+.price__regular .price-item--regular,
+.price .price-item--regular {
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  color: var(--rr-dark) !important;
+}
+
+.price__sale .price-item--sale,
+.price .price-item--sale {
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  color: var(--rr-dark) !important;
+}
+
+.price__sale s,
+.price s,
+.price-item--regular + s,
+.price-item--last {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #999999 !important;
+  text-decoration: line-through;
+  margin-left: 4px;
+}
+
+/* Sale badge — pill shape with brand gold */
+.badge--sale,
+.card__badge .badge {
+  background-color: var(--rr-gold) !important;
+  color: #ffffff !important;
+  border-radius: var(--rr-radius-pill) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  padding: 3px 10px !important;
+  border: none !important;
+  text-transform: uppercase;
+}
+
+/* "View Product" button — clean slide-up overlay on hover */
+.card-wrapper .card__content .quick-add,
+.card-wrapper [class*="view-product"] {
+  transition: opacity var(--rr-transition),
+              transform var(--rr-transition) !important;
+  opacity: 0 !important;
+  transform: translateY(6px) !important;
+}
+
+.card-wrapper:hover .card__content .quick-add,
+.card-wrapper:hover [class*="view-product"] {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+
+/* =============================================================
+   6. SCROLLING MARQUEE BAR
+   ============================================================= */
+
+.rd-marquee__item,
+.scrolling-ticker__item,
+[class*="marquee"] span,
+[class*="marquee"] p {
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+}
+
+
+/* =============================================================
+   7. BENEFITS BAR (below hero)
+   ============================================================= */
+
+.rd-benefits-bar__item-title,
+[class*="benefits-bar"] .title,
+[class*="benefit"] h3 {
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+}
+
+[class*="benefits-bar"] {
+  border-bottom: 1px solid var(--rr-border);
+}
+
+
+/* =============================================================
+   8. FOOTER
+   ============================================================= */
+
+/* Top divider */
+footer.footer,
+.footer {
+  border-top: 1px solid var(--rr-border) !important;
+}
+
+/* Reduce excessive bottom padding */
+@media screen and (min-width: 750px) {
+  .footer .section-footer-padding,
+  .footer [class*="section-"][class*="-padding"] {
+    padding-bottom: 80px !important;
+  }
+}
+
+/* Footer headings */
+.footer-block__heading,
+.footer h2 {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--rr-dark) !important;
+  margin-bottom: 16px !important;
+}
+
+/* Footer links */
+.footer a,
+.footer .footer__list-item a {
+  transition: color var(--rr-transition),
+              padding-left var(--rr-transition);
+  display: inline-block;
+}
+
+.footer a:hover,
+.footer .footer__list-item a:hover {
+  color: var(--rr-gold) !important;
+  padding-left: 4px !important;
+  text-decoration: none !important;
+}
+
+/* Social icons — circle button style */
+.footer .list-social__link,
+.footer__list-social .list-social__link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid var(--rr-border) !important;
+  background-color: transparent !important;
+  transition: background-color var(--rr-transition),
+              border-color var(--rr-transition),
+              transform var(--rr-transition) !important;
+}
+
+.footer .list-social__link:hover,
+.footer__list-social .list-social__link:hover {
+  background-color: var(--rr-gold) !important;
+  border-color: var(--rr-gold) !important;
+  transform: translateY(-2px) !important;
+}
+
+.footer .list-social__link:hover svg,
+.footer .list-social__link:hover svg path {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.footer .list-social {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap;
+}
+
+/* Payment icons row — subtle separator background */
+.footer__content-bottom,
+.footer .footer__content-bottom {
+  background-color: var(--rr-warm-white) !important;
+  border-top: 1px solid var(--rr-border) !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+  margin-top: 24px;
+}
+
+.footer .copyright__content,
+.footer .copyright__content a {
+  font-size: 12px !important;
+  color: #888888 !important;
+}
+
+.footer .copyright__content a:hover {
+  color: var(--rr-gold) !important;
+}
+
+/* Payment icons spacing */
+.footer .list-payment {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  flex-wrap: wrap;
+}
+
+.footer .list-payment__item svg,
+.footer .list-payment__item img {
+  height: 22px !important;
+  width: auto !important;
+  opacity: 0.75;
+  transition: opacity var(--rr-transition);
+}
+
+.footer .list-payment__item:hover svg,
+.footer .list-payment__item:hover img {
+  opacity: 1;
+}
+
+
+/* =============================================================
+   9. GLOBAL BUTTONS — consistent radius & transitions
+   ============================================================= */
+
+.button,
+button.button,
+a.button,
+input[type="submit"],
+.shopify-payment-button__button {
+  border-radius: var(--rr-radius-btn) !important;
+  transition: opacity var(--rr-transition),
+              transform var(--rr-transition),
+              background-color var(--rr-transition) !important;
+  letter-spacing: 0.04em !important;
+}
+
+.button:hover,
+a.button:hover {
+  opacity: 0.88 !important;
+  transform: translateY(-1px) !important;
+}
+
+.button:active,
+a.button:active {
+  transform: translateY(0) !important;
+}
+
+
+/* =============================================================
+   10. COLLECTION PAGE — banner soften
+   ============================================================= */
+
+.main-collection-banner,
+[class*="collection-banner"] {
+  background-color: #1A1A1A !important;
+}
+
+/* Product grid cards — consistent image aspect ratio */
+.collection-grid__item .card__inner,
+.collection-product-card .card__inner {
+  padding-bottom: 100% !important; /* force 1:1 */
+}
+
+
+/* =============================================================
+   11. SECTION HEADINGS — global polish
+   ============================================================= */
+
+.section__header h2,
+.section__heading,
+[class*="__heading"]:not(.footer-block__heading):not(.header__heading) {
+  letter-spacing: -0.01em;
+}
+
+
+/* =============================================================
+   12. SCROLLBAR — thin, branded
+   ============================================================= */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rr-gold-light);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rr-gold);
+}
+
+
+/* =============================================================
+   13. SELECTION COLOR — brand gold highlight
+   ============================================================= */
+
+::selection {
+  background-color: rgba(184, 149, 106, 0.2);
+  color: var(--rr-dark);
+}
+
+
+/* =============================================================
+   14. FOCUS RING — accessible but branded
+   ============================================================= */
+
+*:focus-visible {
+  outline: 2px solid var(--rr-gold) !important;
+  outline-offset: 3px !important;
+  border-radius: 3px;
+}

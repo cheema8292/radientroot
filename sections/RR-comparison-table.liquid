@@ -1,0 +1,1038 @@
+
+  {% style %}
+
+      .nm-comparison-table-inner {
+        max-width: 1040px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 749px) {
+        .nm-comparison-table-wrapper {
+          padding-top: {{ section.settings.padding_top_mobile }}px !important;
+          padding-bottom: {{ section.settings.padding_bottom_mobile }}px !important;
+        }
+      }
+
+      .nm-comparison-table-heading {
+        font-weight: 400;
+        text-align: center;
+        margin: 0;
+        padding-bottom: 24px;
+        font-size: 32px;
+        line-height: 52.8px;
+      }
+
+      .nm-comparison-table-subheading {
+        text-align: center;
+        font-size: 1.125rem;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .nm-comparison-table-container {
+        margin-bottom: 2rem;
+        overflow: hidden;
+      }
+
+      .nm-table-scroll-wrapper {
+        overflow-x: auto;
+        position: relative;
+      }
+
+      .nm-comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+      }
+
+      .nm-comparison-table thead tr {
+        border-bottom: none;
+      }
+
+      .nm-comparison-table th {
+        padding: 1.5rem 1rem;
+        text-align: center;
+        border-right: none;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0;
+        line-height: 36px;
+        vertical-align: bottom;
+      }
+
+      .nm-comparison-table th:last-child {
+        border-right: none;
+      }
+
+      /* Column Header with Image - Fixed Alignment */
+      .nm-column-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        min-height: 110px;
+      }
+
+      .nm-column-image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 80px;
+      }
+  span.nm-icon-wrapper svg {
+      width: 30px;
+      height: 30px;
+  }
+      .nm-column-image {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .nm-column-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .nm-column-title {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.3;
+        text-align: center;
+      }
+
+      .nm-comparison-table .nm-feature-column {
+        text-align: left;
+        width: 30%;
+        min-width: 200px;
+      }
+
+      .nm-comparison-table .nm-product-column {
+        width: 23.33%;
+        min-width: 150px;
+      }
+
+      .nm-comparison-table tbody {
+        border: 1px solid #e0e0e0;;
+    }
+
+      .nm-comparison-table tbody tr {
+        border-bottom: 1px solid #e0e0e0;;
+        border-top: 1px solid #e0e0e0;;
+      }
+
+      .nm-comparison-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .nm-comparison-table td {
+        padding: 1.5rem;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        text-align: center;
+      }
+
+      .nm-comparison-table td:last-child {
+        border-right: none;
+      }
+
+      .nm-comparison-table .nm-feature-label {
+        text-align: left;
+        font-weight: 500;
+      }
+
+      .nm-comparison-table .nm-feature-value {
+        position: relative;
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+
+      /* SVG Icon Styling */
+      .nm-icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nm-check-icon,
+      .nm-cross-icon {
+        width: 40px;
+        height: 40px;
+        display: block;
+      }
+
+      .nm-comparison-table-cta {
+        text-align: center;
+        margin-top: 2.5rem;
+      }
+
+      .nm-comparison-table-cta .nm-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Tablet Responsive Styles */
+      @media screen and (max-width: 768px) {
+        .nm-comparison-table-heading {
+          font-size: 32px;
+          margin-bottom: 0.75rem;
+          padding-bottom: 20px;
+        }
+
+        .nm-comparison-table-subheading {
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .nm-comparison-table-container {
+          border-radius: 4px;
+        }
+
+        span.nm-icon-wrapper svg {
+      width: 22px;
+      height: 22px;
+  }
+
+        .nm-comparison-table th {
+          padding: 1rem 0.75rem;
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        .nm-column-header {
+          min-height: 90px;
+          gap: 10px;
+        }
+
+        .nm-column-image-wrapper {
+          min-height: 60px;
+        }
+
+        .nm-column-image {
+          width: 60px;
+          height: 60px;
+        }
+
+        .nm-column-title {
+          font-size: 14px;
+        }
+
+        .nm-comparison-table td {
+          padding: 1rem 0.75rem;
+          font-size: 13px;
+        }
+
+        .nm-comparison-table .nm-feature-column {
+          min-width: 150px;
+        }
+
+        .nm-comparison-table .nm-product-column {
+          min-width: 120px;
+        }
+
+        .nm-check-icon,
+        .nm-cross-icon {
+          width: 32px;
+          height: 32px;
+        }
+
+        .nm-comparison-table-cta .nm-button {
+          padding: 0.875rem 2rem;
+          font-size: 0.9375rem;
+        }
+      }
+
+      /* Mobile Responsive Styles - Sticky First Column */
+      @media screen and (max-width: 500px) {
+        .nm-comparison-table-heading {
+          padding-bottom: 10px;
+          font-size: 28px;
+        }
+
+        .nm-comparison-table-container {
+          position: relative;
+          margin-left: -10px;
+          margin-right: -10px;
+          border-radius: 0;
+        }
+
+        .nm-table-scroll-wrapper {
+          overflow-x: auto;
+          overflow-y: visible;
+          -webkit-overflow-scrolling: touch;
+          scroll-behavior: smooth;
+        }
+
+        .nm-comparison-table {
+          position: relative;
+          min-width: 100%;
+          display: table;
+        }
+
+        /* Sticky first column */
+        .nm-comparison-table .nm-sticky-column {
+          position: -webkit-sticky;
+          position: sticky;
+          left: 0;
+          z-index: 10;
+          min-width: 120px !important;
+          max-width: 120px !important;
+          width: 120px !important;
+        }
+
+        .nm-comparison-table th.nm-sticky-column {
+          background-color: {{ section.settings.feature_column_bg }} !important;
+          box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .nm-comparison-table td.nm-sticky-column {
+          background-color: {{ section.settings.feature_column_bg }} !important;
+          box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Product columns */
+        .nm-comparison-table .nm-product-column {
+          min-width: 140px !important;
+          width: 140px !important;
+        }
+
+        .nm-comparison-table td.nm-feature-value {
+          min-width: 140px !important;
+          width: 140px !important;
+        }
+
+        /* Smaller images and headers on mobile */
+        .nm-column-header {
+          min-height: 80px;
+          gap: 8px;
+        }
+
+        .nm-column-image-wrapper {
+          min-height: 50px;
+        }
+
+        .nm-column-image {
+          width: 50px;
+          height: 50px;
+        }
+
+        .nm-column-title {
+          font-size: 12px;
+        }
+
+        .nm-check-icon,
+        .nm-cross-icon {
+          width: 28px;
+          height: 28px;
+        }
+
+        /* Scroll hint gradient */
+        .nm-table-scroll-wrapper::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 30px;
+          pointer-events: none;
+        }
+      }
+
+      /* Print Styles */
+      @media print {
+        .nm-comparison-table-wrapper {
+          padding: 20px !important;
+        }
+
+        .nm-comparison-table-container {
+          box-shadow: none;
+          overflow: visible;
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        .nm-table-scroll-wrapper {
+          overflow: visible;
+        }
+
+        .nm-comparison-table-cta {
+          display: none;
+        }
+
+        .nm-comparison-table .nm-sticky-column {
+          position: static;
+          box-shadow: none;
+        }
+
+        .nm-table-scroll-wrapper::after {
+          display: none;
+        }
+      }
+      {% endstyle %}
+
+
+
+<div
+  class="nm-comparison-table-wrapper"
+  style="background-color: {{ section.settings.background_color }}; padding-top: {{ section.settings.padding_top_desktop }}px; padding-bottom: {{ section.settings.padding_bottom_desktop }}px;"
+>
+
+<div class="page-width">
+    <div class="nm-comparison-table-inner">
+    {% if section.settings.heading != blank %}
+      <h2 class="nm-comparison-table-heading" style="color: {{ section.settings.heading_color }};">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p class="nm-comparison-table-subheading" style="color: {{ section.settings.text_color }};">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+
+    <div class="nm-comparison-table-container">
+      <div class="nm-table-scroll-wrapper">
+        <table class="nm-comparison-table">
+          <thead>
+            <tr>
+              <th
+                class="nm-feature-column nm-sticky-column"
+                style="background-color: {{ section.settings.feature_column_bg }}; color: {{ section.settings.heading_color }};"
+              >
+                {{ section.settings.feature_column_title }}
+              </th>
+              {% for block in section.blocks %}
+                {% if block.type == 'product_column' %}
+                  <th class="nm-product-column" style="color: {{ section.settings.heading_color }};">
+                    <div class="nm-column-header">
+                      <div class="nm-column-image-wrapper">
+                        {% if block.settings.column_image != blank %}
+                          <div class="nm-column-image">
+                              {{ block.settings.column_image | image_url: width: 1500 | image_tag }}
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="nm-column-title">
+                        {{ block.settings.column_title }}
+                      </div>
+                    </div>
+                  </th>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in (1..10) %}
+              {% assign feature_key = 'feature_' | append: i %}
+              {% assign feature_label = section.settings[feature_key] %}
+
+              {% if feature_label != blank %}
+                <tr>
+                  <td
+                    class="nm-feature-label nm-sticky-column"
+                    style="color: {{ section.settings.text_color }}; background-color: {{ section.settings.feature_column_bg }};"
+                  >
+                    {{ feature_label }}
+                  </td>
+                  {% for block in section.blocks %}
+                    {% if block.type == 'product_column' %}
+                      {% assign value_key = 'feature_' | append: i | append: '_value' %}
+                      {% assign custom_key = 'feature_' | append: i | append: '_custom' %}
+                      {% assign feature_value = block.settings[value_key] %}
+                      {% assign custom_text = block.settings[custom_key] %}
+
+                      <td class="nm-feature-value" style="background-color: {{ block.settings.column_bg_color }};">
+                        {% if feature_value == 'true' %}
+                          <span class="nm-icon-wrapper">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              version="1.1"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              width="512"
+                              height="512"
+                              x="0"
+                              y="0"
+                              viewBox="0 0 408.576 408.576"
+                              style="enable-background:new 0 0 512 512"
+                              xml:space="preserve"
+                              class=""
+                            >
+                              <g><path d="M204.288 0C91.648 0 0 91.648 0 204.288s91.648 204.288 204.288 204.288 204.288-91.648 204.288-204.288S316.928 0 204.288 0zm114.176 150.528-130.56 129.536c-7.68 7.68-19.968 8.192-28.16.512L90.624 217.6c-8.192-7.68-8.704-20.48-1.536-28.672 7.68-8.192 20.48-8.704 28.672-1.024l54.784 50.176L289.28 121.344c8.192-8.192 20.992-8.192 29.184 0s8.192 20.992 0 29.184z" fill="#000000" opacity="1" data-original="#000000" class=""></path></g>
+                            </svg>
+                          </span>
+                        {% elsif feature_value == 'false' %}
+                          <span class="nm-icon-wrapper">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              version="1.1"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              width="512"
+                              height="512"
+                              x="0"
+                              y="0"
+                              viewBox="0 0 48 48"
+                              style="enable-background:new 0 0 512 512"
+                              xml:space="preserve"
+                            >
+                              <g><path fill="#ffffff" d="M24 2C11.87 2 2 11.87 2 24s9.87 22 22 22 22-9.87 22-22S36.13 2 24 2z" opacity="1" data-original="#ffffff"></path><g fill="#ccc"><path d="M24 2C11.87 2 2 11.87 2 24s9.87 22 22 22 22-9.87 22-22S36.13 2 24 2zm0 40c-9.925 0-18-8.075-18-18S14.075 6 24 6s18 8.075 18 18-8.075 18-18 18z" fill="#cccccc" opacity="1" data-original="#cccccc"></path><path d="M32.485 29.657a2 2 0 1 1-2.828 2.828L24 26.828l-5.657 5.657c-.39.391-.903.586-1.414.586s-1.024-.195-1.414-.586a2 2 0 0 1 0-2.828L21.172 24l-5.657-5.657a2 2 0 1 1 2.828-2.828L24 21.172l5.657-5.657a2 2 0 1 1 2.828 2.828L26.828 24z" fill="#cccccc" opacity="1" data-original="#cccccc"></path></g></g>
+                            </svg>
+                          </span>
+                        {% elsif feature_value == 'custom' and custom_text != blank %}
+                          <span style="color: {{ section.settings.text_color }};">
+                            {{ custom_text }}
+                          </span>
+                        {% else %}
+                          <span style="color: {{ section.settings.text_color }};">-</span>
+                        {% endif %}
+                      </td>
+                    {% endif %}
+                  {% endfor %}
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    {% if section.settings.show_cta %}
+      <div class="nm-comparison-table-cta">
+        <a
+          href="{{ section.settings.cta_link }}"
+          class="nm-button"
+          style="background-color: {{ section.settings.cta_bg_color }}; color: {{ section.settings.cta_text_color }};"
+        >
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+</div>
+
+
+{% schema %}
+{
+  "name": "RR Comparison Table",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Comparison Chart"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "info": "Optional description text"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding (Desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding (Desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding (Mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding (Mobile)",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "feature_column_bg",
+      "label": "Feature Column Background",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "header",
+      "content": "Table Header"
+    },
+    {
+      "type": "text",
+      "id": "feature_column_title",
+      "label": "Feature Column Title",
+      "default": "Features"
+    },
+    {
+      "type": "header",
+      "content": "Features (Add up to 10)"
+    },
+    {
+      "type": "text",
+      "id": "feature_1",
+      "label": "Feature 1",
+      "default": "Clean Ingredients"
+    },
+    {
+      "type": "text",
+      "id": "feature_2",
+      "label": "Feature 2",
+      "default": "No Clumps, Whisking or Mess"
+    },
+    {
+      "type": "text",
+      "id": "feature_3",
+      "label": "Feature 3",
+      "default": "Ready in 3 Seconds"
+    },
+    {
+      "type": "text",
+      "id": "feature_4",
+      "label": "Feature 4",
+      "default": "1 dollar per serving"
+    },
+    {
+      "type": "text",
+      "id": "feature_5",
+      "label": "Feature 5",
+      "default": "Travel Ready"
+    },
+    {
+      "type": "text",
+      "id": "feature_6",
+      "label": "Feature 6",
+      "default": "Consistent taste"
+    },
+    {
+      "type": "text",
+      "id": "feature_7",
+      "label": "Feature 7"
+    },
+    {
+      "type": "text",
+      "id": "feature_8",
+      "label": "Feature 8"
+    },
+    {
+      "type": "text",
+      "id": "feature_9",
+      "label": "Feature 9"
+    },
+    {
+      "type": "text",
+      "id": "feature_10",
+      "label": "Feature 10"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show Call to Action Button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_column",
+      "name": "Product Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "column_title",
+          "label": "Column Title",
+          "default": "Our Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "column_image",
+          "label": "Column Image (Optional)",
+          "info": "Optional product image for column header (recommended size: 200x200px)"
+        },
+        {
+          "type": "color",
+          "id": "column_bg_color",
+          "label": "Column Background Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Feature Values"
+        },
+        {
+          "type": "paragraph",
+          "content": "Select 'True' for checkmark (✓), 'False' for cross (×), or 'Custom' to enter custom text"
+        },
+        {
+          "type": "select",
+          "id": "feature_1_value",
+          "label": "Feature 1 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "true"
+        },
+        {
+          "type": "text",
+          "id": "feature_1_custom",
+          "label": "Feature 1 Custom Text",
+          "info": "Only shown if 'Custom Text' is selected"
+        },
+        {
+          "type": "select",
+          "id": "feature_2_value",
+          "label": "Feature 2 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "true"
+        },
+        {
+          "type": "text",
+          "id": "feature_2_custom",
+          "label": "Feature 2 Custom Text"
+        },
+        {
+          "type": "select",
+          "id": "feature_3_value",
+          "label": "Feature 3 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "true"
+        },
+        {
+          "type": "text",
+          "id": "feature_3_custom",
+          "label": "Feature 3 Custom Text"
+        },
+        {
+          "type": "select",
+          "id": "feature_4_value",
+          "label": "Feature 4 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "false"
+        },
+        {
+          "type": "text",
+          "id": "feature_4_custom",
+          "label": "Feature 4 Custom Text"
+        },
+        {
+          "type": "select",
+          "id": "feature_5_value",
+          "label": "Feature 5 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "false"
+        },
+        {
+          "type": "text",
+          "id": "feature_5_custom",
+          "label": "Feature 5 Custom Text"
+        },
+        {
+          "type": "select",
+          "id": "feature_6_value",
+          "label": "Feature 6 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "false"
+        },
+        {
+          "type": "text",
+          "id": "feature_6_custom",
+          "label": "Feature 6 Custom Text"
+        },
+        {
+          "type": "select",
+          "id": "feature_7_value",
+          "label": "Feature 7 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "false"
+        },
+        {
+          "type": "text",
+          "id": "feature_7_custom",
+          "label": "Feature 7 Custom Text"
+        },
+        {
+          "type": "select",
+          "id": "feature_8_value",
+          "label": "Feature 8 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "false"
+        },
+        {
+          "type": "text",
+          "id": "feature_8_custom",
+          "label": "Feature 8 Custom Text"
+        },
+        {
+          "type": "select",
+          "id": "feature_9_value",
+          "label": "Feature 9 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "false"
+        },
+        {
+          "type": "text",
+          "id": "feature_9_custom",
+          "label": "Feature 9 Custom Text"
+        },
+        {
+          "type": "select",
+          "id": "feature_10_value",
+          "label": "Feature 10 Value",
+          "options": [
+            {
+              "value": "true",
+              "label": "✓ True (Checkmark)"
+            },
+            {
+              "value": "false",
+              "label": "✗ False (Cross)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom Text"
+            }
+          ],
+          "default": "false"
+        },
+        {
+          "type": "text",
+          "id": "feature_10_custom",
+          "label": "Feature 10 Custom Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR Comparison Table",
+      "blocks": [
+        {
+          "type": "product_column",
+          "settings": {
+            "column_title": "Our Liquid Matcha"
+          }
+        },
+        {
+          "type": "product_column",
+          "settings": {
+            "column_title": "Matcha Powder"
+          }
+        },
+        {
+          "type": "product_column",
+          "settings": {
+            "column_title": "Store Purchased Matcha"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
