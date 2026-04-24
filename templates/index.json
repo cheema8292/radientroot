@@ -253,8 +253,16 @@
         "heading": "What Our Customers Say",
         "link_text": "Read All Reviews",
         "link_url": "",
-        "bg_color": "#ffffff",
-        "padding_top": 88,
+        "bg_color": "#F7F3EE",
+        "heading_color": "#1A1A1A",
+        "eyebrow_color": "#B8956A",
+        "card_bg_color": "#FFFFFF",
+        "quote_color": "#F0E8DC",
+        "text_color": "#2D2D2D",
+        "star_color": "#B8956A",
+        "name_color": "#1A1A1A",
+        "meta_color": "#8A8A8A",
+        "padding_top": 96,
         "padding_horizontal": 48
       }
     },

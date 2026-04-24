@@ -766,6 +766,25 @@
 
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+      <script>
+        /* Suppress cart drawer auto-opening during first 6 s of page load.
+           This prevents free-product scripts or other page-load triggers from
+           opening the drawer before the user interacts with the page. */
+        (function () {
+          var _t = Date.now();
+          customElements.whenDefined('cart-drawer').then(function () {
+            var K = customElements.get('cart-drawer');
+            if (!K || K.prototype.__rdAutoOpenPatched) return;
+            K.prototype.__rdAutoOpenPatched = true;
+            var _orig = K.prototype.open;
+            K.prototype.open = function (triggeredBy) {
+              /* Only block opens that have NO user trigger within 6 s */
+              if (!triggeredBy && (Date.now() - _t) < 6000) return;
+              return _orig.apply(this, arguments);
+            };
+          });
+        })();
+      </script>
     {%- endif -%}
 
     {% if template contains 'collection' or template contains 'product' %}

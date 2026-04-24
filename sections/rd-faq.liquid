@@ -5,8 +5,9 @@
   assign subheading_color = section.settings.subheading_color
   assign question_color   = section.settings.question_color
   assign answer_color     = section.settings.answer_color
+  assign number_color     = section.settings.number_color
   assign border_color     = section.settings.border_color
-  assign icon_color       = section.settings.icon_color
+  assign accent_color     = section.settings.icon_color
   assign active_bg        = section.settings.active_bg_color
   assign padding_top      = section.settings.padding_top
   assign padding_bottom   = section.settings.padding_bottom
@@ -25,81 +26,110 @@
     margin: 0 auto;
   }
 
+  /* ── Header ── */
   #shopify-section-{{ section.id }} .rd-faq__header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 6.4rem;
   }
 
   #shopify-section-{{ section.id }} .rd-faq__eyebrow {
     display: inline-block;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: {{ eyebrow_color }};
-    margin: 0 0 1.2rem;
+    margin: 0 0 1.4rem;
     font-family: var(--font-body-family);
   }
 
   #shopify-section-{{ section.id }} .rd-faq__heading {
-    font-size: clamp(2.8rem, 3.6vw, 4.2rem);
+    font-size: clamp(3rem, 4vw, 4.8rem);
     font-weight: 700;
     color: {{ heading_color }};
     margin: 0 0 1.6rem;
-    line-height: 1.15;
+    line-height: 1.12;
     font-family: var(--font-heading-family);
     letter-spacing: var(--letter-spacing-heading);
   }
 
   #shopify-section-{{ section.id }} .rd-faq__subheading {
-    font-size: 1.65rem;
+    font-size: 1.7rem;
     color: {{ subheading_color }};
-    max-width: 56rem;
+    max-width: 54rem;
     margin: 0 auto;
-    line-height: 1.75;
+    line-height: 1.7;
     font-family: var(--font-body-family);
   }
 
-  /* ── Accordion ── */
+  /* ── Accordion list ── */
   #shopify-section-{{ section.id }} .rd-faq__list {
-    border-top: 1px solid {{ border_color }};
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   #shopify-section-{{ section.id }} .rd-faq__item {
     border-bottom: 1px solid {{ border_color }};
-    overflow: hidden;
-    transition: background 0.25s ease;
+    background: transparent;
+    transition: background 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .rd-faq__item:first-child {
+    border-top: 1px solid {{ border_color }};
   }
 
   #shopify-section-{{ section.id }} .rd-faq__item.is-open {
     background-color: {{ active_bg }};
   }
 
+  /* ── Question row ── */
   #shopify-section-{{ section.id }} .rd-faq__question {
-    display: flex;
+    display: grid;
+    grid-template-columns: 5.6rem 1fr 3.2rem;
     align-items: center;
-    justify-content: space-between;
     gap: 2rem;
     width: 100%;
-    padding: 2.4rem 2rem;
+    padding: 2.8rem 2.4rem 2.8rem 0;
     background: none;
     border: none;
     cursor: pointer;
     text-align: left;
-    font-size: 1.7rem;
+  }
+
+  #shopify-section-{{ section.id }} .rd-faq__number {
+    font-size: clamp(2.2rem, 2.8vw, 3rem);
+    font-weight: 800;
+    color: {{ number_color }};
+    line-height: 1;
+    font-family: var(--font-heading-family);
+    letter-spacing: -0.02em;
+    transition: color 0.25s ease;
+    text-align: right;
+    opacity: 0.18;
+    user-select: none;
+  }
+
+  #shopify-section-{{ section.id }} .rd-faq__item.is-open .rd-faq__number {
+    color: {{ accent_color }};
+    opacity: 1;
+  }
+
+  #shopify-section-{{ section.id }} .rd-faq__question-text {
+    font-size: 1.75rem;
     font-weight: 600;
     color: {{ question_color }};
     font-family: var(--font-heading-family);
-    letter-spacing: var(--letter-spacing-heading);
+    letter-spacing: -0.01em;
     line-height: 1.4;
     transition: color 0.2s ease;
   }
 
-  #shopify-section-{{ section.id }} .rd-faq__question:hover {
-    color: {{ icon_color }};
+  #shopify-section-{{ section.id }} .rd-faq__question:hover .rd-faq__question-text {
+    color: {{ accent_color }};
   }
 
-  #shopify-section-{{ section.id }} .rd-faq__question-icon {
+  #shopify-section-{{ section.id }} .rd-faq__chevron {
     flex-shrink: 0;
     width: 3.2rem;
     height: 3.2rem;
@@ -108,69 +138,81 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-    color: {{ icon_color }};
+    transition: background 0.25s ease, border-color 0.25s ease;
+    color: {{ accent_color }};
   }
 
-  #shopify-section-{{ section.id }} .rd-faq__question-icon svg {
+  #shopify-section-{{ section.id }} .rd-faq__chevron svg {
     width: 1.4rem;
     height: 1.4rem;
     stroke: currentColor;
     fill: none;
-    stroke-width: 2;
+    stroke-width: 2.2;
     stroke-linecap: round;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    stroke-linejoin: round;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  #shopify-section-{{ section.id }} .rd-faq__item.is-open .rd-faq__question-icon {
-    background: {{ icon_color }};
-    border-color: {{ icon_color }};
+  #shopify-section-{{ section.id }} .rd-faq__item.is-open .rd-faq__chevron {
+    background: {{ accent_color }};
+    border-color: {{ accent_color }};
     color: #fff;
   }
 
-  #shopify-section-{{ section.id }} .rd-faq__item.is-open .rd-faq__question-icon svg {
-    transform: rotate(45deg);
+  #shopify-section-{{ section.id }} .rd-faq__item.is-open .rd-faq__chevron svg {
+    transform: rotate(180deg);
   }
 
+  /* ── Answer panel ── */
   #shopify-section-{{ section.id }} .rd-faq__answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #shopify-section-{{ section.id }} .rd-faq__answer-inner {
-    padding: 0 2rem 2.4rem;
-    font-size: 1.55rem;
+    padding: 0 2.4rem 3.2rem calc(5.6rem + 2rem + 2.4rem);
+    font-size: 1.6rem;
     color: {{ answer_color }};
-    line-height: 1.8;
+    line-height: 1.85;
     font-family: var(--font-body-family);
   }
 
   #shopify-section-{{ section.id }} .rd-faq__answer-inner p {
-    margin: 0 0 1rem;
+    margin: 0 0 1.2rem;
   }
 
   #shopify-section-{{ section.id }} .rd-faq__answer-inner p:last-child {
     margin-bottom: 0;
   }
 
+  /* ── Mobile ── */
   @media screen and (max-width: 749px) {
     #shopify-section-{{ section.id }} .rd-faq {
       padding: {{ padding_top | divided_by: 1.6 | round }}px 2rem {{ padding_bottom | divided_by: 1.6 | round }}px;
     }
 
     #shopify-section-{{ section.id }} .rd-faq__header {
-      margin-bottom: 3.2rem;
+      margin-bottom: 4rem;
     }
 
     #shopify-section-{{ section.id }} .rd-faq__question {
-      font-size: 1.55rem;
-      padding: 2rem 1.6rem;
+      grid-template-columns: 3.6rem 1fr 2.8rem;
+      gap: 1.2rem;
+      padding: 2.2rem 1.6rem 2.2rem 0;
+    }
+
+    #shopify-section-{{ section.id }} .rd-faq__number {
+      font-size: 2rem;
+    }
+
+    #shopify-section-{{ section.id }} .rd-faq__question-text {
+      font-size: 1.6rem;
     }
 
     #shopify-section-{{ section.id }} .rd-faq__answer-inner {
-      padding: 0 1.6rem 2rem;
-      font-size: 1.45rem;
+      padding: 0 1.6rem 2.4rem calc(3.6rem + 1.2rem + 1.6rem);
+      font-size: 1.5rem;
     }
   }
 </style>
@@ -200,13 +242,16 @@
               class="rd-faq__question"
               aria-expanded="false"
               aria-controls="faq-answer-{{ section.id }}-{{ forloop.index }}"
-              id="faq-question-{{ section.id }}-{{ forloop.index }}"
+              id="faq-q-{{ section.id }}-{{ forloop.index }}"
             >
-              <span>{{ block.settings.question }}</span>
-              <span class="rd-faq__question-icon" aria-hidden="true">
+              <span class="rd-faq__number" aria-hidden="true">
+                {%- assign n = forloop.index -%}
+                {%- if n < 10 -%}0{{ n }}{%- else -%}{{ n }}{%- endif -%}
+              </span>
+              <span class="rd-faq__question-text">{{ block.settings.question }}</span>
+              <span class="rd-faq__chevron" aria-hidden="true">
                 <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="7" y1="1" x2="7" y2="13"/>
-                  <line x1="1" y1="7" x2="13" y2="7"/>
+                  <polyline points="2 5 7 10 12 5"/>
                 </svg>
               </span>
             </button>
@@ -214,7 +259,7 @@
               class="rd-faq__answer"
               id="faq-answer-{{ section.id }}-{{ forloop.index }}"
               role="region"
-              aria-labelledby="faq-question-{{ section.id }}-{{ forloop.index }}"
+              aria-labelledby="faq-q-{{ section.id }}-{{ forloop.index }}"
               aria-hidden="true"
             >
               <div class="rd-faq__answer-inner">
@@ -234,23 +279,22 @@
     var section = document.getElementById('shopify-section-{{ section.id }}');
     if (!section) return;
 
-    var questions = section.querySelectorAll('.rd-faq__question');
-
-    questions.forEach(function (btn) {
+    section.querySelectorAll('.rd-faq__question').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var item   = btn.closest('.rd-faq__item');
         var answer = item.querySelector('.rd-faq__answer');
         var isOpen = item.classList.contains('is-open');
 
-        /* Close all open items */
-        section.querySelectorAll('.rd-faq__item.is-open').forEach(function (openItem) {
-          openItem.classList.remove('is-open');
-          openItem.querySelector('.rd-faq__question').setAttribute('aria-expanded', 'false');
-          openItem.querySelector('.rd-faq__answer').style.maxHeight = null;
-          openItem.querySelector('.rd-faq__answer').setAttribute('aria-hidden', 'true');
+        /* Close all */
+        section.querySelectorAll('.rd-faq__item.is-open').forEach(function (open) {
+          open.classList.remove('is-open');
+          open.querySelector('.rd-faq__question').setAttribute('aria-expanded', 'false');
+          var a = open.querySelector('.rd-faq__answer');
+          a.style.maxHeight = null;
+          a.setAttribute('aria-hidden', 'true');
         });
 
-        /* Open the clicked item if it was closed */
+        /* Open clicked if it was closed */
         if (!isOpen) {
           item.classList.add('is-open');
           btn.setAttribute('aria-expanded', 'true');
@@ -327,6 +371,12 @@
     },
     {
       "type": "color",
+      "id": "number_color",
+      "label": "Number color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
       "id": "answer_color",
       "label": "Answer text color",
       "default": "#555555"
@@ -334,13 +384,13 @@
     {
       "type": "color",
       "id": "border_color",
-      "label": "Divider line color",
-      "default": "#E5DDD4"
+      "label": "Divider color",
+      "default": "#D9D0C5"
     },
     {
       "type": "color",
       "id": "icon_color",
-      "label": "Icon / accent color",
+      "label": "Accent / icon color",
       "default": "#B8956A"
     },
     {
@@ -360,7 +410,7 @@
       "min": 480,
       "max": 1100,
       "step": 20,
-      "default": 840,
+      "default": 860,
       "unit": "px"
     },
     {
@@ -374,7 +424,7 @@
       "min": 20,
       "max": 160,
       "step": 4,
-      "default": 88,
+      "default": 96,
       "unit": "px"
     },
     {
@@ -384,7 +434,7 @@
       "min": 20,
       "max": 160,
       "step": 4,
-      "default": 88,
+      "default": 96,
       "unit": "px"
     },
     {
@@ -447,7 +497,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How do I use the rosemary shampoo?",
-            "answer": "<p>Apply a generous amount to wet hair and gently massage into your scalp for 60 seconds to activate the rosemary. Leave on for 2–3 minutes to allow the ingredients to absorb, then rinse thoroughly with cool water.</p>"
+            "answer": "<p>Apply a generous amount to wet hair and gently massage into your scalp for 60 seconds to activate the rosemary. Leave on for 2–3 minutes, then rinse thoroughly with cool water.</p>"
           }
         },
         {
@@ -461,7 +511,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What is your return policy?",
-            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not completely happy with your purchase for any reason, simply contact our support team and we'll make it right with a full refund or replacement — no questions asked.</p>"
+            "answer": "<p>We offer a 30-day satisfaction guarantee. If you're not completely happy with your purchase for any reason, contact our support team and we'll make it right with a full refund or replacement — no questions asked.</p>"
           }
         }
       ]

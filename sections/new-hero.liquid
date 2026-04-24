@@ -1089,6 +1089,109 @@ section.custom-hero .custom-hero__badge,
   animation-delay: 0.3s;
 }
 {% endstyle %}
+
+<style>
+  /* ═══════════════════════════════════
+     Premium Hero Overrides — Radient Root
+     ═══════════════════════════════════ */
+
+  /* Warm cream background feel */
+  .section-{{ section.id }}.custom-hero {
+    background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.section_bg }}{% endif %};
+  }
+
+  /* Decorative soft glow behind product image */
+  .section-{{ section.id }}.custom-hero .custom-hero__image-wrapper {
+    position: relative;
+  }
+
+  .section-{{ section.id }}.custom-hero .custom-hero__image-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(184, 149, 106, 0.14) 0%, rgba(247, 243, 238, 0.55) 55%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-{{ section.id }}.custom-hero .custom-hero__image {
+    position: relative;
+    z-index: 1;
+    drop-shadow: 0 24px 48px rgba(0,0,0,0.12);
+  }
+
+  /* ── Premium pill buttons ── */
+  .section-{{ section.id }}.custom-hero .custom-hero__button,
+  .section-{{ section.id }}.custom-hero .theme-button {
+    border-radius: 10rem !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 600 !important;
+    padding: 1.4rem 3.2rem !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease !important;
+  }
+
+  .section-{{ section.id }}.custom-hero .custom-hero__button:hover,
+  .section-{{ section.id }}.custom-hero .theme-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14) !important;
+    opacity: 0.92 !important;
+  }
+
+  /* Ghost secondary button */
+  .section-{{ section.id }}.custom-hero .custom-hero__button--secondary {
+    background-color: transparent !important;
+    color: {{ section.settings.button_bg }} !important;
+    border: 1.5px solid {{ section.settings.button_bg }} !important;
+    box-shadow: none !important;
+  }
+
+  .section-{{ section.id }}.custom-hero .custom-hero__button--secondary:hover {
+    background-color: {{ section.settings.button_bg }} !important;
+    color: {{ section.settings.button_text_color }} !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  /* Inline button layout (side by side) */
+  .section-{{ section.id }}.custom-hero .custom-hero__button-wrapper {
+    display: inline-flex !important;
+    width: auto !important;
+  }
+
+  .section-{{ section.id }}.custom-hero .custom-hero__button {
+    width: auto !important;
+    min-width: 14rem;
+  }
+
+  /* Refine rating row */
+  .section-{{ section.id }}.custom-hero .custom-hero__rating-text,
+  .section-{{ section.id }}.custom-hero .custom-hero__rating-count {
+    font-weight: 500;
+    font-size: 1.3rem !important;
+  }
+
+  @media (max-width: 768px) {
+    .section-{{ section.id }}.custom-hero .custom-hero__button-wrapper {
+      display: flex !important;
+      width: 100% !important;
+    }
+
+    .section-{{ section.id }}.custom-hero .custom-hero__button,
+    .section-{{ section.id }}.custom-hero .theme-button {
+      width: 100% !important;
+      padding: 1.4rem 2.4rem !important;
+    }
+
+    .section-{{ section.id }}.custom-hero .custom-hero__image-wrapper::before {
+      display: none;
+    }
+  }
+</style>
+
 {% comment %} SVG Icons for Benefits {% endcomment %}
 
 {% capture checkmark_icon %}

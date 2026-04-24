@@ -114,16 +114,52 @@
   }
   {% endif %}
 
-  /* ── Professional nav hover animation ── */
+  /* ════════════════════════════════════
+     Premium Navbar — Radient Root
+     ════════════════════════════════════ */
+
+  /* ── Base header height & layout ── */
+  .header-wrapper {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+
+  .header {
+    min-height: 7rem;
+    align-items: center;
+    column-gap: 2.4rem;
+  }
+
+  /* ── Logo refinement ── */
+  .header__heading-logo-wrapper {
+    transition: transform 0.25s ease;
+  }
+
+  .header__heading-link:hover .header__heading-logo-wrapper {
+    transform: scale(0.97);
+  }
+
+  /* ── Nav links — premium typography & spacing ── */
+  .header__inline-menu .list-menu--inline > li {
+    margin-right: 2.8rem;
+  }
+
+  .header__inline-menu .list-menu--inline > li:last-child {
+    margin-right: 0;
+  }
+
   .header__inline-menu .header__menu-item {
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
     position: relative;
     transition: opacity 0.2s ease;
   }
 
+  /* Underline slide animation */
   .header__inline-menu .header__menu-item::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -3px;
     left: 0;
     right: 0;
     height: 1.5px;
@@ -138,45 +174,91 @@
     transform-origin: left center;
   }
 
-  /* ── Sticky header elevation & glass effect ── */
-  .shopify-section-header-sticky .header-wrapper {
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 24px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
+  /* ── Search & account icons ── */
+  .header__icon--search,
+  .header__icon--account {
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
-  /* ── Smooth reveal animation when header comes back ── */
-  .shopify-section-header-sticky.animate .header-wrapper {
-    animation: headerReveal 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+  .header__icon--search:hover,
+  .header__icon--account:hover {
+    opacity: 1;
+    transform: scale(1.08);
   }
 
-  @keyframes headerReveal {
-    from { transform: translateY(-100%); }
-    to   { transform: translateY(0); }
+  .header__icon--search svg,
+  .header__icon--account svg {
+    width: 2.2rem;
+    height: 2.2rem;
   }
 
-  /* ── Cart count bubble polish ── */
-  .cart-count-bubble {
+  /* ── Cart pill button ── */
+  .header__icon--cart {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1.5px solid currentColor;
+    border-radius: 10rem;
+    padding: 0.55rem 1.4rem 0.55rem 1.2rem !important;
+    opacity: 0.9;
+    transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease,
+                box-shadow 0.22s ease !important;
+    position: relative;
+  }
+
+  .header__icon--cart:hover {
+    opacity: 1 !important;
+    transform: none !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .header__icon--cart .svg-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Cart count badge — inline in pill */
+  .header__icon--cart .cart-count-bubble {
+    position: static !important;
+    transform: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-width: 1.8rem;
     height: 1.8rem;
     border-radius: 2rem;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 0 0.4rem;
   }
 
-  /* ── Header icon hover polish ── */
-  .header__icon {
-    transition: opacity 0.2s ease, transform 0.2s ease;
+  /* Mobile hamburger button polish */
+  .menu-drawer__toggle {
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
   }
 
-  .header__icon:hover {
-    opacity: 0.75;
-    transform: scale(1.05);
+  .menu-drawer__toggle:hover {
+    opacity: 1;
+  }
+
+  /* ── Sticky header — glass elevation ── */
+  .shopify-section-header-sticky .header-wrapper {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Smooth reveal when header slides back in */
+  .shopify-section-header-sticky.animate .header-wrapper {
+    animation: rdHeaderReveal 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  @keyframes rdHeaderReveal {
+    from { transform: translateY(-100%); opacity: 0.6; }
+    to   { transform: translateY(0);     opacity: 1; }
   }
 </style>
 
