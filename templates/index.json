@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "new_hero_tq9qtW": {
@@ -6,7 +15,7 @@
         "rating_QwgnAk": {
           "type": "rating",
           "settings": {
-            "rating_text": "<p>4.8\/5 based on 137,135 reviews<\/p>",
+            "rating_text": "<p>4.8/5 based on 137,135 reviews</p>",
             "enable_container_background": false,
             "container_background_color": "#f8f9fa",
             "container_padding_vertical": 12,
@@ -31,7 +40,7 @@
         "subtitle_mK9pXz": {
           "type": "subtitle",
           "settings": {
-            "subtitle": "<p>Rosemary-infused formulas that nourish, strengthen, and transform your hair from root to tip. No sulfates. No parabens. Just results.<\/p>",
+            "subtitle": "<p>Rosemary-infused formulas that nourish, strengthen, and transform your hair from root to tip. No sulfates. No parabens. Just results.</p>",
             "margin_top": 0,
             "margin_bottom": 32
           }
@@ -40,7 +49,7 @@
           "type": "button",
           "settings": {
             "button_text": "SHOP NOW",
-            "button_link": "shopify:\/\/products\/tgideas-organic-rosemary-hair-growth-shampoo-for-women-and-men-natural-thickening-strengthening-shampoo-with-hydrolyzed-keratin-for-thinning-hair-hair-loss-7-4-fl-oz",
+            "button_link": "shopify://products/tgideas-organic-rosemary-hair-growth-shampoo-for-women-and-men-natural-thickening-strengthening-shampoo-with-hydrolyzed-keratin-for-thinning-hair-hair-loss-7-4-fl-oz",
             "button_style": "primary",
             "full_width": false,
             "full_width_mobile_only": false,
@@ -61,12 +70,18 @@
           }
         }
       },
-      "block_order": ["rating_QwgnAk", "heading_b3enYM", "subtitle_mK9pXz", "button_ee48LN", "button_lrn9Xm"],
+      "block_order": [
+        "rating_QwgnAk",
+        "heading_b3enYM",
+        "subtitle_mK9pXz",
+        "button_ee48LN",
+        "button_lrn9Xm"
+      ],
       "settings": {
         "use_theme_colors": false,
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "hero_image": "shopify:\/\/shop_images\/ChatGPT_Image_Feb_8_2026_12_37_59_PM.png",
+        "hero_image": "shopify://shop_images/ChatGPT_Image_Feb_8_2026_12_37_59_PM.png",
         "image_position": "right",
         "fit_image_to_height": false,
         "enable_image_fade_mask": false,
@@ -162,11 +177,16 @@
           "settings": {
             "icon": "trending",
             "title": "137,000+ Reviews",
-            "description": "4.8\u2605 average rating"
+            "description": "4.8★ average rating"
           }
         }
       },
-      "block_order": ["benefit_shipping", "benefit_natural", "benefit_results", "benefit_reviews"],
+      "block_order": [
+        "benefit_shipping",
+        "benefit_natural",
+        "benefit_results",
+        "benefit_reviews"
+      ],
       "settings": {
         "bg_color": "#ffffff",
         "padding_top": 56,
@@ -201,10 +221,14 @@
           }
         }
       },
-      "block_order": ["ingredient_rosemary", "ingredient_keratin", "ingredient_castor"],
+      "block_order": [
+        "ingredient_rosemary",
+        "ingredient_keratin",
+        "ingredient_castor"
+      ],
       "settings": {
         "eyebrow": "Why Radéant",
-        "heading": "<p>Nature's Most Powerful <em>Hair Revival<\/em> Formula<\/p>",
+        "heading": "<p>Nature's Most Powerful <em>Hair Revival</em> Formula</p>",
         "text": "Every Radéant product is crafted with carefully sourced botanical ingredients that work in harmony to nourish your scalp, strengthen each strand, and restore your hair's natural radiance.",
         "button_text": "Our Ingredients",
         "button_link": "",
@@ -247,21 +271,17 @@
           }
         }
       },
-      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
       "settings": {
         "eyebrow": "Real Results",
         "heading": "What Our Customers Say",
         "link_text": "Read All Reviews",
         "link_url": "",
         "bg_color": "#F7F3EE",
-        "heading_color": "#1A1A1A",
-        "eyebrow_color": "#B8956A",
-        "card_bg_color": "#FFFFFF",
-        "quote_color": "#F0E8DC",
-        "text_color": "#2D2D2D",
-        "star_color": "#B8956A",
-        "name_color": "#1A1A1A",
-        "meta_color": "#8A8A8A",
         "padding_top": 96,
         "padding_horizontal": 48
       }
@@ -269,7 +289,7 @@
     "rd_newsletter": {
       "type": "rd-newsletter",
       "settings": {
-        "heading": "<p>Get <em>10% Off<\/em> Your First Order<\/p>",
+        "heading": "<p>Get <em>10% Off</em> Your First Order</p>",
         "subtext": "Join 137,000+ customers who've transformed their hair. Sign up and your discount code arrives instantly.",
         "placeholder": "Enter your email address",
         "button_text": "CLAIM 10% OFF",
@@ -282,14 +302,51 @@
     "rd_marquee": {
       "type": "rd-marquee",
       "blocks": {
-        "m1": { "type": "item", "settings": { "text": "Sulfate Free" } },
-        "m2": { "type": "item", "settings": { "text": "Paraben Free" } },
-        "m3": { "type": "item", "settings": { "text": "Cruelty Free" } },
-        "m4": { "type": "item", "settings": { "text": "Natural Ingredients" } },
-        "m5": { "type": "item", "settings": { "text": "Dermatologist Tested" } },
-        "m6": { "type": "item", "settings": { "text": "Made in USA" } }
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Sulfate Free"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Paraben Free"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "Cruelty Free"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Natural Ingredients"
+          }
+        },
+        "m5": {
+          "type": "item",
+          "settings": {
+            "text": "Dermatologist Tested"
+          }
+        },
+        "m6": {
+          "type": "item",
+          "settings": {
+            "text": "Made in USA"
+          }
+        }
       },
-      "block_order": ["m1","m2","m3","m4","m5","m6"],
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
       "settings": {
         "bg_color": "#1A1A1A",
         "text_color": "#D4B896",
@@ -364,7 +421,14 @@
           }
         }
       },
-      "block_order": ["reason_1", "reason_2", "reason_3", "reason_4", "reason_5", "reason_6"],
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3",
+        "reason_4",
+        "reason_5",
+        "reason_6"
+      ],
       "settings": {
         "eyebrow": "Why Choose Us",
         "heading": "The Radéant Difference",
@@ -429,7 +493,14 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6"],
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ],
       "settings": {
         "eyebrow": "Got Questions?",
         "heading": "Frequently Asked Questions",
