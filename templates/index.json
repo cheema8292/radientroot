@@ -59,7 +59,7 @@
         "columns": "4",
         "show_rating": true,
         "bg_color": "#FFFFFF",
-        "padding_vertical": 100,
+        "padding_vertical": 104,
         "padding_horizontal": 52
       }
     },
@@ -80,7 +80,7 @@
         "badge_number": "97%",
         "badge_text": "of users reported visibly healthier hair within 30 days",
         "bg_color": "#111111",
-        "padding_vertical": 110,
+        "padding_vertical": 112,
         "padding_horizontal": 52
       }
     },
@@ -143,7 +143,7 @@
         "stat2_number": "4.8 Stars", "stat2_label": "Average Rating",
         "stat3_number": "97%",  "stat3_label": "Would Recommend",
         "stat4_number": "30",   "stat4_label": "Day Results Guarantee",
-        "padding_vertical": 110,
+        "padding_vertical": 112,
         "padding_horizontal": 52
       }
     },
@@ -160,7 +160,7 @@
         "heading": "What Our Customers Say",
         "link_text": "Read All Reviews",
         "bg_color": "#111111",
-        "padding_vertical": 100,
+        "padding_vertical": 104,
         "padding_horizontal": 52
       }
     },
@@ -175,7 +175,7 @@
         "success_message": "You are in! Check your inbox for your discount code.",
         "bg_color": "#EDE7DF",
         "heading_color": "#1A1A1A",
-        "padding_vertical": 90,
+        "padding_vertical": 88,
         "padding_horizontal": 52
       }
     },
