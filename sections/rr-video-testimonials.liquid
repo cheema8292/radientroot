@@ -1,0 +1,484 @@
+<style>
+  .rr-video-t {
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_vertical }}px {{ section.settings.padding_horizontal }}px;
+    position: relative; overflow: hidden;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+  }
+  .rr-video-t::before {
+    content: '';
+    position: absolute; bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .rr-video-t__inner { max-width: 1340px; margin: 0 auto; position: relative; z-index: 1; }
+  .rr-video-t__header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; gap: 20px; }
+
+  .rr-video-t__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 20px; align-items: start;
+  }
+
+  /* Main card */
+  .rr-video-main {
+    position: relative; border-radius: 24px; overflow: hidden;
+    cursor: pointer; aspect-ratio: 9/16; max-height: 520px;
+    background: #1a140d;
+  }
+  .rr-video-main__bg {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rr-video-main__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .rr-video-main__bg-placeholder { font-size: 120px; opacity: 0.08; user-select: none; }
+  .rr-video-main__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0) 100%);
+  }
+  .rr-video-play {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px; height: 70px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .rr-video-play svg { width: 26px; height: 26px; color: #fff; margin-left: 4px; }
+  .rr-video-main:hover .rr-video-play { background: #B8956A; border-color: #B8956A; transform: translate(-50%, -50%) scale(1.1); }
+  .rr-video-main__duration {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
+    color: #fff; font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 8px;
+  }
+  .rr-video-main__info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px;
+  }
+  .rr-video-main__stars { color: #B8956A; font-size: 12px; letter-spacing: 2px; margin-bottom: 10px; }
+  .rr-video-main__quote {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-weight: 400; font-style: italic;
+    color: #fff; line-height: 1.4; margin-bottom: 16px;
+  }
+  .rr-video-main__author { display: flex; align-items: center; gap: 12px; }
+  .rr-video-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 2px solid #B8956A;
+    background: linear-gradient(135deg, #D4B896, #96754A);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 16px; color: #fff;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .rr-video-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .rr-video-author-name { font-size: 13px; font-weight: 500; color: #fff; }
+  .rr-video-author-sub { font-size: 10.5px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 5px; }
+  .rr-video-author-sub svg { width: 10px; height: 10px; }
+
+  /* Side cards column */
+  .rr-video-side { display: flex; flex-direction: column; gap: 16px; }
+  .rr-video-card {
+    background: #fff; border-radius: 20px; overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.35s; cursor: pointer;
+  }
+  .rr-video-card:hover { transform: translateY(-4px); box-shadow: 0 32px 80px rgba(0,0,0,0.13); border-color: rgba(184,149,106,0.15); }
+  .rr-video-card__top {
+    position: relative; height: 180px;
+    background: linear-gradient(160deg, #2a2520, #1a1510);
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+  }
+  .rr-video-card__top img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .rr-video-card__placeholder { font-size: 60px; opacity: 0.1; }
+  .rr-video-card__overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, transparent 60%); }
+  .rr-video-card__play {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,0.14); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; transition: all 0.3s;
+  }
+  .rr-video-card__play svg { width: 18px; height: 18px; color: #fff; margin-left: 3px; }
+  .rr-video-card:hover .rr-video-card__play { background: #B8956A; border-color: #B8956A; }
+  .rr-video-card__duration {
+    position: absolute; top: 12px; right: 12px;
+    background: rgba(0,0,0,0.5); color: #fff;
+    font-size: 10px; padding: 3px 8px; border-radius: 6px;
+  }
+  .rr-video-card__body { padding: 20px 22px; }
+  .rr-video-card__stars { color: #B8956A; font-size: 11px; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .rr-video-card__text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px; font-style: italic; font-weight: 400;
+    color: #2D2D2D; line-height: 1.45; margin-bottom: 14px;
+  }
+  .rr-video-card__author { display: flex; align-items: center; gap: 10px; }
+  .rr-video-card__avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, #D4B896, #96754A);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13px; color: #fff;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .rr-video-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .rr-video-card__name { font-size: 12px; font-weight: 600; color: #1A1A1A; }
+  .rr-video-card__verified { font-size: 10px; color: #8A8A8A; display: flex; align-items: center; gap: 4px; }
+  .rr-video-card__verified svg { width: 10px; height: 10px; color: #4ade80; }
+
+  /* Stats bar */
+  .rr-video-stats {
+    display: flex; align-items: center; justify-content: center;
+    gap: 64px; margin-top: 56px; padding: 40px 60px;
+    background: #fff; border-radius: 20px;
+    border: 1px solid rgba(184,149,106,0.1);
+  }
+  .rr-stat { text-align: center; }
+  .rr-stat__number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 40px; font-weight: 300; color: #1A1A1A; letter-spacing: -1px; margin-bottom: 4px;
+  }
+  .rr-stat__number span { color: #B8956A; }
+  .rr-stat__label { font-size: 11px; color: #8A8A8A; letter-spacing: 1.5px; text-transform: uppercase; }
+  .rr-stat__divider { width: 1px; height: 48px; background: rgba(0,0,0,0.06); }
+
+  @media (max-width: 1200px) {
+    .rr-video-t__grid { grid-template-columns: 1fr 1fr; }
+    .rr-video-side:last-child { display: none; }
+  }
+  @media (max-width: 768px) {
+    .rr-video-t { padding: 60px 20px; }
+    .rr-video-t__grid { grid-template-columns: 1fr; }
+    .rr-video-t__header { flex-direction: column; align-items: flex-start; }
+    .rr-video-stats { gap: 32px; padding: 30px 20px; flex-wrap: wrap; }
+    .rr-stat__divider { width: 60px; height: 1px; }
+  }
+</style>
+
+<section class="rr-video-t" id="shopify-section-{{ section.id }}">
+  <div class="rr-video-t__inner">
+
+    <div class="rr-video-t__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="rr-eyebrow">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+        <h2 class="rr-heading">{{ section.settings.heading }}</h2>
+      </div>
+      {%- if section.settings.link_text != blank -%}
+        <a href="{{ section.settings.link_url }}" class="rr-link">{{ section.settings.link_text }} →</a>
+      {%- endif -%}
+    </div>
+
+    {%- assign main_block = section.blocks | where: "type", "main_video" | first -%}
+    {%- assign side_blocks = section.blocks | where: "type", "side_video" -%}
+
+    <div class="rr-video-t__grid">
+
+      {%- if main_block -%}
+        <div class="rr-video-main">
+          <div class="rr-video-main__bg">
+            {%- if main_block.settings.thumbnail != blank -%}
+              {{ main_block.settings.thumbnail | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="rr-video-main__bg-placeholder">👤</div>
+            {%- endif -%}
+          </div>
+          <div class="rr-video-main__overlay"></div>
+          <div class="rr-video-play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          {%- if main_block.settings.duration != blank -%}
+            <div class="rr-video-main__duration">{{ main_block.settings.duration }}</div>
+          {%- endif -%}
+          <div class="rr-video-main__info">
+            <div class="rr-video-main__stars">★★★★★</div>
+            <div class="rr-video-main__quote">"{{ main_block.settings.quote }}"</div>
+            <div class="rr-video-main__author">
+              <div class="rr-video-avatar">
+                {%- if main_block.settings.avatar != blank -%}
+                  {{ main_block.settings.avatar | image_url: width: 80 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  {{ main_block.settings.author_name | slice: 0 | upcase }}
+                {%- endif -%}
+              </div>
+              <div>
+                <div class="rr-video-author-name">{{ main_block.settings.author_name }}</div>
+                <div class="rr-video-author-sub">
+                  <svg viewBox="0 0 24 24" fill="#4ade80"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01" stroke="#4ade80" fill="none" stroke-width="2.5"/></svg>
+                  Verified Purchase
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if side_blocks.size > 0 -%}
+        <div class="rr-video-side">
+          {%- for block in side_blocks limit: 2 -%}
+            <div class="rr-video-card" {{ block.shopify_attributes }}>
+              <div class="rr-video-card__top">
+                {%- if block.settings.thumbnail != blank -%}
+                  {{ block.settings.thumbnail | image_url: width: 400 | image_tag: loading: 'lazy' }}
+                {%- else -%}
+                  <div class="rr-video-card__placeholder">👤</div>
+                {%- endif -%}
+                <div class="rr-video-card__overlay"></div>
+                <div class="rr-video-card__play">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                {%- if block.settings.duration != blank -%}
+                  <div class="rr-video-card__duration">{{ block.settings.duration }}</div>
+                {%- endif -%}
+              </div>
+              <div class="rr-video-card__body">
+                <div class="rr-video-card__stars">★★★★★</div>
+                <div class="rr-video-card__text">"{{ block.settings.quote }}"</div>
+                <div class="rr-video-card__author">
+                  <div class="rr-video-card__avatar">
+                    {%- if block.settings.avatar != blank -%}
+                      {{ block.settings.avatar | image_url: width: 64 | image_tag: loading: 'lazy' }}
+                    {%- else -%}
+                      {{ block.settings.author_name | slice: 0 | upcase }}
+                    {%- endif -%}
+                  </div>
+                  <div>
+                    <div class="rr-video-card__name">{{ block.settings.author_name }}</div>
+                    {%- if block.settings.verified -%}
+                      <div class="rr-video-card__verified">
+                        <svg viewBox="0 0 24 24" fill="#4ade80"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01" stroke="#4ade80" fill="none" stroke-width="2.5"/></svg>
+                        Verified
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if side_blocks.size > 2 -%}
+          <div class="rr-video-side">
+            {%- for block in side_blocks offset: 2 limit: 2 -%}
+              <div class="rr-video-card" {{ block.shopify_attributes }}>
+                <div class="rr-video-card__top">
+                  {%- if block.settings.thumbnail != blank -%}
+                    {{ block.settings.thumbnail | image_url: width: 400 | image_tag: loading: 'lazy' }}
+                  {%- else -%}
+                    <div class="rr-video-card__placeholder">👤</div>
+                  {%- endif -%}
+                  <div class="rr-video-card__overlay"></div>
+                  <div class="rr-video-card__play">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </div>
+                  {%- if block.settings.duration != blank -%}
+                    <div class="rr-video-card__duration">{{ block.settings.duration }}</div>
+                  {%- endif -%}
+                </div>
+                <div class="rr-video-card__body">
+                  <div class="rr-video-card__stars">★★★★★</div>
+                  <div class="rr-video-card__text">"{{ block.settings.quote }}"</div>
+                  <div class="rr-video-card__author">
+                    <div class="rr-video-card__avatar">{{ block.settings.author_name | slice: 0 | upcase }}</div>
+                    <div>
+                      <div class="rr-video-card__name">{{ block.settings.author_name }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_stats -%}
+      <div class="rr-video-stats">
+        {%- if section.settings.stat1_number != blank -%}
+          <div class="rr-stat">
+            <div class="rr-stat__number">{{ section.settings.stat1_number }}</div>
+            <div class="rr-stat__label">{{ section.settings.stat1_label }}</div>
+          </div>
+          <div class="rr-stat__divider"></div>
+        {%- endif -%}
+        {%- if section.settings.stat2_number != blank -%}
+          <div class="rr-stat">
+            <div class="rr-stat__number">{{ section.settings.stat2_number }}</div>
+            <div class="rr-stat__label">{{ section.settings.stat2_label }}</div>
+          </div>
+          <div class="rr-stat__divider"></div>
+        {%- endif -%}
+        {%- if section.settings.stat3_number != blank -%}
+          <div class="rr-stat">
+            <div class="rr-stat__number">{{ section.settings.stat3_number }}</div>
+            <div class="rr-stat__label">{{ section.settings.stat3_label }}</div>
+          </div>
+          <div class="rr-stat__divider"></div>
+        {%- endif -%}
+        {%- if section.settings.stat4_number != blank -%}
+          <div class="rr-stat">
+            <div class="rr-stat__number">{{ section.settings.stat4_number }}</div>
+            <div class="rr-stat__label">{{ section.settings.stat4_label }}</div>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "RR Video Testimonials",
+  "tag": "section",
+  "class": "section-rr-video-t",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Real Stories"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hear It From Our Customers"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "View All Reviews"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#F7F3EE"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Padding top/bottom",
+      "min": 40, "max": 160, "step": 8,
+      "default": 112, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding horizontal",
+      "min": 0, "max": 80, "step": 4,
+      "default": 52, "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Stats Bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stats",
+      "label": "Show stats bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "stat1_number",
+      "label": "Stat 1 number",
+      "default": "137K+"
+    },
+    {
+      "type": "text",
+      "id": "stat1_label",
+      "label": "Stat 1 label",
+      "default": "Happy Customers"
+    },
+    {
+      "type": "text",
+      "id": "stat2_number",
+      "label": "Stat 2 number",
+      "default": "4.8 Stars"
+    },
+    {
+      "type": "text",
+      "id": "stat2_label",
+      "label": "Stat 2 label",
+      "default": "Average Rating"
+    },
+    {
+      "type": "text",
+      "id": "stat3_number",
+      "label": "Stat 3 number",
+      "default": "97%"
+    },
+    {
+      "type": "text",
+      "id": "stat3_label",
+      "label": "Stat 3 label",
+      "default": "Would Recommend"
+    },
+    {
+      "type": "text",
+      "id": "stat4_number",
+      "label": "Stat 4 number",
+      "default": "30"
+    },
+    {
+      "type": "text",
+      "id": "stat4_label",
+      "label": "Stat 4 label",
+      "default": "Day Results Guarantee"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "main_video",
+      "name": "Main Video (large)",
+      "limit": 1,
+      "settings": [
+        { "type": "image_picker", "id": "thumbnail", "label": "Thumbnail image" },
+        { "type": "text", "id": "duration", "label": "Duration", "default": "1:24" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "I saw real results within two weeks. My hair is thicker, stronger and actually growing back." },
+        { "type": "text", "id": "author_name", "label": "Author name", "default": "Emily R." },
+        { "type": "image_picker", "id": "avatar", "label": "Author avatar" }
+      ]
+    },
+    {
+      "type": "side_video",
+      "name": "Side Video (small)",
+      "settings": [
+        { "type": "image_picker", "id": "thumbnail", "label": "Thumbnail image" },
+        { "type": "text", "id": "duration", "label": "Duration", "default": "0:58" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Best shampoo I've ever used  -  hands down." },
+        { "type": "text", "id": "author_name", "label": "Author name", "default": "Jessica L." },
+        { "type": "image_picker", "id": "avatar", "label": "Author avatar" },
+        { "type": "checkbox", "id": "verified", "label": "Show verified badge", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR Video Testimonials",
+      "blocks": [
+        { "type": "main_video", "settings": { "quote": "I saw real results within two weeks. My hair is thicker, stronger and actually growing back.", "author_name": "Emily R.", "duration": "1:24" } },
+        { "type": "side_video", "settings": { "quote": "Best shampoo I've ever used  -  my scalp has never felt healthier.", "author_name": "Jessica L.", "duration": "0:58", "verified": true } },
+        { "type": "side_video", "settings": { "quote": "The rosemary scent is incredible and the results speak for themselves.", "author_name": "Priya K.", "duration": "1:12", "verified": true } },
+        { "type": "side_video", "settings": { "quote": "Finally found a natural formula that actually works for my curly hair.", "author_name": "Sarah M.", "duration": "0:45", "verified": true } },
+        { "type": "side_video", "settings": { "quote": "I stopped shedding after just one month of use. Completely transformed.", "author_name": "Maria T.", "duration": "1:03", "verified": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}
