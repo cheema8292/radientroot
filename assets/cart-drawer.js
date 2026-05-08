@@ -162,17 +162,6 @@ class CartDrawer extends HTMLElement {
   }
 
   close() {
-    // Check if cart customization mode is active
-    const cartCustomizationMode = document
-      .querySelector("cart-drawer")
-      .classList.contains("customization-mode");
-    if (cartCustomizationMode) {
-      alert(
-        "Cart Customization Mode is active. Disable it in Theme Settings > Cart Drawer to allow closing."
-      );
-      return;
-    }
-
     this.classList.remove("active");
     removeTrapFocus(this.activeElement);
     document.body.classList.remove("overflow-hidden");

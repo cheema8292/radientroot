@@ -1,0 +1,183 @@
+<style>
+  .rr-newsletter {
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_vertical }}px {{ section.settings.padding_horizontal }}px;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+  }
+  .rr-newsletter__inner {
+    max-width: 680px; margin: 0 auto; text-align: center;
+  }
+  .rr-newsletter__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 4vw, 42px); font-weight: 300;
+    color: {{ section.settings.heading_color }};
+    margin-bottom: 14px; line-height: 1.15;
+  }
+  .rr-newsletter__heading em { font-style: italic; color: #B8956A; }
+  .rr-newsletter__sub {
+    font-size: 14px; color: #8A8A8A;
+    margin-bottom: 36px; line-height: 1.7;
+  }
+  .rr-newsletter__form {
+    display: flex; gap: 0; max-width: 480px; margin: 0 auto;
+  }
+  .rr-newsletter__input {
+    flex: 1; padding: 17px 24px;
+    border: 1px solid rgba(184,149,106,0.2);
+    border-right: none; font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 13px; color: #1A1A1A;
+    outline: none; background: #FFFFFF;
+    transition: border-color 0.3s;
+  }
+  .rr-newsletter__input:focus { border-color: #B8956A; }
+  .rr-newsletter__input::placeholder { color: #8A8A8A; }
+  .rr-newsletter__btn {
+    padding: 17px 36px;
+    background: #1A1A1A; color: #FFFFFF;
+    border: 1px solid #1A1A1A;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .rr-newsletter__btn:hover { background: #96754A; border-color: #96754A; }
+  .rr-newsletter__success {
+    margin-top: 16px; font-size: 13px; color: #4ade80; font-weight: 500;
+  }
+  .rr-newsletter__error {
+    margin-top: 12px; font-size: 12px; color: #ef4444;
+  }
+  @media (max-width: 768px) {
+    .rr-newsletter {
+      padding: {{ section.settings.padding_vertical | divided_by: 1.5 | round }}px 20px;
+    }
+    .rr-newsletter__form { flex-direction: column; }
+    .rr-newsletter__input { border-right: 1px solid rgba(184,149,106,0.2); }
+    .rr-newsletter__btn { padding: 16px; }
+  }
+</style>
+
+<section class="rr-newsletter" id="shopify-section-{{ section.id }}">
+  <div class="rr-newsletter__inner">
+
+    <h2 class="rr-newsletter__heading">
+      {{ section.settings.heading }}
+      {%- if section.settings.heading_italic != blank -%}
+        <em>{{ section.settings.heading_italic }}</em>
+      {%- endif -%}
+    </h2>
+
+    {%- if section.settings.subtext != blank -%}
+      <p class="rr-newsletter__sub">{{ section.settings.subtext }}</p>
+    {%- endif -%}
+
+    {%- form 'customer', class: 'rr-newsletter__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      {%- if form.posted_successfully? -%}
+        <p class="rr-newsletter__success">
+          {{ section.settings.success_message | default: '🎉 You\'re in! Check your inbox for your discount code.' }}
+        </p>
+      {%- elsif form.errors -%}
+        <div style="width:100%">
+          <input
+            type="email"
+            name="contact[email]"
+            class="rr-newsletter__input"
+            placeholder="{{ section.settings.placeholder }}"
+            value="{{ form.email }}"
+            required
+          >
+          <button type="submit" class="rr-newsletter__btn">{{ section.settings.btn_text }}</button>
+          <p class="rr-newsletter__error">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+        </div>
+      {%- else -%}
+        <input
+          type="email"
+          name="contact[email]"
+          class="rr-newsletter__input"
+          placeholder="{{ section.settings.placeholder }}"
+          required
+          autocomplete="email"
+        >
+        <button type="submit" class="rr-newsletter__btn">{{ section.settings.btn_text }}</button>
+      {%- endif -%}
+    {%- endform -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "RR Newsletter",
+  "tag": "section",
+  "class": "section-rr-newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get"
+    },
+    {
+      "type": "text",
+      "id": "heading_italic",
+      "label": "Heading italic part",
+      "default": "10% Off Your First Order"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Join 137,000+ customers who've transformed their hair. Sign up and your discount code arrives instantly."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Enter your email address"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text",
+      "default": "Claim 10% Off"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "🎉 You're in! Check your inbox for your discount code."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#EDE7DF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Padding top/bottom",
+      "min": 40, "max": 160, "step": 8,
+      "default": 90, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding horizontal",
+      "min": 0, "max": 80, "step": 4,
+      "default": 52, "unit": "px"
+    }
+  ],
+  "presets": [
+    { "name": "RR Newsletter" }
+  ]
+}
+{% endschema %}

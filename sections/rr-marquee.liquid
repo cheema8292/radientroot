@@ -1,0 +1,118 @@
+<style>
+  .rr-marquee {
+    background: {{ section.settings.bg_color }};
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid rgba(255,255,255,0.03);
+  }
+  .rr-marquee__track {
+    display: inline-flex;
+    animation: rr-marquee {{ section.settings.speed }}s linear infinite;
+  }
+  .rr-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 44px;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color }};
+  }
+  .rr-marquee__dot {
+    width: 4px; height: 4px;
+    background: {{ section.settings.dot_color }};
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @keyframes rr-marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<div class="rr-marquee" id="shopify-section-{{ section.id }}">
+  <div class="rr-marquee__track">
+    {%- for block in section.blocks -%}
+      <span class="rr-marquee__item" {{ block.shopify_attributes }}>
+        <span class="rr-marquee__dot"></span>
+        {{ block.settings.text }}
+      </span>
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+      <span class="rr-marquee__item" aria-hidden="true">
+        <span class="rr-marquee__dot"></span>
+        {{ block.settings.text }}
+      </span>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RR Marquee",
+  "tag": "section",
+  "class": "section-rr-marquee",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#D4B896"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dot color",
+      "default": "#B8956A"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll speed (seconds)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Sulfate Free"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR Marquee",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Sulfate Free" } },
+        { "type": "item", "settings": { "text": "Paraben Free" } },
+        { "type": "item", "settings": { "text": "Cruelty Free" } },
+        { "type": "item", "settings": { "text": "Natural Ingredients" } },
+        { "type": "item", "settings": { "text": "Dermatologist Tested" } },
+        { "type": "item", "settings": { "text": "Made in USA" } },
+        { "type": "item", "settings": { "text": "Vegan Formula" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
