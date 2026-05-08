@@ -8,6 +8,200 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "rr_hero": {
+      "type": "rr-hero",
+      "settings": {
+        "badge_text": "4.8/5 based on 137,135 reviews",
+        "heading": "Premium Hair Care,",
+        "heading_italic": "Naturally Crafted.",
+        "subtext": "Rosemary-infused formulas that nourish, strengthen, and transform your hair from root to tip. No sulfates. No parabens. Just results.",
+        "btn1_text": "Shop Now",
+        "btn2_text": "Learn More",
+        "float_badge_title": "Dermatologist Tested",
+        "float_badge_sub": "Safe for all hair types",
+        "bg_color": "#FFFFFF",
+        "heading_color": "#1A1A1A"
+      }
+    },
+    "rr_marquee": {
+      "type": "rr-marquee",
+      "blocks": {
+        "m1": { "type": "item", "settings": { "text": "Sulfate Free" } },
+        "m2": { "type": "item", "settings": { "text": "Paraben Free" } },
+        "m3": { "type": "item", "settings": { "text": "Cruelty Free" } },
+        "m4": { "type": "item", "settings": { "text": "Natural Ingredients" } },
+        "m5": { "type": "item", "settings": { "text": "Dermatologist Tested" } },
+        "m6": { "type": "item", "settings": { "text": "Made in USA" } },
+        "m7": { "type": "item", "settings": { "text": "Vegan Formula" } }
+      },
+      "block_order": ["m1","m2","m3","m4","m5","m6","m7"],
+      "settings": {
+        "bg_color": "#1A1A1A",
+        "text_color": "#D4B896",
+        "dot_color": "#B8956A",
+        "speed": 30
+      }
+    },
+    "rr_benefits": {
+      "type": "rr-benefits",
+      "blocks": {
+        "b1": { "type": "benefit", "settings": { "icon": "shipping", "title": "Free Shipping",  "text": "On orders over $50" } },
+        "b2": { "type": "benefit", "settings": { "icon": "leaf",     "title": "100% Natural",   "text": "Clean, safe ingredients" } },
+        "b3": { "type": "benefit", "settings": { "icon": "chart",    "title": "Proven Results", "text": "Clinically tested formulas" } },
+        "b4": { "type": "benefit", "settings": { "icon": "trending", "title": "137K+ Reviews",  "text": "Loved by customers" } }
+      },
+      "block_order": ["b1","b2","b3","b4"],
+      "settings": {
+        "bg_color": "#F2EDE6",
+        "padding_vertical": 64,
+        "padding_horizontal": 52
+      }
+    },
+    "rr_products": {
+      "type": "rr-products",
+      "settings": {
+        "eyebrow": "Bestsellers",
+        "heading": "Our Most Loved Products",
+        "link_text": "View All Products",
+        "products_count": 4,
+        "columns": "4",
+        "show_rating": true,
+        "bg_color": "#FFFFFF",
+        "padding_vertical": 104,
+        "padding_horizontal": 52
+      }
+    },
+    "rr_story": {
+      "type": "rr-story",
+      "blocks": {
+        "i1": { "type": "ingredient", "settings": { "emoji": "", "name": "Rosemary",  "desc": "Stimulates growth" } },
+        "i2": { "type": "ingredient", "settings": { "emoji": "", "name": "Keratin",   "desc": "Repairs damage" } },
+        "i3": { "type": "ingredient", "settings": { "emoji": "", "name": "Castor Oil","desc": "Deep moisture" } }
+      },
+      "block_order": ["i1","i2","i3"],
+      "settings": {
+        "eyebrow": "Why Radéant",
+        "heading": "Nature's Most Powerful",
+        "heading_italic": "Hair Revival Formula",
+        "body_text": "Every Radéant product is crafted with carefully sourced botanical ingredients that work in harmony to nourish your scalp, strengthen each strand, and restore your hair's natural radiance.",
+        "btn_text": "Our Ingredients",
+        "badge_number": "97%",
+        "badge_text": "of users reported visibly healthier hair within 30 days",
+        "bg_color": "#111111",
+        "padding_vertical": 112,
+        "padding_horizontal": 52
+      }
+    },
+    "rr_video_testimonials": {
+      "type": "rr-video-testimonials",
+      "blocks": {
+        "vt_main": {
+          "type": "main_video",
+          "settings": {
+            "quote": "I saw real results within two weeks. My hair is thicker, stronger and actually growing back.",
+            "author_name": "Emily R.",
+            "duration": "1:24"
+          }
+        },
+        "vt_1": {
+          "type": "side_video",
+          "settings": {
+            "quote": "Best shampoo I've ever used  -  my scalp has never felt healthier.",
+            "author_name": "Jessica L.",
+            "duration": "0:58",
+            "verified": true
+          }
+        },
+        "vt_2": {
+          "type": "side_video",
+          "settings": {
+            "quote": "The rosemary scent is incredible and the results speak for themselves.",
+            "author_name": "Priya K.",
+            "duration": "1:12",
+            "verified": true
+          }
+        },
+        "vt_3": {
+          "type": "side_video",
+          "settings": {
+            "quote": "Finally found a natural formula that actually works for my curly hair.",
+            "author_name": "Sarah M.",
+            "duration": "0:45",
+            "verified": true
+          }
+        },
+        "vt_4": {
+          "type": "side_video",
+          "settings": {
+            "quote": "I stopped shedding after just one month of use. Completely transformed.",
+            "author_name": "Maria T.",
+            "duration": "1:03",
+            "verified": true
+          }
+        }
+      },
+      "block_order": ["vt_main","vt_1","vt_2","vt_3","vt_4"],
+      "settings": {
+        "eyebrow": "Real Stories",
+        "heading": "Hear It From Our Customers",
+        "link_text": "View All Reviews",
+        "bg_color": "#F7F3EE",
+        "show_stats": true,
+        "stat1_number": "137K+", "stat1_label": "Happy Customers",
+        "stat2_number": "4.8 Stars", "stat2_label": "Average Rating",
+        "stat3_number": "97%",  "stat3_label": "Would Recommend",
+        "stat4_number": "30",   "stat4_label": "Day Results Guarantee",
+        "padding_vertical": 112,
+        "padding_horizontal": 52
+      }
+    },
+    "rr_testimonials": {
+      "type": "rr-testimonials",
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "rating": 5, "review_text": "My hair has never felt this soft and healthy. After just two weeks, I noticed less breakage and more shine. This is the real deal.", "author_name": "Sarah M.", "verified": true } },
+        "t2": { "type": "testimonial", "settings": { "rating": 5, "review_text": "I was skeptical at first but the results are undeniable. My hair is noticeably fuller and stronger. Worth every penny.", "author_name": "Jessica L.", "verified": true } },
+        "t3": { "type": "testimonial", "settings": { "rating": 5, "review_text": "Finally a shampoo that actually delivers on its promises. The rosemary scent is amazing and my scalp feels so healthy.", "author_name": "Priya K.", "verified": true } }
+      },
+      "block_order": ["t1","t2","t3"],
+      "settings": {
+        "eyebrow": "Real Results",
+        "heading": "What Our Customers Say",
+        "link_text": "Read All Reviews",
+        "bg_color": "#111111",
+        "padding_vertical": 104,
+        "padding_horizontal": 52
+      }
+    },
+    "rr_newsletter": {
+      "type": "rr-newsletter",
+      "settings": {
+        "heading": "Get",
+        "heading_italic": "10% Off Your First Order",
+        "subtext": "Join 137,000+ customers who have transformed their hair. Sign up and your discount code arrives instantly.",
+        "placeholder": "Enter your email address",
+        "btn_text": "Claim 10% Off",
+        "success_message": "You are in! Check your inbox for your discount code.",
+        "bg_color": "#EDE7DF",
+        "heading_color": "#1A1A1A",
+        "padding_vertical": 88,
+        "padding_horizontal": 52
+      }
+    },
+    "apps": {
+      "type": "apps",
+      "settings": { "include_margins": true }
+    }
+  },
+  "order": [
+    "rr_hero",
+    "rr_marquee",
+    "rr_benefits",
+    "rr_products",
+    "rr_story",
+    "rr_video_testimonials",
+    "rr_testimonials",
+    "rr_newsletter",
+    "apps"
+  ]
 }
