@@ -25,7 +25,7 @@ Performance - Optimized the code structure for better loading
 
  .reviews-transformation-section {
    --section-max-width: {{ section.settings.section_width }}px;
-   background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.section_background }}{% endif %} !important;
+   background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.section_background }}{% endif %} ;
  }
 
  /* Header Styles with increased specificity */
@@ -34,15 +34,15 @@ Performance - Optimized the code structure for better loading
  .reviews-transformation-section .reviews-subtitle.heading,
  .reviews-transformation-section .reviews-subtitle.h1 {
    {% unless section.settings.custom_heading_styling %}
-     font-size: 3.5rem !important;
-     font-weight: var(--font-weight-bold) !important;
-     letter-spacing: var(--letter-spacing-heading) !important;
+     font-size: 3.5rem ;
+     font-weight: var(--font-weight-bold) ;
+     letter-spacing: var(--letter-spacing-heading) ;
    {% else %}
-     font-size: {{ section.settings.heading_font_size }}px !important;
-     line-height: {{ section.settings.heading_line_height }} !important;
-     letter-spacing: var(--letter-spacing-heading) !important;
+     font-size: {{ section.settings.heading_font_size }}px ;
+     line-height: {{ section.settings.heading_line_height }} ;
+     letter-spacing: var(--letter-spacing-heading) ;
    {% endunless %}
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.title_color }}{% endif %} !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.title_color }}{% endif %} ;
  }
 
  /* Enhanced accent text styling with global and local customization options */
@@ -50,30 +50,30 @@ Performance - Optimized the code structure for better loading
  .reviews-transformation-section .reviews-subtitle .global-accent-text,
  .reviews-transformation-section .custom-accent-text {
    {% comment %} Always apply core accent text styling {% endcomment %}
-   padding: 2px 4px !important;
-   margin: -2px -4px !important;
-   display: inline-block !important;
-   letter-spacing: var(--letter-spacing-heading) !important;
+   padding: 2px 4px ;
+   margin: -2px -4px ;
+   display: inline-block ;
+   letter-spacing: var(--letter-spacing-heading) ;
    
    {% comment %} Apply color or gradient based on theme colors and settings {% endcomment %}
    {% if section.settings.use_theme_colors %}
      {% comment %} Use global dark gradient when theme colors are enabled {% endcomment %}
-     background: {{ settings.global_accent_text_gradient_dark }} !important;
-     -webkit-background-clip: text !important;
-     -webkit-text-fill-color: transparent !important;
-     background-clip: text !important;
-     color: transparent !important;
-     line-height: 1.3 !important;
+     background: {{ settings.global_accent_text_gradient_dark }} ;
+     -webkit-background-clip: text ;
+     -webkit-text-fill-color: transparent ;
+     background-clip: text ;
+     color: transparent ;
+     line-height: 1.3 ;
    {% elsif section.settings.use_accent_gradient %}
-     background: {{ section.settings.accent_text_gradient }} !important;
-     -webkit-background-clip: text !important;
-     -webkit-text-fill-color: transparent !important;
-     background-clip: text !important;
-     color: transparent !important;
-     line-height: 1.3 !important;
+     background: {{ section.settings.accent_text_gradient }} ;
+     -webkit-background-clip: text ;
+     -webkit-text-fill-color: transparent ;
+     background-clip: text ;
+     color: transparent ;
+     line-height: 1.3 ;
    {% else %}
      {% comment %} Apply solid color {% endcomment %}
-     color: {{ section.settings.accent_color | default: settings.accent_text_color }} !important;
+     color: {{ section.settings.accent_color | default: settings.accent_text_color }} ;
    {% endif %}
    
    {% if section.settings.override_global_accent %}
@@ -81,88 +81,88 @@ Performance - Optimized the code structure for better loading
      {% if section.settings.accent_font_family != 'inherit' %}
        {% case section.settings.accent_font_family %}
          {% when 'serif' %}
-           font-family: serif !important;
+           font-family: serif ;
          {% when 'Georgia Pro' %}
-           font-family: 'Georgia Pro', Georgia, serif !important;
+           font-family: 'Georgia Pro', Georgia, serif ;
          {% when 'Bodoni Moda' %}
-           font-family: 'Bodoni Moda', Georgia, serif !important;
+           font-family: 'Bodoni Moda', Georgia, serif ;
          {% when 'Instrument Serif' %}
-           font-family: 'Instrument Serif', Georgia, serif !important;
+           font-family: 'Instrument Serif', Georgia, serif ;
          {% when 'DM Serif Text' %}
-           font-family: 'DM Serif Text', Georgia, serif !important;
+           font-family: 'DM Serif Text', Georgia, serif ;
          {% when 'Nothing You Could Do' %}
-           font-family: 'Nothing You Could Do', cursive !important;
+           font-family: 'Nothing You Could Do', cursive ;
        {% endcase %}
      {% else %}
-       font-family: var(--font-accent-family, var(--font-body-family)) !important;
+       font-family: var(--font-accent-family, var(--font-body-family)) ;
      {% endif %}
      
-     font-style: {% if section.settings.accent_font_style != 'normal' %}{{ section.settings.accent_font_style }}{% else %}var(--font-accent-style, normal){% endif %} !important;
-     font-weight: {% if section.settings.accent_font_weight != 'inherit' %}{{ section.settings.accent_font_weight }}{% else %}var(--font-accent-weight, inherit){% endif %} !important;
+     font-style: {% if section.settings.accent_font_style != 'normal' %}{{ section.settings.accent_font_style }}{% else %}var(--font-accent-style, normal){% endif %} ;
+     font-weight: {% if section.settings.accent_font_weight != 'inherit' %}{{ section.settings.accent_font_weight }}{% else %}var(--font-accent-weight, inherit){% endif %} ;
      
    {% else %}
      {% comment %} Use global accent typography system {% endcomment %}
-     font-family: var(--font-accent-family, var(--font-body-family)) !important;
-     font-style: var(--font-accent-style, normal) !important;
-     font-weight: var(--font-accent-weight, inherit) !important;
-     letter-spacing: var(--font-accent-letter-spacing, inherit) !important;
-     text-transform: var(--font-accent-text-transform, none) !important;
+     font-family: var(--font-accent-family, var(--font-body-family)) ;
+     font-style: var(--font-accent-style, normal) ;
+     font-weight: var(--font-accent-weight, inherit) ;
+     letter-spacing: var(--font-accent-letter-spacing, inherit) ;
+     text-transform: var(--font-accent-text-transform, none) ;
    {% endif %}
  }
 
  .reviews-transformation-section .reviews-description {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.description_color }}{% endif %} !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.description_color }}{% endif %} ;
  }
 
  /* Summary Stars */
  .reviews-transformation-section .reviews-summary-star {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.summary_star_color }}{% endif %} !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.summary_star_color }}{% endif %} ;
  }
 
  /* Rating Stars (in rating-stars container) */
  .reviews-transformation-section .rating-stars .reviews-summary-star {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.summary_star_color }}{% endif %} !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.summary_star_color }}{% endif %} ;
  }
 
  /* Rating Summary Stars - More specific targeting */
  .reviews-transformation-section .rating-summary-wrapper .rating-stars .star {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.summary_star_color }}{% endif %} !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.summary_star_color }}{% endif %} ;
  }
 
  /* Carousel Review Stars - Clean Implementation */
  .reviews-transformation-section .carousel-review-star.star-filled {
-   color: {{ section.settings.star_filled_color }} !important;
-   opacity: 1 !important;
-   filter: none !important;
+   color: {{ section.settings.star_filled_color }} ;
+   opacity: 1 ;
+   filter: none ;
  }
 
  .reviews-transformation-section .carousel-review-star.star-empty {
-   color: {{ section.settings.star_empty_color }} !important;
-   opacity: 1 !important;
-   filter: none !important;
+   color: {{ section.settings.star_empty_color }} ;
+   opacity: 1 ;
+   filter: none ;
  }
 
  /* Theme color override when enabled */
  {% if section.settings.use_theme_colors %}
  .reviews-transformation-section .carousel-review-star.star-filled {
-   color: {{ settings.global_section_accent_1_color }} !important;
+   color: {{ settings.global_section_accent_1_color }} ;
  }
 
  .reviews-transformation-section .carousel-review-star.star-empty {
-   color: {{ settings.global_section_text_color | color_lighten: 40 }} !important;
+   color: {{ settings.global_section_text_color | color_lighten: 40 }} ;
  }
  {% endif %}
 
  /* Carousel Review Star Size */
  .reviews-transformation-section .carousel-review-star {
-   width: {{ section.settings.carousel_review_star_size }}px !important;
-   height: {{ section.settings.carousel_review_star_size }}px !important;
+   width: {{ section.settings.carousel_review_star_size }}px ;
+   height: {{ section.settings.carousel_review_star_size }}px ;
  }
 
  .reviews-transformation-section .review-stars .carousel-review-star,
  .reviews-transformation-section .carousel-review-header .carousel-review-star {
-   width: {{ section.settings.carousel_review_star_size }}px !important;
-   height: {{ section.settings.carousel_review_star_size }}px !important;
+   width: {{ section.settings.carousel_review_star_size }}px ;
+   height: {{ section.settings.carousel_review_star_size }}px ;
  }
 
  /* Navigation Buttons */
@@ -195,22 +195,22 @@ Performance - Optimized the code structure for better loading
  }
 
  .reviews-transformation-section .nav-button.prev {
-   background: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.prev_button_bg }}{% endif %} !important; 
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.prev_button_color }}{% endif %} !important; 
-   border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 70 }}{% else %}{{ section.settings.prev_button_border }}{% endif %} !important;
+   background: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.prev_button_bg }}{% endif %} ; 
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.prev_button_color }}{% endif %} ; 
+   border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 70 }}{% else %}{{ section.settings.prev_button_border }}{% endif %} ;
    {% if section.settings.button_horizontal_padding > 0 %}
-     padding-left: {{ section.settings.button_horizontal_padding }}px !important;
-     padding-right: {{ section.settings.button_horizontal_padding }}px !important;
+     padding-left: {{ section.settings.button_horizontal_padding }}px ;
+     padding-right: {{ section.settings.button_horizontal_padding }}px ;
    {% endif %}
  }
 
  .reviews-transformation-section .nav-button.next {
-   background: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.next_button_bg }}{% endif %} !important; 
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.next_button_color }}{% endif %} !important; 
-   border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.next_button_border }}{% endif %} !important;
+   background: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.next_button_bg }}{% endif %} ; 
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.next_button_color }}{% endif %} ; 
+   border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.next_button_border }}{% endif %} ;
    {% if section.settings.button_horizontal_padding > 0 %}
-     padding-left: {{ section.settings.button_horizontal_padding }}px !important;
-     padding-right: {{ section.settings.button_horizontal_padding }}px !important;
+     padding-left: {{ section.settings.button_horizontal_padding }}px ;
+     padding-right: {{ section.settings.button_horizontal_padding }}px ;
    {% endif %}
  }
 
@@ -219,7 +219,7 @@ Performance - Optimized the code structure for better loading
    width: {{ section.settings.card_width }}px;
    border-radius: {{ section.settings.card_border_radius }}px;
    border: 1px solid {% if section.settings.use_theme_colors %}#e0e0e0{% else %}{{ section.settings.card_border_color }}{% endif %};
-   background: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.card_background }}{% endif %} !important;
+   background: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.card_background }}{% endif %} ;
    margin: {{ section.settings.card_margin_top }}px {{ section.settings.card_margin_right }}px {{ section.settings.card_margin_bottom }}px {{ section.settings.card_margin_left }}px;
  }
 
@@ -230,106 +230,106 @@ Performance - Optimized the code structure for better loading
  }
 
  .reviews-transformation-section .empty-image {
-   background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color | color_lighten: 10 }}{% else %}#f0f0f0{% endif %} !important;
+   background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color | color_lighten: 10 }}{% else %}#f0f0f0{% endif %} ;
  }
 
  /* Review Text */
  .reviews-transformation-section .review-text {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.review_text_color }}{% endif %} !important;
-   font-size: {{ section.settings.review_text_size }}px !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.review_text_color }}{% endif %} ;
+   font-size: {{ section.settings.review_text_size }}px ;
  }
 
  /* Reviewer Info */
  .reviews-transformation-section .reviewer-info {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.reviewer_info_color }}{% endif %} !important;
-   background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.reviewer_info_bg_color }}{% endif %} !important;
-   font-size: {{ section.settings.reviewer_info_font_size }}px !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.reviewer_info_color }}{% endif %} ;
+   background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.reviewer_info_bg_color }}{% endif %} ;
+   font-size: {{ section.settings.reviewer_info_font_size }}px ;
    {% if section.settings.enable_reviewer_info_border %}
-     border: {{ section.settings.reviewer_info_border_width }}px {{ section.settings.reviewer_info_border_style }} {{ section.settings.reviewer_info_border_color }} !important;
-     border-radius: {{ section.settings.reviewer_info_border_radius }}px !important;
+     border: {{ section.settings.reviewer_info_border_width }}px {{ section.settings.reviewer_info_border_style }} {{ section.settings.reviewer_info_border_color }} ;
+     border-radius: {{ section.settings.reviewer_info_border_radius }}px ;
    {% endif %}
  }
 
  .reviews-transformation-section .carousel-reviewer-name,
  .reviews-transformation-section .reviewer-age {
-   font-size: {{ section.settings.reviewer_info_font_size }}px !important;
+   font-size: {{ section.settings.reviewer_info_font_size }}px ;
  }
 
  .reviews-transformation-section .verified-badge {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.verified_badge_color }}{% endif %} !important;
-   font-size: {{ section.settings.verified_badge_font_size }}px !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.verified_badge_color }}{% endif %} ;
+   font-size: {{ section.settings.verified_badge_font_size }}px ;
  }
 
  .reviews-transformation-section .verified-icon {
-   width: {{ section.settings.verified_badge_font_size | times: 1.2 }}px !important;
-   height: {{ section.settings.verified_badge_font_size | times: 1.2 }}px !important;
-   margin-right: 3px !important;
-   vertical-align: middle !important;
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.verified_icon_color }}{% endif %} !important;
+   width: {{ section.settings.verified_badge_font_size | times: 1.2 }}px ;
+   height: {{ section.settings.verified_badge_font_size | times: 1.2 }}px ;
+   margin-right: 3px ;
+   vertical-align: middle ;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.verified_icon_color }}{% endif %} ;
  }
 
  /* Product Purchased */
  .reviews-transformation-section .product-purchased {
-   border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 70 }}{% else %}{{ section.settings.product_border_color }}{% endif %} !important;
-   background-color: {{ section.settings.product_bg_color }} !important;
+   border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 70 }}{% else %}{{ section.settings.product_border_color }}{% endif %} ;
+   background-color: {{ section.settings.product_bg_color }} ;
  }
 
  .reviews-transformation-section .product-info {
-   flex: 1 !important;
-   overflow: visible !important;
-   display: flex !important;
-   flex-direction: column !important;
-   height: auto !important;
-   min-height: 60px !important;
-   justify-content: center !important;
+   flex: 1 ;
+   overflow: visible ;
+   display: flex ;
+   flex-direction: column ;
+   height: auto ;
+   min-height: 60px ;
+   justify-content: center ;
  }
 
  .reviews-transformation-section .product-purchased-container {
-   width: 100% !important;
-   overflow: visible !important;
+   width: 100% ;
+   overflow: visible ;
  }
 
  .reviews-transformation-section .review-product-title {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.product_title_color }}{% endif %} !important;
-   font-size: {{ section.settings.product_title_font_size }}px !important;
-   word-wrap: break-word !important;
-   overflow-wrap: break-word !important;
-   white-space: normal !important;
-   line-height: 1.3 !important;
-   display: block !important;
-   visibility: visible !important;
-   -webkit-line-clamp: unset !important;
-   line-clamp: unset !important;
-   -webkit-box-orient: unset !important;
-   overflow: visible !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.product_title_color }}{% endif %} ;
+   font-size: {{ section.settings.product_title_font_size }}px ;
+   word-wrap: break-word ;
+   overflow-wrap: break-word ;
+   white-space: normal ;
+   line-height: 1.3 ;
+   display: block ;
+   visibility: visible ;
+   -webkit-line-clamp: unset ;
+   line-clamp: unset ;
+   -webkit-box-orient: unset ;
+   overflow: visible ;
  }
 
  .reviews-transformation-section .product-price {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.product_price_color }}{% endif %} !important;
-   font-size: {{ section.settings.product_price_font_size }}px !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.product_price_color }}{% endif %} ;
+   font-size: {{ section.settings.product_price_font_size }}px ;
    letter-spacing: var(--letter-spacing-body);
  }
 
  .reviews-transformation-section .product-compare-price {
-   font-size: {{ section.settings.product_compare_price_font_size }}px !important;
+   font-size: {{ section.settings.product_compare_price_font_size }}px ;
    letter-spacing: var(--letter-spacing-body);
  }
 
  .reviews-transformation-section .product-purchase-date {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 20 }}{% else %}{{ section.settings.purchase_date_color }}{% endif %} !important;
-   font-size: {{ section.settings.purchase_date_font_size }}px !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 20 }}{% else %}{{ section.settings.purchase_date_color }}{% endif %} ;
+   font-size: {{ section.settings.purchase_date_font_size }}px ;
  }
 
  .reviews-transformation-section .purchase-date-icon {
-   stroke: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 20 }}{% else %}{{ section.settings.purchase_date_icon_color }}{% endif %} !important;
+   stroke: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 20 }}{% else %}{{ section.settings.purchase_date_icon_color }}{% endif %} ;
  }
 
  /* Rating Summary */
  .reviews-transformation-section .reviews-rating-summary {
    {% if section.settings.enable_rating_summary_gradient %}
-     background: linear-gradient({{ section.settings.rating_summary_gradient_direction }}, {{ section.settings.rating_summary_gradient_start }}, {{ section.settings.rating_summary_gradient_end }}) !important;
+     background: linear-gradient({{ section.settings.rating_summary_gradient_direction }}, {{ section.settings.rating_summary_gradient_start }}, {{ section.settings.rating_summary_gradient_end }}) ;
    {% else %}
-     background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_2_color }}{% else %}{{ section.settings.rating_summary_bg_color }}{% endif %} !important;
+     background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_2_color }}{% else %}{{ section.settings.rating_summary_bg_color }}{% endif %} ;
    {% endif %}
    {% if section.settings.enable_rating_summary_border %}
      border: {{ section.settings.rating_summary_border_width }}px {{ section.settings.rating_summary_border_style }} {{ section.settings.rating_summary_border_color }};
@@ -338,18 +338,18 @@ Performance - Optimized the code structure for better loading
  }
 
  .reviews-transformation-section .rating-text {
-   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.summary_text_color }}{% endif %} !important;
-   font-size: {{ section.settings.rating_summary_font_size | default: 13 }}px !important;
+   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.summary_text_color }}{% endif %} ;
+   font-size: {{ section.settings.rating_summary_font_size | default: 13 }}px ;
  }
 
  .reviews-transformation-section .rating-text p {
-   margin: 0 !important;
-   color: inherit !important;
-   font-size: inherit !important;
+   margin: 0 ;
+   color: inherit ;
+   font-size: inherit ;
  }
 
  .reviews-transformation-section .rating-text strong {
-   font-weight: bold !important;
+   font-weight: bold ;
  }
 
  /* Responsive overrides */
@@ -359,11 +359,11 @@ Performance - Optimized the code structure for better loading
    }
    
    .reviews-transformation-section .review-text {
-     font-size: {{ section.settings.review_text_size }}px !important;
+     font-size: {{ section.settings.review_text_size }}px ;
    }
    
    .reviews-transformation-section .rating-text {
-     font-size: {{ section.settings.rating_summary_font_size | default: 13 }}px !important;
+     font-size: {{ section.settings.rating_summary_font_size | default: 13 }}px ;
    }
    
    .reviews-transformation-section .reviews-subtitle,
@@ -371,21 +371,21 @@ Performance - Optimized the code structure for better loading
    .reviews-transformation-section .reviews-subtitle.heading,
    .reviews-transformation-section .reviews-subtitle.h1 {
      {% unless section.settings.custom_heading_styling %}
-       font-size: 3.4rem !important;
+       font-size: 3.4rem ;
      {% else %}
-       font-size: {{ section.settings.heading_font_size_mobile }}px !important;
+       font-size: {{ section.settings.heading_font_size_mobile }}px ;
      {% endunless %}
    }
 
    /* Ensure nav-button is 44px on mobile */
    .reviews-transformation-section .nav-button {
-     width: 44px !important;
-     height: 44px !important;
+     width: 44px ;
+     height: 44px ;
    }
 
    .reviews-transformation-section .nav-button svg {
-     width: 22px !important;
-     height: 22px !important;
+     width: 22px ;
+     height: 22px ;
    }
  }
 
@@ -395,22 +395,22 @@ Performance - Optimized the code structure for better loading
    }
    
    .reviews-transformation-section .review-text {
-     font-size: {{ section.settings.review_text_size_mobile | default: section.settings.review_text_size | minus: 2 }}px !important;
+     font-size: {{ section.settings.review_text_size_mobile | default: section.settings.review_text_size | minus: 2 }}px ;
    }
    
    .reviews-transformation-section .rating-text {
-     font-size: {{ section.settings.rating_summary_font_size | default: 13 }}px !important;
+     font-size: {{ section.settings.rating_summary_font_size | default: 13 }}px ;
    }
 
    /* Ensure nav-button is 44px on smaller mobile screens */
    .reviews-transformation-section .nav-button {
-     width: 44px !important;
-     height: 44px !important;
+     width: 44px ;
+     height: 44px ;
    }
 
    .reviews-transformation-section .nav-button svg {
-     width: 22px !important;
-     height: 22px !important;
+     width: 22px ;
+     height: 22px ;
    }
  }
 

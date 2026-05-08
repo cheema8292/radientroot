@@ -6,11 +6,11 @@
 <style>
   /* Fallback styles to ensure visibility */
   .size-chart-block {
-    display: block !important;
+    display: block ;
   }
   
   .size-chart-trigger {
-    display: inline-flex !important;
+    display: inline-flex ;
     align-items: center;
     justify-content: center;
     background: #f0f0f0;
@@ -46,7 +46,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2147483647 !important;
+    z-index: 2147483647 ;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -96,7 +96,7 @@
   
   .size-chart-popup-title {
     margin: 0;
-    font-weight: var(--font-weight-bold) !important;
+    font-weight: var(--font-weight-bold) ;
   }
   
   .size-chart-popup-close {
@@ -248,7 +248,7 @@
 
   /* Image Only Mode Styles */
   .size-chart-popup.image-only-mode {
-    background-color: rgba(0, 0, 0, 0.8) !important;
+    background-color: rgba(0, 0, 0, 0.8) ;
   }
 
   /* Force hide all standard popup elements in image-only mode */
@@ -257,9 +257,9 @@
   .size-chart-popup.image-only-mode .size-chart-popup-body,
   .size-chart-popup.image-only-mode .size-chart-popup-title,
   .size-chart-popup.image-only-mode .size-chart-popup-close {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
+    display: none ;
+    visibility: hidden ;
+    opacity: 0 ;
   }
 
   .size-chart-image-only-content {
@@ -337,28 +337,28 @@
   .size-chart-block .size-chart-trigger-{{ block.id }} {
     {% if remove_background_container %}
       /* Minimal style - no background or container */
-      background-color: transparent !important;
-      border: none !important;
-      padding: 0 !important;
-      width: auto !important;
-      height: auto !important;
+      background-color: transparent ;
+      border: none ;
+      padding: 0 ;
+      width: auto ;
+      height: auto ;
     {% else %}
       /* Standard button style */
-      background-color: {{ trigger_bg_color | default: '#f0f0f0' }} !important;
-      border: {{ trigger_border_width | default: 1 }}px solid {{ trigger_border_color | default: '#ccc' }} !important;
-      border-radius: {{ trigger_border_radius | default: 4 }}px !important;
-      width: {{ trigger_width | default: 120 }}px !important;
-      height: {{ trigger_height | default: 40 }}px !important;
+      background-color: {{ trigger_bg_color | default: '#f0f0f0' }} ;
+      border: {{ trigger_border_width | default: 1 }}px solid {{ trigger_border_color | default: '#ccc' }} ;
+      border-radius: {{ trigger_border_radius | default: 4 }}px ;
+      width: {{ trigger_width | default: 120 }}px ;
+      height: {{ trigger_height | default: 40 }}px ;
     {% endif %}
     
-    color: {{ trigger_text_color | default: '#333' }} !important;
-    font-size: {{ trigger_font_size | default: 14 }}px !important;
-    display: inline-flex !important;
+    color: {{ trigger_text_color | default: '#333' }} ;
+    font-size: {{ trigger_font_size | default: 14 }}px ;
+    display: inline-flex ;
     
     {% if underline_text %}
-      text-decoration: underline !important;
+      text-decoration: underline ;
     {% else %}
-      text-decoration: none !important;
+      text-decoration: none ;
     {% endif %}
   }
 
@@ -372,7 +372,7 @@
 
   .size-chart-popup-{{ block.id }} .size-chart-popup-content {
     background-color: {{ popup_bg_color | default: '#fff' }};
-    border-radius: {{ popup_border_radius | default: 8 }}px !important;
+    border-radius: {{ popup_border_radius | default: 8 }}px ;
     max-width: {{ popup_max_width | default: 600 }}px;
     overflow: hidden; /* Ensure child elements respect border radius */
   }
@@ -387,8 +387,8 @@
     font-size: {{ popup_header_font_size | default: 18 }}px;
     padding: {{ popup_header_padding | default: 16 }}px;
     border-bottom-color: {{ popup_border_color | default: '#dee2e6' }};
-    border-top-left-radius: {{ popup_border_radius | default: 8 }}px !important;
-    border-top-right-radius: {{ popup_border_radius | default: 8 }}px !important;
+    border-top-left-radius: {{ popup_border_radius | default: 8 }}px ;
+    border-top-right-radius: {{ popup_border_radius | default: 8 }}px ;
   }
 
   .size-chart-popup-{{ block.id }} .size-chart-popup-close {
@@ -404,8 +404,8 @@
     padding: {{ popup_body_padding | default: 20 }}px;
     color: {{ popup_body_text_color | default: '#333' }};
     font-size: {{ popup_body_font_size | default: 14 }}px;
-    border-bottom-left-radius: {{ popup_border_radius | default: 8 }}px !important;
-    border-bottom-right-radius: {{ popup_border_radius | default: 8 }}px !important;
+    border-bottom-left-radius: {{ popup_border_radius | default: 8 }}px ;
+    border-bottom-right-radius: {{ popup_border_radius | default: 8 }}px ;
   }
 
   .size-chart-popup-{{ block.id }} .size-chart-table th,
@@ -433,7 +433,7 @@
   }
 
   .size-chart-popup-{{ block.id }} .size-chart-image {
-    border-radius: {{ popup_border_radius | default: 8 }}px !important;
+    border-radius: {{ popup_border_radius | default: 8 }}px ;
   }
 
   .size-chart-popup-{{ block.id }} .size-chart-popup-body::-webkit-scrollbar-track {
@@ -468,8 +468,8 @@
   }
 
   #size-chart-block-{{ block.id }} {
-    margin-top: {{ margin_top | default: 0 }}px !important;
-    margin-bottom: {{ margin_bottom | default: 0 }}px !important;
+    margin-top: {{ margin_top | default: 0 }}px ;
+    margin-bottom: {{ margin_bottom | default: 0 }}px ;
   }
 {% endstyle %}
 

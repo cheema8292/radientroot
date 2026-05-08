@@ -208,16 +208,16 @@ For inquiries or permissions, contact daniel@section.store
   }
 
   .product-slider-{{ section.id }} {
-    position: relative !important;
-    margin-top: {{ cards_mt_mobile }}px !important;
-    margin-left: -{{ padding_horizontal_mobile }}rem !important;
-    margin-right: -{{ padding_horizontal_mobile }}rem !important;
-    padding-left: {{ padding_horizontal_mobile }}rem !important;
-    padding-right: {{ padding_horizontal_mobile }}rem !important;
+    position: relative ;
+    margin-top: {{ cards_mt_mobile }}px ;
+    margin-left: -{{ padding_horizontal_mobile }}rem ;
+    margin-right: -{{ padding_horizontal_mobile }}rem ;
+    padding-left: {{ padding_horizontal_mobile }}rem ;
+    padding-right: {{ padding_horizontal_mobile }}rem ;
   }
 
   .product-slider-wrapper-{{ section.id }} {
-    align-items: stretch !important;
+    align-items: stretch ;
   }
 
   .product-grid-{{ section.id }} {
@@ -229,15 +229,15 @@ For inquiries or permissions, contact daniel@section.store
   }
 
   .product-item-{{ section.id }} {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-    height: auto !important;
-    border: {{ card_border_thickness }}px solid {{ card_border_color }} !important;
-    border-radius: {{ card_radius }}px !important;
-    background-color: {{ card_bg_color }} !important;
-    overflow: hidden !important;
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    box-sizing: border-box ;
+    height: auto ;
+    border: {{ card_border_thickness }}px solid {{ card_border_color }} ;
+    border-radius: {{ card_radius }}px ;
+    background-color: {{ card_bg_color }} ;
+    overflow: hidden ;
   }
 
   .product-image-{{ section.id }} {
@@ -262,7 +262,7 @@ For inquiries or permissions, contact daniel@section.store
     flex-direction: column;
     justify-content: space-between;
     flex: 1 1 0;
-    padding: {{ card_padding_vertical_mobile }}px {{ card_padding_horizontal_mobile }}px !important;
+    padding: {{ card_padding_vertical_mobile }}px {{ card_padding_horizontal_mobile }}px ;
   }
 
   .product-title-{{ section.id }} {
@@ -451,12 +451,12 @@ For inquiries or permissions, contact daniel@section.store
     }
 
     .product-slider-{{ section.id }} {
-      position: relative !important;
-      margin-top: {{ cards_mt }}px !important;
-      margin-left: -{{ padding_horizontal }}rem !important;
-      margin-right: -{{ padding_horizontal }}rem !important;
-      padding-left: {{ padding_horizontal }}rem !important;
-      padding-right: {{ padding_horizontal }}rem !important;
+      position: relative ;
+      margin-top: {{ cards_mt }}px ;
+      margin-left: -{{ padding_horizontal }}rem ;
+      margin-right: -{{ padding_horizontal }}rem ;
+      padding-left: {{ padding_horizontal }}rem ;
+      padding-right: {{ padding_horizontal }}rem ;
     }
 
     .product-grid-{{ section.id }} {
@@ -466,7 +466,7 @@ For inquiries or permissions, contact daniel@section.store
     }
 
     .product-info-{{ section.id }} {
-      padding: {{ card_padding_vertical }}px {{ card_padding_horizontal }}px !important;
+      padding: {{ card_padding_vertical }}px {{ card_padding_horizontal }}px ;
     }
 
     
@@ -605,21 +605,21 @@ For inquiries or permissions, contact daniel@section.store
 {% if layout_type_mobile == 'grid' %}
   <style>
     .product-slider-{{ section.id }} {
-      display: none !important;
+      display: none ;
     }
 
     .product-grid-{{ section.id }} {
-      display: grid !important;   
+      display: grid ;   
     }
   </style> 
 {% else %}   
   <style>
     .product-slider-{{ section.id }} {
-      display: block !important;
+      display: block ;
     }
 
     .product-grid-{{ section.id }} {
-      display: none !important;
+      display: none ;
     }
   </style> 
 {% endif %}
@@ -628,11 +628,11 @@ For inquiries or permissions, contact daniel@section.store
   <style>
     @media (min-width: 1024px) {
       .product-slider-{{ section.id }} {
-        display: none !important;
+        display: none ;
       }
 
       .product-grid-{{ section.id }} {
-        display: grid !important;  
+        display: grid ;  
       }
     }
   </style> 
@@ -640,11 +640,11 @@ For inquiries or permissions, contact daniel@section.store
   <style>
     @media (min-width: 1024px) {
       .product-slider-{{ section.id }} {
-        display: block !important;   
+        display: block ;   
       }
 
       .product-grid-{{ section.id }} {
-        display: none !important;
+        display: none ;
       }
     }
   </style> 

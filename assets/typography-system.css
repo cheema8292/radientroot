@@ -151,14 +151,14 @@ div:not([class^="shopify"]),
 p:not([class^="shopify"]), 
 button:not([class^="shopify"]), 
 a:not([class^="shopify"]) {
-  font-family: var(--font-body-family-override) !important;
+  font-family: var(--font-body-family-override) ;
 }
 
 span[class*="title"], 
 span[class*="heading"],
 span[class*="product-title"],
 span[class*="section-title"] {
-  font-family: var(--font-heading-family-override) !important;
+  font-family: var(--font-heading-family-override) ;
 }
 
 .check-yes,
@@ -175,7 +175,7 @@ span[class*="section-title"] {
 .counter-prefix,
 .counter-number,
 .counter-suffix {
-  font-family: var(--font-body-family-override) !important;
+  font-family: var(--font-body-family-override) ;
 }
 
 @media screen and (max-width: 375px) {

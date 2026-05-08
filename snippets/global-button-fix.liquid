@@ -15,17 +15,17 @@
   .cart__checkout-button,
   .contact-button,
   .button--primary {
-    border-radius: var(--global-button-radius) !important;
-    font-family: var(--font-body-family-override) !important;
+    border-radius: var(--global-button-radius) ;
+    font-family: var(--font-body-family-override) ;
     transition: all 0.3s ease;
-    background-color: var(--global-button-bg-color) !important;
-    color: var(--global-button-text-color) !important;
-    box-shadow: none !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    text-transform: uppercase !important;
-    text-align: center !important;
-    font-weight: bold !important;
+    background-color: var(--global-button-bg-color) ;
+    color: var(--global-button-text-color) ;
+    box-shadow: none ;
+    padding-left: 20px ;
+    padding-right: 20px ;
+    text-transform: uppercase ;
+    text-align: center ;
+    font-weight: bold ;
   }
 
   /* Hover, focus, and active states for buttons */
@@ -78,9 +78,9 @@
   .shopify-payment-button [role='button']:focus-visible,
   .quantity__button:focus,
   .quantity__button:focus-visible {
-    background-color: var(--global-button-hover-bg-color) !important;
-    box-shadow: none !important;
-    outline: none !important;
+    background-color: var(--global-button-hover-bg-color) ;
+    box-shadow: none ;
+    outline: none ;
   }
 
   /* Exclude non-button elements from hover effects */
@@ -104,9 +104,9 @@
   section[class*="add_to_cart"]:focus,
   article[class*="add-to-cart"]:focus,
   article[class*="add_to_cart"]:focus {
-    background-color: inherit !important;
-    box-shadow: none !important;
-    outline: none !important;
+    background-color: inherit ;
+    box-shadow: none ;
+    outline: none ;
   }
 
   /* Sticky add to cart elements - prevent hover styling for non-button elements */
@@ -116,8 +116,8 @@
   .sticky-add-to-cart *:not(button):not(input[type="submit"]):not(.button):not(.btn):focus,
   [class*="sticky-add-to-cart"]:not(button):not(input[type="submit"]):not(.button):not(.btn):hover,
   [class*="sticky-add-to-cart"]:not(button):not(input[type="submit"]):not(.button):not(.btn):focus {
-    background-color: inherit !important;
-    box-shadow: inherit !important;
+    background-color: inherit ;
+    box-shadow: inherit ;
   }
 
   /* Remove any box shadows from pseudo-elements */
@@ -147,7 +147,7 @@
   .contact-button:after,
   .button--primary:before,
   .button--primary:after {
-    box-shadow: none !important;
+    box-shadow: none ;
   }
 
   /* Shopify accelerated checkout buttons */
@@ -161,7 +161,7 @@
   .shopify-payment-button .shopify-payment-button__more-options:hover,
   .shopify-payment-button__button--branded:hover,
   .shopify-payment-button__button--unbranded:hover {
-    box-shadow: none !important;
+    box-shadow: none ;
   }
 
   {% if settings.apply_button_radius_to_all %}
@@ -191,7 +191,7 @@
     /* Special elements with different radius */
     .pagination__item,
     .card__badge {
-      border-radius: calc(var(--global-button-radius) * 0.75) !important;
+      border-radius: calc(var(--global-button-radius) * 0.75) ;
     }
 
     /* Pill-shaped elements */
@@ -199,7 +199,7 @@
     .tag-label,
     [class*="pill"]:not(.pill-item),
     [class*="tag-"] {
-      border-radius: 50px !important;
+      border-radius: 50px ;
     }
   {% endif %}
 
@@ -212,41 +212,41 @@
   .totals.gb-discounts-cart-values .totals__total-value,
   .gb-shipping-protection-icontext p {
     color: {{ settings.global_section_text_color }}
-     !important;
+     ;
   }
 
   /* Cart drawer product price */
   .cart-drawer .cart-item__final-price.product-option {
     color: {{ settings.global_section_accent_1_color }}
-     !important;
+     ;
   }
 
   /* Remove background from cart remove buttons */
   cart-remove-button .button,
   .cart-remove-button,
   [id^="CartDrawer-Remove"] {
-    background-color: transparent !important;
-    border: none !important;
+    background-color: transparent ;
+    border: none ;
   }
 
   /* Shipping protection toggle */
   .gb-shipping-protection-button input:checked + .slider {
     background-color: {{ settings.global_section_accent_1_color }}
-     !important;
+     ;
   }
 
   /* Cart total item - inverted colors */
   span.gb-cart-total-item {
     background-color: {{ settings.global_section_text_color }}
-     !important;
+     ;
     color: {{ settings.global_section_background_color }}
-     !important;
+     ;
   }
 
   /* Social proof bar - accent background with inverted text */
   .social-proof-bar {
     background-color: {{ settings.global_section_accent_1_color }}
-     !important;
+     ;
   }
 
   .social-proof-bar .social-proof-content,
@@ -256,9 +256,9 @@
   .social-proof-bar img,
   .social-proof-bar__text {
     color: {{ settings.global_section_background_color }}
-     !important;
+     ;
     fill: {{ settings.global_section_background_color }}
-     !important;
+     ;
   }
 
   /* Accent colored text elements */
@@ -267,6 +267,6 @@
   .accent-heading,
   [class*="accent-heading"] {
     color: {{ settings.global_section_accent_1_color }}
-     !important;
+     ;
   }
 </style>

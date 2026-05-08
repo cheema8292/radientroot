@@ -146,7 +146,7 @@
         {% if block.settings.satisfaction_text != blank %}
           <div
             class="rating-satisfaction"
-            style="color: {% if block.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ block.settings.satisfaction_text_color }};{% endif %}; margin-bottom: 0px; font-weight: 600 !important; font-size: {{ block.settings.satisfaction_text_size | default: 11 }}px; background-color: {% if block.settings.use_theme_colors %}{{ settings.global_section_accent_2_color }}{% else %}{{ block.settings.satisfaction_bg_color }}{% endif %}; padding: 0.5px 4px; border-radius: 2.3px;"
+            style="color: {% if block.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ block.settings.satisfaction_text_color }};{% endif %}; margin-bottom: 0px; font-weight: 600 ; font-size: {{ block.settings.satisfaction_text_size | default: 11 }}px; background-color: {% if block.settings.use_theme_colors %}{{ settings.global_section_accent_2_color }}{% else %}{{ block.settings.satisfaction_bg_color }}{% endif %}; padding: 0.5px 4px; border-radius: 2.3px;"
           >
             {{ block.settings.satisfaction_text }}
           </div>
@@ -165,17 +165,17 @@
         #block-{{ block.id }} .review-star,
         #block-{{ block.id }} .review-star-filled,
         #block-{{ block.id }} .review-star-empty {
-          width: 20px !important;
-          height: 20px !important;
+          width: 20px ;
+          height: 20px ;
         }
 
         /* Mobile responsive typography */
         @media screen and (max-width: 768px) {
           #block-{{ block.id }} .rating-text-content {
-            font-size: {{ block.settings.rating_text_size_mobile | default: 10 }}px !important;
+            font-size: {{ block.settings.rating_text_size_mobile | default: 10 }}px ;
           }
           #block-{{ block.id }} .rating-satisfaction {
-            font-size: {{ block.settings.satisfaction_text_size_mobile | default: 9 }}px !important;
+            font-size: {{ block.settings.satisfaction_text_size_mobile | default: 9 }}px ;
           }
         }
 
@@ -203,14 +203,14 @@
       {% assign mobile_font_size = block.settings.font_size | times: 0.85 | round %}
       <h1
         style="
-            font-size: {{ block.settings.font_size }}px !important;
-            margin-top: {{ block.settings.margin_top }}px !important;
-            margin-bottom: {{ block.settings.margin_bottom }}px !important;
-          color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ block.settings.title_color }}{% endif %} !important;
-            line-height: {{ block.settings.line_height | default: 1.2 }} !important;
-            padding: 2px 0 !important;
-            width: 100% !important;
-            display: block !important;
+            font-size: {{ block.settings.font_size }}px ;
+            margin-top: {{ block.settings.margin_top }}px ;
+            margin-bottom: {{ block.settings.margin_bottom }}px ;
+          color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ block.settings.title_color }}{% endif %} ;
+            line-height: {{ block.settings.line_height | default: 1.2 }} ;
+            padding: 2px 0 ;
+            width: 100% ;
+            display: block ;
         "
         class="shop-product-title product-title-{{ block.id }}"
         {{ block.shopify_attributes }}
@@ -230,7 +230,7 @@
         class="shop-product-price-container"
         id="block-{{ block.id }}"
         {{ block.shopify_attributes }}
-        style="margin-top: {{ block.settings.price_margin_top }}px !important; margin-bottom: {{ block.settings.price_margin_bottom }}px !important;"
+        style="margin-top: {{ block.settings.price_margin_top }}px ; margin-bottom: {{ block.settings.price_margin_bottom }}px ;"
       >
         {% assign current_variant = product.selected_or_first_available_variant %}
         {% assign compare_at_price = current_variant.compare_at_price %}
@@ -297,37 +297,37 @@
       <!-- Inline styles to ensure price styling works correctly -->
       <style>
         #block-{{ block.id }} .shop-product-price-block {
-          font-size: {{ block.settings.price_font_size }}px !important;
-          font-weight: {{ block.settings.price_font_weight }} !important;
-          color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ block.settings.price_color }}{% endif %} !important;
+          font-size: {{ block.settings.price_font_size }}px ;
+          font-weight: {{ block.settings.price_font_weight }} ;
+          color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ block.settings.price_color }}{% endif %} ;
         }
 
         #block-{{ block.id }} .shop-product-price-block.on-sale {
-          color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ block.settings.price_color }}{% endif %} !important;
+          color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ block.settings.price_color }}{% endif %} ;
         }
 
         #block-{{ block.id }} .shop-compare-price {
-          color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ block.settings.compare_price_color }}{% endif %} !important;
-          font-size: {{ block.settings.compare_price_font_size }}px !important;
+          color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ block.settings.compare_price_color }}{% endif %} ;
+          font-size: {{ block.settings.compare_price_font_size }}px ;
         }
 
         #block-{{ block.id }} .shop-save-price {
-          background-color: {{ block.settings.sale_badge_bg_color }} !important;
-          color: {{ block.settings.sale_badge_text_color }} !important;
-          font-size: {{ block.settings.save_badge_font_size }}px !important;
-          padding: {{ block.settings.save_badge_padding_v | default: 3 }}px {{ block.settings.save_badge_padding_h | default: 6 }}px !important;
+          background-color: {{ block.settings.sale_badge_bg_color }} ;
+          color: {{ block.settings.sale_badge_text_color }} ;
+          font-size: {{ block.settings.save_badge_font_size }}px ;
+          padding: {{ block.settings.save_badge_padding_v | default: 3 }}px {{ block.settings.save_badge_padding_h | default: 6 }}px ;
           {% if block.settings.save_badge_enable_border %}
-          border: {{ block.settings.save_badge_border_width | default: 1 }}px {{ block.settings.save_badge_border_style | default: 'solid' }} {{ block.settings.save_badge_border_color | default: '#000000' }} !important;
+          border: {{ block.settings.save_badge_border_width | default: 1 }}px {{ block.settings.save_badge_border_style | default: 'solid' }} {{ block.settings.save_badge_border_color | default: '#000000' }} ;
           {% endif %}
         }
 
         @media (max-width: 767px) {
           #block-{{ block.id }} .shop-product-price-block {
-            font-size: {{ block.settings.price_font_size | minus: 4 }}px !important;
+            font-size: {{ block.settings.price_font_size | minus: 4 }}px ;
           }
 
           #block-{{ block.id }} .shop-compare-price {
-            font-size: {{ block.settings.compare_price_font_size | minus: 2 }}px !important;
+            font-size: {{ block.settings.compare_price_font_size | minus: 2 }}px ;
           }
         }
       </style>
@@ -340,7 +340,7 @@
       <style>
         #block-{{ block.id }} {
           background-color: {{ block.settings.award_badge_bg_color }};
-          color: {{ block.settings.award_badge_text_color }} !important;
+          color: {{ block.settings.award_badge_text_color }} ;
           border: 1px solid {{ block.settings.award_badge_border_color }};
           border-radius: {{ block.settings.award_badge_border_radius }}px;
           margin-top: {{ block.settings.award_badge_margin_top }}px;
@@ -553,15 +553,15 @@
                   {% if settings.enable_global_button_styling and block.settings.use_global_button_styling %}
                     /* Apply global button styling inline to ensure proper precedence */
                     --button-text-font-size: var(--global-button-font-size, 14px);
-                    padding: var(--global-button-padding-y, 12px) 20px !important;
-                    font-size: var(--global-button-font-size, 14px) !important;
-                    font-weight: var(--global-button-font-weight, 700) !important;
-                    letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-                    text-transform: var(--global-button-text-transform, none) !important;
-                    border-radius: var(--global-button-radius, 8px) !important;
-                    background-color: var(--global-button-bg-color, #EF4A65) !important;
-                    color: var(--global-button-text-color, #FFFFFF) !important;
-                    border: var(--global-button-border-width, 0px) solid var(--global-button-border-color, #EF4A65) !important;
+                    padding: var(--global-button-padding-y, 12px) 20px ;
+                    font-size: var(--global-button-font-size, 14px) ;
+                    font-weight: var(--global-button-font-weight, 700) ;
+                    letter-spacing: var(--global-button-letter-spacing, 1px) ;
+                    text-transform: var(--global-button-text-transform, none) ;
+                    border-radius: var(--global-button-radius, 8px) ;
+                    background-color: var(--global-button-bg-color, #EF4A65) ;
+                    color: var(--global-button-text-color, #FFFFFF) ;
+                    border: var(--global-button-border-width, 0px) solid var(--global-button-border-color, #EF4A65) ;
                   {% else %}
                     --button-text-font-size: {{ block.settings.custom_button_font_size | default: 14 }}px;
                     padding: {{ block.settings.custom_button_padding_y | default: 12 }}px 20px;
@@ -575,7 +575,7 @@
                                         {{ settings.global_section_accent_1_color }}
                                       {% endif %}
                                     {% else %}
-                                      {{ button_bg_color }} !important
+                                      {{ button_bg_color }} 
                                     {% endif %};
                   color: {% if section.settings.use_theme_colors %}
                             {% if settings.global_section_button_text_color != blank %}
@@ -764,12 +764,12 @@
       </div>
       <style>
         .shop-add-to-cart-button  .button-text {
-          text-transform: none !important;
+          text-transform: none ;
         }
         /* Ensure form takes full width */
         #product-form-{{ section.id }},
         .form {
-          width: 100% !important;
+          width: 100% ;
           display: block;
         }
         .shop-add-to-cart-button .path {
@@ -1217,9 +1217,9 @@
         class="replica-warning"
         {{ block.shopify_attributes }}
         style="
-          background-color: {{ block.settings.background_color }} !important;
-          color: {{ block.settings.text_color }} !important;
-          border: {{ block.settings.border_width }}px dashed {{ block.settings.border_color }} !important;
+          background-color: {{ block.settings.background_color }} ;
+          color: {{ block.settings.text_color }} ;
+          border: {{ block.settings.border_width }}px dashed {{ block.settings.border_color }} ;
           border-radius: {{ block.settings.border_radius }}px;
           padding: {{ block.settings.padding }}px;
           padding-left: {{ block.settings.padding | plus: 34 }}px;
@@ -1232,8 +1232,8 @@
         <div
           class="warning-icon"
           style="
-            background-color: {{ block.settings.icon_background_color }} !important;
-            color: {{ block.settings.icon_color }} !important;
+            background-color: {{ block.settings.icon_background_color }} ;
+            color: {{ block.settings.icon_color }} ;
             width: 20px;
             height: 20px;
             border-radius: 50%;
@@ -1269,7 +1269,7 @@
         <div class="warning-content">
           <div
             class="warning-title"
-            style="font-size: {{ block.settings.title_font_size | minus: 6 }}px; color: {{ block.settings.text_color }} !important;"
+            style="font-size: {{ block.settings.title_font_size | minus: 6 }}px; color: {{ block.settings.text_color }} ;"
           >
             {{ block.settings.warning_title }}
           </div>
@@ -1278,7 +1278,7 @@
             style="
               font-size: {{ block.settings.text_font_size | minus: 2 }}px;
               letter-spacing: var(--letter-spacing-body);
-              color: {{ block.settings.text_color }} !important;
+              color: {{ block.settings.text_color }} ;
             "
           >
             {{ block.settings.warning_text }}
@@ -1653,7 +1653,7 @@
         .custom-text-block-{{ block.id }} .custom-text-main-text-content b,
         .custom-text-block-{{ block.id }} .custom-text-description strong,
         .custom-text-block-{{ block.id }} .custom-text-description b {
-          font-weight: var(--font-weight-bold) !important;
+          font-weight: var(--font-weight-bold) ;
         }
 
         /* Override font weight inheritance for non-bold elements only */
@@ -1764,15 +1764,15 @@
       <style>
         /* Mobile margins for custom image block {{ block.id }} */
         .custom-image-{{ block.id }} {
-          margin-top: {{ block.settings.margin_top_mobile | default: 8 }}px !important;
-          margin-bottom: {{ block.settings.margin_bottom_mobile | default: 8 }}px !important;
+          margin-top: {{ block.settings.margin_top_mobile | default: 8 }}px ;
+          margin-bottom: {{ block.settings.margin_bottom_mobile | default: 8 }}px ;
         }
 
         /* Desktop margins for custom image block {{ block.id }} */
         @media screen and (min-width: 768px) {
           .custom-image-{{ block.id }} {
-            margin-top: {{ block.settings.margin_top_desktop | default: 8 }}px !important;
-            margin-bottom: {{ block.settings.margin_bottom_desktop | default: 8 }}px !important;
+            margin-top: {{ block.settings.margin_top_desktop | default: 8 }}px ;
+            margin-bottom: {{ block.settings.margin_bottom_desktop | default: 8 }}px ;
           }
         }
       </style>
@@ -2343,7 +2343,7 @@
           <label
             for="{{ field_id }}"
             class="custom-field-label"
-            style="display: block; margin-bottom: 8px; color: {{ block.settings.label_color | default: '#000000' }}; font-size: {{ block.settings.label_font_size | default: 14 }}px; font-weight: var(--font-weight-bold); letter-spacing: var(--letter-spacing-body) !important;"
+            style="display: block; margin-bottom: 8px; color: {{ block.settings.label_color | default: '#000000' }}; font-size: {{ block.settings.label_font_size | default: 14 }}px; font-weight: var(--font-weight-bold); letter-spacing: var(--letter-spacing-body) ;"
           >
             {{ block.settings.field_label }}
             {% if block.settings.required_field %}

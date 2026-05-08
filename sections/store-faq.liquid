@@ -12,7 +12,7 @@
 <div class="store-faq-section page-fade-in" style="
   padding-top: {{ section.settings.section_padding }}px;
   padding-bottom: {{ section.settings.section_padding }}px;
-  background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.section_bg_color }}{% endif %} !important;
+  background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.section_bg_color }}{% endif %} ;
 ">
   <div class="store-faq-container" style="
     width: 100%;
@@ -22,13 +22,13 @@
     <div class="page-width faq-flex-container {% if section.settings.center_when_no_image and section.settings.header_image == blank %}center-no-image{% endif %} {% if section.settings.two_column_desktop %}two-column-desktop{% endif %}">
       <div class="faq-header-column">
         {% if section.settings.heading != blank %}
-          <h2 class="store-faq-heading" style="color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.heading_color }}{% endif %} !important; font-size: {{ section.settings.heading_font_size }}px;">
+          <h2 class="store-faq-heading" style="color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.heading_color }}{% endif %} ; font-size: {{ section.settings.heading_font_size }}px;">
             {{ section.settings.heading }}
           </h2>
         {% endif %}
         
         {% if section.settings.subtitle != blank %}
-          <div class="store-faq-subtitle" style="color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.heading_color | color_modify: 'alpha', 0.8 }}{% endif %} !important; font-size: {{ section.settings.subtitle_font_size }}px;">
+          <div class="store-faq-subtitle" style="color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.heading_color | color_modify: 'alpha', 0.8 }}{% endif %} ; font-size: {{ section.settings.subtitle_font_size }}px;">
             {{ section.settings.subtitle }}
           </div>
         {% endif %}
@@ -68,10 +68,10 @@
                           {% endif %}
                         {% endfor %}
                         
-                        <div class="faq-item" {{ block.shopify_attributes }} style="{% unless is_last_in_column_1 %}border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} !important;{% endunless %}">
+                        <div class="faq-item" {{ block.shopify_attributes }} style="{% unless is_last_in_column_1 %}border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} ;{% endunless %}">
                           <div class="faq-question" style="
-                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.question_color }}{% endif %} !important;
-                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.question_bg_color }}{% endif %} !important;
+                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.question_color }}{% endif %} ;
+                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.question_bg_color }}{% endif %} ;
                             --question-padding-top: {{ section.settings.question_padding_top | default: 15 }}px;
                             --question-padding-bottom: {{ section.settings.question_padding_bottom | default: 15 }}px;
                             --question-padding-left: {{ section.settings.question_padding_left | default: 20 }}px;
@@ -81,8 +81,8 @@
                             <span class="faq-toggle">+</span>
                           </div>
                           <div class="faq-answer" style="
-                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.answer_color }}{% endif %} !important;
-                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.answer_bg_color }}{% endif %} !important;
+                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.answer_color }}{% endif %} ;
+                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.answer_bg_color }}{% endif %} ;
                             --answer-padding-top: {{ section.settings.answer_padding_top | default: 15 }}px;
                             --answer-padding-bottom: {{ section.settings.answer_padding_bottom | default: 15 }}px;
                             --answer-padding-left: {{ section.settings.answer_padding_left | default: 10 }}px;
@@ -108,10 +108,10 @@
                           {% endif %}
                         {% endfor %}
                         
-                        <div class="faq-item mobile-only-item" {{ block.shopify_attributes }} style="{% unless is_last_even_item %}border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} !important;{% endunless %}">
+                        <div class="faq-item mobile-only-item" {{ block.shopify_attributes }} style="{% unless is_last_even_item %}border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} ;{% endunless %}">
                           <div class="faq-question" style="
-                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.question_color }}{% endif %} !important;
-                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.question_bg_color }}{% endif %} !important;
+                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.question_color }}{% endif %} ;
+                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.question_bg_color }}{% endif %} ;
                             --question-padding-top: {{ section.settings.question_padding_top | default: 15 }}px;
                             --question-padding-bottom: {{ section.settings.question_padding_bottom | default: 15 }}px;
                             --question-padding-left: {{ section.settings.question_padding_left | default: 20 }}px;
@@ -121,8 +121,8 @@
                             <span class="faq-toggle">+</span>
                           </div>
                           <div class="faq-answer" style="
-                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.answer_color }}{% endif %} !important;
-                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.answer_bg_color }}{% endif %} !important;
+                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.answer_color }}{% endif %} ;
+                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.answer_bg_color }}{% endif %} ;
                             --answer-padding-top: {{ section.settings.answer_padding_top | default: 15 }}px;
                             --answer-padding-bottom: {{ section.settings.answer_padding_bottom | default: 15 }}px;
                             --answer-padding-left: {{ section.settings.answer_padding_left | default: 10 }}px;
@@ -160,10 +160,10 @@
                           {% endif %}
                         {% endfor %}
                         
-                        <div class="faq-item" {{ block.shopify_attributes }} style="{% unless is_last_in_column_2 %}border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} !important;{% endunless %}">
+                        <div class="faq-item" {{ block.shopify_attributes }} style="{% unless is_last_in_column_2 %}border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} ;{% endunless %}">
                           <div class="faq-question" style="
-                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.question_color }}{% endif %} !important;
-                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.question_bg_color }}{% endif %} !important;
+                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.question_color }}{% endif %} ;
+                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.question_bg_color }}{% endif %} ;
                             --question-padding-top: {{ section.settings.question_padding_top | default: 15 }}px;
                             --question-padding-bottom: {{ section.settings.question_padding_bottom | default: 15 }}px;
                             --question-padding-left: {{ section.settings.question_padding_left | default: 20 }}px;
@@ -173,8 +173,8 @@
                             <span class="faq-toggle">+</span>
                           </div>
                           <div class="faq-answer" style="
-                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.answer_color }}{% endif %} !important;
-                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.answer_bg_color }}{% endif %} !important;
+                            color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.answer_color }}{% endif %} ;
+                            background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.answer_bg_color }}{% endif %} ;
                             --answer-padding-top: {{ section.settings.answer_padding_top | default: 15 }}px;
                             --answer-padding-bottom: {{ section.settings.answer_padding_bottom | default: 15 }}px;
                             --answer-padding-left: {{ section.settings.answer_padding_left | default: 10 }}px;
@@ -197,10 +197,10 @@
               {% for block in section.blocks %}
                 {% case block.type %}
                   {% when 'faq_item' %}
-                    <div class="faq-item" {{ block.shopify_attributes }} style="border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} !important;">
+                    <div class="faq-item" {{ block.shopify_attributes }} style="border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} ;">
                       <div class="faq-question" style="
-                        color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.question_color }}{% endif %} !important;
-                        background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.question_bg_color }}{% endif %} !important;
+                        color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.question_color }}{% endif %} ;
+                        background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.question_bg_color }}{% endif %} ;
                         --question-padding-top: {{ section.settings.question_padding_top | default: 15 }}px;
                         --question-padding-bottom: {{ section.settings.question_padding_bottom | default: 15 }}px;
                         --question-padding-left: {{ section.settings.question_padding_left | default: 20 }}px;
@@ -210,8 +210,8 @@
                         <span class="faq-toggle">+</span>
                       </div>
                       <div class="faq-answer" style="
-                        color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.answer_color }}{% endif %} !important;
-                        background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.answer_bg_color }}{% endif %} !important;
+                        color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.answer_color }}{% endif %} ;
+                        background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.answer_bg_color }}{% endif %} ;
                         --answer-padding-top: {{ section.settings.answer_padding_top | default: 15 }}px;
                         --answer-padding-bottom: {{ section.settings.answer_padding_bottom | default: 15 }}px;
                         --answer-padding-left: {{ section.settings.answer_padding_left | default: 10 }}px;
@@ -279,15 +279,15 @@
   }
 
   .faq-container.border-bottom-only {
-    border: none !important;
+    border: none ;
   }
   .faq-container.border-bottom-only .faq-question {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
+    padding-right: 0 ;
+    padding-left: 0 ;
   }
   .faq-container.border-bottom-only .faq-answer {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
+    padding-right: 0 ;
+    padding-left: 0 ;
   }
   
   .faq-flex-container {
@@ -361,19 +361,19 @@
   
   /* Single column layout - remove bottom border from last item only when container has border */
   .store-faq .faq-container:not(.individual-borders) .faq-item:last-child {
-    border-bottom: none !important;
-    margin-bottom: 0 !important;
+    border-bottom: none ;
+    margin-bottom: 0 ;
   }
   
   /* Two column layout - keep bottom border on last items in columns for visual consistency */
   .faq-flex-container.two-column-desktop .faq-container:not(.individual-borders) .faq-item:last-child {
-    border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} !important;
-    margin-bottom: 0 !important;
+    border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} ;
+    margin-bottom: 0 ;
   }
   
   /* Border-bottom-only style - ensure last item has border */
   .faq-container.border-bottom-only .faq-item:last-child {
-    border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} !important;
+    border-bottom: 1px solid {% if section.settings.use_theme_colors %}#E5E5E5{% else %}{{ section.settings.border_color }}{% endif %} ;
   }
   
   .store-faq .faq-question {
@@ -466,11 +466,11 @@
   
   /* Apply mobile styles when the faq-mobile-view class is present */
   .faq-mobile-view .store-faq .faq-question {
-    font-size: {{ section.settings.question_font_size_mobile }}px !important;
+    font-size: {{ section.settings.question_font_size_mobile }}px ;
   }
   
   .faq-mobile-view .store-faq .faq-answer {
-    font-size: {{ section.settings.answer_font_size_mobile }}px !important;
+    font-size: {{ section.settings.answer_font_size_mobile }}px ;
   }
   
   @media screen and (min-width: 750px) {
@@ -510,9 +510,9 @@
     }
 
     .faq-container.individual-borders .faq-question {
-      padding: var(--question-padding-top, 15px) var(--question-padding-right, 20px) var(--question-padding-bottom, 15px) var(--question-padding-left, 20px) !important;
-      align-items: flex-start !important;
-      text-align: left !important;
+      padding: var(--question-padding-top, 15px) var(--question-padding-right, 20px) var(--question-padding-bottom, 15px) var(--question-padding-left, 20px) ;
+      align-items: flex-start ;
+      text-align: left ;
     }
     
     .store-faq .faq-toggle {
@@ -565,13 +565,13 @@
 
     /* Hide mobile-only items on desktop */
     .faq-flex-container.two-column-desktop .mobile-only-item {
-      display: none !important;
+      display: none ;
     }
 
     /* Last item in each column should have no bottom margin but keep border for visual consistency */
     .faq-flex-container.two-column-desktop .faq-column-1 .faq-item:last-child,
     .faq-flex-container.two-column-desktop .faq-column-2 .faq-item:last-child {
-      margin-bottom: 0 !important;
+      margin-bottom: 0 ;
       /* Keep border-bottom for visual consistency in two-column layout */
     }
 
@@ -584,7 +584,7 @@
 
     /* Individual Item Borders */
     .faq-container.individual-borders {
-      border: none !important;
+      border: none ;
     }
 
     .faq-container.individual-borders .faq-item {
@@ -598,17 +598,17 @@
     }
 
     .faq-container.individual-borders .faq-item:last-child {
-      margin-bottom: 0 !important;
+      margin-bottom: 0 ;
     }
 
     /* Last item in each column with individual borders - keep all borders intact */
     .faq-flex-container.two-column-desktop .faq-container.individual-borders .faq-item:last-child {
-      margin-bottom: 0 !important;
+      margin-bottom: 0 ;
       /* Keep all borders intact for individual border style */
     }
 
     .faq-container.individual-borders .faq-question {
-      padding: var(--question-padding-top, 15px) var(--question-padding-right, 20px) var(--question-padding-bottom, 15px) var(--question-padding-left, 20px) !important;
+      padding: var(--question-padding-top, 15px) var(--question-padding-right, 20px) var(--question-padding-bottom, 15px) var(--question-padding-left, 20px) ;
     }
   }
   
@@ -625,32 +625,32 @@
     
     /* Reset two-column layout on mobile - hide second column */
     .faq-flex-container.two-column-desktop .faq-two-columns {
-      display: block !important;
-      gap: 0 !important;
+      display: block ;
+      gap: 0 ;
     }
 
     .faq-flex-container.two-column-desktop .faq-column-1 {
-      width: 100% !important;
-      flex: none !important;
+      width: 100% ;
+      flex: none ;
     }
 
     .faq-flex-container.two-column-desktop .faq-column-2 {
-      display: none !important;
+      display: none ;
     }
 
     /* Show mobile-only items on mobile */
     .faq-flex-container.two-column-desktop .mobile-only-item {
-      display: block !important;
+      display: block ;
     }
     
     .store-faq-heading {
-      font-size: {{ section.settings.heading_font_size_mobile }}px !important;
+      font-size: {{ section.settings.heading_font_size_mobile }}px ;
       line-height: 1.2;
       letter-spacing: var(--letter-spacing-heading);
     }
     
     .store-faq-subtitle {
-      font-size: {{ section.settings.subtitle_font_size_mobile }}px !important;
+      font-size: {{ section.settings.subtitle_font_size_mobile }}px ;
       max-width: 100%;
       margin-left: auto;
       margin-right: auto;
@@ -658,19 +658,19 @@
     
     .store-faq .faq-question {
       padding: var(--question-padding-top, 15px) var(--question-padding-right, 20px) var(--question-padding-bottom, 15px) var(--question-padding-left, 20px);
-      font-size: {{ section.settings.question_font_size_mobile }}px !important;
+      font-size: {{ section.settings.question_font_size_mobile }}px ;
       align-items: flex-start;
       text-align: left;
     }
 
     .faq-container.individual-borders .faq-question {
-      padding: var(--question-padding-top, 15px) var(--question-padding-right, 20px) var(--question-padding-bottom, 15px) var(--question-padding-left, 20px) !important;
-      align-items: flex-start !important;
-      text-align: left !important;
+      padding: var(--question-padding-top, 15px) var(--question-padding-right, 20px) var(--question-padding-bottom, 15px) var(--question-padding-left, 20px) ;
+      align-items: flex-start ;
+      text-align: left ;
     }
     
     .store-faq .faq-question.mobile-font {
-      font-size: {{ section.settings.question_font_size_mobile }}px !important;
+      font-size: {{ section.settings.question_font_size_mobile }}px ;
     }
     
     .store-faq .faq-toggle {
@@ -678,11 +678,11 @@
     }
     
     .store-faq .faq-answer {
-      font-size: {{ section.settings.answer_font_size_mobile }}px !important;
+      font-size: {{ section.settings.answer_font_size_mobile }}px ;
     }
     
     .store-faq .faq-answer.mobile-font {
-      font-size: {{ section.settings.answer_font_size_mobile }}px !important;
+      font-size: {{ section.settings.answer_font_size_mobile }}px ;
     }
     
     .store-faq .faq-item.active .faq-answer {
@@ -691,7 +691,7 @@
     
     /* Individual Item Borders on Mobile */
     .faq-container.individual-borders {
-      border: none !important;
+      border: none ;
     }
 
     .faq-container.individual-borders .faq-item {

@@ -95,7 +95,7 @@
 }
 
 .contained-section--dashed-border {
-  border-style: dashed !important;
+  border-style: dashed ;
 }
 
 /* Shadow variants */
@@ -186,7 +186,7 @@
     --local-shadow: none;
     --local-border-width: 1px;
     --local-border-color: #000000;
-    background: #FFFFFF !important;
+    background: #FFFFFF ;
     --local-background: #FFFFFF;
     --local-overlay-background: #FFFFFF;
   }

@@ -151,12 +151,12 @@
   .custom-benefits-section-wrapper {
     {% if section.settings.use_theme_colors %}
       {% if settings.global_section_use_gradient_background %}
-        background: var(--gradient-background) !important;
+        background: var(--gradient-background) ;
       {% else %}
-        background-color: {{ settings.global_section_background_color }} !important;
+        background-color: {{ settings.global_section_background_color }} ;
       {% endif %}
     {% else %}
-      background: {{ section.settings.section_background | default: '#FFFFFF' }} !important;
+      background: {{ section.settings.section_background | default: '#FFFFFF' }} ;
     {% endif %}
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -183,22 +183,22 @@
   .custom-benefits-section .custom-accent-text,
   .custom-benefits-section-wrapper .custom-accent-text {
     {% comment %} Always apply core accent text styling {% endcomment %}
-    padding: 2px 4px !important;
-    margin: -2px -4px !important;
-    display: inline-block !important;
-    margin-left: {{ section.settings.accent_text_margin_left }}px !important;
+    padding: 2px 4px ;
+    margin: -2px -4px ;
+    display: inline-block ;
+    margin-left: {{ section.settings.accent_text_margin_left }}px ;
     
     {% comment %} Check for gradient first - it works regardless of global/local settings {% endcomment %}
     {% if section.settings.use_accent_gradient %}
-      background: {{ section.settings.accent_text_gradient }} !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      color: transparent !important;
-      line-height: 1.3 !important;
+      background: {{ section.settings.accent_text_gradient }} ;
+      -webkit-background-clip: text ;
+      -webkit-text-fill-color: transparent ;
+      background-clip: text ;
+      color: transparent ;
+      line-height: 1.3 ;
     {% else %}
       {% comment %} Apply solid color based on global or local settings {% endcomment %}
-      color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.accent_color }}{% endif %} !important;
+      color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.accent_color }}{% endif %} ;
     {% endif %}
     
     {% if section.settings.override_global_accent %}
@@ -206,32 +206,32 @@
       {% if section.settings.accent_font_family != 'inherit' %}
         {% case section.settings.accent_font_family %}
           {% when 'serif' %}
-            font-family: serif !important;
+            font-family: serif ;
           {% when 'Georgia Pro' %}
-            font-family: 'Georgia Pro', Georgia, serif !important;
+            font-family: 'Georgia Pro', Georgia, serif ;
           {% when 'Bodoni Moda' %}
-            font-family: 'Bodoni Moda', Georgia, serif !important;
+            font-family: 'Bodoni Moda', Georgia, serif ;
           {% when 'Instrument Serif' %}
-            font-family: 'Instrument Serif', Georgia, serif !important;
+            font-family: 'Instrument Serif', Georgia, serif ;
           {% when 'DM Serif Text' %}
-            font-family: 'DM Serif Text', Georgia, serif !important;
+            font-family: 'DM Serif Text', Georgia, serif ;
           {% when 'Nothing You Could Do' %}
-            font-family: 'Nothing You Could Do', cursive !important;
+            font-family: 'Nothing You Could Do', cursive ;
         {% endcase %}
       {% else %}
-        font-family: var(--font-accent-family, var(--font-body-family)) !important;
+        font-family: var(--font-accent-family, var(--font-body-family)) ;
       {% endif %}
       
-      font-style: {{ section.settings.accent_font_style | default: 'normal' }} !important;
-      font-weight: {% if section.settings.accent_font_weight != 'inherit' %}{{ section.settings.accent_font_weight }}{% else %}var(--font-accent-weight, inherit){% endif %} !important;
+      font-style: {{ section.settings.accent_font_style | default: 'normal' }} ;
+      font-weight: {% if section.settings.accent_font_weight != 'inherit' %}{{ section.settings.accent_font_weight }}{% else %}var(--font-accent-weight, inherit){% endif %} ;
       
     {% else %}
       {% comment %} Use global accent typography system {% endcomment %}
-      font-family: var(--font-accent-family, var(--font-body-family)) !important;
-      font-style: var(--font-accent-style, normal) !important;
-      font-weight: var(--font-accent-weight, inherit) !important;
-      letter-spacing: var(--font-accent-letter-spacing, inherit) !important;
-      text-transform: var(--font-accent-text-transform, none) !important;
+      font-family: var(--font-accent-family, var(--font-body-family)) ;
+      font-style: var(--font-accent-style, normal) ;
+      font-weight: var(--font-accent-weight, inherit) ;
+      letter-spacing: var(--font-accent-letter-spacing, inherit) ;
+      text-transform: var(--font-accent-text-transform, none) ;
     {% endif %}
   }
   
@@ -239,31 +239,31 @@
   .custom-benefits-section .product-benefits-heading,
   .custom-benefits-section-wrapper .product-benefits-heading,
   .custom-benefits-section-wrapper h2.product-benefits-heading {
-    font-size: {{ section.settings.heading_size_mobile }}px !important;
-    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.heading_color }}{% endif %} !important;
-    letter-spacing: var(--letter-spacing-heading) !important;
-    line-height: 1.1 !important;
-    font-weight: var(--font-weight-bold) !important;
-    margin-top: 0px !important;
-    margin-bottom: 12px !important;
+    font-size: {{ section.settings.heading_size_mobile }}px ;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.heading_color }}{% endif %} ;
+    letter-spacing: var(--letter-spacing-heading) ;
+    line-height: 1.1 ;
+    font-weight: var(--font-weight-bold) ;
+    margin-top: 0px ;
+    margin-bottom: 12px ;
   }
   
   /* Enhanced specificity for subtitle */
   .custom-benefits-section .custom-subtitle,
   .custom-benefits-section-wrapper .custom-subtitle {
-    font-size: {{ section.settings.subtitle_size_mobile }}px !important;
+    font-size: {{ section.settings.subtitle_size_mobile }}px ;
     letter-spacing: var(--letter-spacing-body);
-    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.subtitle_color }}{% endif %} !important;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.subtitle_color }}{% endif %} ;
   }
   
   /* Enhanced specificity for benefit titles */
   .custom-benefits-section .custom-benefit-title,
   .custom-benefits-section-wrapper .custom-benefit-title,
   .custom-benefits-section-wrapper h3.custom-benefit-title {
-    font-size: {{ section.settings.benefit_title_size_mobile }}px !important;
-    letter-spacing: var(--letter-spacing-body) !important;
-    margin-bottom: 0px !important;
-    font-weight: var(--font-weight-bold) !important;
+    font-size: {{ section.settings.benefit_title_size_mobile }}px ;
+    letter-spacing: var(--letter-spacing-body) ;
+    margin-bottom: 0px ;
+    font-weight: var(--font-weight-bold) ;
   }
   
   /* Force benefit title colors to override inline styles */
@@ -273,7 +273,7 @@
         .custom-benefits-section [data-block-id="{{ block.id }}"] .custom-benefit-title,
         .custom-benefits-section-wrapper [data-block-id="{{ block.id }}"] .custom-benefit-title,
         .custom-benefits-section-wrapper [data-block-id="{{ block.id }}"] h3.custom-benefit-title {
-          color: {{ block.settings.benefit_color | default: section.settings.accent_color }} !important;
+          color: {{ block.settings.benefit_color | default: section.settings.accent_color }} ;
         }
       {% endif %}
     {% endfor %}
@@ -281,7 +281,7 @@
     .custom-benefits-section .custom-benefit-title,
     .custom-benefits-section-wrapper .custom-benefit-title,
     .custom-benefits-section-wrapper h3.custom-benefit-title {
-      color: {{ settings.global_section_background_color }} !important;
+      color: {{ settings.global_section_background_color }} ;
     }
   {% endunless %}
   
@@ -292,7 +292,7 @@
     html body .custom-benefits-section-wrapper h3.custom-benefit-title,
     html body .custom-benefits-section .custom-benefit-item .custom-benefit-title,
     html body .custom-benefits-section-wrapper .custom-benefit-item .custom-benefit-title {
-      color: {{ section.settings.accent_color }} !important;
+      color: {{ section.settings.accent_color }} ;
     }
     
     /* Individual benefit color overrides */
@@ -300,7 +300,7 @@
       {% if block.type == 'benefit' and block.settings.benefit_color != blank %}
         html body .custom-benefits-section .custom-benefit-item:nth-child({{ forloop.index }}) .custom-benefit-title,
         html body .custom-benefits-section-wrapper .custom-benefit-item:nth-child({{ forloop.index }}) .custom-benefit-title {
-          color: {{ block.settings.benefit_color }} !important;
+          color: {{ block.settings.benefit_color }} ;
         }
       {% endif %}
     {% endfor %}
@@ -310,14 +310,14 @@
     html body .custom-benefits-section-wrapper h3.custom-benefit-title,
     html body .custom-benefits-section .custom-benefit-item .custom-benefit-title,
     html body .custom-benefits-section-wrapper .custom-benefit-item .custom-benefit-title {
-      color: {{ settings.global_section_background_color }} !important;
+      color: {{ settings.global_section_background_color }} ;
     }
   {% endunless %}
   
   /* Enhanced specificity for benefit descriptions */
   .custom-benefits-section .custom-benefit-description,
   .custom-benefits-section-wrapper .custom-benefit-description {
-    font-size: {{ section.settings.benefit_description_size_mobile }}px !important;
+    font-size: {{ section.settings.benefit_description_size_mobile }}px ;
     letter-spacing: var(--letter-spacing-body);
   }
   
@@ -325,39 +325,39 @@
   .custom-benefits-section .custom-benefits-list,
   .custom-benefits-section-wrapper .custom-benefits-list {
     {% if section.settings.use_theme_colors %}
-      background: {{ settings.global_accent_text_gradient_dark }} !important;
+      background: {{ settings.global_accent_text_gradient_dark }} ;
     {% else %}
-      background: {{ section.settings.list_background | default: '#FFFFFF' }} !important;
+      background: {{ section.settings.list_background | default: '#FFFFFF' }} ;
     {% endif %}
-    border-radius: {{ section.settings.list_border_radius }}px !important;
-    padding: 20px !important;
-    max-width: 450px !important;
-    margin: 0 auto !important;
-    border: 1px solid {{ section.settings.border_color }} !important;
+    border-radius: {{ section.settings.list_border_radius }}px ;
+    padding: 20px ;
+    max-width: 450px ;
+    margin: 0 auto ;
+    border: 1px solid {{ section.settings.border_color }} ;
   }
   
   @media screen and (min-width: 768px) {
     .custom-benefits-section .product-benefits-heading,
     .custom-benefits-section-wrapper .product-benefits-heading,
     .custom-benefits-section-wrapper h2.product-benefits-heading {
-      font-size: {{ section.settings.heading_size_desktop }}px !important;
-      letter-spacing: var(--letter-spacing-heading) !important;
+      font-size: {{ section.settings.heading_size_desktop }}px ;
+      letter-spacing: var(--letter-spacing-heading) ;
     }
     
     .custom-benefits-section .custom-subtitle,
     .custom-benefits-section-wrapper .custom-subtitle {
-      font-size: {{ section.settings.subtitle_size_desktop }}px !important;
+      font-size: {{ section.settings.subtitle_size_desktop }}px ;
     }
     
     .custom-benefits-section .custom-benefit-title,
     .custom-benefits-section-wrapper .custom-benefit-title,
     .custom-benefits-section-wrapper h3.custom-benefit-title {
-      font-size: {{ section.settings.benefit_title_size_desktop }}px !important;
+      font-size: {{ section.settings.benefit_title_size_desktop }}px ;
     }
     
     .custom-benefits-section .custom-benefit-description,
     .custom-benefits-section-wrapper .custom-benefit-description {
-      font-size: {{ section.settings.benefit_description_size_desktop }}px !important;
+      font-size: {{ section.settings.benefit_description_size_desktop }}px ;
     }
   }
   
@@ -371,11 +371,11 @@
   }
   
   .custom-video-element {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    border-radius: 8px !important;
-    background: #000 !important;
+    width: 100% ;
+    height: auto ;
+    display: block ;
+    border-radius: 8px ;
+    background: #000 ;
   }
   
   /* Responsive video styling */

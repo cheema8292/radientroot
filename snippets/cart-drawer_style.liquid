@@ -88,31 +88,31 @@
   /* Override global accent color for cart buttons */
   .cart-drawer .quantity__button,
   .cart-drawer .cart-remove-button {
-    background-color: transparent !important;
-    border-color: #E2E2E2 !important;
-    color: currentColor !important;
+    background-color: transparent ;
+    border-color: #E2E2E2 ;
+    color: currentColor ;
   }
 
   .cart-drawer .quantity__button:focus,
   .cart-drawer .quantity__button:active,
   .cart-drawer .cart-remove-button:focus,
   .cart-drawer .cart-remove-button:active {
-    outline: none !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
+    outline: none ;
+    background-color: transparent ;
+    box-shadow: none ;
     -webkit-tap-highlight-color: transparent;
   }
 
   .cart-drawer quantity-input.quantity.cart-quantity .quantity__button:active,
   .cart-drawer quantity-input.quantity.cart-quantity .quantity__button:focus {
-    background-color: #f5f5f5 !important;
+    background-color: #f5f5f5 ;
   }
 
   .cart-drawer .cart-remove-button:hover,
   .cart-drawer .cart-remove-button:active,
   .cart-drawer .cart-remove-button:focus {
     opacity: 0.8;
-    background-color: transparent !important;
+    background-color: transparent ;
   }
 
   /* IMPORTANT: Ensure the .gb-price-drawer-saving class always uses fixed colors regardless of theme settings */
@@ -120,8 +120,8 @@
 
   /*
    .gb-price-drawer-saving {
-   background:rgb(255, 237, 237) !important;
-   color: #FF1717 !important;
+   background:rgb(255, 237, 237) ;
+   color: #FF1717 ;
    }
 */
 
@@ -143,10 +143,10 @@
   }
 
   .cart-drawer .cart__checkout-button {
-    background-color: var(--cart-drawer-checkout-button-background) !important;
-    color: var(--cart-drawer-checkout-button-text-color) !important;
+    background-color: var(--cart-drawer-checkout-button-background) ;
+    color: var(--cart-drawer-checkout-button-text-color) ;
     border-radius: {{ section.settings.cart_drawer_border_radius }}
-    px !important;
+    px ;
   }
 
   /* Additional checkout button text color overrides */
@@ -158,14 +158,14 @@
   .cart-drawer .cart__checkout-button:visited,
   .cart-drawer button[name="add"],
   .cart-drawer input[type="submit"][name="add"] {
-    color: var(--cart-drawer-checkout-button-text-color) !important;
+    color: var(--cart-drawer-checkout-button-text-color) ;
   }
 
   /* Ensure checkout button text elements don't inherit other colors */
   .cart-drawer .cart__checkout-button span,
   .cart-drawer .cart__checkout-button .loading__spinner,
   .cart-drawer .cart__checkout-button .icon {
-    color: var(--cart-drawer-checkout-button-text-color) !important;
+    color: var(--cart-drawer-checkout-button-text-color) ;
   }
 
   .cart-drawer .cart-item__price-wrapper,
@@ -177,17 +177,17 @@
   /* Apply accent color to final price */
   .cart-drawer .cart-item__final-price.product-option,
   .cart-drawer strong.cart-item__final-price {
-    color: var(--cart-drawer-accent-color) !important;
+    color: var(--cart-drawer-accent-color) ;
   }
 
   /* Apply accent color to toggle switch */
   .cart-drawer .gb-shipping-protection-button input:checked + .slider {
-    background-color: var(--cart-drawer-accent-color) !important;
+    background-color: var(--cart-drawer-accent-color) ;
   }
 
   /* Apply accent color to toggle switch on focus */
   .cart-drawer .gb-shipping-protection-button input:focus + .slider {
-    box-shadow: 0 0 1px var(--cart-drawer-accent-color) !important;
+    box-shadow: 0 0 1px var(--cart-drawer-accent-color) ;
   }
 
   .cart-drawer .free-product-progress-bar {
@@ -208,25 +208,25 @@
   .cart-drawer .cart-item__image,
   .cart-drawer .cart-item__image-container {
     border-radius: {{ section.settings.cart_drawer_image_border_radius |  append: 'px' }}
-     !important;
+     ;
   }
 
   {% comment %} Cart Customization Mode - Developer Mode {% endcomment %}
 {% if section.settings.cart_customization_mode %}
   /* Cart Customization Mode: Keep drawer always visible for easier theme development */
   cart-drawer.drawer {
-    visibility: visible !important;
-    opacity: 1 !important;
+    visibility: visible ;
+    opacity: 1 ;
   }
 
   cart-drawer .cart-drawer__overlay {
-    background-color: rgba(0, 0, 0, 0.1) !important;
-    pointer-events: none !important;
+    background-color: rgba(0, 0, 0, 0.1) ;
+    pointer-events: none ;
   }
 
   cart-drawer .drawer__inner {
-    transform: translateX(0) !important;
-    transition: none !important;
+    transform: translateX(0) ;
+    transition: none ;
   }
 {% endif %}
 
@@ -244,9 +244,9 @@
 
 /* Override desktop flex layout for cart drawer to stack payment icons below button */
 .cart-drawer .cart__ctas {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0 !important;
+  display: flex ;
+  flex-direction: column ;
+  gap: 0 ;
 }
 
 .cart-drawer-payment-icons .payment-icons-container {
@@ -281,8 +281,8 @@
 
 /* Fix quantity popover to use cart drawer colors instead of global theme colors */
 .cart-drawer quantity-popover .quantity {
-  background: var(--cart-drawer-product-bg) !important;
-  color: var(--cart-drawer-primary-text-color) !important;
+  background: var(--cart-drawer-product-bg) ;
+  color: var(--cart-drawer-primary-text-color) ;
 }
 
 /* Ensure quantity popover text elements inherit the cart drawer text color */
@@ -325,7 +325,7 @@
 
 /* Additional specific override for drawer heading */
 .cart-drawer .drawer__heading {
-  color: var(--cart-drawer-primary-text-color) !important;
+  color: var(--cart-drawer-primary-text-color) ;
 }
 
 /* Make sure links respect cart drawer text color */
@@ -337,7 +337,7 @@
 .cart-drawer .gb-cart-drawer-lb td.cart-item__details a.cart-item__name,
 .cart-drawer .cart-item__details a.cart-item__name,
 .cart-drawer a.cart-item__name {
-  color: var(--cart-drawer-primary-text-color) !important;
+  color: var(--cart-drawer-primary-text-color) ;
 }
 
 /* Secondary text elements */
@@ -349,14 +349,14 @@
 
 /* Cart total item badge - inverted colors for contrast */
 .cart-drawer span.gb-cart-total-item {
-  background-color: var(--cart-drawer-primary-text-color) !important;
-  color: var(--cart-drawer-primary-background-color) !important;
+  background-color: var(--cart-drawer-primary-text-color) ;
+  color: var(--cart-drawer-primary-background-color) ;
 }
 
 /* Checkout button text color override */
 .cart-drawer .cart__checkout-button,
 .cart-drawer .cart__checkout-button * {
-  color: var(--cart-drawer-checkout-button-text-color) !important;
+  color: var(--cart-drawer-checkout-button-text-color) ;
 }
 
 /* Shipping protection text color override */
@@ -370,8 +370,8 @@
 .cart-drawer .free-shipping-main svg polygon,
 .cart-drawer .free-shipping-main svg g,
 .cart-drawer .free-shipping-main i {
-  fill: var(--cart-drawer-fs-icon-default-color) !important;
-  color: var(--cart-drawer-fs-icon-default-color) !important;
+  fill: var(--cart-drawer-fs-icon-default-color) ;
+  color: var(--cart-drawer-fs-icon-default-color) ;
 }
 
 /* Free shipping icon color overrides - Active state */
@@ -382,8 +382,8 @@
 .cart-drawer .free-shipping-main.free-shipping-main-color svg polygon,
 .cart-drawer .free-shipping-main.free-shipping-main-color svg g,
 .cart-drawer .free-shipping-main.free-shipping-main-color i {
-  fill: var(--cart-drawer-fs-icon-active-color) !important;
-  color: var(--cart-drawer-fs-icon-active-color) !important;
+  fill: var(--cart-drawer-fs-icon-active-color) ;
+  color: var(--cart-drawer-fs-icon-active-color) ;
 }
 
 /* Free gift icon color override - Default state */
@@ -394,8 +394,8 @@
 .cart-drawer .free-gift-main svg polygon,
 .cart-drawer .free-gift-main svg g,
 .cart-drawer .free-gift-main i {
-  fill: var(--cart-drawer-fs-icon-default-color) !important;
-  color: var(--cart-drawer-fs-icon-default-color) !important;
+  fill: var(--cart-drawer-fs-icon-default-color) ;
+  color: var(--cart-drawer-fs-icon-default-color) ;
 }
 
 /* Free gift icon color override - Active state */
@@ -406,8 +406,8 @@
 .cart-drawer .free-gift-main.free-gift-main-color svg polygon,
 .cart-drawer .free-gift-main.free-gift-main-color svg g,
 .cart-drawer .free-gift-main.free-gift-main-color i {
-  fill: var(--cart-drawer-fs-icon-active-color) !important;
-  color: var(--cart-drawer-fs-icon-active-color) !important;
+  fill: var(--cart-drawer-fs-icon-active-color) ;
+  color: var(--cart-drawer-fs-icon-active-color) ;
 }
 
 
@@ -416,11 +416,11 @@
 
 /* Item saving badge colors - customizable when theme colors are off */.gb-price-drawer-saving {
   {% if section.settings.use_theme_colors_cart_drawer %}
-    background: rgb(255, 236, 236) !important;
-    color: #FF1717 !important;
+    background: rgb(255, 236, 236) ;
+    color: #FF1717 ;
   {% else %}
-    background-color: var(--cart-drawer-item-saving-background) !important;
-    color: var(--cart-drawer-item-saving-color) !important;
+    background-color: var(--cart-drawer-item-saving-background) ;
+    color: var(--cart-drawer-item-saving-color) ;
   {% endif %}
 }
 
@@ -454,7 +454,7 @@
 
 .cart-drawer .gb-shipping-protection .complete-check {
   display: none;
-  color: white !important;
+  color: white ;
   position: absolute;
   top: 4px;
   left: 5px;
@@ -556,7 +556,7 @@ button.cart-remove-button {
 }
 
 .is-loading {
-  opacity: 0.8 !important;
+  opacity: 0.8 ;
 }
 
 .upsell-block-description,
@@ -566,7 +566,7 @@ button.cart-remove-button {
   text-align: left;
   font-size: 14px;
   letter-spacing: var(--letter-spacing-body);
-  font-weight: var(--font-weight-semibold) !important;
+  font-weight: var(--font-weight-semibold) ;
 }
 
 @media screen and (max-width: 749px) {
@@ -681,7 +681,7 @@ button.cart-remove-button {
 .is-empty .upsell-block-description,
 .is-empty .upsell_slider > span.slide_item,
 .is-empty .dots-and-arrows {
-  display: none !important;
+  display: none ;
 }
 
 

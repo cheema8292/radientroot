@@ -77,7 +77,7 @@
           <div class="comment-left" style="flex: 1;">
             <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
               <div class="username" style="
-                font-weight: var(--font-weight-bold) !important;
+                font-weight: var(--font-weight-bold) ;
                 font-size: {{ block.settings.username_font_size }}px;
                 letter-spacing: var(--letter-spacing-body);
                 color: {{ block.settings.username_color }};
@@ -171,20 +171,20 @@
 }
 
 .tiktok-comment-block .heart-button:hover .heart-icon {
-  stroke: #fe2c55 !important;
+  stroke: #fe2c55 ;
 }
 
 .tiktok-comment-block .reply-button:hover {
-  color: #161823 !important;
+  color: #161823 ;
 }
 
 @media (max-width: 550px) {
   .tiktok-comment-block .comment-meta {
-    gap: 12px !important;
+    gap: 12px ;
   }
   
   .tiktok-comment-block .like-section {
-    margin-left: 8px !important;
+    margin-left: 8px ;
   }
 }
 </style> 

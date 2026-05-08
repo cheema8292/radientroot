@@ -4,17 +4,17 @@ function applyFontWeightOverrides(){const existingStyle=document.getElementById(
 const style=document.createElement('style');style.id='font-weight-overrides';style.textContent=`
     /* Regular weight elements */
     body, p, div, input, textarea, select {
-      font-weight: var(--font-weight-regular) !important;
+      font-weight: var(--font-weight-regular) ;
     }
     
     /* Semi-bold elements */
     h3, h4, h5, h6, th, .semi-bold {
-      font-weight: var(--font-weight-semibold) !important;
+      font-weight: var(--font-weight-semibold) ;
     }
     
     /* Bold elements */
     h1, h2, strong, b, .bold, .heading, .btn--primary, .btn--secondary {
-      font-weight: var(--font-weight-bold) !important;
+      font-weight: var(--font-weight-bold) ;
     }
   `;document.head.appendChild(style)}
 function applyColorSettings(){const textColor=document.documentElement.getAttribute('data-global-text-color')||'#000000';const mainAccent=document.documentElement.getAttribute('data-global-main-accent')||'#ef4a65';const lightAccent=document.documentElement.getAttribute('data-global-light-accent')||'#ffeaee';document.documentElement.style.setProperty('--color-text',textColor);document.documentElement.style.setProperty('--color-main-accent',mainAccent);document.documentElement.style.setProperty('--color-light-accent',lightAccent);document.body.classList.add('global-colors-applied')}

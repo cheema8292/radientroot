@@ -244,7 +244,7 @@
   border-radius: {{ label_border_radius }}px;
   padding: {{ label_padding_v | times: 0.2 | round }}px {{ label_padding_h | times: 0.75 | round }}px;
   display: flex;
-  font-weight: var(--font-weight-bold) !important;
+  font-weight: var(--font-weight-bold) ;
   align-items: center;
   gap: 4px;
   border: 1px solid {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_modify: 'alpha', 0.2 }}{% else %}{{ label_border_color }}{% endif %};
@@ -283,7 +283,7 @@
 }
 
 .product-labels-{{ block.id }} .product-name {
-  font-weight: var(--font-weight-bold) !important;
+  font-weight: var(--font-weight-bold) ;
   color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ product_name_color }}{% endif %};
   font-size: {{ product_name_font_size | times: 0.875 | round }}px;
 }
@@ -301,62 +301,62 @@
 {% if label_1_drop_shadow_enabled %}
 {% assign shadow_1_alpha = label_1_shadow_opacity | divided_by: 100.0 %}
 .product-labels-{{ block.id }} .label-1 {
-  box-shadow: {{ label_1_shadow_offset_x }}px {{ label_1_shadow_offset_y }}px {{ label_1_shadow_blur }}px {{ label_1_shadow_spread }}px {{ label_1_shadow_color | color_modify: 'alpha', shadow_1_alpha }} !important;
+  box-shadow: {{ label_1_shadow_offset_x }}px {{ label_1_shadow_offset_y }}px {{ label_1_shadow_blur }}px {{ label_1_shadow_spread }}px {{ label_1_shadow_color | color_modify: 'alpha', shadow_1_alpha }} ;
 }
 {% endif %}
 
 {% if label_2_drop_shadow_enabled %}
 {% assign shadow_2_alpha = label_2_shadow_opacity | divided_by: 100.0 %}
 .product-labels-{{ block.id }} .label-2 {
-  box-shadow: {{ label_2_shadow_offset_x }}px {{ label_2_shadow_offset_y }}px {{ label_2_shadow_blur }}px {{ label_2_shadow_spread }}px {{ label_2_shadow_color | color_modify: 'alpha', shadow_2_alpha }} !important;
+  box-shadow: {{ label_2_shadow_offset_x }}px {{ label_2_shadow_offset_y }}px {{ label_2_shadow_blur }}px {{ label_2_shadow_spread }}px {{ label_2_shadow_color | color_modify: 'alpha', shadow_2_alpha }} ;
 }
 {% endif %}
 
 {% if label_3_drop_shadow_enabled %}
 {% assign shadow_3_alpha = label_3_shadow_opacity | divided_by: 100.0 %}
 .product-labels-{{ block.id }} .label-3 {
-  box-shadow: {{ label_3_shadow_offset_x }}px {{ label_3_shadow_offset_y }}px {{ label_3_shadow_blur }}px {{ label_3_shadow_spread }}px {{ label_3_shadow_color | color_modify: 'alpha', shadow_3_alpha }} !important;
+  box-shadow: {{ label_3_shadow_offset_x }}px {{ label_3_shadow_offset_y }}px {{ label_3_shadow_blur }}px {{ label_3_shadow_spread }}px {{ label_3_shadow_color | color_modify: 'alpha', shadow_3_alpha }} ;
 }
 {% endif %}
 
 /* Individual background colors and text colors for each label */
 .product-labels-{{ block.id }} .label-1 {
-  background-color: {{ label_1_background_color }} !important;
-  border-color: {{ label_1_border_color }} !important;
+  background-color: {{ label_1_background_color }} ;
+  border-color: {{ label_1_border_color }} ;
 }
 
 .product-labels-{{ block.id }} .label-1 .product-name {
-  color: {{ label_1_text_color }} !important;
+  color: {{ label_1_text_color }} ;
 }
 
 .product-labels-{{ block.id }} .label-1 .serving-info {
-  color: {{ label_1_serving_text_color }} !important;
+  color: {{ label_1_serving_text_color }} ;
 }
 
 .product-labels-{{ block.id }} .label-2 {
-  background-color: {{ label_2_background_color }} !important;
-  border-color: {{ label_2_border_color }} !important;
+  background-color: {{ label_2_background_color }} ;
+  border-color: {{ label_2_border_color }} ;
 }
 
 .product-labels-{{ block.id }} .label-2 .product-name {
-  color: {{ label_2_text_color }} !important;
+  color: {{ label_2_text_color }} ;
 }
 
 .product-labels-{{ block.id }} .label-2 .serving-info {
-  color: {{ label_2_serving_text_color }} !important;
+  color: {{ label_2_serving_text_color }} ;
 }
 
 .product-labels-{{ block.id }} .label-3 {
-  background-color: {{ label_3_background_color }} !important;
-  border-color: {{ label_3_border_color }} !important;
+  background-color: {{ label_3_background_color }} ;
+  border-color: {{ label_3_border_color }} ;
 }
 
 .product-labels-{{ block.id }} .label-3 .product-name {
-  color: {{ label_3_text_color }} !important;
+  color: {{ label_3_text_color }} ;
 }
 
 .product-labels-{{ block.id }} .label-3 .serving-info {
-  color: {{ label_3_serving_text_color }} !important;
+  color: {{ label_3_serving_text_color }} ;
 }
 
 /* Responsive design */

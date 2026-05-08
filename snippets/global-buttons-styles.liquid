@@ -20,7 +20,7 @@
       .theme-button:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling),
       .guarantee-section__cta:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling),
       .custom-hero__button:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling) {
-        border-bottom: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) solid var(--global-button-bottom-border-color) !important;
+        border-bottom: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) solid var(--global-button-bottom-border-color) ;
       }
   
       /* 3D Button Press Effect */
@@ -43,7 +43,7 @@
       .guarantee-section__cta:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling):active,
       .custom-hero__button:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling):active {
         transform: translateY(calc(var(--global-button-bottom-border-width, 0px) / 2));
-        border-bottom-width: calc((var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) / 2) !important;
+        border-bottom-width: calc((var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) / 2) ;
       }
   
     {% else %}
@@ -66,24 +66,24 @@
       .theme-button:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling),
       .guarantee-section__cta:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling),
       .custom-hero__button:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling) {
-        padding: var(--global-button-padding-y, 12px) 20px !important;
-        letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-        font-family: var(--button-font-family) !important;
+        padding: var(--global-button-padding-y, 12px) 20px ;
+        letter-spacing: var(--global-button-letter-spacing, 1px) ;
+        font-family: var(--button-font-family) ;
         cursor: pointer;
         transition: all 0.3s ease;
-        text-decoration: none !important;
+        text-decoration: none ;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        box-shadow: none !important;
+        box-shadow: none ;
         outline: none;
-        font-size: var(--global-button-font-size, 14px) !important;
-        font-weight: var(--conditional-button-font-weight, var(--global-button-font-weight, 700)) !important;
-        text-transform: var(--global-button-text-transform, none) !important;
-        border-radius: var(--global-button-radius, 8px) !important;
-        border: var(--global-button-border-width, 0px) solid var(--global-button-border-color) !important;
-        border-bottom: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) solid var(--global-button-bottom-border-color) !important;
+        font-size: var(--global-button-font-size, 14px) ;
+        font-weight: var(--conditional-button-font-weight, var(--global-button-font-weight, 700)) ;
+        text-transform: var(--global-button-text-transform, none) ;
+        border-radius: var(--global-button-radius, 8px) ;
+        border: var(--global-button-border-width, 0px) solid var(--global-button-border-color) ;
+        border-bottom: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) solid var(--global-button-bottom-border-color) ;
         position: relative;
         overflow: hidden;
       }
@@ -108,7 +108,7 @@
       .guarantee-section__cta:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling):active,
       .custom-hero__button:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling):active {
         transform: translateY(calc(var(--global-button-bottom-border-width, 0px) / 2));
-        border-bottom-width: calc((var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) / 2) !important;
+        border-bottom-width: calc((var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) / 2) ;
       }
     {% endif %}
 </style>

@@ -88,15 +88,15 @@
   }
 
   .header__menu-item {
-    text-decoration: none !important;
+    text-decoration: none ;
   }
 
   .header__menu-item:hover {
-    text-decoration: none !important;
+    text-decoration: none ;
   }
 
   .header__menu-item.link {
-    text-decoration: none !important;
+    text-decoration: none ;
   }
 
   @media screen and (min-width: 750px) {
@@ -109,8 +109,8 @@
   {% if section.settings.use_theme_colors %}
   details[open] > .header__menu-item,
   details[open]:hover > .header__menu-item {
-    color: {{ settings.global_section_text_color }} !important;
-    text-decoration-color: {{ settings.global_section_text_color }} !important;
+    color: {{ settings.global_section_text_color }} ;
+    text-decoration-color: {{ settings.global_section_text_color }} ;
   }
   {% endif %}
 
@@ -195,21 +195,21 @@
 
   /* ── Cart pill button ── */
   .header__icon--cart {
-    display: inline-flex !important;
+    display: inline-flex ;
     align-items: center;
     gap: 0.5rem;
     border: 1.5px solid currentColor;
     border-radius: 10rem;
-    padding: 0.55rem 1.4rem 0.55rem 1.2rem !important;
+    padding: 0.55rem 1.4rem 0.55rem 1.2rem ;
     opacity: 0.9;
     transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease,
-                box-shadow 0.22s ease !important;
+                box-shadow 0.22s ease ;
     position: relative;
   }
 
   .header__icon--cart:hover {
-    opacity: 1 !important;
-    transform: none !important;
+    opacity: 1 ;
+    transform: none ;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   }
 
@@ -220,8 +220,8 @@
 
   /* Cart count badge — inline in pill */
   .header__icon--cart .cart-count-bubble {
-    position: static !important;
-    transform: none !important;
+    position: static ;
+    transform: none ;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -312,7 +312,7 @@ assign header_gradient = 'var(--gradient-background)'
   .header-wrapper .list-menu__item--link,
   .header-wrapper summary.list-menu__item,
   .header-wrapper .header__active-menu-item {
-    color: rgb(var(--color-drawer-text)) !important;
+    color: rgb(var(--color-drawer-text)) ;
   }
 
   .header-wrapper .header__icon svg,
@@ -323,26 +323,26 @@ assign header_gradient = 'var(--gradient-background)'
 
   /* Specific styling for cart bag icon */
   .cart-bag-icon {
-    fill: none !important;
-    height: 27px !important;
-    width: 27px !important;
-    stroke: rgb(var(--color-drawer-text)) !important;
+    fill: none ;
+    height: 27px ;
+    width: 27px ;
+    stroke: rgb(var(--color-drawer-text)) ;
   }
 
   .cart-bag-icon path,
   .cart-bag-icon line {
-    fill: none !important;
-    stroke: rgb(var(--color-drawer-text)) !important;
+    fill: none ;
+    stroke: rgb(var(--color-drawer-text)) ;
   }
 
   /* Override any icon classes that might interfere */
   svg.cart-bag-icon.icon,
   svg.cart-bag-icon.icon-cart-empty,
   svg.cart-bag-icon.icon-cart-empty-custom {
-    fill: none !important;
-    height: 27px !important;
-    width: 27px !important;
-    stroke: rgb(var(--color-drawer-text)) !important;
+    fill: none ;
+    height: 27px ;
+    width: 27px ;
+    stroke: rgb(var(--color-drawer-text)) ;
   }
 
   svg.cart-bag-icon.icon path,
@@ -351,8 +351,8 @@ assign header_gradient = 'var(--gradient-background)'
   svg.cart-bag-icon.icon line,
   svg.cart-bag-icon.icon-cart-empty line,
   svg.cart-bag-icon.icon-cart-empty-custom line {
-    fill: none !important;
-    stroke: rgb(var(--color-drawer-text)) !important;
+    fill: none ;
+    stroke: rgb(var(--color-drawer-text)) ;
   }
 
   /* Account icon sizing */
@@ -360,18 +360,18 @@ assign header_gradient = 'var(--gradient-background)'
   .header__icon--account account-icon svg,
   .menu-drawer__account .svg-wrapper svg,
   .menu-drawer__account account-icon svg {
-    width: 40px !important;
-    height: 40px !important;
-    fill: currentColor !important;
+    width: 40px ;
+    height: 40px ;
+    fill: currentColor ;
   }
 
   .header__icon--account .svg-wrapper,
   .header__icon--account account-icon,
   .menu-drawer__account .svg-wrapper,
   .menu-drawer__account account-icon {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: inline-flex ;
+    align-items: center ;
+    justify-content: center ;
   }
 
   .header {

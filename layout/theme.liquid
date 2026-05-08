@@ -229,9 +229,9 @@
         {% comment %} Debug: Ensure accent font is declared {% endcomment %}
         --global-accent-font: var(--font-accent-family);
 
-        --font-weight-regular: {{ settings.font_weight_regular | default: 400 }} !important;
-        --font-weight-bold: {{ settings.font_weight_bold }} !important;
-        --font-weight-semibold: {{ settings.font_weight_semibold | default: 600 }} !important;
+        --font-weight-regular: {{ settings.font_weight_regular | default: 400 }} ;
+        --font-weight-bold: {{ settings.font_weight_bold }} ;
+        --font-weight-semibold: {{ settings.font_weight_semibold | default: 600 }} ;
 
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};

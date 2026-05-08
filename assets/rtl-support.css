@@ -33,20 +33,20 @@
 
 [dir="rtl"] .text-left,
 [dir="rtl"] .left {
-  text-align: right !important;
+  text-align: right ;
 }
 
 [dir="rtl"] .text-right,
 [dir="rtl"] .right {
-  text-align: left !important;
+  text-align: left ;
 }
 
 [dir="rtl"] .text-start {
-  text-align: right !important;
+  text-align: right ;
 }
 
 [dir="rtl"] .text-end {
-  text-align: left !important;
+  text-align: left ;
 }
 
 /* ===========================================
@@ -59,19 +59,19 @@
 }
 
 [dir="rtl"] .justify-content-start {
-  justify-content: flex-end !important;
+  justify-content: flex-end ;
 }
 
 [dir="rtl"] .justify-content-end {
-  justify-content: flex-start !important;
+  justify-content: flex-start ;
 }
 
 [dir="rtl"] .align-items-start {
-  align-items: flex-end !important;
+  align-items: flex-end ;
 }
 
 [dir="rtl"] .align-items-end {
-  align-items: flex-start !important;
+  align-items: flex-start ;
 }
 
 /* ===========================================
@@ -109,19 +109,19 @@
    =========================================== */
 
 [dir="rtl"] .float-left {
-  float: right !important;
+  float: right ;
 }
 
 [dir="rtl"] .float-right {
-  float: left !important;
+  float: left ;
 }
 
 [dir="rtl"] .float-start {
-  float: right !important;
+  float: right ;
 }
 
 [dir="rtl"] .float-end {
-  float: left !important;
+  float: left ;
 }
 
 /* ===========================================
@@ -289,7 +289,7 @@
 [dir="rtl"] .field__input,
 [dir="rtl"] .field__select,
 [dir="rtl"] .field__textarea {
-  text-align: right !important;
+  text-align: right ;
   direction: rtl;
 }
 
@@ -633,29 +633,29 @@
    =========================================== */
 
 [dir="rtl"] .rtl-text-right {
-  text-align: right !important;
+  text-align: right ;
 }
 
 [dir="rtl"] .rtl-text-left {
-  text-align: left !important;
+  text-align: left ;
 }
 
 [dir="rtl"] .rtl-float-right {
-  float: right !important;
+  float: right ;
 }
 
 [dir="rtl"] .rtl-float-left {
-  float: left !important;
+  float: left ;
 }
 
 [dir="rtl"] .rtl-margin-right {
-  margin-left: 0 !important;
-  margin-right: 1rem !important;
+  margin-left: 0 ;
+  margin-right: 1rem ;
 }
 
 [dir="rtl"] .rtl-margin-left {
-  margin-right: 0 !important;
-  margin-left: 1rem !important;
+  margin-right: 0 ;
+  margin-left: 1rem ;
 } 
 
 /* ===========================================
@@ -663,19 +663,19 @@
    =========================================== */
 
 [dir="rtl"] .instagram-views-badge {
-  text-align: right !important;
-  float: right !important;
+  text-align: right ;
+  float: right ;
 }
 
 [dir="rtl"] .video-carousel {
-  text-align: right !important;
-  float: right !important;
+  text-align: right ;
+  float: right ;
 }
 
 [dir="rtl"] button.drawer__close {
-  left: 0 !important;
+  left: 0 ;
   width: 100%;
-  translate: -45% !important;
+  translate: -45% ;
 }
 
 [dir="rtl"] .drawer__inner {

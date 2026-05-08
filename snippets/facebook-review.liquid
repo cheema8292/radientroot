@@ -16,7 +16,7 @@
   %}
 {% endcomment %}
 
-<div id="fb-review" class="fb-review" style="margin-top: {{ margin_top | default: 7 }}px !important; margin-bottom: {{ margin_bottom | default: 7 }}px !important;">
+<div id="fb-review" class="fb-review" style="margin-top: {{ margin_top | default: 7 }}px ; margin-bottom: {{ margin_bottom | default: 7 }}px ;">
   <div class="fb-review__header">
     <div class="fb-review__avatar">
       {% if avatar != blank %}
@@ -66,26 +66,26 @@
   <style id="fb-review-styles">
     #fb-review.fb-review {
       font-family: var(--font-body-family-override);
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 100% !important;
-      flex: 1 1 100% !important;
-      box-sizing: border-box !important;
+      width: 100% ;
+      max-width: 100% ;
+      min-width: 100% ;
+      flex: 1 1 100% ;
+      box-sizing: border-box ;
       border-radius: 5.8px;
       background: linear-gradient(to bottom, #ffffff, #f8f9fa);
       box-shadow: 0 0.7px 2.2px rgba(0, 0, 0, 0.1);
-      margin: 7px 0 !important;
+      margin: 7px 0 ;
       padding: 8.5px;
       border: 0.7px solid #dddfe2;
-      display: block !important;
-      float: none !important;
-      left: 0 !important;
-      right: 0 !important;
-      position: relative !important;
+      display: block ;
+      float: none ;
+      left: 0 ;
+      right: 0 ;
+      position: relative ;
     }
     
     #fb-review.fb-review * {
-      box-sizing: border-box !important;
+      box-sizing: border-box ;
       margin: 0;
       padding: 0;
     }
@@ -131,7 +131,7 @@
     }
     
     #fb-review .fb-review__username {
-      font-weight: var(--font-weight-semibold) !important;
+      font-weight: var(--font-weight-semibold) ;
       font-size: {{ username_font_size | default: 10.8 }}px;
       color: #050505;
       margin-bottom: 1.4px;

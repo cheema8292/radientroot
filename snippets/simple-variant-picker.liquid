@@ -547,7 +547,7 @@
                       {% if image_url != blank and block.settings.show_variant_images %}
                         style="background-image: url('{{ image_url }}'); width: var(--swatch-size); height: var(--swatch-size);"
                       {% else %}
-                        style="background-color: {{ color_hex }} !important; width: var(--swatch-size) !important; height: var(--swatch-size) !important;"
+                        style="background-color: {{ color_hex }} ; width: var(--swatch-size) ; height: var(--swatch-size) ;"
                       {% endif %}
                       {% if value_downcase == 'white' %}
                         data-white-swatch
@@ -814,9 +814,9 @@
       .simple-variant-picker__color-swatch[style*='background-image'] {
         border: var(--variant-image-border-width) solid var(--variant-image-border-color);
         border-radius: var(--variant-image-border-radius);
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
+        background-size: cover ;
+        background-position: center ;
+        background-repeat: no-repeat ;
         overflow: hidden;
       }
 
@@ -854,68 +854,68 @@
 
       /* Selected state for variant image color swatches */
       .simple-variant-picker__radio:checked + .simple-variant-picker__color-swatch[style*='background-image'] {
-        border-color: var(--variant-image-selected-border-color) !important;
-        border-width: var(--variant-image-selected-border-width) !important;
+        border-color: var(--variant-image-selected-border-color) ;
+        border-width: var(--variant-image-selected-border-width) ;
         animation: fadeInSelected 0.2s ease-out;
       }
 
       .simple-variant-picker__radio:checked + .simple-variant-picker__color-swatch[style*='background-image']::before {
-        border-color: var(--variant-image-selected-border-color) !important;
-        border-width: var(--variant-image-selected-border-width) !important;
-        top: calc(-1 * var(--variant-image-selected-border-width) - 2px) !important;
-        left: calc(-1 * var(--variant-image-selected-border-width) - 2px) !important;
-        right: calc(-1 * var(--variant-image-selected-border-width) - 2px) !important;
-        bottom: calc(-1 * var(--variant-image-selected-border-width) - 2px) !important;
+        border-color: var(--variant-image-selected-border-color) ;
+        border-width: var(--variant-image-selected-border-width) ;
+        top: calc(-1 * var(--variant-image-selected-border-width) - 2px) ;
+        left: calc(-1 * var(--variant-image-selected-border-width) - 2px) ;
+        right: calc(-1 * var(--variant-image-selected-border-width) - 2px) ;
+        bottom: calc(-1 * var(--variant-image-selected-border-width) - 2px) ;
       }
 
       /* Ensure variant images always take priority over default swatches */
       .simple-variant-picker__color-swatch[style*='background-image'] {
-        background-color: transparent !important;
+        background-color: transparent ;
       }
 
       /* Force variant images to override any external swatch system */
       .simple-variant-picker__color-swatch[style*='url'] {
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
+        background-size: cover ;
+        background-position: center ;
+        background-repeat: no-repeat ;
       }
 
       /* Maximum priority override for variant images */
       .simple-variant-picker .simple-variant-picker__color-swatch[data-image-url] {
-        background-image: attr(data-image-url url) !important;
-        background-color: transparent !important;
+        background-image: attr(data-image-url url) ;
+        background-color: transparent ;
       }
 
       /* Prevent any external CSS from overriding our variant images */
       .simple-variant-picker__color-swatch[style*='background-image'] {
-        background-color: unset !important;
-        background: none !important;
+        background-color: unset ;
+        background: none ;
       }
 
       /* THEME OVERRIDE: Prevent global swatch CSS from interfering */
       .simple-variant-picker .simple-variant-picker__color-swatch.swatch,
       .simple-variant-picker .simple-variant-picker__color-swatch {
-        background: none !important;
-        background-color: transparent !important;
+        background: none ;
+        background-color: transparent ;
       }
 
       /* Force our background images to take priority over theme swatch system */
       .simple-variant-picker .simple-variant-picker__color-swatch[style*='background-image'] {
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-origin: padding-box !important;
+        background-size: cover ;
+        background-position: center ;
+        background-repeat: no-repeat ;
+        background-origin: padding-box ;
       }
 
       /* Override any CSS custom properties that might interfere */
       .simple-variant-picker .simple-variant-picker__color-swatch {
-        --swatch--background: none !important;
+        --swatch--background: none ;
       }
 
       /* Specific override for variant images */
       .simple-variant-picker__color-swatch[style*='url'] {
-        background: var(--variant-image-url) !important;
-        --swatch--background: none !important;
+        background: var(--variant-image-url) ;
+        --swatch--background: none ;
       }
 
       .simple-variant-picker__swatch-label {
@@ -990,28 +990,28 @@
 
       /* ADDITIONAL THEME OVERRIDES - Maximum specificity */
       .simple-variant-picker .simple-variant-picker__color-swatch.has-variant-image {
-        background-color: transparent !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-origin: padding-box !important;
+        background-color: transparent ;
+        background-size: cover ;
+        background-position: center ;
+        background-repeat: no-repeat ;
+        background-origin: padding-box ;
       }
 
       /* Override any potential CSS custom property interference */
       .simple-variant-picker {
-        --swatch--background: none !important;
-        --swatch-input--background: none !important;
+        --swatch--background: none ;
+        --swatch-input--background: none ;
       }
 
       /* Ensure our swatches don't inherit theme swatch properties */
       .simple-variant-picker .simple-variant-picker__color-swatch {
-        background-origin: padding-box !important;
-        forced-color-adjust: none !important;
+        background-origin: padding-box ;
+        forced-color-adjust: none ;
       }
 
       /* Final override for stubborn theme CSS */
       [class*='simple-variant-picker'] .simple-variant-picker__color-swatch[data-image-url] {
-        background-image: var(--variant-image-url) !important;
+        background-image: var(--variant-image-url) ;
       }
 
       /* Styles for non-color variant images */
@@ -1036,10 +1036,10 @@
 
       /* Ensure images inside variant containers fill completely */
       .simple-variant-picker__image-variant img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        border-radius: inherit !important;
+        width: 100% ;
+        height: 100% ;
+        object-fit: cover ;
+        border-radius: inherit ;
       }
 
       .simple-variant-picker__image-variant .simple-variant-picker__variant-text {
@@ -1054,8 +1054,8 @@
       }
 
       .simple-variant-picker__radio:checked + .simple-variant-picker__image-variant {
-        border-color: var(--variant-image-selected-border-color) !important;
-        border-width: var(--variant-image-selected-border-width) !important;
+        border-color: var(--variant-image-selected-border-color) ;
+        border-width: var(--variant-image-selected-border-width) ;
         box-shadow: calc(var(--show-variant-shadows) * 0px) calc(var(--show-variant-shadows) * 2px)
           calc(var(--show-variant-shadows) * 8px) rgba(0, 0, 0, calc(var(--show-variant-shadows) * 0.12));
         animation: fadeInSelected 0.2s ease-out;
@@ -1111,9 +1111,9 @@
           position: absolute;
           top: 0;
           left: 0;
-          width: 100% !important;
-          height: 100% !important;
-          object-fit: cover !important;
+          width: 100% ;
+          height: 100% ;
+          object-fit: cover ;
         }
 
         .simple-variant-picker__image-variant .simple-variant-picker__variant-text {

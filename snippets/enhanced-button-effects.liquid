@@ -170,7 +170,7 @@ input[type="submit"].button-box-shadow,
 .theme-button.button-box-shadow,
 .guarantee-section__cta.button-box-shadow,
 .custom-hero__button.button-box-shadow {
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease ;
   position: relative;
   z-index: 1;
 }
@@ -196,15 +196,15 @@ input[type="submit"].button-box-shadow.intensity-{{ i }},
 .custom-hero__button.button-box-shadow.intensity-{{ i }} {
   {% case i %}
     {% when 1 %}
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) ;
     {% when 2 %}
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) ;
     {% when 3 %}
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) ;
     {% when 4 %}
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) ;
     {% when 5 %}
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) ;
   {% endcase %}
 }
 
@@ -225,18 +225,18 @@ input[type="submit"].button-box-shadow.intensity-{{ i }}:hover,
 .theme-button.button-box-shadow.intensity-{{ i }}:hover,
 .guarantee-section__cta.button-box-shadow.intensity-{{ i }}:hover,
 .custom-hero__button.button-box-shadow.intensity-{{ i }}:hover {
-  transform: translateY(-2px) !important;
+  transform: translateY(-2px) ;
   {% case i %}
     {% when 1 %}
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) ;
     {% when 2 %}
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) ;
     {% when 3 %}
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) ;
     {% when 4 %}
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) ;
     {% when 5 %}
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35) !important;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35) ;
   {% endcase %}
 }
 {% endfor %}
@@ -258,7 +258,7 @@ input[type="submit"].button-box-shadow:active,
 .theme-button.button-box-shadow:active,
 .guarantee-section__cta.button-box-shadow:active,
 .custom-hero__button.button-box-shadow:active {
-  transform: translateY(0) !important;
+  transform: translateY(0) ;
   }
   {% endif %}
   
@@ -296,12 +296,12 @@ input[type="submit"].button-box-shadow:active,
   button.cart-remove-button.intensity-4,
   button.cart-remove-button.intensity-5 {
     /* Reset ALL enhanced effects */
-    box-shadow: none !important;
-    background: var(--button-tertiary-bg, transparent) !important;
-    transform: none !important;
-    position: static !important;
-    transition: opacity 0.2s ease !important;
-    z-index: auto !important;
+    box-shadow: none ;
+    background: var(--button-tertiary-bg, transparent) ;
+    transform: none ;
+    position: static ;
+    transition: opacity 0.2s ease ;
+    z-index: auto ;
   }
   
   .cart-remove-button:hover,
@@ -328,9 +328,9 @@ input[type="submit"].button-box-shadow:active,
   button.cart-remove-button.intensity-3:hover,
   button.cart-remove-button.intensity-4:hover,
   button.cart-remove-button.intensity-5:hover {
-    box-shadow: none !important;
-    transform: none !important;
-    opacity: 0.7 !important;
+    box-shadow: none ;
+    transform: none ;
+    opacity: 0.7 ;
   }
   
   .cart-remove-button:active,
@@ -357,9 +357,9 @@ input[type="submit"].button-box-shadow:active,
   button.cart-remove-button.intensity-3:active,
   button.cart-remove-button.intensity-4:active,
   button.cart-remove-button.intensity-5:active {
-    box-shadow: none !important;
-    transform: none !important;
-    opacity: 0.5 !important;
+    box-shadow: none ;
+    transform: none ;
+    opacity: 0.5 ;
   }
   
   /* Remove any gradient effects that might have been applied */
@@ -372,33 +372,33 @@ input[type="submit"].button-box-shadow:active,
   .button--tertiary.cart-remove-button.gradient-shine-enabled::before,
   button.cart-remove-button.button-gradient-effect::before,
   button.cart-remove-button.gradient-shine-enabled::before {
-    display: none !important;
-    content: none !important;
-    background: none !important;
+    display: none ;
+    content: none ;
+    background: none ;
   }
   
   /* Additional mobile optimizations for box shadow effects */
 @media screen and (max-width: 768px) {
   .button-box-shadow {
     /* Reduce transform distance on mobile for better touch experience */
-    transform: none !important;
+    transform: none ;
   }
   
   .button-box-shadow:hover,
   .button-box-shadow:focus {
-    transform: translateY(-1px) !important;
+    transform: translateY(-1px) ;
   }
 }
 
 /* Print media - remove box shadow effects for better printing */
 @media print {
   .button-box-shadow {
-    box-shadow: none !important;
-    transform: none !important;
+    box-shadow: none ;
+    transform: none ;
   }
   
   .button-gradient-effect::before {
-    display: none !important;
+    display: none ;
   }
 }
 
@@ -417,18 +417,18 @@ input[type="submit"].button-box-shadow:active,
 .btn.disable-global-button-styling.button-box-shadow,
 .btn.disable-global-button-styling.button-gradient-effect {
   /* Reset all enhanced button effects */
-  box-shadow: none !important;
-  background: unset !important;
-  background-image: none !important;
-  background-color: unset !important;
-  transform: none !important;
-  transition: none !important;
-  position: static !important;
-  z-index: auto !important;
+  box-shadow: none ;
+  background: unset ;
+  background-image: none ;
+  background-color: unset ;
+  transform: none ;
+  transition: none ;
+  position: static ;
+  z-index: auto ;
   /* Keep section-specific styles (font-size, border-radius), but reset global font overrides */
-  font-weight: unset !important;
-  letter-spacing: unset !important;
-  text-transform: unset !important;
+  font-weight: unset ;
+  letter-spacing: unset ;
+  text-transform: unset ;
   /* Note: border-radius and font-size are preserved from inline styles */
 }
 
@@ -442,23 +442,23 @@ input[type="submit"].button-box-shadow:active,
 .disable-global-button-styling.intensity-3:hover,
 .disable-global-button-styling.intensity-4:hover,
 .disable-global-button-styling.intensity-5:hover {
-  box-shadow: none !important;
-  background: unset !important;
-  background-image: none !important;
-  background-color: unset !important;
-  transform: none !important;
-  transition: none !important;
+  box-shadow: none ;
+  background: unset ;
+  background-image: none ;
+  background-color: unset ;
+  transform: none ;
+  transition: none ;
 }
 
 /* Reset active states */
 .disable-global-button-styling:active,
 .disable-global-button-styling.button-box-shadow:active,
 .disable-global-button-styling.button-gradient-effect:active {
-  box-shadow: none !important;
-  background: unset !important;
-  background-image: none !important;
-  background-color: unset !important;
-  transform: none !important;
+  box-shadow: none ;
+  background: unset ;
+  background-image: none ;
+  background-color: unset ;
+  transform: none ;
 }
 
 /* Remove any pseudo-elements (like gradient shine effects) */
@@ -466,7 +466,7 @@ input[type="submit"].button-box-shadow:active,
 .disable-global-button-styling::after,
 .disable-global-button-styling.button-gradient-effect::before,
 .disable-global-button-styling.gradient-shine-enabled::before {
-  display: none !important;
-  content: none !important;
+  display: none ;
+  content: none ;
 }
 </style>

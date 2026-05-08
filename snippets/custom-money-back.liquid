@@ -165,7 +165,7 @@
   font-weight: var(--font-weight-semibold);
   margin: 0 0 2px 0;
   line-height: 1.2;
-  color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ title_color | default: "#000" }}{% endif %} !important;
+  color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ title_color | default: "#000" }}{% endif %} ;
   letter-spacing: var(--letter-spacing-body);
 }
 
@@ -173,14 +173,14 @@
   font-size: {{ description_font_size | default: 13 }}px;
   line-height: 1.3;
   margin: 0;
-  color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ text_color | default: "#000" }}{% endif %} !important;
+  color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ text_color | default: "#000" }}{% endif %} ;
   letter-spacing: var(--letter-spacing-body);
 }
 
 @media screen and (max-width: 450px) {
   .custom-badge-container {
-    width: {{ badge_size | default: 50 }}px !important;
-    height: {{ badge_size | default: 50 }}px !important;
+    width: {{ badge_size | default: 50 }}px ;
+    height: {{ badge_size | default: 50 }}px ;
     min-width: 32px;
   }
   

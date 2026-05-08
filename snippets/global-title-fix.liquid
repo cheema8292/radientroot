@@ -28,7 +28,7 @@
   .custom-hero__title,
   .custom-main-heading,
   .reviews-subtitle {
-    color: {{ settings.global_section_text_color }} !important;
+    color: {{ settings.global_section_text_color }} ;
   }
   
   /* Specific title classes that might be in sections using theme colors */
@@ -61,7 +61,7 @@
   *[data-use-theme-colors="true"] h5,
   *[data-use-theme-colors="true"] h6,
   *[data-use-theme-colors="true"] .heading {
-    color: {{ settings.global_section_text_color }} !important;
+    color: {{ settings.global_section_text_color }} ;
   }
   
   /* Specific shop product heading/title elements */
@@ -73,7 +73,7 @@
   .shop-product-section h4,
   .shop-product-section h5,
   .shop-product-section h6 {
-    color: {% if settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}inherit{% endif %} !important;
+    color: {% if settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}inherit{% endif %} ;
   }
   
   /* Specific exceptions where accent color might be needed instead of text color */
@@ -81,6 +81,6 @@
   [class*="accent-title"],
   .accent-heading,
   [class*="accent-heading"] {
-    color: {{ settings.global_section_accent_1_color }} !important;
+    color: {{ settings.global_section_accent_1_color }} ;
   }
 </style> 

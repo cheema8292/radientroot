@@ -25,21 +25,21 @@
 .use-global-button-styling,
 .button-global-typography {
   /* Always use global spacing and consistency */
-  padding: var(--global-button-padding-y, 12px) 20px !important;
-  letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-  font-family: var(--button-font-family) !important;
+  padding: var(--global-button-padding-y, 12px) 20px ;
+  letter-spacing: var(--global-button-letter-spacing, 1px) ;
+  font-family: var(--button-font-family) ;
 
   /* Behavior */
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none !important;
+  text-decoration: none ;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
   /* Remove default button styling */
-  box-shadow: none !important;
+  box-shadow: none ;
   outline: none;
 }
 
@@ -47,14 +47,14 @@
 .button-global-style,
 .use-global-button-styling {
   /* Global Typography & Appearance */
-  font-size: var(--global-button-font-size, 14px) !important;
-  font-weight: var(--conditional-button-font-weight, var(--global-button-font-weight, 700)) !important;
-  text-transform: var(--global-button-text-transform, none) !important;
-  border-radius: var(--global-button-radius, 8px) !important;
+  font-size: var(--global-button-font-size, 14px) ;
+  font-weight: var(--conditional-button-font-weight, var(--global-button-font-weight, 700)) ;
+  text-transform: var(--global-button-text-transform, none) ;
+  border-radius: var(--global-button-radius, 8px) ;
   border: var(--global-button-border-width, 0px);
-  border-bottom: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) solid var(--button-border-color) !important;
-  background-color: var(--button-bg-color) !important;
-  color: var(--button-text-color) !important;
+  border-bottom: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) solid var(--button-border-color) ;
+  background-color: var(--button-bg-color) ;
+  color: var(--button-text-color) ;
   position: relative;
   overflow: hidden;
 }
@@ -63,17 +63,17 @@
 .button-global-style:focus,
 .use-global-button-styling:hover,
 .use-global-button-styling:focus {
-  background-color: var(--button-hover-bg-color) !important;
-  color: var(--button-hover-text-color) !important;
-  text-decoration: none !important;
+  background-color: var(--button-hover-bg-color) ;
+  color: var(--button-hover-text-color) ;
+  text-decoration: none ;
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) ;
 }
 
 .button-global-style:active,
 .use-global-button-styling:active {
   transform: translateY(calc(var(--global-button-bottom-border-width, 0px) / 2));
-  border-bottom-width: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px) / 2) !important;
+  border-bottom-width: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px) / 2) ;
 }
 
 /* ===================================== */
@@ -105,29 +105,29 @@ input[type="submit"]:not(.button--tertiary):not(.cart-remove-button):not(.disabl
 .theme-button:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling),
 .guarantee-section__cta:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling),
 .custom-hero__button:not(.button--tertiary):not(.cart-remove-button):not(.disable-global-button-styling) {
-  padding: var(--global-button-padding-y, 12px) 20px !important;
-  letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-  font-family: var(--button-font-family) !important;
+  padding: var(--global-button-padding-y, 12px) 20px ;
+  letter-spacing: var(--global-button-letter-spacing, 1px) ;
+  font-family: var(--button-font-family) ;
 
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none !important;
+  text-decoration: none ;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
-  box-shadow: none !important;
+  box-shadow: none ;
   outline: none;
 
-  font-size: var(--global-button-font-size, 14px) !important;
-  font-weight: var(--conditional-button-font-weight, var(--global-button-font-weight, 700)) !important;
-  text-transform: var(--global-button-text-transform, none) !important;
-  border-radius: var(--global-button-radius, 8px) !important;
+  font-size: var(--global-button-font-size, 14px) ;
+  font-weight: var(--conditional-button-font-weight, var(--global-button-font-weight, 700)) ;
+  text-transform: var(--global-button-text-transform, none) ;
+  border-radius: var(--global-button-radius, 8px) ;
   border: var(--global-button-border-width, 0px);
-  border-bottom: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) solid var(--button-border-color) !important;
+  border-bottom: calc(var(--global-button-border-width, 0px) + var(--global-button-bottom-border-width, 0px)) solid var(--button-border-color) ;
   background-color: var(--button-bg-color);
-  color: var(--button-text-color) !important;
+  color: var(--button-text-color) ;
   position: relative;
   overflow: hidden;
 }
@@ -140,22 +140,22 @@ input[type="submit"]:not(.button--tertiary):not(.cart-remove-button):not(.disabl
 /* Utility class for sections that want to use custom button styling */
 .button-section-override {
   /* Reset global styles to allow section-specific styling */
-  padding: unset !important;
-  font-size: unset !important;
-  font-weight: unset !important;
-  letter-spacing: unset !important;
-  text-transform: unset !important;
-  border-radius: unset !important;
-  background-color: unset !important;
-  color: unset !important;
-  border: unset !important;
+  padding: unset ;
+  font-size: unset ;
+  font-weight: unset ;
+  letter-spacing: unset ;
+  text-transform: unset ;
+  border-radius: unset ;
+  background-color: unset ;
+  color: unset ;
+  border: unset ;
 }
 
 /* Allow section-specific padding and border-radius while keeping global styling */
 .button-section-specific-sizing {
   /* Override only padding and border-radius to allow section-specific values */
-  padding: unset !important;
-  border-radius: unset !important;
+  padding: unset ;
+  border-radius: unset ;
 }
 
 /* Reset font-weight and styling for compare price in buttons */
@@ -166,11 +166,11 @@ button[type="submit"]:not(.button--tertiary):not(.cart-remove-button) .compare-p
 .shop-add-to-cart-button:not(.button--tertiary):not(.cart-remove-button) .compare-price,
 .button-global-typography .compare-price,
 .use-global-button-styling .compare-price {
-  font-weight: 400 !important;
-  font-size: 0.85em !important;
-  opacity: 0.7 !important;
-  color: currentColor !important;
-  text-decoration: line-through !important;
+  font-weight: 400 ;
+  font-size: 0.85em ;
+  opacity: 0.7 ;
+  color: currentColor ;
+  text-decoration: line-through ;
 }
 
 /* 
@@ -185,13 +185,13 @@ button[type="submit"]:not(.button--tertiary):not(.cart-remove-button) .compare-p
 /* Shopify accelerated checkout buttons */
 .shopify-payment-button .shopify-payment-button__button,
 .shopify-payment-button .shopify-payment-button__button--unbranded {
-  border-radius: var(--global-button-radius, 8px) !important;
-  font-family: var(--button-font-family) !important;
+  border-radius: var(--global-button-radius, 8px) ;
+  font-family: var(--button-font-family) ;
 }
 
 .shopify-payment-button .shopify-payment-button__more-options {
-  border-radius: calc(var(--global-button-radius, 8px) / 2) !important;
-  font-family: var(--button-font-family) !important;
+  border-radius: calc(var(--global-button-radius, 8px) / 2) ;
+  font-family: var(--button-font-family) ;
 }
 
 /* ===================================== */
@@ -214,7 +214,7 @@ body[data-apply-button-radius-to-all="true"] .color-swatch {
 [class*="pill"]:not(.pill-item),
 .tag,
 [class*="tag-"] {
-  border-radius: 50px !important;
+  border-radius: 50px ;
 }
 
 /* ===================================== */
@@ -222,18 +222,18 @@ body[data-apply-button-radius-to-all="true"] .color-swatch {
 /* ===================================== */
 
 .shop-add-to-cart-wrapper {
-  width: 100% !important;
+  width: 100% ;
   display: block;
 }
 
 .shop-add-to-cart-wrapper .product-form,
 .shop-add-to-cart-wrapper .form {
-  width: 100% !important;
+  width: 100% ;
   display: block;
 }
 
 .shop-add-to-cart-button {
-  width: 100% !important;
+  width: 100% ;
   gap: 10px;
   position: relative;
 }
@@ -249,10 +249,10 @@ body[data-apply-button-radius-to-all="true"] .color-swatch {
 
   .shop-add-to-cart-button,
   .shop-add-to-cart-wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    width: 100% ;
+    max-width: 100% ;
+    margin-left: 0 ;
+    margin-right: 0 ;
   }
 }
 
@@ -319,83 +319,83 @@ body[data-apply-button-radius-to-all="true"] .color-swatch {
 /* Secondary button variant (inverted colors) */
 .button--secondary {
   /* Base typography styles */
-  padding: var(--global-button-padding-y, 12px) 20px !important;
-  letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-  font-family: var(--button-font-family) !important;
+  padding: var(--global-button-padding-y, 12px) 20px ;
+  letter-spacing: var(--global-button-letter-spacing, 1px) ;
+  font-family: var(--button-font-family) ;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none !important;
+  text-decoration: none ;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: none !important;
+  box-shadow: none ;
   outline: none;
 
-  background-color: transparent !important;
-  color: var(--button-bg-color) !important;
-  border: 2px solid var(--button-bg-color) !important;
+  background-color: transparent ;
+  color: var(--button-bg-color) ;
+  border: 2px solid var(--button-bg-color) ;
 }
 
 .button--secondary:hover,
 .button--secondary:focus {
-  background-color: var(--button-bg-color) !important;
-  color: var(--button-text-color) !important;
+  background-color: var(--button-bg-color) ;
+  color: var(--button-text-color) ;
 }
 
 /* Outline button variant */
 .button--outline {
   /* Base typography styles */
-  padding: var(--global-button-padding-y, 12px) 20px !important;
-  letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-  font-family: var(--button-font-family) !important;
+  padding: var(--global-button-padding-y, 12px) 20px ;
+  letter-spacing: var(--global-button-letter-spacing, 1px) ;
+  font-family: var(--button-font-family) ;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none !important;
+  text-decoration: none ;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: none !important;
+  box-shadow: none ;
   outline: none;
 
-  background-color: transparent !important;
-  color: var(--button-bg-color) !important;
-  border: 1px solid var(--button-bg-color) !important;
+  background-color: transparent ;
+  color: var(--button-bg-color) ;
+  border: 1px solid var(--button-bg-color) ;
 }
 
 .button--outline:hover,
 .button--outline:focus {
-  background-color: var(--button-bg-color) !important;
-  color: var(--button-text-color) !important;
+  background-color: var(--button-bg-color) ;
+  color: var(--button-text-color) ;
 }
 
 /* Text-only button variant */
 .button--text {
   /* Base typography styles */
-  letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-  font-family: var(--button-font-family) !important;
+  letter-spacing: var(--global-button-letter-spacing, 1px) ;
+  font-family: var(--button-font-family) ;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: underline !important;
+  text-decoration: underline ;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: none !important;
+  box-shadow: none ;
   outline: none;
 
-  background-color: transparent !important;
-  color: var(--button-bg-color) !important;
-  border: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  background-color: transparent ;
+  color: var(--button-bg-color) ;
+  border: none ;
+  padding-left: 0 ;
+  padding-right: 0 ;
 }
 
 .button--text:hover,
 .button--text:focus {
-  color: var(--button-hover-bg-color) !important;
-  background-color: transparent !important;
+  color: var(--button-hover-bg-color) ;
+  background-color: transparent ;
 }
 
 /* ===================================== */
@@ -405,10 +405,10 @@ body[data-apply-button-radius-to-all="true"] .color-swatch {
 /* Ensure button-text elements inside globally styled buttons use global settings */
 .button-global-style .button-text,
 .use-global-button-styling .button-text {
-  font-size: var(--global-button-font-size, 14px) !important;
-  font-weight: var(--conditional-button-font-weight, var(--global-button-font-weight, 700)) !important;
-  letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-  text-transform: var(--global-button-text-transform, none) !important;
+  font-size: var(--global-button-font-size, 14px) ;
+  font-weight: var(--conditional-button-font-weight, var(--global-button-font-weight, 700)) ;
+  letter-spacing: var(--global-button-letter-spacing, 1px) ;
+  text-transform: var(--global-button-text-transform, none) ;
 }
 
 /* Allow all button types to use custom button-text font size via CSS custom property */
@@ -419,7 +419,7 @@ body[data-apply-button-radius-to-all="true"] .color-swatch {
 .button--primary .button-text,
 .newsletter-form__button .button-text,
 .field__button .button-text {
-  font-size: var(--button-text-font-size, inherit) !important;
+  font-size: var(--button-text-font-size, inherit) ;
 }
 
 /* ===================================== */
@@ -464,21 +464,21 @@ button.button--tertiary.intensity-5,
 .button.button--tertiary.intensity-4,
 .button.button--tertiary.intensity-5 {
   /* Reset all global button styling */
-  padding: 5px !important;
-  letter-spacing: normal !important;
-  font-family: inherit !important;
-  font-size: inherit !important;
-  font-weight: inherit !important;
-  text-transform: none !important;
-  border-radius: var(--global-button-radius, 4px) !important;
-  background-color: transparent !important;
-  color: inherit !important;
-  border: none !important;
-  box-shadow: none !important;
-  transition: opacity 0.2s ease !important;
-  transform: none !important;
-  position: static !important;
-  z-index: auto !important;
+  padding: 5px ;
+  letter-spacing: normal ;
+  font-family: inherit ;
+  font-size: inherit ;
+  font-weight: inherit ;
+  text-transform: none ;
+  border-radius: var(--global-button-radius, 4px) ;
+  background-color: transparent ;
+  color: inherit ;
+  border: none ;
+  box-shadow: none ;
+  transition: opacity 0.2s ease ;
+  transform: none ;
+  position: static ;
+  z-index: auto ;
 }
 
 .cart-remove-button:hover,
@@ -513,12 +513,12 @@ button.button--tertiary.intensity-5:hover,
 .button.button--tertiary.intensity-3:hover,
 .button.button--tertiary.intensity-4:hover,
 .button.button--tertiary.intensity-5:hover {
-  background-color: transparent !important;
-  color: inherit !important;
-  border: none !important;
-  box-shadow: none !important;
-  opacity: 0.7 !important;
-  transform: none !important;
+  background-color: transparent ;
+  color: inherit ;
+  border: none ;
+  box-shadow: none ;
+  opacity: 0.7 ;
+  transform: none ;
 }
 
 .cart-remove-button:active,
@@ -553,12 +553,12 @@ button.button--tertiary.intensity-5:active,
 .button.button--tertiary.intensity-3:active,
 .button.button--tertiary.intensity-4:active,
 .button.button--tertiary.intensity-5:active {
-  background-color: transparent !important;
-  color: inherit !important;
-  border: none !important;
-  box-shadow: none !important;
-  opacity: 0.5 !important;
-  transform: none !important;
+  background-color: transparent ;
+  color: inherit ;
+  border: none ;
+  box-shadow: none ;
+  opacity: 0.5 ;
+  transform: none ;
 }
 
 /* Remove any pseudo-elements that might have been applied */
@@ -574,9 +574,9 @@ button.button--tertiary.button-gradient-effect::before,
 button.button--tertiary.gradient-shine-enabled::before,
 .button.button--tertiary.button-gradient-effect::before,
 .button.button--tertiary.gradient-shine-enabled::before {
-  display: none !important;
-  content: none !important;
-  background: none !important;
+  display: none ;
+  content: none ;
+  background: none ;
 }
 
 /* ===================================== */
@@ -585,66 +585,66 @@ button.button--tertiary.gradient-shine-enabled::before,
 
 /* Simple Box Shadow Effect - Applied when enabled in theme settings */
 .button-box-shadow {
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease ;
   position: relative;
   z-index: 1;
 }
 
 /* Shadow intensity levels */
 .button-box-shadow.intensity-1 {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) ;
 }
 
 .button-box-shadow.intensity-2 {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) ;
 }
 
 .button-box-shadow.intensity-3 {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) ;
 }
 
 .button-box-shadow.intensity-4 {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) ;
 }
 
 .button-box-shadow.intensity-5 {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) ;
 }
 
 /* Hover effect - enhanced shadow */
 .button-box-shadow:hover,
 .button-box-shadow:focus {
-  transform: translateY(-2px) !important;
+  transform: translateY(-2px) ;
 }
 
 .button-box-shadow.intensity-1:hover,
 .button-box-shadow.intensity-1:focus {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) ;
 }
 
 .button-box-shadow.intensity-2:hover,
 .button-box-shadow.intensity-2:focus {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) ;
 }
 
 .button-box-shadow.intensity-3:hover,
 .button-box-shadow.intensity-3:focus {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) ;
 }
 
 .button-box-shadow.intensity-4:hover,
 .button-box-shadow.intensity-4:focus {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) ;
 }
 
 .button-box-shadow.intensity-5:hover,
 .button-box-shadow.intensity-5:focus {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35) ;
 }
 
 /* Active/pressed state */
 .button-box-shadow:active {
-  transform: translateY(0) !important;
+  transform: translateY(0) ;
 }
 
 /* ===================================== */
@@ -674,13 +674,13 @@ input[type="submit"].button-gradient-effect,
     var(--button-gradient-direction, to bottom),
     var(--button-gradient-start, #EF4A65),
     var(--button-gradient-end, #D63953)
-  ) !important;
-  background-color: transparent !important;
-  background-repeat: no-repeat !important;
-  background-size: 100% 100% !important;
+  ) ;
+  background-color: transparent ;
+  background-repeat: no-repeat ;
+  background-size: 100% 100% ;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease ;
 }
 
 /* Hover state for gradient buttons */
@@ -722,9 +722,9 @@ input[type="submit"].button-gradient-effect:focus,
     var(--button-gradient-direction, to bottom),
     var(--button-gradient-hover-start, #D63953),
     var(--button-gradient-hover-end, #B8314A)
-  ) !important;
+  ) ;
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) ;
 }
 
 /* Active state for gradient buttons */
@@ -746,7 +746,7 @@ input[type="submit"].button-gradient-effect:active,
 .guarantee-section__cta.button-gradient-effect:active,
 .custom-hero__button.button-gradient-effect:active {
   transform: translateY(0);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) ;
 }
 
 /* Enhanced gradient with subtle animation - only when shine is enabled */
@@ -799,45 +799,45 @@ input[type="submit"].button-gradient-effect:active,
 .disable-global-button-styling.button--outline,
 .disable-global-button-styling.button--text {
   /* Reset all global button styling */
-  padding: unset !important;
-  letter-spacing: unset !important;
-  font-family: unset !important;
-  font-size: unset !important;
-  font-weight: unset !important;
-  text-transform: unset !important;
-  border: unset !important;
-  background-color: unset !important;
-  color: unset !important;
-  box-shadow: unset !important;
-  transform: unset !important;
-  transition: unset !important;
-  position: unset !important;
-  z-index: unset !important;
+  padding: unset ;
+  letter-spacing: unset ;
+  font-family: unset ;
+  font-size: unset ;
+  font-weight: unset ;
+  text-transform: unset ;
+  border: unset ;
+  background-color: unset ;
+  color: unset ;
+  box-shadow: unset ;
+  transform: unset ;
+  transition: unset ;
+  position: unset ;
+  z-index: unset ;
   /* border-radius and font-size are preserved from inline styles */
 }
 
 /* Remove any pseudo-elements from disabled global styling buttons */
 .disable-global-button-styling::before,
 .disable-global-button-styling::after {
-  display: none !important;
-  content: none !important;
+  display: none ;
+  content: none ;
 }
 
 /* Ensure hover and focus states are also reset */
 .disable-global-button-styling:hover,
 .disable-global-button-styling:focus,
 .disable-global-button-styling:active {
-  padding: unset !important;
-  letter-spacing: unset !important;
-  font-family: unset !important;
-  font-size: unset !important;
-  font-weight: unset !important;
-  text-transform: unset !important;
-  border: unset !important;
-  background-color: unset !important;
-  color: unset !important;
-  box-shadow: unset !important;
-  transform: unset !important;
-  transition: unset !important;
+  padding: unset ;
+  letter-spacing: unset ;
+  font-family: unset ;
+  font-size: unset ;
+  font-weight: unset ;
+  text-transform: unset ;
+  border: unset ;
+  background-color: unset ;
+  color: unset ;
+  box-shadow: unset ;
+  transform: unset ;
+  transition: unset ;
   /* border-radius and font-size are preserved from inline styles */
 }

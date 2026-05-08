@@ -15,16 +15,16 @@
 {% endcomment %}
 
 <div class="video-carousel-container" data-enable-autoplay="{{ enable_autoplay | default: false }}" data-show-sound-controls="{{ show_sound_controls_autoplay | default: false }}" data-play-button-size="{{ play_button_size | default: 30 }}" data-sound-button-size="{{ sound_button_size | default: 30 }}" data-play-button-bg-color="{{ play_button_bg_color | default: '#000000' }}" data-play-button-bg-opacity="{{ play_button_bg_opacity | default: 35 }}" data-sound-button-bg-color="{{ sound_button_bg_color | default: '#000000' }}" data-sound-button-bg-opacity="{{ sound_button_bg_opacity | default: 35 }}" {{ block.shopify_attributes }}>
-  <h2 class="carousel-heading" style="color: {{ heading_color | default: '#333333' }} !important; font-size: {{ heading_size | default: 24 }}px !important;">{{ heading | default: "See it in action" }}</h2>
+  <h2 class="carousel-heading" style="color: {{ heading_color | default: '#333333' }} ; font-size: {{ heading_size | default: 24 }}px ;">{{ heading | default: "See it in action" }}</h2>
   
   {% if show_social_badge %}
     {% if social_platform == 'tiktok' %}
-    <div class="tiktok-views-badge" style="{% unless use_gradient_text %} color: {{ badge_text_color | default: '#262626' }} !important;{% endunless %}">
+    <div class="tiktok-views-badge" style="{% unless use_gradient_text %} color: {{ badge_text_color | default: '#262626' }} ;{% endunless %}">
       <img class="tiktok-icon" src="https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_Tiktok-512.png" width="12" height="12" alt="TikTok" />
       <span class="tiktok-text {% if use_gradient_text %}gradient-text{% endif %}">{{ badge_text | default: 'Over ' }} {{ view_count }}{{ badge_suffix | default: 'M Views On TikTok' }}</span>
     </div>
     {% elsif social_platform == 'instagram' %}
-    <div class="instagram-views-badge" style="{% unless use_gradient_text %} color: {{ badge_text_color | default: '#262626' }} !important;{% endunless %}">
+    <div class="instagram-views-badge" style="{% unless use_gradient_text %} color: {{ badge_text_color | default: '#262626' }} ;{% endunless %}">
       <svg class="instagram-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="instagramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -38,7 +38,7 @@
       <span class="instagram-text {% if use_gradient_text %}gradient-text instagram-gradient{% endif %}">{{ badge_text | default: 'Over ' }} {{ view_count }}{{ badge_suffix | default: 'M Views On Instagram' }}</span>
     </div>
     {% elsif social_platform == 'facebook' %}
-    <div class="facebook-views-badge" style="{% unless use_gradient_text %} color: {{ badge_text_color | default: '#262626' }} !important;{% endunless %}">
+    <div class="facebook-views-badge" style="{% unless use_gradient_text %} color: {{ badge_text_color | default: '#262626' }} ;{% endunless %}">
       <svg class="facebook-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"/>
       </svg>
@@ -96,184 +96,184 @@
   .carousel-heading {
     margin-bottom: 5px;
     margin-top: 0;
-    font-weight: var(--font-weight-semibold) !important;
+    font-weight: var(--font-weight-semibold) ;
     letter-spacing: var(--letter-spacing-heading);
   }
   
   .tiktok-views-badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    padding: 4px 14px !important;
-    background-color: transparent !important;
-    border-radius: 999px !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-    font-size: 11px !important;
-    color: #262626 !important;
-    position: relative !important;
-    border: none !important;
-    margin-bottom: 10px !important;
-    z-index: 999 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    overflow: visible !important;
+    display: inline-flex ;
+    align-items: center ;
+    padding: 4px 14px ;
+    background-color: transparent ;
+    border-radius: 999px ;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif ;
+    font-size: 11px ;
+    color: #262626 ;
+    position: relative ;
+    border: none ;
+    margin-bottom: 10px ;
+    z-index: 999 ;
+    visibility: visible ;
+    opacity: 1 ;
+    overflow: visible ;
   }
   
   .tiktok-views-badge::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    z-index: -1 !important;
-    border-radius: 999px !important;
-    background: linear-gradient(45deg, #00f2ea, #ff0050) !important;
+    content: '' ;
+    position: absolute ;
+    top: 0 ;
+    right: 0 ;
+    bottom: 0 ;
+    left: 0 ;
+    z-index: -1 ;
+    border-radius: 999px ;
+    background: linear-gradient(45deg, #00f2ea, #ff0050) ;
   }
   
   .tiktok-views-badge::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 1px !important;
-    right: 1px !important;
-    bottom: 1px !important;
-    left: 1px !important;
-    z-index: -1 !important;
-    border-radius: 999px !important;
-    background-color: {{ badge_background_color | default: '#f8f9fa' }} !important;
+    content: '' ;
+    position: absolute ;
+    top: 1px ;
+    right: 1px ;
+    bottom: 1px ;
+    left: 1px ;
+    z-index: -1 ;
+    border-radius: 999px ;
+    background-color: {{ badge_background_color | default: '#f8f9fa' }} ;
   }
   
   .tiktok-icon {
-    width: 12px !important;
-    height: 12px !important;
-    margin-right: 8px !important;
-    margin-left: 1px !important;
-    flex-shrink: 0 !important;
+    width: 12px ;
+    height: 12px ;
+    margin-right: 8px ;
+    margin-left: 1px ;
+    flex-shrink: 0 ;
   }
   
   .tiktok-text {
-    letter-spacing: -0.3px !important;
-    font-weight: 500 !important;
+    letter-spacing: -0.3px ;
+    font-weight: 500 ;
   }
   
   /* Gradient Text Classes */
   .gradient-text {
-    background-clip: text !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    color: transparent !important;
-    display: inline-block !important;
-    background-size: 100% 100% !important;
-    background-repeat: no-repeat !important;
-    background-attachment: scroll !important;
-    -webkit-box-decoration-break: clone !important;
-    box-decoration-break: clone !important;
+    background-clip: text ;
+    -webkit-background-clip: text ;
+    -webkit-text-fill-color: transparent ;
+    color: transparent ;
+    display: inline-block ;
+    background-size: 100% 100% ;
+    background-repeat: no-repeat ;
+    background-attachment: scroll ;
+    -webkit-box-decoration-break: clone ;
+    box-decoration-break: clone ;
   }
   
   /* TikTok Gradient (default) */
   .tiktok-text.gradient-text {
-    background: linear-gradient(45deg, #00f2ea, #ff0050) !important;
-    background-clip: text !important;
-    -webkit-background-clip: text !important;
+    background: linear-gradient(45deg, #00f2ea, #ff0050) ;
+    background-clip: text ;
+    -webkit-background-clip: text ;
   }
   
   /* Instagram Gradient */
   .instagram-text.gradient-text.instagram-gradient {
-    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045) !important;
-    background-clip: text !important;
-    -webkit-background-clip: text !important;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045) ;
+    background-clip: text ;
+    -webkit-background-clip: text ;
   }
   
   /* Facebook Gradient */
   .facebook-text.gradient-text.facebook-gradient {
-    background: linear-gradient(45deg, #1877F2, #42a5f5) !important;
-    background-clip: text !important;
-    -webkit-background-clip: text !important;
+    background: linear-gradient(45deg, #1877F2, #42a5f5) ;
+    background-clip: text ;
+    -webkit-background-clip: text ;
   }
   
   /* Instagram Badge Styling */
   .instagram-views-badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    padding: 4px 14px !important;
-    background-color: transparent !important;
-    border-radius: 999px !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-    font-size: 11px !important;
-    color: #262626 !important;
-    position: relative !important;
-    border: none !important;
-    margin-bottom: 10px !important;
-    z-index: 999 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    overflow: visible !important;
+    display: inline-flex ;
+    align-items: center ;
+    padding: 4px 14px ;
+    background-color: transparent ;
+    border-radius: 999px ;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif ;
+    font-size: 11px ;
+    color: #262626 ;
+    position: relative ;
+    border: none ;
+    margin-bottom: 10px ;
+    z-index: 999 ;
+    visibility: visible ;
+    opacity: 1 ;
+    overflow: visible ;
   }
   
   .instagram-views-badge::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    z-index: -1 !important;
-    border-radius: 999px !important;
-    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045) !important;
+    content: '' ;
+    position: absolute ;
+    top: 0 ;
+    right: 0 ;
+    bottom: 0 ;
+    left: 0 ;
+    z-index: -1 ;
+    border-radius: 999px ;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045) ;
   }
   
   .instagram-views-badge::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 1px !important;
-    right: 1px !important;
-    bottom: 1px !important;
-    left: 1px !important;
-    z-index: -1 !important;
-    border-radius: 999px !important;
-    background-color: {{ badge_background_color | default: '#f8f9fa' }} !important;
+    content: '' ;
+    position: absolute ;
+    top: 1px ;
+    right: 1px ;
+    bottom: 1px ;
+    left: 1px ;
+    z-index: -1 ;
+    border-radius: 999px ;
+    background-color: {{ badge_background_color | default: '#f8f9fa' }} ;
   }
   
   /* Facebook Badge Styling */
   .facebook-views-badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    padding: 4px 14px !important;
-    background-color: transparent !important;
-    border-radius: 999px !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-    font-size: 11px !important;
-    color: #262626 !important;
-    position: relative !important;
-    border: none !important;
-    margin-bottom: 10px !important;
-    z-index: 999 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    overflow: visible !important;
+    display: inline-flex ;
+    align-items: center ;
+    padding: 4px 14px ;
+    background-color: transparent ;
+    border-radius: 999px ;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif ;
+    font-size: 11px ;
+    color: #262626 ;
+    position: relative ;
+    border: none ;
+    margin-bottom: 10px ;
+    z-index: 999 ;
+    visibility: visible ;
+    opacity: 1 ;
+    overflow: visible ;
   }
   
   .facebook-views-badge::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    z-index: -1 !important;
-    border-radius: 999px !important;
-    background: linear-gradient(45deg, #1877F2, #42a5f5) !important;
+    content: '' ;
+    position: absolute ;
+    top: 0 ;
+    right: 0 ;
+    bottom: 0 ;
+    left: 0 ;
+    z-index: -1 ;
+    border-radius: 999px ;
+    background: linear-gradient(45deg, #1877F2, #42a5f5) ;
   }
   
   .facebook-views-badge::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 1px !important;
-    right: 1px !important;
-    bottom: 1px !important;
-    left: 1px !important;
-    z-index: -1 !important;
-    border-radius: 999px !important;
-    background-color: {{ badge_background_color | default: '#f8f9fa' }} !important;
+    content: '' ;
+    position: absolute ;
+    top: 1px ;
+    right: 1px ;
+    bottom: 1px ;
+    left: 1px ;
+    z-index: -1 ;
+    border-radius: 999px ;
+    background-color: {{ badge_background_color | default: '#f8f9fa' }} ;
   }
   
   .video-carousel {
@@ -285,11 +285,11 @@
     scroll-behavior: smooth;
     {% if hide_scrollbar %}
     -ms-overflow-style: none;
-    scrollbar-width: none !important;
+    scrollbar-width: none ;
     {% else %}
     -ms-overflow-style: none;
-    scrollbar-width: thin !important;
-    scrollbar-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ scrollbar_color | default: "#04C7FF" }}{% endif %} #f0f0f0 !important;
+    scrollbar-width: thin ;
+    scrollbar-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ scrollbar_color | default: "#04C7FF" }}{% endif %} #f0f0f0 ;
     {% endif %}
     position: relative;
     z-index: 1;
@@ -302,8 +302,8 @@
   }
   
   .video-carousel::-webkit-scrollbar-track {
-    background: transparent !important;
-    border-radius: 3px !important;
+    background: transparent ;
+    border-radius: 3px ;
   }
   
   .video-carousel::-webkit-scrollbar-thumb {
@@ -317,83 +317,83 @@
   {% endunless %}
   
   .video-item {
-    flex: 0 0 {{ video_size | default: 130 }}px !important;
-    width: {{ video_size | default: 130 }}px !important;
-    position: relative !important;
-    min-width: {{ video_size | default: 130 }}px !important;
-    max-width: {{ video_size | default: 130 }}px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
+    flex: 0 0 {{ video_size | default: 130 }}px ;
+    width: {{ video_size | default: 130 }}px ;
+    position: relative ;
+    min-width: {{ video_size | default: 130 }}px ;
+    max-width: {{ video_size | default: 130 }}px ;
+    margin: 0 ;
+    padding: 0 ;
+    box-sizing: border-box ;
   }
   
   .video-thumbnail {
-    position: relative !important;
-    border-radius: 6px !important;
-    overflow: hidden !important;
-    height: {{ video_size | default: 130 | times: 1.78 | round }}px !important;
-    background-color: #f0f0f0 !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    position: relative ;
+    border-radius: 6px ;
+    overflow: hidden ;
+    height: {{ video_size | default: 130 | times: 1.78 | round }}px ;
+    background-color: #f0f0f0 ;
+    width: 100% ;
+    margin: 0 ;
+    padding: 0 ;
   }
   
   .gradient-overlay {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 70px !important;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%) !important;
-    z-index: 1 !important;
-    pointer-events: none !important;
+    position: absolute ;
+    top: 0 ;
+    left: 0 ;
+    width: 100% ;
+    height: 70px ;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%) ;
+    z-index: 1 ;
+    pointer-events: none ;
   }
   
   .carousel-video {
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-    object-fit: cover !important;
-    background-color: #f0f0f0 !important;
+    width: 100% ;
+    height: 100% ;
+    display: block ;
+    object-fit: cover ;
+    background-color: #f0f0f0 ;
   }
   
   .video-play-overlay {
-    position: absolute !important;
-    bottom: 8px !important;
-    left: 8px !important;
-    width: auto !important;
-    height: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    z-index: 10 !important;
-    pointer-events: none !important;
+    position: absolute ;
+    bottom: 8px ;
+    left: 8px ;
+    width: auto ;
+    height: auto ;
+    display: flex ;
+    align-items: center ;
+    justify-content: flex-start ;
+    z-index: 10 ;
+    pointer-events: none ;
   }
 
   .video-carousel-container .testimonial-play-button {
-    width: {{ play_button_size | default: 30 }}px !important;
-    height: {{ play_button_size | default: 30 }}px !important;
-    border-radius: 50% !important;
-    background: rgba({{ play_button_bg_color | default: '#000000' | color_extract: 'red' }}, {{ play_button_bg_color | default: '#000000' | color_extract: 'green' }}, {{ play_button_bg_color | default: '#000000' | color_extract: 'blue' }}, {{ play_button_bg_opacity | default: 35 | divided_by: 100.0 }}) !important;
-    border: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    transition: transform 0.2s ease, background 0.2s ease !important;
-    pointer-events: auto !important;
+    width: {{ play_button_size | default: 30 }}px ;
+    height: {{ play_button_size | default: 30 }}px ;
+    border-radius: 50% ;
+    background: rgba({{ play_button_bg_color | default: '#000000' | color_extract: 'red' }}, {{ play_button_bg_color | default: '#000000' | color_extract: 'green' }}, {{ play_button_bg_color | default: '#000000' | color_extract: 'blue' }}, {{ play_button_bg_opacity | default: 35 | divided_by: 100.0 }}) ;
+    border: none ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    cursor: pointer ;
+    transition: transform 0.2s ease, background 0.2s ease ;
+    pointer-events: auto ;
   }
 
   .video-carousel-container .testimonial-play-button:hover {
-    transform: scale(1.1) !important;
-    background: rgba({{ play_button_bg_color | default: '#000000' | color_extract: 'red' }}, {{ play_button_bg_color | default: '#000000' | color_extract: 'green' }}, {{ play_button_bg_color | default: '#000000' | color_extract: 'blue' }}, {{ play_button_bg_opacity | default: 35 | plus: 16 | divided_by: 100.0 }}) !important;
+    transform: scale(1.1) ;
+    background: rgba({{ play_button_bg_color | default: '#000000' | color_extract: 'red' }}, {{ play_button_bg_color | default: '#000000' | color_extract: 'green' }}, {{ play_button_bg_color | default: '#000000' | color_extract: 'blue' }}, {{ play_button_bg_opacity | default: 35 | plus: 16 | divided_by: 100.0 }}) ;
   }
 
   .video-carousel-container .testimonial-play-button svg {
-    width: {{ play_button_size | default: 30 | times: 0.8 | round }}px !important;
-    height: {{ play_button_size | default: 30 | times: 0.8 | round }}px !important;
-    fill: #ffffff !important;
-    margin-left: 1px !important;
+    width: {{ play_button_size | default: 30 | times: 0.8 | round }}px ;
+    height: {{ play_button_size | default: 30 | times: 0.8 | round }}px ;
+    fill: #ffffff ;
+    margin-left: 1px ;
   }
   
   /* Inline video styles */
@@ -421,92 +421,92 @@
   }
   
   .video-carousel-container .video-sound-button {
-    position: absolute !important;
-    bottom: 8px !important;
-    right: 8px !important;
-    width: {{ sound_button_size | default: 30 }}px !important;
-    height: {{ sound_button_size | default: 30 }}px !important;
-    border-radius: 50% !important;
-    background: rgba({{ sound_button_bg_color | default: '#000000' | color_extract: 'red' }}, {{ sound_button_bg_color | default: '#000000' | color_extract: 'green' }}, {{ sound_button_bg_color | default: '#000000' | color_extract: 'blue' }}, {{ sound_button_bg_opacity | default: 35 | divided_by: 100.0 }}) !important;
-    border: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    z-index: 20 !important;
-    transition: transform 0.2s ease, background 0.2s ease !important;
+    position: absolute ;
+    bottom: 8px ;
+    right: 8px ;
+    width: {{ sound_button_size | default: 30 }}px ;
+    height: {{ sound_button_size | default: 30 }}px ;
+    border-radius: 50% ;
+    background: rgba({{ sound_button_bg_color | default: '#000000' | color_extract: 'red' }}, {{ sound_button_bg_color | default: '#000000' | color_extract: 'green' }}, {{ sound_button_bg_color | default: '#000000' | color_extract: 'blue' }}, {{ sound_button_bg_opacity | default: 35 | divided_by: 100.0 }}) ;
+    border: none ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    cursor: pointer ;
+    z-index: 20 ;
+    transition: transform 0.2s ease, background 0.2s ease ;
   }
   
   .video-carousel-container .video-sound-button:hover {
-    transform: scale(1.1) !important;
-    background: rgba({{ sound_button_bg_color | default: '#000000' | color_extract: 'red' }}, {{ sound_button_bg_color | default: '#000000' | color_extract: 'green' }}, {{ sound_button_bg_color | default: '#000000' | color_extract: 'blue' }}, {{ sound_button_bg_opacity | default: 35 | plus: 16 | divided_by: 100.0 }}) !important;
+    transform: scale(1.1) ;
+    background: rgba({{ sound_button_bg_color | default: '#000000' | color_extract: 'red' }}, {{ sound_button_bg_color | default: '#000000' | color_extract: 'green' }}, {{ sound_button_bg_color | default: '#000000' | color_extract: 'blue' }}, {{ sound_button_bg_opacity | default: 35 | plus: 16 | divided_by: 100.0 }}) ;
   }
   
   .video-carousel-container .video-sound-button svg {
-    width: {{ sound_button_size | default: 30 | times: 0.67 | round }}px !important;
-    height: {{ sound_button_size | default: 30 | times: 0.67 | round }}px !important;
-    fill: white !important;
+    width: {{ sound_button_size | default: 30 | times: 0.67 | round }}px ;
+    height: {{ sound_button_size | default: 30 | times: 0.67 | round }}px ;
+    fill: white ;
   }
   
   .video-playing .video-play-overlay {
-    display: flex !important;
+    display: flex ;
   }
   
   .video-carousel-container[data-enable-autoplay="true"] .video-play-overlay {
-    display: none !important;
+    display: none ;
   }
   
   .video-carousel-container[data-show-sound-controls="false"] .video-sound-button {
-    display: none !important;
+    display: none ;
   }
   
   /* Modal styles - hidden since we're using inline playback */
   .video-modal {
-    display: none !important;
+    display: none ;
   }
   
 
   .instagram-icon {
-    width: 12px !important;
-    height: 12px !important;
-    margin-right: 8px !important;
-    margin-left: 1px !important;
-    flex-shrink: 0 !important;
+    width: 12px ;
+    height: 12px ;
+    margin-right: 8px ;
+    margin-left: 1px ;
+    flex-shrink: 0 ;
   }
 
   .instagram-text {
-    letter-spacing: -0.3px !important;
-    font-weight: 500 !important;
+    letter-spacing: -0.3px ;
+    font-weight: 500 ;
   }
   
   
   .facebook-icon {
-    width: 12px !important;
-    height: 12px !important;
-    margin-right: 8px !important;
-    margin-left: 1px !important;
-    flex-shrink: 0 !important;
+    width: 12px ;
+    height: 12px ;
+    margin-right: 8px ;
+    margin-left: 1px ;
+    flex-shrink: 0 ;
   }
   
   .facebook-text {
-    letter-spacing: -0.3px !important;
-    font-weight: 500 !important;
+    letter-spacing: -0.3px ;
+    font-weight: 500 ;
   }
   
   @media (max-width: 768px) {
     .tiktok-views-badge,
     .instagram-views-badge,
     .facebook-views-badge {
-      font-size: 11px !important;
-      padding: 1.7px 12px !important;
+      font-size: 11px ;
+      padding: 1.7px 12px ;
     }
     
     .tiktok-icon,
     .instagram-icon,
     .facebook-icon {
-      width: 11.7px !important;
-      height: 11.7px !important;
-      margin-right: 7.5px !important;
+      width: 11.7px ;
+      height: 11.7px ;
+      margin-right: 7.5px ;
     }
   }
 </style>

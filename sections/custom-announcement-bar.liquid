@@ -3,16 +3,16 @@
 <style>
   .announcement-bar-section-{{ section.id }} {
     {% if section.settings.use_theme_colors %}
-      background: {{ settings.global_section_background_color }} !important;
+      background: {{ settings.global_section_background_color }} ;
     {% else %}
-      background: {{ section.settings.background_color }} !important;
+      background: {{ section.settings.background_color }} ;
     {% endif %}
-    background-image: none !important;
+    background-image: none ;
   }
   
   .announcement-bar-section-{{ section.id }},
   .announcement-bar-section-{{ section.id }} * {
-    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.text_color }}{% endif %} !important;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.text_color }}{% endif %} ;
     font-size: {{ section.settings.font_size }}px;
   }
 </style>

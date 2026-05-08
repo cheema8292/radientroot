@@ -96,7 +96,7 @@
                 "
                 {{ block.shopify_attributes }}>
                             <h3 class="image-text-subtitle" style="
-                color: {% if block.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_text_color }}{% endif %}{% else %}{{ block.settings.subtitle_color }}{% endif %} !important;
+                color: {% if block.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_text_color }}{% endif %}{% else %}{{ block.settings.subtitle_color }}{% endif %} ;
                 font-size: {{ block.settings.subtitle_size }}rem; 
                 line-height: {{ block.settings.subtitle_line_height | default: 1.4 }};
                 letter-spacing: var(--letter-spacing-body);
@@ -251,11 +251,11 @@
                   class="button{% if block.settings.scroll_to_products %} js-scroll-to-products{% endif %}{% if block.settings.full_width_mobile %} full-width-mobile{% endif %}{% if block.settings.button_redirect_type == 'scroll_to_first_section' %} image-text-scroll-to-first{% endif %}{% if block.settings.disable_global_button_styling %} disable-global-button-styling{% else %} button-section-specific-sizing{% endif %}"
                   {% if block.settings.disable_global_button_styling %}
                   style="
-                    background-color: {% if section.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_accent_1_color }}{% endif %}{% else %}{{ block.settings.button_bg_color | default: section.settings.button_bg_color }}{% endif %} !important;
-                    color: {% if section.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ settings.global_section_background_color }}{% endif %}{% else %}{{ block.settings.button_text_color | default: section.settings.button_text_color }}{% endif %} !important;
-                    font-size: {{ block.settings.button_text_size }}px !important;
-                    border-radius: {{ block.settings.button_border_radius }}px !important;
-                    padding: {{ section.settings.button_padding_vertical }}px {{ section.settings.button_padding_horizontal }}px !important;"
+                    background-color: {% if section.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_accent_1_color }}{% endif %}{% else %}{{ block.settings.button_bg_color | default: section.settings.button_bg_color }}{% endif %} ;
+                    color: {% if section.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ settings.global_section_background_color }}{% endif %}{% else %}{{ block.settings.button_text_color | default: section.settings.button_text_color }}{% endif %} ;
+                    font-size: {{ block.settings.button_text_size }}px ;
+                    border-radius: {{ block.settings.button_border_radius }}px ;
+                    padding: {{ section.settings.button_padding_vertical }}px {{ section.settings.button_padding_horizontal }}px ;"
                   {% endif %}>
                   {{ block.settings.button_label }}
                 </a>
@@ -354,33 +354,33 @@
                 style="
                   margin-top: {{ block.settings.margin_top }}px;
                   margin-bottom: {{ block.settings.margin_bottom }}px;
-                  display: flex !important;
+                  display: flex ;
                   {% case block.settings.divider_alignment %}
                     {% when 'left' %}
-                      justify-content: flex-start !important;
+                      justify-content: flex-start ;
                     {% when 'right' %}
-                      justify-content: flex-end !important;
+                      justify-content: flex-end ;
                     {% else %}
-                      justify-content: center !important;
+                      justify-content: center ;
                   {% endcase %}
-                  align-items: center !important;
-                  width: 100% !important;
-                  clear: both !important;"
+                  align-items: center ;
+                  width: 100% ;
+                  clear: both ;"
                 {{ block.shopify_attributes }}>
                 <div class="image-text-divider-line" style="
-                  width: {{ block.settings.divider_width }}% !important;
-                  height: {{ block.settings.divider_thickness }}px !important;
+                  width: {{ block.settings.divider_width }}% ;
+                  height: {{ block.settings.divider_thickness }}px ;
                   {% if block.settings.use_border %}
-                    background: transparent !important;
-                    border-top: {{ block.settings.divider_thickness }}px {{ block.settings.border_style }} {{ block.settings.border_color }} !important;
+                    background: transparent ;
+                    border-top: {{ block.settings.divider_thickness }}px {{ block.settings.border_style }} {{ block.settings.border_color }} ;
                   {% else %}
-                    background-color: {{ block.settings.divider_color }} !important;
-                    border: none !important;
+                    background-color: {{ block.settings.divider_color }} ;
+                    border: none ;
                   {% endif %}
-                  border-radius: {{ block.settings.divider_border_radius }}px !important;
-                  opacity: {{ block.settings.divider_opacity | divided_by: 100.0 }} !important;
-                  display: block !important;
-                  flex-shrink: 0 !important;
+                  border-radius: {{ block.settings.divider_border_radius }}px ;
+                  opacity: {{ block.settings.divider_opacity | divided_by: 100.0 }} ;
+                  display: block ;
+                  flex-shrink: 0 ;
                 "></div>
               </div>
               
@@ -444,7 +444,7 @@
   /* Remove container padding when full width is enabled */
   @media (max-width: 990px) {
     #image-text-section-{{ section.id }}:has(.mobile-media-full-width) .image-text-container {
-      padding: 0 !important;
+      padding: 0 ;
     }
   }
   
@@ -519,7 +519,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: {{ section.settings.image_border_radius }}px !important;
+    border-radius: {{ section.settings.image_border_radius }}px ;
     margin-top: {{ section.settings.margin_top_mobile }}px;
     margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
     {% if section.settings.image_max_width > 0 %}
@@ -562,7 +562,7 @@
   #image-text-section-{{ section.id }} .image-text-heading {
     font-size: {{ section.settings.heading_font_size_mobile }}rem;
     font-weight: var(--font-weight-bold);
-    color: {% if section.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_text_color }}{% endif %}{% else %}{{ section.settings.heading_color }}{% endif %} !important;
+    color: {% if section.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_text_color }}{% endif %}{% else %}{{ section.settings.heading_color }}{% endif %} ;
     margin-bottom: 0;
     letter-spacing: var(--letter-spacing-{{ section.settings.heading_letter_spacing }});
   }
@@ -579,67 +579,67 @@
   /* Enhanced accent text styling with global and local customization options */
   #image-text-section-{{ section.id }} .accent-text {
     {% comment %} Always apply core accent text styling {% endcomment %}
-    padding: 2px 4px !important;
-    margin: -2px -4px !important;
-    display: inline-block !important;
+    padding: 2px 4px ;
+    margin: -2px -4px ;
+    display: inline-block ;
     
     {% comment %} Check for gradient first - it works regardless of global/local settings {% endcomment %}
     {% if section.settings.use_theme_colors %}
       {% comment %} Use global light gradient when inverse is enabled, otherwise use dark gradient {% endcomment %}
       {% if section.settings.inverse_theme_colors %}
-        background: {{ settings.global_accent_text_gradient_light }} !important;
+        background: {{ settings.global_accent_text_gradient_light }} ;
       {% else %}
-        background: {{ settings.global_accent_text_gradient_dark }} !important;
+        background: {{ settings.global_accent_text_gradient_dark }} ;
       {% endif %}
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      color: transparent !important;
+      -webkit-background-clip: text ;
+      -webkit-text-fill-color: transparent ;
+      background-clip: text ;
+      color: transparent ;
     {% elsif section.settings.use_accent_gradient %}
-      background: {{ section.settings.accent_text_gradient }} !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      color: transparent !important;
+      background: {{ section.settings.accent_text_gradient }} ;
+      -webkit-background-clip: text ;
+      -webkit-text-fill-color: transparent ;
+      background-clip: text ;
+      color: transparent ;
     {% else %}
       {% comment %} Apply solid color based on global or local settings {% endcomment %}
-      color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.accent_color | default: settings.global_section_accent_1_color }}{% endif %} !important;
+      color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.accent_color | default: settings.global_section_accent_1_color }}{% endif %} ;
     {% endif %}
     
     {% if section.settings.override_global_accent %}
       {% comment %} Use section-specific typography settings when override is enabled {% endcomment %}
-      margin-left: {{ section.settings.accent_text_margin_left }}px !important;
+      margin-left: {{ section.settings.accent_text_margin_left }}px ;
       
       {% comment %} Section-specific font styling {% endcomment %}
       {% if section.settings.accent_font_family != 'inherit' %}
         {% case section.settings.accent_font_family %}
           {% when 'serif' %}
-            font-family: serif !important;
+            font-family: serif ;
           {% when 'Georgia Pro' %}
-            font-family: 'Georgia Pro', Georgia, serif !important;
+            font-family: 'Georgia Pro', Georgia, serif ;
           {% when 'Bodoni Moda' %}
-            font-family: 'Bodoni Moda', Georgia, serif !important;
+            font-family: 'Bodoni Moda', Georgia, serif ;
           {% when 'Instrument Serif' %}
-            font-family: 'Instrument Serif', Georgia, serif !important;
+            font-family: 'Instrument Serif', Georgia, serif ;
           {% when 'DM Serif Text' %}
-            font-family: 'DM Serif Text', Georgia, serif !important;
+            font-family: 'DM Serif Text', Georgia, serif ;
           {% when 'Nothing You Could Do' %}
-            font-family: 'Nothing You Could Do', cursive !important;
+            font-family: 'Nothing You Could Do', cursive ;
         {% endcase %}
       {% else %}
-        font-family: var(--font-accent-family, var(--font-body-family)) !important;
+        font-family: var(--font-accent-family, var(--font-body-family)) ;
       {% endif %}
       
-      font-style: {% if section.settings.accent_font_style != 'inherit' %}{{ section.settings.accent_font_style }}{% else %}var(--font-accent-style, normal){% endif %} !important;
-      font-weight: {% if section.settings.accent_font_weight != 'inherit' %}{{ section.settings.accent_font_weight }}{% else %}var(--font-accent-weight, inherit){% endif %} !important;
+      font-style: {% if section.settings.accent_font_style != 'inherit' %}{{ section.settings.accent_font_style }}{% else %}var(--font-accent-style, normal){% endif %} ;
+      font-weight: {% if section.settings.accent_font_weight != 'inherit' %}{{ section.settings.accent_font_weight }}{% else %}var(--font-accent-weight, inherit){% endif %} ;
       
     {% else %}
       {% comment %} Use global accent typography system {% endcomment %}
-      font-family: var(--font-accent-family, var(--font-body-family)) !important;
-      font-style: var(--font-accent-style, normal) !important;
-      font-weight: var(--font-accent-weight, inherit) !important;
-      letter-spacing: var(--font-accent-letter-spacing, inherit) !important;
-      text-transform: var(--font-accent-text-transform, none) !important;
+      font-family: var(--font-accent-family, var(--font-body-family)) ;
+      font-style: var(--font-accent-style, normal) ;
+      font-weight: var(--font-accent-weight, inherit) ;
+      letter-spacing: var(--font-accent-letter-spacing, inherit) ;
+      text-transform: var(--font-accent-text-transform, none) ;
     {% endif %}
   }
   
@@ -652,36 +652,36 @@
   
   /* Image Text Divider Styles */
   #image-text-section-{{ section.id }} .image-text-divider-wrapper {
-    display: flex !important;
-    align-items: center !important;
-    width: 100% !important;
-    clear: both !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-    z-index: 1 !important;
+    display: flex ;
+    align-items: center ;
+    width: 100% ;
+    clear: both ;
+    box-sizing: border-box ;
+    position: relative ;
+    z-index: 1 ;
   }
   
   #image-text-section-{{ section.id }} .image-text-divider-line {
-    display: block !important;
-    flex-shrink: 0 !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-    min-height: 1px !important;
-    min-width: 20px !important;
+    display: block ;
+    flex-shrink: 0 ;
+    box-sizing: border-box ;
+    position: relative ;
+    min-height: 1px ;
+    min-width: 20px ;
   }
   
   /* Debug: Ensure divider is visible even with default settings */
   #image-text-section-{{ section.id }} .image-text-divider-line:empty {
-    background-color: #000000 !important;
-    height: 2px !important;
-    width: 50% !important;
+    background-color: #000000 ;
+    height: 2px ;
+    width: 50% ;
   }
   
   /* Ensure subtitle colors are applied correctly for each block */
   {% for block in section.blocks %}
     {% if block.type == 'subtitle' %}
       #image-text-section-{{ section.id }} .subtitle-wrapper[data-block-id="{{ block.id }}"] .image-text-subtitle {
-        color: {% if block.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_text_color }}{% endif %}{% else %}{{ block.settings.subtitle_color }}{% endif %} !important;
+        color: {% if block.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_text_color }}{% endif %}{% else %}{{ block.settings.subtitle_color }}{% endif %} ;
       }
     {% endif %}
   {% endfor %}
@@ -959,11 +959,11 @@
 
   /* Add specific styles for rich text elements - removed color inherit to allow custom colors */
   #image-text-section-{{ section.id }} .image-text-body strong {
-    font-weight: 600 !important;
+    font-weight: 600 ;
   }
   
   #image-text-section-{{ section.id }} .image-text-body em {
-    font-style: italic !important;
+    font-style: italic ;
   }
   
   #image-text-section-{{ section.id }} .image-text-body a {
@@ -1074,19 +1074,19 @@
 
   /* Simplified and stronger active state rules */
   #image-text-section-{{ section.id }} .accordion-item.active .accordion-content {
-    max-height: 1000px !important;
-    padding: var(--content-outer-padding-mobile) 0 !important;
-    overflow: visible !important;
+    max-height: 1000px ;
+    padding: var(--content-outer-padding-mobile) 0 ;
+    overflow: visible ;
   }
 
   #image-text-section-{{ section.id }} .accordion-item.active .accordion-content-inner {
-    opacity: 1 !important;
+    opacity: 1 ;
     letter-spacing: var(--letter-spacing-body);
-    padding: var(--content-padding-mobile) !important;
+    padding: var(--content-padding-mobile) ;
   }
 
   #image-text-section-{{ section.id }} .accordion-item.active .accordion-toggle {
-    transform: rotate(45deg) !important;
+    transform: rotate(45deg) ;
   }
   
   /* Tablet-specific FAQ behavior - prevent media column expansion */
@@ -1100,8 +1100,8 @@
     /* Ensure main video/image maintains its aspect ratio and doesn't stretch */
     #image-text-section-{{ section.id }} .media-column .main-video,
     #image-text-section-{{ section.id }} .media-column .main-image {
-      height: auto !important;
-      max-height: none !important;
+      height: auto ;
+      max-height: none ;
       object-fit: cover;
       {% if section.settings.center_align_with_media %}
         width: 100%;
@@ -1112,27 +1112,27 @@
     /* Allow text column to expand independently and use full width */
     #image-text-section-{{ section.id }} .text-column {
       overflow: visible;
-      width: 100% !important;
-      max-width: 100% !important;
+      width: 100% ;
+      max-width: 100% ;
     }
     
     /* Ensure accordion content doesn't push media column and uses full width */
     #image-text-section-{{ section.id }} .accordion-container {
-      width: 100% !important;
-      max-width: 100% !important;
+      width: 100% ;
+      max-width: 100% ;
     }
     
     /* Ensure all text content uses full width */
     #image-text-section-{{ section.id }} .text-column > *,
     #image-text-section-{{ section.id }} .image-text-heading,
     #image-text-section-{{ section.id }} .image-text-body {
-      width: 100% !important;
-      max-width: 100% !important;
+      width: 100% ;
+      max-width: 100% ;
     }
     
     #image-text-section-{{ section.id }} .accordion-item.active .accordion-content {
-      max-height: none !important;
-      height: auto !important;
+      max-height: none ;
+      height: auto ;
     }
   }
 
@@ -1147,8 +1147,8 @@
     /* Ensure main video/image maintains its aspect ratio and doesn't stretch */
     #image-text-section-{{ section.id }} .media-column .main-video,
     #image-text-section-{{ section.id }} .media-column .main-image {
-      height: auto !important;
-      max-height: none !important;
+      height: auto ;
+      max-height: none ;
       object-fit: cover;
       {% if section.settings.center_align_with_media %}
         width: 100%;
@@ -1168,20 +1168,20 @@
     }
     
     #image-text-section-{{ section.id }} .accordion-item.active .accordion-content {
-      max-height: none !important;
-      height: auto !important;
+      max-height: none ;
+      height: auto ;
     }
   }
 
   /* Ensure accordion content is properly hidden when inactive */
   #image-text-section-{{ section.id }} .accordion-item:not(.active) .accordion-content {
-    max-height: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
+    max-height: 0 ;
+    padding: 0 ;
+    overflow: hidden ;
   }
 
   #image-text-section-{{ section.id }} .accordion-item:not(.active) .accordion-content-inner {
-    opacity: 0 !important;
+    opacity: 0 ;
   }
 
   /* Rich text formatting support */
@@ -1194,7 +1194,7 @@
   #image-text-section-{{ section.id }} .accordion-content-inner b,
   #image-text-section-{{ section.id }} .accordion-content-inner i,
   #image-text-section-{{ section.id }} .accordion-content-inner a {
-    color: inherit !important;
+    color: inherit ;
   }
 
   #image-text-section-{{ section.id }} .accordion-content-inner strong,
@@ -1244,7 +1244,7 @@
     
     #image-text-section-{{ section.id }} .accordion-toggle {
       right: var(--header-padding-mobile);
-      font-size: var(--accordion-toggle-size-mobile) !important;
+      font-size: var(--accordion-toggle-size-mobile) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-content-inner {
@@ -1253,81 +1253,81 @@
 
     /* Mobile text size overrides */
     #image-text-section-{{ section.id }} .accordion-title {
-      font-size: var(--accordion-title-size-mobile) !important;
+      font-size: var(--accordion-title-size-mobile) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-header-text {
-      font-size: var(--accordion-header-size-mobile) !important;
+      font-size: var(--accordion-header-size-mobile) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-content-inner {
-      font-size: var(--accordion-content-size-mobile) !important;
+      font-size: var(--accordion-content-size-mobile) ;
     }
   }
 
   /* Tablet accordion styles (600px - 990px) - Compact */
   @media (min-width: 600px) and (max-width: 990px) {
     #image-text-section-{{ section.id }} .accordion-header {
-      padding: calc(var(--header-padding-desktop) * 0.5) !important;
+      padding: calc(var(--header-padding-desktop) * 0.5) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-toggle {
-      right: calc(var(--header-padding-desktop) * 0.5) !important;
-      font-size: calc(var(--accordion-toggle-size-desktop) * 0.75) !important;
+      right: calc(var(--header-padding-desktop) * 0.5) ;
+      font-size: calc(var(--accordion-toggle-size-desktop) * 0.75) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-content-inner {
-      padding: calc(var(--content-padding-desktop) * 0.5) !important;
-      font-size: calc(var(--accordion-content-size-desktop) * 0.8) !important;
+      padding: calc(var(--content-padding-desktop) * 0.5) ;
+      font-size: calc(var(--accordion-content-size-desktop) * 0.8) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-item.active .accordion-content {
-      padding: calc(var(--content-outer-padding-desktop) * 0.5) 0 !important;
+      padding: calc(var(--content-outer-padding-desktop) * 0.5) 0 ;
     }
     
     #image-text-section-{{ section.id }} .accordion-item.active .accordion-content-inner {
-      padding: calc(var(--content-padding-desktop) * 0.5) !important;
+      padding: calc(var(--content-padding-desktop) * 0.5) ;
     }
 
     #image-text-section-{{ section.id }} .accordion-title {
-      font-size: calc(var(--accordion-title-size-desktop) * 0.7) !important;
+      font-size: calc(var(--accordion-title-size-desktop) * 0.7) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-header-text {
-      font-size: calc(var(--accordion-header-size-desktop) * 0.8) !important;
+      font-size: calc(var(--accordion-header-size-desktop) * 0.8) ;
     }
   }
 
   /* Desktop accordion styles (991px and up) */
   @media (min-width: 991px) {
     #image-text-section-{{ section.id }} .accordion-header {
-      padding: var(--header-padding-desktop) !important;
+      padding: var(--header-padding-desktop) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-toggle {
-      right: var(--header-padding-desktop) !important;
-      font-size: var(--accordion-toggle-size-desktop) !important;
+      right: var(--header-padding-desktop) ;
+      font-size: var(--accordion-toggle-size-desktop) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-content-inner {
-      padding: var(--content-padding-desktop) !important;
-      font-size: var(--accordion-content-size-desktop) !important;
+      padding: var(--content-padding-desktop) ;
+      font-size: var(--accordion-content-size-desktop) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-item.active .accordion-content {
-      padding: var(--content-outer-padding-desktop) 0 !important;
+      padding: var(--content-outer-padding-desktop) 0 ;
     }
     
     #image-text-section-{{ section.id }} .accordion-item.active .accordion-content-inner {
-      padding: var(--content-padding-desktop) !important;
+      padding: var(--content-padding-desktop) ;
     }
 
     #image-text-section-{{ section.id }} .accordion-title {
-      font-size: var(--accordion-title-size-desktop) !important;
+      font-size: var(--accordion-title-size-desktop) ;
     }
     
     #image-text-section-{{ section.id }} .accordion-header-text {
-      font-size: var(--accordion-header-size-desktop) !important;
+      font-size: var(--accordion-header-size-desktop) ;
     }
   }
 
@@ -1339,14 +1339,14 @@
   }
   
   #image-text-section-{{ section.id }} .button.full-width-mobile {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-width: unset !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
+    width: 100% ;
+    max-width: 100% ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    min-width: unset ;
+    box-sizing: border-box ;
+    overflow: hidden ;
   }
 
   /* Mobile full-width media styles */
@@ -1358,7 +1358,7 @@
     #image-text-section-{{ section.id }} .media-column.mobile-full-width {
       margin-left: 0;
       margin-right: 0;
-      padding: 0 !important;
+      padding: 0 ;
       width: 100%;
       max-width: none;
     }
@@ -1366,10 +1366,10 @@
     #image-text-section-{{ section.id }} .media-column.mobile-full-width .main-image,
     #image-text-section-{{ section.id }} .media-column.mobile-full-width .main-video,
     #image-text-section-{{ section.id }} .media-column.mobile-full-width .media-placeholder {
-      border-radius: 0 !important;
-      max-width: none !important;
-      width: 100% !important;
-      height: auto !important;
+      border-radius: 0 ;
+      max-width: none ;
+      width: 100% ;
+      height: auto ;
     }
     
     #image-text-section-{{ section.id }} .mobile-media-full-width .text-column {
@@ -1382,9 +1382,9 @@
   /* Extra specificity for video full width */
   @media (max-width: 990px) {
     #image-text-section-{{ section.id }} .media-column.mobile-full-width .main-video {
-      object-fit: cover !important;
-      display: block !important;
-      min-height: 200px !important;
+      object-fit: cover ;
+      display: block ;
+      min-height: 200px ;
     }
     
     /* Ensure no overflow issues */
@@ -1400,7 +1400,7 @@
 
   /* Section-specific styles to prevent conflicts between multiple instances */
   #image-text-section-{{ section.id }} .image-text-heading {
-    color: {% if section.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_text_color }}{% endif %}{% else %}{{ section.settings.heading_color }}{% endif %} !important;
+    color: {% if section.settings.use_theme_colors %}{% if section.settings.inverse_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ settings.global_section_text_color }}{% endif %}{% else %}{{ section.settings.heading_color }}{% endif %} ;
   }
 
   /* Removed global color override to allow individual paragraph colors to work */

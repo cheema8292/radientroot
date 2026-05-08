@@ -256,13 +256,13 @@ show_mobile_shipping: {{ show_mobile_shipping }}
     {% if use_theme_colors_forced %}
     /* Theme colors enabled - use_theme_colors_forced: {{ use_theme_colors_forced }} */
     #stickyAddToCart {
-      background: {{ settings.global_section_background_color }} !important;
-      color: {{ settings.global_section_text_color }} !important;
+      background: {{ settings.global_section_background_color }} ;
+      color: {{ settings.global_section_text_color }} ;
       z-index: {{ z_index }};
     }
 
     .sticky-add-to-cart__container {
-      background: {{ settings.global_section_background_color }} !important;
+      background: {{ settings.global_section_background_color }} ;
     }
     
     .sticky-add-to-cart__product,
@@ -276,41 +276,41 @@ show_mobile_shipping: {{ show_mobile_shipping }}
     .desktop-view,
     .mobile-view,
     .mobile-shipping-info {
-      background: {{ settings.global_section_background_color }} !important;
+      background: {{ settings.global_section_background_color }} ;
     }
 
     .sticky-add-to-cart__button {
       {% if settings.enable_global_button_styling and use_global_button_styling %}
         /* Use Global Button Styling System */
         --button-text-font-size: var(--global-button-font-size, 14px);
-        padding: var(--global-button-padding-y, 12px) 20px !important;
-        font-size: var(--global-button-font-size, 14px) !important;
-        font-weight: var(--global-button-font-weight, 700) !important;
-        letter-spacing: var(--global-button-letter-spacing, 1px) !important;
-        text-transform: var(--global-button-text-transform, none) !important;
-        background-color: var(--global-button-bg-color) !important;
-        color: var(--global-button-text-color) !important;
-        border: var(--global-button-border-width) solid var(--global-button-border-color) !important;
-        border-radius: var(--global-button-radius) !important;
+        padding: var(--global-button-padding-y, 12px) 20px ;
+        font-size: var(--global-button-font-size, 14px) ;
+        font-weight: var(--global-button-font-weight, 700) ;
+        letter-spacing: var(--global-button-letter-spacing, 1px) ;
+        text-transform: var(--global-button-text-transform, none) ;
+        background-color: var(--global-button-bg-color) ;
+        color: var(--global-button-text-color) ;
+        border: var(--global-button-border-width) solid var(--global-button-border-color) ;
+        border-radius: var(--global-button-radius) ;
       {% else %}
         /* Use Custom Button Styling */
         --button-text-font-size: {{ custom_button_font_size | default: 14 }}px;
-        padding: {{ custom_button_padding_y | default: 15 }}px 20px !important;
-        font-size: {{ custom_button_font_size | default: 14 }}px !important;
+        padding: {{ custom_button_padding_y | default: 15 }}px 20px ;
+        font-size: {{ custom_button_font_size | default: 14 }}px ;
       {% if settings.use_dedicated_button_colors %}
         background-color: {% if settings.global_section_button_color != blank %}
                             {{ settings.global_section_button_color }}
                           {% else %}
                             {{ settings.global_section_accent_1_color }}
-                          {% endif %} !important;
+                          {% endif %} ;
         color: {% if settings.global_section_button_text_color != blank %}
                  {{ settings.global_section_button_text_color }}
                {% else %}
                  {{ settings.global_section_background_color }}
-               {% endif %} !important;
+               {% endif %} ;
       {% else %}
-        background-color: {{ settings.global_section_accent_1_color }} !important;
-        color: {{ settings.global_section_background_color }} !important;
+        background-color: {{ settings.global_section_accent_1_color }} ;
+        color: {{ settings.global_section_background_color }} ;
         {% endif %}
         border-radius: {{ border_radius }}px;
       {% endif %}
@@ -319,8 +319,8 @@ show_mobile_shipping: {{ show_mobile_shipping }}
     .sticky-add-to-cart__button:hover {
       {% if settings.enable_global_button_styling and use_global_button_styling %}
         /* Use Global Button Hover Styling */
-        background-color: var(--global-button-hover-bg-color) !important;
-        color: var(--global-button-hover-text-color) !important;
+        background-color: var(--global-button-hover-bg-color) ;
+        color: var(--global-button-hover-text-color) ;
       {% else %}
         /* Use Custom Button Hover Styling */
       {% if settings.use_dedicated_button_colors %}
@@ -328,57 +328,57 @@ show_mobile_shipping: {{ show_mobile_shipping }}
                             {{ settings.global_section_button_color | color_darken: 5 }}
                           {% else %}
                             {{ settings.global_section_accent_1_color | color_darken: 5 }}
-                          {% endif %} !important;
+                          {% endif %} ;
       {% else %}
-        background-color: {{ settings.global_section_accent_1_color | color_darken: 5 }} !important;
+        background-color: {{ settings.global_section_accent_1_color | color_darken: 5 }} ;
         {% endif %}
       {% endif %}
     }
     
     .sticky-add-to-cart__title {
-      color: {{ settings.global_section_text_color }} !important;
+      color: {{ settings.global_section_text_color }} ;
     }
     
     .sticky-add-to-cart__rating-text {
-      color: {{ settings.global_section_text_color }} !important;
+      color: {{ settings.global_section_text_color }} ;
     }
     
     .star {
-      color: {{ settings.global_section_accent_1_color }} !important;
+      color: {{ settings.global_section_accent_1_color }} ;
     }
     
     .mobile-stars .star {
-      color: {{ settings.global_section_accent_1_color }} !important;
+      color: {{ settings.global_section_accent_1_color }} ;
     }
     
     .sticky-add-to-cart__image {
-      border-color: {{ settings.global_section_accent_1_color | color_lighten: 30 }} !important;
+      border-color: {{ settings.global_section_accent_1_color | color_lighten: 30 }} ;
     }
     
     .delivery-icon {
-      color: {{ settings.global_section_accent_1_color }} !important;
+      color: {{ settings.global_section_accent_1_color }} ;
     }
     
     .delivery-text {
-      color: {{ settings.global_section_text_color }} !important;
-      font-weight: var(--font-weight-regular) !important;
-      letter-spacing: var(--letter-spacing-body) !important;
+      color: {{ settings.global_section_text_color }} ;
+      font-weight: var(--font-weight-regular) ;
+      letter-spacing: var(--letter-spacing-body) ;
     }
     
     .delivery-date {
-      color: {{ settings.global_section_accent_1_color }} !important;
-      font-weight: var(--font-weight-semibold) !important;
+      color: {{ settings.global_section_accent_1_color }} ;
+      font-weight: var(--font-weight-semibold) ;
     }
 
   {% else %}
     /* Custom colors enabled - use_theme_colors_forced: {{ use_theme_colors_forced }} */
     #stickyAddToCart {
-      background: {{ background_color }} !important;
+      background: {{ background_color }} ;
       z-index: {{ z_index }};
     }
 
     .sticky-add-to-cart__container {
-      background: {{ background_color }} !important;
+      background: {{ background_color }} ;
     }
     
     .sticky-add-to-cart__product,
@@ -392,48 +392,48 @@ show_mobile_shipping: {{ show_mobile_shipping }}
     .desktop-view,
     .mobile-view,
     .mobile-shipping-info {
-      background: {{ background_color }} !important;
+      background: {{ background_color }} ;
     }
 
     .sticky-add-to-cart__button {
-      background-color: {{ button_bg_color }} !important;
-      color: {{ button_text_color }} !important;
+      background-color: {{ button_bg_color }} ;
+      color: {{ button_text_color }} ;
     }
 
     .sticky-add-to-cart__button:hover {
-      background-color: {{ button_hover_color }} !important;
+      background-color: {{ button_hover_color }} ;
     }
     
     .sticky-add-to-cart__title {
-      color: {{ title_color }} !important;
+      color: {{ title_color }} ;
     }
     
     .sticky-add-to-cart__rating-text {
-      color: {{ rating_text_color }} !important;
+      color: {{ rating_text_color }} ;
     }
     
     .star {
-      color: {{ star_color }} !important;
+      color: {{ star_color }} ;
     }
     
     .delivery-icon {
-      color: {{ star_color }} !important;
+      color: {{ star_color }} ;
     }
     
     .delivery-text {
-      color: {{ delivery_text_color }} !important;
+      color: {{ delivery_text_color }} ;
     }
     
     .delivery-date {
-      color: {{ star_color }} !important;
+      color: {{ star_color }} ;
     }
     
     .mobile-view .delivery-icon {
-      color: {{ mobile_star_color }} !important;
+      color: {{ mobile_star_color }} ;
     }
     
     .mobile-view .delivery-date {
-      color: {{ mobile_star_color }} !important;
+      color: {{ mobile_star_color }} ;
     }
   {% endif %}
 #stickyAddToCart {
@@ -458,7 +458,7 @@ show_mobile_shipping: {{ show_mobile_shipping }}
   transform: translateY(0);
   opacity: 1;
   pointer-events: all;
-  display: block !important;
+  display: block ;
 }
 
 .sticky-add-to-cart__container {
@@ -510,7 +510,7 @@ show_mobile_shipping: {{ show_mobile_shipping }}
 }
 
 .star {
-  color: {% if use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ star_color }}{% endif %} !important;
+  color: {% if use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ star_color }}{% endif %} ;
   font-size: 14px;
   line-height: 1;
   margin-right: 2px;
@@ -539,7 +539,7 @@ show_mobile_shipping: {{ show_mobile_shipping }}
 }
 
 .sticky-add-to-cart__shipping {
-  {% if section.settings.show_delivery_date == false %}display: none !important;{% else %}display: flex;{% endif %}
+  {% if section.settings.show_delivery_date == false %}display: none ;{% else %}display: flex;{% endif %}
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 12px;
@@ -549,11 +549,11 @@ show_mobile_shipping: {{ show_mobile_shipping }}
 }
 
 .hide-desktop-shipping {
-  display: none !important;
+  display: none ;
 }
 
 .hide-mobile-shipping {
-  display: none !important;
+  display: none ;
 }
 
 .sticky-add-to-cart__shipping-icon {
@@ -585,7 +585,7 @@ show_mobile_shipping: {{ show_mobile_shipping }}
 }
 
 .mobile-shipping-info {
-  {% if section.settings.show_delivery_date == false %}display: none !important;{% else %}display: flex;{% endif %}
+  {% if section.settings.show_delivery_date == false %}display: none ;{% else %}display: flex;{% endif %}
   justify-content: center;
   width: 100%;
   margin-top: 2px;
@@ -632,7 +632,7 @@ html body .sticky-add-to-cart__button {
   padding: var(--global-button-padding-y) 10px; /* Keep horizontal padding */
   font-size: var(--global-button-font-size);
   font-weight: var(--global-button-font-weight);
-  letter-spacing: var(--global-button-letter-spacing) !important;
+  letter-spacing: var(--global-button-letter-spacing) ;
   text-transform: var(--global-button-text-transform);
   border-radius: {{ border_radius }}px;
   /* Keep other styles */
@@ -671,7 +671,7 @@ html body .sticky-add-to-cart__button {
 .button-text, .button-added-text {
   display: inline-block;
   transition: all 0.7s ease;
-  font-size: var(--button-text-font-size, var(--global-button-font-size)) !important;
+  font-size: var(--button-text-font-size, var(--global-button-font-size)) ;
 }
 
 .button-added-text {
@@ -750,7 +750,7 @@ html body .sticky-add-to-cart__button {
 }
 
 .mobile-shipping-info {
-  {% if section.settings.show_delivery_date == false %}display: none !important;{% else %}display: flex;{% endif %}
+  {% if section.settings.show_delivery_date == false %}display: none ;{% else %}display: flex;{% endif %}
   justify-content: center;
   width: 100%;
   margin-top: 2px;
@@ -851,8 +851,8 @@ html body .sticky-add-to-cart__button {
   }
   
   .sticky-add-to-cart__button {
-    padding: 15px 20px !important;
-    margin: 0 !important;
+    padding: 15px 20px ;
+    margin: 0 ;
   }
 }
 
@@ -870,14 +870,14 @@ html body .sticky-add-to-cart__button {
 #stickyAddToCart .delivery-text.hide-mobile-shipping,
 #stickyAddToCart .delivery-date.hide-mobile-shipping
 {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  pointer-events: none !important;
-  overflow: hidden !important;
+  display: none ;
+  visibility: hidden ;
+  opacity: 0 ;
+  width: 0 ;
+  height: 0 ;
+  position: absolute ;
+  pointer-events: none ;
+  overflow: hidden ;
 }
 </style>
 

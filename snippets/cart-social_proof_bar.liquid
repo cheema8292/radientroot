@@ -1,16 +1,16 @@
 <style>
   .cart-drawer .social-proof-bar {
         {% if section.settings.use_theme_colors_cart_drawer %}
-          background-color: {{ settings.global_section_accent_1_color }} !important;
+          background-color: {{ settings.global_section_accent_1_color }} ;
         {% else %}
-          background-color: {{ block.settings.social_proof_bg_color }} !important;
+          background-color: {{ block.settings.social_proof_bg_color }} ;
         {% endif %}
       }
       .cart-drawer .social-proof-bar__icon {
         {% if section.settings.use_theme_colors_cart_drawer %}
-          color: {{ settings.global_section_background_color }} !important;
+          color: {{ settings.global_section_background_color }} ;
         {% else %}
-          color: {{ block.settings.social_proof_icon_color }} !important;
+          color: {{ block.settings.social_proof_icon_color }} ;
         {% endif %}
       }
       .cart-drawer .social-proof-bar__icon svg,
@@ -20,19 +20,19 @@
       .cart-drawer .social-proof-bar__icon svg polygon,
       .cart-drawer .social-proof-bar__icon i {
         {% if section.settings.use_theme_colors_cart_drawer %}
-          fill: {{ settings.global_section_background_color }} !important;
-          color: {{ settings.global_section_background_color }} !important;
+          fill: {{ settings.global_section_background_color }} ;
+          color: {{ settings.global_section_background_color }} ;
         {% else %}
-          fill: {{ block.settings.social_proof_icon_color }} !important;
-          color: {{ block.settings.social_proof_icon_color }} !important;
+          fill: {{ block.settings.social_proof_icon_color }} ;
+          color: {{ block.settings.social_proof_icon_color }} ;
         {% endif %}
       }
       .cart-drawer .social-proof-bar__text {
         letter-spacing: var(--letter-spacing-body);
         {% if section.settings.use_theme_colors_cart_drawer %}
-          color: {{ settings.global_section_background_color }} !important;
+          color: {{ settings.global_section_background_color }} ;
         {% else %}
-          color: {{ block.settings.social_proof_text_color }} !important;
+          color: {{ block.settings.social_proof_text_color }} ;
         {% endif %}
       }
   .social-proof-bar {

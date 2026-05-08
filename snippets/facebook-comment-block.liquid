@@ -23,7 +23,7 @@
     margin: 0;
     padding: {{ block.settings.block_padding }}px;
     overflow: hidden;
-    font-family: {% if block.settings.use_facebook_font %}Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important{% else %}-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif{% endif %};
+    font-family: {% if block.settings.use_facebook_font %}Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif {% else %}-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif{% endif %};
     line-height: 1.34;
   ">
     <div class="fb-comment-inner" style="
@@ -66,12 +66,12 @@
           position: relative;
         ">
           <div class="fb-comment-author" style="
-            font-weight: var(--font-weight-bold) !important;
+            font-weight: var(--font-weight-bold) ;
             font-size: {{ block.settings.author_name_font_size }}px;
             letter-spacing: var(--letter-spacing-body);
             color: #050505;
             margin-bottom: 2px;
-            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;{% endif %}
+            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif ;{% endif %}
           ">
             {{ block.settings.author_name }}
           </div>
@@ -81,7 +81,7 @@
             letters-spacing: var(--letter-spacing-body);
             font-size: {{ block.settings.comment_text_font_size }}px;
             line-height: 1.3;
-            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;{% endif %}
+            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif ;{% endif %}
           ">
             {{ block.settings.comment_text }}
           </div>
@@ -198,34 +198,34 @@
               color: #65676b;
               font-size: 13px;
               font-weight: 400;
-              {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;{% endif %}
+              {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif ;{% endif %}
             ">{{ block.settings.reaction_count }}</span>
           </div>
         </div>
         
         <div class="fb-comment-meta" style="
           display: flex;
-          letter-spacing: var(--letter-spacing-body) !important;
+          letter-spacing: var(--letter-spacing-body) ;
           align-items: center;
           gap: 12px;
           margin-left: 12px;
           margin-bottom: 12px;
           font-size: {{ block.settings.meta_font_size }}px;
           color: #65676b;
-          {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;{% endif %}
+          {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif ;{% endif %}
         ">
           <span class="fb-comment-meta-item" style="
             cursor: pointer;
             font-weight: 600;
-            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;{% endif %}
+            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif ;{% endif %}
           ">Like</span>
           <span class="fb-comment-meta-item" style="
             cursor: pointer;
             font-weight: 600;
-            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;{% endif %}
+            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif ;{% endif %}
           ">Reply</span>
           <span class="fb-comment-timestamp" style="
-            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;{% endif %}
+            {% if block.settings.use_facebook_font %}font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif ;{% endif %}
           ">{{ block.settings.time_stamp }}</span>
         </div>
       </div>

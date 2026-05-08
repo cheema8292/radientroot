@@ -12,28 +12,28 @@
 */
 
 /* --- H1 Rules --- */
-body:not(.h1-heading-font) h1, body:not(.h1-heading-font) .h1 { font-family: var(--font-body-family) !important; }
-body.h1-heading-font h1, body.h1-heading-font .h1 { font-family: var(--font-heading-family) !important; }
+body:not(.h1-heading-font) h1, body:not(.h1-heading-font) .h1 { font-family: var(--font-body-family) ; }
+body.h1-heading-font h1, body.h1-heading-font .h1 { font-family: var(--font-heading-family) ; }
 
 /* --- H2 Rules --- */
-body:not(.h2-heading-font) h2, body:not(.h2-heading-font) .h2 { font-family: var(--font-body-family) !important; }
-body.h2-heading-font h2, body.h2-heading-font .h2 { font-family: var(--font-heading-family) !important; }
+body:not(.h2-heading-font) h2, body:not(.h2-heading-font) .h2 { font-family: var(--font-body-family) ; }
+body.h2-heading-font h2, body.h2-heading-font .h2 { font-family: var(--font-heading-family) ; }
 
 /* --- H3 Rules --- */
-body:not(.h3-heading-font) h3, body:not(.h3-heading-font) .h3 { font-family: var(--font-body-family) !important; }
-body.h3-heading-font h3, body.h3-heading-font .h3 { font-family: var(--font-heading-family) !important; }
+body:not(.h3-heading-font) h3, body:not(.h3-heading-font) .h3 { font-family: var(--font-body-family) ; }
+body.h3-heading-font h3, body.h3-heading-font .h3 { font-family: var(--font-heading-family) ; }
 
 /* --- H4 Rules --- */
-body:not(.h4-heading-font) h4, body:not(.h4-heading-font) .h4 { font-family: var(--font-body-family) !important; }
-body.h4-heading-font h4, body.h4-heading-font .h4 { font-family: var(--font-heading-family) !important; }
+body:not(.h4-heading-font) h4, body:not(.h4-heading-font) .h4 { font-family: var(--font-body-family) ; }
+body.h4-heading-font h4, body.h4-heading-font .h4 { font-family: var(--font-heading-family) ; }
 
 /* --- H5 Rules --- */
-body:not(.h5-heading-font) h5, body:not(.h5-heading-font) .h5 { font-family: var(--font-body-family) !important; }
-body.h5-heading-font h5, body.h5-heading-font .h5 { font-family: var(--font-heading-family) !important; }
+body:not(.h5-heading-font) h5, body:not(.h5-heading-font) .h5 { font-family: var(--font-body-family) ; }
+body.h5-heading-font h5, body.h5-heading-font .h5 { font-family: var(--font-heading-family) ; }
 
 /* --- H6 Rules --- */
-body:not(.h6-heading-font) h6, body:not(.h6-heading-font) .h6 { font-family: var(--font-body-family) !important; }
-body.h6-heading-font h6, body.h6-heading-font .h6 { font-family: var(--font-heading-family) !important; }
+body:not(.h6-heading-font) h6, body:not(.h6-heading-font) .h6 { font-family: var(--font-body-family) ; }
+body.h6-heading-font h6, body.h6-heading-font .h6 { font-family: var(--font-heading-family) ; }
 
 
 /* --- OVERRIDE TYPOGRAPHY-SYSTEM.CSS SPAN RULES --- */
@@ -60,7 +60,7 @@ body:not(.h6-heading-font) span[class*="heading"],
 body:not(.h3-heading-font) span[class*="product-title"],
 body:not(.h1-heading-font) span[class*="section-title"],
 body:not(.h2-heading-font) span[class*="section-title"] {
-  font-family: var(--font-body-family) !important;
+  font-family: var(--font-body-family) ;
 }
 
 /* Specific overrides for common UI elements that should always use body font */
@@ -70,7 +70,7 @@ body:not(.h2-heading-font) span[class*="section-title"] {
 [class*="button-text"],
 .nav-title,
 [class*="nav-title"] {
-  font-family: var(--font-body-family) !important;
+  font-family: var(--font-body-family) ;
 }
 
 
@@ -95,10 +95,10 @@ body:not(.h2-heading-font) span[class*="section-title"] {
 .accent-text,
 .global-accent-text,
 .custom-accent-text {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
 }
 
 /* Ensure .heading-text class always uses heading font */
 .heading-text {
-  font-family: var(--font-heading-family) !important;
+  font-family: var(--font-heading-family) ;
 } 

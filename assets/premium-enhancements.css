@@ -24,7 +24,7 @@
    ============================================================= */
 .announcement-bar,
 .shopify-section-announcement-bar {
-  background-color: #1A1A1A !important;
+  background-color: #1A1A1A ;
 }
 
 .announcement-bar__message,
@@ -49,17 +49,17 @@
 sticky-header.scrolled .header-wrapper,
 .scrolled-past-header .header-wrapper,
 .header-wrapper.header-wrapper--border-bottom {
-  background-color: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  box-shadow: 0 1px 0 0 var(--rr-border) !important;
+  background-color: rgba(255, 255, 255, 0.88) ;
+  backdrop-filter: blur(14px) ;
+  -webkit-backdrop-filter: blur(14px) ;
+  box-shadow: 0 1px 0 0 var(--rr-border) ;
 }
 
 /* Nav link — animated gold underline on hover */
 .header__menu-item,
 .list-menu__item--link {
   position: relative;
-  text-decoration: none !important;
+  text-decoration: none ;
   transition: color var(--rr-transition);
 }
 
@@ -82,28 +82,28 @@ sticky-header.scrolled .header-wrapper,
 
 .header__menu-item:hover,
 .list-menu__item--link:hover {
-  color: var(--rr-gold) !important;
-  opacity: 1 !important;
+  color: var(--rr-gold) ;
+  opacity: 1 ;
 }
 
 /* Account icon — reduce from 40px → 22px */
 .header__icon--account .svg-wrapper svg,
 .header__icon--account account-icon svg {
-  width: 22px !important;
-  height: 22px !important;
+  width: 22px ;
+  height: 22px ;
 }
 
 /* Cart icon — consistent size */
 .cart-bag-icon {
-  height: 24px !important;
-  width: 24px !important;
+  height: 24px ;
+  width: 24px ;
 }
 
 /* Cart count bubble — gold background */
 .cart-count-bubble {
-  background-color: var(--rr-gold) !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
+  background-color: var(--rr-gold) ;
+  color: #ffffff ;
+  font-weight: 600 ;
   min-width: 18px;
   height: 18px;
   border-radius: var(--rr-radius-pill);
@@ -118,7 +118,7 @@ sticky-header.scrolled .header-wrapper,
 
 /* Logo scale transition — smoother */
 .scrolled-past-header .header__heading-logo-wrapper {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) ;
 }
 
 /* Mobile drawer — brand divider between items */
@@ -132,7 +132,7 @@ sticky-header.scrolled .header-wrapper,
 }
 
 .menu-drawer__navigation .list-menu__item--link:hover {
-  color: var(--rr-gold) !important;
+  color: var(--rr-gold) ;
   padding-left: 6px;
   transition: padding-left 0.2s ease, color 0.2s ease;
 }
@@ -153,60 +153,60 @@ sticky-header.scrolled .header-wrapper,
   }
   /* Center-align text on mobile for premium beauty feel */
   .custom-hero .custom-hero__content-wrapper {
-    text-align: center !important;
-    align-items: center !important;
+    text-align: center ;
+    align-items: center ;
   }
   .custom-hero__button-wrapper,
   .custom-hero__rating-wrapper {
-    justify-content: center !important;
+    justify-content: center ;
   }
 }
 
 /* Heading — slightly more breathing room */
 .custom-hero__title {
-  line-height: 1.18 !important;
+  line-height: 1.18 ;
 }
 
 /* Rating text — darken from #8A8A8A → #4A4A4A */
 .custom-hero__rating-text p,
 .custom-hero__rating-text {
-  color: #4A4A4A !important;
+  color: #4A4A4A ;
 }
 
 /* Stars stay gold */
 .custom-hero__rating .icon-star,
 .custom-hero__rating svg {
-  color: var(--rr-gold) !important;
-  fill: var(--rr-gold) !important;
+  color: var(--rr-gold) ;
+  fill: var(--rr-gold) ;
 }
 
 /* Secondary button — outlined gold style */
 .custom-hero .custom-hero__button--secondary,
 .custom-hero .button--secondary {
-  background-color: transparent !important;
-  border: 1.5px solid var(--rr-gold) !important;
-  color: var(--rr-dark) !important;
+  background-color: transparent ;
+  border: 1.5px solid var(--rr-gold) ;
+  color: var(--rr-dark) ;
   transition: background-color var(--rr-transition),
-              color var(--rr-transition) !important;
+              color var(--rr-transition) ;
 }
 
 .custom-hero .custom-hero__button--secondary:hover,
 .custom-hero .button--secondary:hover {
-  background-color: var(--rr-gold) !important;
-  color: #ffffff !important;
+  background-color: var(--rr-gold) ;
+  color: #ffffff ;
 }
 
 /* Primary button — smooth hover */
 .custom-hero .custom-hero__button--primary,
 .custom-hero .button--primary {
   transition: opacity var(--rr-transition),
-              transform var(--rr-transition) !important;
+              transform var(--rr-transition) ;
 }
 
 .custom-hero .custom-hero__button--primary:hover,
 .custom-hero .button--primary:hover {
-  opacity: 0.88 !important;
-  transform: translateY(-1px) !important;
+  opacity: 0.88 ;
+  transform: translateY(-1px) ;
 }
 
 
@@ -218,22 +218,22 @@ sticky-header.scrolled .header-wrapper,
 .card-wrapper,
 .card,
 .card__inner {
-  border-radius: var(--rr-radius-card) !important;
+  border-radius: var(--rr-radius-card) ;
 }
 
 /* Image area — always cover, never contain */
 .card__media img,
 .card__media .media {
-  object-fit: cover !important;
+  object-fit: cover ;
 }
 
 /* Smooth image zoom on hover */
 .card__media img {
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1) ;
 }
 
 .card-wrapper:hover .card__media img {
-  transform: scale(1.04) !important;
+  transform: scale(1.04) ;
 }
 
 /* Card shadow lift on hover */
@@ -243,50 +243,50 @@ sticky-header.scrolled .header-wrapper,
 }
 
 .card-wrapper:hover {
-  box-shadow: 0 8px 28px rgba(26, 26, 26, 0.10) !important;
-  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 28px rgba(26, 26, 26, 0.10) ;
+  transform: translateY(-3px) ;
 }
 
 /* Card info section — more breathing room */
 .card .card__information {
-  padding: 14px 16px 16px !important;
+  padding: 14px 16px 16px ;
 }
 
 /* Product title */
 .card__heading a,
 .card__heading {
-  font-size: 15px !important;
-  font-weight: 500 !important;
+  font-size: 15px ;
+  font-weight: 500 ;
   letter-spacing: 0.01em;
   transition: color var(--rr-transition);
 }
 
 .card-wrapper:hover .card__heading a {
-  color: var(--rr-gold) !important;
+  color: var(--rr-gold) ;
 }
 
 /* Price — actual price prominent, compare price subtle */
 .price__regular .price-item--regular,
 .price .price-item--regular {
-  font-weight: 600 !important;
-  font-size: 15px !important;
-  color: var(--rr-dark) !important;
+  font-weight: 600 ;
+  font-size: 15px ;
+  color: var(--rr-dark) ;
 }
 
 .price__sale .price-item--sale,
 .price .price-item--sale {
-  font-weight: 600 !important;
-  font-size: 15px !important;
-  color: var(--rr-dark) !important;
+  font-weight: 600 ;
+  font-size: 15px ;
+  color: var(--rr-dark) ;
 }
 
 .price__sale s,
 .price s,
 .price-item--regular + s,
 .price-item--last {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  color: #999999 !important;
+  font-size: 12px ;
+  font-weight: 400 ;
+  color: #999999 ;
   text-decoration: line-through;
   margin-left: 4px;
 }
@@ -294,14 +294,14 @@ sticky-header.scrolled .header-wrapper,
 /* Sale badge — pill shape with brand gold */
 .badge--sale,
 .card__badge .badge {
-  background-color: var(--rr-gold) !important;
-  color: #ffffff !important;
-  border-radius: var(--rr-radius-pill) !important;
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.05em !important;
-  padding: 3px 10px !important;
-  border: none !important;
+  background-color: var(--rr-gold) ;
+  color: #ffffff ;
+  border-radius: var(--rr-radius-pill) ;
+  font-size: 10px ;
+  font-weight: 600 ;
+  letter-spacing: 0.05em ;
+  padding: 3px 10px ;
+  border: none ;
   text-transform: uppercase;
 }
 
@@ -309,15 +309,15 @@ sticky-header.scrolled .header-wrapper,
 .card-wrapper .card__content .quick-add,
 .card-wrapper [class*="view-product"] {
   transition: opacity var(--rr-transition),
-              transform var(--rr-transition) !important;
-  opacity: 0 !important;
-  transform: translateY(6px) !important;
+              transform var(--rr-transition) ;
+  opacity: 0 ;
+  transform: translateY(6px) ;
 }
 
 .card-wrapper:hover .card__content .quick-add,
 .card-wrapper:hover [class*="view-product"] {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+  opacity: 1 ;
+  transform: translateY(0) ;
 }
 
 
@@ -329,8 +329,8 @@ sticky-header.scrolled .header-wrapper,
 .scrolling-ticker__item,
 [class*="marquee"] span,
 [class*="marquee"] p {
-  font-weight: 500 !important;
-  letter-spacing: 0.06em !important;
+  font-weight: 500 ;
+  letter-spacing: 0.06em ;
 }
 
 
@@ -341,7 +341,7 @@ sticky-header.scrolled .header-wrapper,
 .rd-benefits-bar__item-title,
 [class*="benefits-bar"] .title,
 [class*="benefit"] h3 {
-  font-weight: 600 !important;
+  font-weight: 600 ;
   letter-spacing: 0.01em;
 }
 
@@ -357,26 +357,26 @@ sticky-header.scrolled .header-wrapper,
 /* Top divider */
 footer.footer,
 .footer {
-  border-top: 1px solid var(--rr-border) !important;
+  border-top: 1px solid var(--rr-border) ;
 }
 
 /* Reduce excessive bottom padding */
 @media screen and (min-width: 750px) {
   .footer .section-footer-padding,
   .footer [class*="section-"][class*="-padding"] {
-    padding-bottom: 80px !important;
+    padding-bottom: 80px ;
   }
 }
 
 /* Footer headings */
 .footer-block__heading,
 .footer h2 {
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase !important;
-  color: var(--rr-dark) !important;
-  margin-bottom: 16px !important;
+  font-size: 13px ;
+  font-weight: 700 ;
+  letter-spacing: 0.1em ;
+  text-transform: uppercase ;
+  color: var(--rr-dark) ;
+  margin-bottom: 16px ;
 }
 
 /* Footer links */
@@ -389,78 +389,78 @@ footer.footer,
 
 .footer a:hover,
 .footer .footer__list-item a:hover {
-  color: var(--rr-gold) !important;
-  padding-left: 4px !important;
-  text-decoration: none !important;
+  color: var(--rr-gold) ;
+  padding-left: 4px ;
+  text-decoration: none ;
 }
 
 /* Social icons — circle button style */
 .footer .list-social__link,
 .footer__list-social .list-social__link {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 50% !important;
-  border: 1.5px solid var(--rr-border) !important;
-  background-color: transparent !important;
+  display: flex ;
+  align-items: center ;
+  justify-content: center ;
+  width: 38px ;
+  height: 38px ;
+  border-radius: 50% ;
+  border: 1.5px solid var(--rr-border) ;
+  background-color: transparent ;
   transition: background-color var(--rr-transition),
               border-color var(--rr-transition),
-              transform var(--rr-transition) !important;
+              transform var(--rr-transition) ;
 }
 
 .footer .list-social__link:hover,
 .footer__list-social .list-social__link:hover {
-  background-color: var(--rr-gold) !important;
-  border-color: var(--rr-gold) !important;
-  transform: translateY(-2px) !important;
+  background-color: var(--rr-gold) ;
+  border-color: var(--rr-gold) ;
+  transform: translateY(-2px) ;
 }
 
 .footer .list-social__link:hover svg,
 .footer .list-social__link:hover svg path {
-  fill: #ffffff !important;
-  color: #ffffff !important;
+  fill: #ffffff ;
+  color: #ffffff ;
 }
 
 .footer .list-social {
-  display: flex !important;
-  gap: 10px !important;
+  display: flex ;
+  gap: 10px ;
   flex-wrap: wrap;
 }
 
 /* Payment icons row — subtle separator background */
 .footer__content-bottom,
 .footer .footer__content-bottom {
-  background-color: var(--rr-warm-white) !important;
-  border-top: 1px solid var(--rr-border) !important;
-  padding-top: 18px !important;
-  padding-bottom: 18px !important;
+  background-color: var(--rr-warm-white) ;
+  border-top: 1px solid var(--rr-border) ;
+  padding-top: 18px ;
+  padding-bottom: 18px ;
   margin-top: 24px;
 }
 
 .footer .copyright__content,
 .footer .copyright__content a {
-  font-size: 12px !important;
-  color: #888888 !important;
+  font-size: 12px ;
+  color: #888888 ;
 }
 
 .footer .copyright__content a:hover {
-  color: var(--rr-gold) !important;
+  color: var(--rr-gold) ;
 }
 
 /* Payment icons spacing */
 .footer .list-payment {
-  display: flex !important;
-  gap: 8px !important;
-  align-items: center !important;
+  display: flex ;
+  gap: 8px ;
+  align-items: center ;
   flex-wrap: wrap;
 }
 
 .footer .list-payment__item svg,
 .footer .list-payment__item img {
-  height: 22px !important;
-  width: auto !important;
+  height: 22px ;
+  width: auto ;
   opacity: 0.75;
   transition: opacity var(--rr-transition);
 }
@@ -480,22 +480,22 @@ button.button,
 a.button,
 input[type="submit"],
 .shopify-payment-button__button {
-  border-radius: var(--rr-radius-btn) !important;
+  border-radius: var(--rr-radius-btn) ;
   transition: opacity var(--rr-transition),
               transform var(--rr-transition),
-              background-color var(--rr-transition) !important;
-  letter-spacing: 0.04em !important;
+              background-color var(--rr-transition) ;
+  letter-spacing: 0.04em ;
 }
 
 .button:hover,
 a.button:hover {
-  opacity: 0.88 !important;
-  transform: translateY(-1px) !important;
+  opacity: 0.88 ;
+  transform: translateY(-1px) ;
 }
 
 .button:active,
 a.button:active {
-  transform: translateY(0) !important;
+  transform: translateY(0) ;
 }
 
 
@@ -505,13 +505,13 @@ a.button:active {
 
 .main-collection-banner,
 [class*="collection-banner"] {
-  background-color: #1A1A1A !important;
+  background-color: #1A1A1A ;
 }
 
 /* Product grid cards — consistent image aspect ratio */
 .collection-grid__item .card__inner,
 .collection-product-card .card__inner {
-  padding-bottom: 100% !important; /* force 1:1 */
+  padding-bottom: 100% ; /* force 1:1 */
 }
 
 
@@ -564,7 +564,7 @@ a.button:active {
    ============================================================= */
 
 *:focus-visible {
-  outline: 2px solid var(--rr-gold) !important;
-  outline-offset: 3px !important;
+  outline: 2px solid var(--rr-gold) ;
+  outline-offset: 3px ;
   border-radius: 3px;
 }

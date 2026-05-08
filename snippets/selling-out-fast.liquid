@@ -28,7 +28,7 @@
     class="selling-out-fast-main-text"
     style="
       font-size: {{ block.settings.main_text_size }}px;
-      font-weight: var(--font-weight-bold) !important;
+      font-weight: var(--font-weight-bold) ;
       text-align: {{ block.settings.text_alignment | default: 'center' }};
       margin-bottom: 6px;
       letter-spacing: var(--letter-spacing-body);
@@ -134,9 +134,9 @@
               height: 100%;
               width: {{ block.settings.bar1_percentage | default: 0 }}%;
               {% if block.settings.progress_bar_gradient %}
-                background: linear-gradient(135deg, {{ block.settings.progress_bar_gradient_start | default: '#000000' }}, {{ block.settings.progress_bar_gradient_end | default: '#333333' }}) !important;
+                background: linear-gradient(135deg, {{ block.settings.progress_bar_gradient_start | default: '#000000' }}, {{ block.settings.progress_bar_gradient_end | default: '#333333' }}) ;
               {% else %}
-                background-color: {{ block.settings.progress_bar_color }} !important;
+                background-color: {{ block.settings.progress_bar_color }} ;
               {% endif %}
               border-radius: 0px;
               transition: width 0.3s ease;
@@ -192,9 +192,9 @@
               height: 100%;
               width: {{ block.settings.bar2_percentage | default: 0 }}%;
               {% if block.settings.progress_bar_gradient %}
-                background: linear-gradient(135deg, {{ block.settings.progress_bar_gradient_start | default: '#000000' }}, {{ block.settings.progress_bar_gradient_end | default: '#333333' }}) !important;
+                background: linear-gradient(135deg, {{ block.settings.progress_bar_gradient_start | default: '#000000' }}, {{ block.settings.progress_bar_gradient_end | default: '#333333' }}) ;
               {% else %}
-                background-color: {{ block.settings.progress_bar_color }} !important;
+                background-color: {{ block.settings.progress_bar_color }} ;
               {% endif %}
               border-radius: 0px;
               transition: width 0.3s ease;
@@ -250,9 +250,9 @@
               height: 100%;
               width: {{ block.settings.bar3_percentage | default: 0 }}%;
               {% if block.settings.progress_bar_gradient %}
-                background: linear-gradient(135deg, {{ block.settings.progress_bar_gradient_start | default: '#000000' }}, {{ block.settings.progress_bar_gradient_end | default: '#333333' }}) !important;
+                background: linear-gradient(135deg, {{ block.settings.progress_bar_gradient_start | default: '#000000' }}, {{ block.settings.progress_bar_gradient_end | default: '#333333' }}) ;
               {% else %}
-                background-color: {{ block.settings.progress_bar_color }} !important;
+                background-color: {{ block.settings.progress_bar_color }} ;
               {% endif %}
               border-radius: 0px;
               transition: width 0.3s ease;
@@ -293,9 +293,9 @@
           height: 100%;
           width: {{ block.settings.progress_percentage }}%;
           {% if block.settings.progress_bar_gradient %}
-            background: linear-gradient(135deg, {{ block.settings.progress_bar_gradient_start | default: '#000000' }}, {{ block.settings.progress_bar_gradient_end | default: '#333333' }}) !important;
+            background: linear-gradient(135deg, {{ block.settings.progress_bar_gradient_start | default: '#000000' }}, {{ block.settings.progress_bar_gradient_end | default: '#333333' }}) ;
           {% else %}
-            background-color: {{ block.settings.progress_bar_color }} !important;
+            background-color: {{ block.settings.progress_bar_color }} ;
           {% endif %}
           border-radius: 0px;
           transition: width 0.3s ease;
@@ -354,57 +354,57 @@
 <!-- Ensure styling takes precedence -->
 <style>
   #block-{{ block.id }} .selling-out-fast-progress-container {
-    position: relative !important;
-    overflow: hidden !important;
+    position: relative ;
+    overflow: hidden ;
   }
   
   #block-{{ block.id }} .selling-out-fast-progress-bar {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    height: 100% !important;
-    display: block !important;
-    z-index: 2 !important;
+    position: absolute ;
+    top: 0 ;
+    left: 0 ;
+    height: 100% ;
+    display: block ;
+    z-index: 2 ;
   }
   
   /* Ensure proper height for progress bar */
   #block-{{ block.id }} .selling-out-fast-progress-container {
-    height: {{ block.settings.progress_bar_height | default: 20 }}px !important;
+    height: {{ block.settings.progress_bar_height | default: 20 }}px ;
   }
   
   #block-{{ block.id }} .selling-out-fast-progress-bar {
-    min-height: {{ block.settings.progress_bar_height | default: 20 }}px !important;
+    min-height: {{ block.settings.progress_bar_height | default: 20 }}px ;
   }
   
   /* Icon styling */
   #block-{{ block.id }} .selling-out-fast-icon svg {
-    width: 100% !important;
-    height: 100% !important;
-    fill: currentColor !important;
+    width: 100% ;
+    height: 100% ;
+    fill: currentColor ;
   }
   
   /* Progress text overlay styling */
   #block-{{ block.id }} .selling-out-fast-progress-text-overlay {
-    position: absolute !important;
-    top: 50% !important;
-    left: 8px !important;
-    transform: translateY(-50%) !important;
-    z-index: 3 !important;
-    white-space: nowrap !important;
+    position: absolute ;
+    top: 50% ;
+    left: 8px ;
+    transform: translateY(-50%) ;
+    z-index: 3 ;
+    white-space: nowrap ;
     pointer-events: none;
   }
   
   /* Border styling for sold indicator */
   {% if block.settings.show_progress_border %}
     #block-{{ block.id }} .selling-out-fast-progress-container {
-      border: {{ block.settings.progress_border_width | default: 2 }}px solid {{ block.settings.progress_border_color | default: '#000000' }} !important;
+      border: {{ block.settings.progress_border_width | default: 2 }}px solid {{ block.settings.progress_border_color | default: '#000000' }} ;
     }
   {% endif %}
   
   /* Block border styling */
   {% if block.settings.show_block_border %}
     #block-{{ block.id }} .selling-out-fast-block {
-      border: {{ block.settings.block_border_width | default: 2 }}px solid {{ block.settings.block_border_color | default: '#000000' }} !important;
+      border: {{ block.settings.block_border_width | default: 2 }}px solid {{ block.settings.block_border_color | default: '#000000' }} ;
     }
   {% endif %}
 </style>

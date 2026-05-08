@@ -119,7 +119,7 @@
       , .upsell-product-container .upsell-product-title-{{ block_id }}
       , div.upsell-product-container .upsell-product-title-{{ block_id }} {
         color: {{ title_color }}
-         !important;
+         ;
       }
     {% endif %}
     {% if description_color != blank %}
@@ -127,7 +127,7 @@
       , .upsell-product-container .upsell-product-description-{{ block_id }}
       , div.upsell-product-container .upsell-product-description-{{ block_id }} {
         color: {{ description_color }}
-         !important;
+         ;
       }
     {% endif %}
   </style>
@@ -162,12 +162,12 @@
       right: 6px;
       background-color: {{ best_seller_tag_color }};
       color: {{ best_seller_tag_text_color }}
-       !important;
+       ;
       padding: 2px 6px;
       font-size: 11px;
-      border-radius: 0 0 3px 3px !important;
+      border-radius: 0 0 3px 3px ;
       z-index: 1;
-      font-weight: var(--font-weight-bold) !important;
+      font-weight: var(--font-weight-bold) ;
       letter-spacing: var(--letter-spacing-body);
       text-transform: uppercase;
       display: flex;
@@ -239,13 +239,13 @@
     }
 
     .cart-drawer .upsell-product-title {
-      font-weight: var(--font-weight-bold) !important;
+      font-weight: var(--font-weight-bold) ;
       font-size: 15px;
       line-height: 1.2;
       margin-bottom: 2px;
       letter-spacing: var(--letter-spacing-body);
       color: {{ title_color }}
-       !important;
+       ;
       width: 100%;
       overflow-wrap: break-word;
       word-wrap: break-word;
@@ -265,7 +265,7 @@
       letter-spacing: var(--letter-spacing-body);
       margin-bottom: 4px;
       color: {{ description_color }}
-       !important;
+       ;
       opacity: 0.85;
       overflow: hidden;
       display: -webkit-box;
@@ -283,12 +283,12 @@
     .cart-drawer .upsell-variant-select-{{ block_id }} {
       font-size: 9px;
       padding: 1px 18px 1px 4px;
-      border: 1px solid{{ variant_border_color }}!important;
+      border: 1px solid{{ variant_border_color }};
       border-radius: 3px;
       background-color: {{ variant_bg_color }}
-       !important;
+       ;
       color: {{ variant_text_color }}
-       !important;
+       ;
       height: 18px;
       max-width: 100%;
       -webkit-appearance: none;
@@ -306,7 +306,7 @@
       outline: none;
       box-shadow: 0 0 0 1px{{ variant_border_color }};
       border-color: {{ variant_border_color }}
-       !important;
+       ;
     }
 
     /* Remove blue highlight on iOS */
@@ -323,13 +323,13 @@
       justify-content: flex-end;
       flex-shrink: 0;
       width: 80px;
-      padding: 18px 8px 8px 0 !important;
+      padding: 18px 8px 8px 0 ;
     }
 
     /* Desktop styling for action column - override padding */
     @media (min-width: 767px) {
       .cart-drawer .upsell-product-action-column {
-        padding: 30px 8px 8px 0 !important;
+        padding: 30px 8px 8px 0 ;
       }
     }
 
@@ -338,15 +338,15 @@
       .cart-drawer .upsell-variant-select-{{ block_id }} {
         font-size: 9px;
         color: {{ variant_text_color }}
-         !important;
+         ;
         background-color: {{ variant_bg_color }}
-         !important;
+         ;
         border-color: {{ variant_border_color }}
-         !important;
-        background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='{{ variant_text_color | url_encode }}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
-        background-repeat: no-repeat !important;
-        background-position: right 4px center !important;
-        padding-right: 18px !important;
+         ;
+        background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='{{ variant_text_color | url_encode }}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") ;
+        background-repeat: no-repeat ;
+        background-position: right 4px center ;
+        padding-right: 18px ;
       }
 
       .cart-drawer .upsell-product-card-{{ block_id }} {
@@ -430,7 +430,7 @@
 
       .cart-drawer .upsell-product-info-column-{{ block_id }} {
         padding-right: 100px;
-        padding-left: 20px !important;
+        padding-left: 20px ;
       }
 
       .cart-drawer .upsell-product-action-column {
@@ -441,22 +441,22 @@
     /* Smaller text sizing for very small viewport widths */
     @media (max-width: 426px) {
       .cart-drawer .upsell-product-title {
-        font-size: 14px !important;
-        line-height: 1.15 !important;
+        font-size: 14px ;
+        line-height: 1.15 ;
       }
 
       .cart-drawer .upsell-product-description {
-        font-size: 11px !important;
-        line-height: 1.25 !important;
+        font-size: 11px ;
+        line-height: 1.25 ;
       }
 
       .cart-drawer .upsell-product-info-column-{{ block_id }} {
-        padding-left: 10px !important;
+        padding-left: 10px ;
       }
 
       .cart-drawer .upsell-variant-select {
-        height: 18px !important;
-        font-size: 9px !important;
+        height: 18px ;
+        font-size: 9px ;
       }
     }
 
@@ -466,30 +466,30 @@
     button[class^="upsell-add-button-{{ block_id }}"] {
       background-color: {% if section.settings.use_theme_colors_cart_drawer %}{{ settings.global_section_button_color | default: settings.global_section_accent_1_color }}
     {% else %}{{ button_bg_color }}
-     !important;
+     ;
   {% endif %}
-   !important;
+   ;
     color: {% if section.settings.use_theme_colors_cart_drawer %}{{ settings.global_section_button_text_color | default: '#ffffff' }}
   {% else %}{{ button_text_color }}
   {% endif %}
-   !important;
-    border: none !important;
+   ;
+    border: none ;
     border-radius: {{ button_border_radius |  append: 'px' }}
-     !important;
-    padding: 0 6px !important;
-    font-size: 12px !important;
+     ;
+    padding: 0 6px ;
+    font-size: 12px ;
     font-weight: var(--font-weight-semibold);
-    cursor: pointer !important;
-    transition: all 0.2s !important;
-    width: fit-content !important;
-    text-align: center !important;
-    letter-spacing: var(--letter-spacing-body) !important;
-    height: 22px !important;
-    line-height: 22px !important;
-    white-space: nowrap !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    cursor: pointer ;
+    transition: all 0.2s ;
+    width: fit-content ;
+    text-align: center ;
+    letter-spacing: var(--letter-spacing-body) ;
+    height: 22px ;
+    line-height: 22px ;
+    white-space: nowrap ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
   }
 
   .cart-drawer .upsell-product-action-column .upsell-add-button-{{ block_id }}:hover,
@@ -499,8 +499,8 @@
     background-color: {% if section.settings.use_theme_colors_cart_drawer %}{{ settings.global_section_button_color | default: settings.global_section_accent_1_color | color_darken: 5 }}
   {% else %}{{ button_bg_color }}
   {% endif %}
-   !important;
-    opacity: 0.9 !important;
+   ;
+    opacity: 0.9 ;
   }
 
   /* Override for upsell button text specifically */
@@ -512,7 +512,7 @@
     color: {% if section.settings.use_theme_colors_cart_drawer %}{{ settings.global_section_button_text_color | default: '#ffffff' }}
   {% else %}{{ button_text_color }}
   {% endif %}
-   !important;
+   ;
   }
 
   /* Override for upsell price within button */
@@ -524,16 +524,16 @@
     color: {% if section.settings.use_theme_colors_cart_drawer %}{{ settings.global_section_button_text_color | default: '#ffffff' }}
   {% else %}{{ button_text_color }}
   {% endif %}
-   !important;
+   ;
   }
 
   .cart-drawer .upsell-add-success {
-    background-color: #4CAF50 !important;
+    background-color: #4CAF50 ;
     animation: pulse-success 0.5s;
   }
 
   .cart-drawer .upsell-add-error {
-    background-color: #f44336 !important;
+    background-color: #f44336 ;
     animation: pulse-error 0.5s;
   }
 
@@ -543,7 +543,7 @@
     padding: 2px 15px;
     text-align: left;
     font-size: 14px;
-    font-weight: var(--font-weight-semibold) !important;
+    font-weight: var(--font-weight-semibold) ;
   }
 
   @media screen and (max-width: 749px) {
@@ -614,7 +614,7 @@
   .is-empty .upsell-block-description,
   .is-empty .upsell_slider > span.slide_item,
   .is-empty .dots-and-arrows {
-    display: none !important;
+    display: none ;
   }
 </style>
 

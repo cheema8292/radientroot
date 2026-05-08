@@ -13,71 +13,71 @@
 body .accent-font,
 html .accent-font,
 .shopify-section .accent-font {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
-  font-style: var(--font-accent-style, normal) !important;
-  font-weight: var(--font-accent-weight, 400) !important;
-  letter-spacing: var(--font-accent-letter-spacing, 0px) !important;
-  text-transform: var(--font-accent-text-transform, none) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
+  font-style: var(--font-accent-style, normal) ;
+  font-weight: var(--font-accent-weight, 400) ;
+  letter-spacing: var(--font-accent-letter-spacing, 0px) ;
+  text-transform: var(--font-accent-text-transform, none) ;
 }
 
 /* Specific targeting for new-hero accent text */
 .new-hero-accent-text.accent-font,
 .custom-hero .new-hero-accent-text.accent-font,
 section .new-hero-accent-text.accent-font {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
-  font-style: var(--font-accent-style, normal) !important;
-  font-weight: var(--font-accent-weight, 400) !important;
-  letter-spacing: var(--font-accent-letter-spacing, 0px) !important;
-  text-transform: var(--font-accent-text-transform, none) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
+  font-style: var(--font-accent-style, normal) ;
+  font-weight: var(--font-accent-weight, 400) ;
+  letter-spacing: var(--font-accent-letter-spacing, 0px) ;
+  text-transform: var(--font-accent-text-transform, none) ;
 }
 
 /* Accent font sizes with scaling and high specificity */
 .accent-font--xs,
 body .accent-font--xs,
 .shopify-section .accent-font--xs {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
-  font-style: var(--font-accent-style, normal) !important;
-  font-weight: var(--font-accent-weight, 400) !important;
-  letter-spacing: var(--font-accent-letter-spacing, 0px) !important;
-  text-transform: var(--font-accent-text-transform, none) !important;
-  font-size: calc(0.75rem * var(--font-accent-scale, 1)) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
+  font-style: var(--font-accent-style, normal) ;
+  font-weight: var(--font-accent-weight, 400) ;
+  letter-spacing: var(--font-accent-letter-spacing, 0px) ;
+  text-transform: var(--font-accent-text-transform, none) ;
+  font-size: calc(0.75rem * var(--font-accent-scale, 1)) ;
 }
 
 .accent-font--sm,
 body .accent-font--sm,
 .shopify-section .accent-font--sm {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
-  font-style: var(--font-accent-style, normal) !important;
-  font-weight: var(--font-accent-weight, 400) !important;
-  letter-spacing: var(--font-accent-letter-spacing, 0px) !important;
-  text-transform: var(--font-accent-text-transform, none) !important;
-  font-size: calc(0.875rem * var(--font-accent-scale, 1)) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
+  font-style: var(--font-accent-style, normal) ;
+  font-weight: var(--font-accent-weight, 400) ;
+  letter-spacing: var(--font-accent-letter-spacing, 0px) ;
+  text-transform: var(--font-accent-text-transform, none) ;
+  font-size: calc(0.875rem * var(--font-accent-scale, 1)) ;
 }
 
 .accent-font--base,
 body .accent-font--base,
 .shopify-section .accent-font--base {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
-  font-style: var(--font-accent-style, normal) !important;
-  font-weight: var(--font-accent-weight, 400) !important;
-  letter-spacing: var(--font-accent-letter-spacing, 0px) !important;
-  text-transform: var(--font-accent-text-transform, none) !important;
-  font-size: calc(1rem * var(--font-accent-scale, 1)) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
+  font-style: var(--font-accent-style, normal) ;
+  font-weight: var(--font-accent-weight, 400) ;
+  letter-spacing: var(--font-accent-letter-spacing, 0px) ;
+  text-transform: var(--font-accent-text-transform, none) ;
+  font-size: calc(1rem * var(--font-accent-scale, 1)) ;
 }
 
 .accent-font--lg,
 body .accent-font--lg,
 .shopify-section .accent-font--lg {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
-  font-style: var(--font-accent-style, normal) !important;
-  font-weight: var(--font-accent-weight, 400) !important;
-  letter-spacing: var(--font-accent-letter-spacing, 0px) !important;
-  text-transform: var(--font-accent-text-transform, none) !important;
-  font-size: calc(1.125rem * var(--font-accent-scale, 1)) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
+  font-style: var(--font-accent-style, normal) ;
+  font-weight: var(--font-accent-weight, 400) ;
+  letter-spacing: var(--font-accent-letter-spacing, 0px) ;
+  text-transform: var(--font-accent-text-transform, none) ;
+  font-size: calc(1.125rem * var(--font-accent-scale, 1)) ;
 }
 
 .accent-font--xl {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -86,7 +86,7 @@ body .accent-font--lg,
 }
 
 .accent-font--2xl {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -95,7 +95,7 @@ body .accent-font--lg,
 }
 
 .accent-font--3xl {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -104,7 +104,7 @@ body .accent-font--lg,
 }
 
 .accent-font--4xl {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -114,7 +114,7 @@ body .accent-font--lg,
 
 /* Weight variations */
 .accent-font--light {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: 300;
   letter-spacing: var(--font-accent-letter-spacing);
@@ -122,7 +122,7 @@ body .accent-font--lg,
 }
 
 .accent-font--normal {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: 400;
   letter-spacing: var(--font-accent-letter-spacing);
@@ -130,7 +130,7 @@ body .accent-font--lg,
 }
 
 .accent-font--medium {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: 500;
   letter-spacing: var(--font-accent-letter-spacing);
@@ -138,7 +138,7 @@ body .accent-font--lg,
 }
 
 .accent-font--semibold {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: 600;
   letter-spacing: var(--font-accent-letter-spacing);
@@ -146,7 +146,7 @@ body .accent-font--lg,
 }
 
 .accent-font--bold {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: 700;
   letter-spacing: var(--font-accent-letter-spacing);
@@ -154,7 +154,7 @@ body .accent-font--lg,
 }
 
 .accent-font--extrabold {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: 800;
   letter-spacing: var(--font-accent-letter-spacing);
@@ -163,7 +163,7 @@ body .accent-font--lg,
 
 /* Style variations */
 .accent-font--italic {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: italic;
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -172,7 +172,7 @@ body .accent-font--lg,
 
 /* Text transform overrides */
 .accent-font--uppercase {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -180,7 +180,7 @@ body .accent-font--lg,
 }
 
 .accent-font--lowercase {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -188,7 +188,7 @@ body .accent-font--lg,
 }
 
 .accent-font--capitalize {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -196,7 +196,7 @@ body .accent-font--lg,
 }
 
 .accent-font--none {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -205,7 +205,7 @@ body .accent-font--lg,
 
 /* Combination classes for common use cases */
 .accent-font--highlight {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: 600;
   letter-spacing: var(--font-accent-letter-spacing);
@@ -214,7 +214,7 @@ body .accent-font--lg,
 }
 
 .accent-font--badge {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: 500;
   letter-spacing: var(--font-accent-letter-spacing);
@@ -223,7 +223,7 @@ body .accent-font--lg,
 }
 
 .accent-font--caption {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: var(--font-accent-style);
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -233,7 +233,7 @@ body .accent-font--lg,
 }
 
 .accent-font--quote {
-  font-family: var(--font-accent-family) !important;
+  font-family: var(--font-accent-family) ;
   font-style: italic;
   font-weight: var(--font-accent-weight);
   letter-spacing: var(--font-accent-letter-spacing);
@@ -244,22 +244,22 @@ body .accent-font--lg,
 /* Responsive utilities */
 @media (max-width: 767px) {
   .accent-font--responsive {
-    font-size: calc(0.875rem * var(--font-accent-scale)) !important;
+    font-size: calc(0.875rem * var(--font-accent-scale)) ;
   }
   
   .accent-font--3xl,
   .accent-font--4xl {
-    font-size: calc(1.5rem * var(--font-accent-scale)) !important;
+    font-size: calc(1.5rem * var(--font-accent-scale)) ;
   }
 }
 
 /* Utility for removing accent font */
 .no-accent-font {
-  font-family: var(--font-body-family) !important;
-  font-style: var(--font-body-style) !important;
-  font-weight: var(--font-body-weight) !important;
-  letter-spacing: var(--letter-spacing-body) !important;
-  text-transform: none !important;
+  font-family: var(--font-body-family) ;
+  font-style: var(--font-body-style) ;
+  font-weight: var(--font-body-weight) ;
+  letter-spacing: var(--letter-spacing-body) ;
+  text-transform: none ;
 }
 
 /* Force accent font on common accent text elements */
@@ -267,17 +267,17 @@ body .accent-font--lg,
 .accent-text,
 .global-accent-text,
 .custom-accent-text {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
 }
 
 /* Override any JavaScript-generated styles with maximum specificity */
 html body .shopify-section .accent-font,
 html body .shopify-section .new-hero-accent-text.accent-font {
-  font-family: var(--font-accent-family, var(--font-body-family)) !important;
-  font-style: var(--font-accent-style, normal) !important;
-  font-weight: var(--font-accent-weight, 400) !important;
-  letter-spacing: var(--font-accent-letter-spacing, 0px) !important;
-  text-transform: var(--font-accent-text-transform, none) !important;
+  font-family: var(--font-accent-family, var(--font-body-family)) ;
+  font-style: var(--font-accent-style, normal) ;
+  font-weight: var(--font-accent-weight, 400) ;
+  letter-spacing: var(--font-accent-letter-spacing, 0px) ;
+  text-transform: var(--font-accent-text-transform, none) ;
 }
 
 /* Debug styles - remove these after testing */
