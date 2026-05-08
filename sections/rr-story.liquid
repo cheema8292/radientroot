@@ -1,0 +1,295 @@
+<style>
+  .rr-story {
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_vertical }}px {{ section.settings.padding_horizontal }}px;
+    position: relative; overflow: hidden;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+  }
+  .rr-story::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,149,106,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .rr-story__inner {
+    max-width: 1340px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 90px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .rr-story__visual { position: relative; }
+  .rr-story__img-box {
+    width: 100%; aspect-ratio: 3/4;
+    border-radius: 24px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rr-story__img-box img { width: 100%; height: 100%; object-fit: cover; }
+  .rr-story__img-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, #2a2520 0%, #1a1510 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 130px; opacity: 0.12;
+  }
+  .rr-story__badge-overlay {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 22px 26px;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .rr-story__badge-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 40px; font-weight: 300; color: #D4B896;
+    white-space: nowrap;
+  }
+  .rr-story__badge-text { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  .rr-story__eyebrow {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 3.5px; text-transform: uppercase;
+    color: #B8956A; margin-bottom: 14px;
+  }
+  .rr-story__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(34px, 4vw, 50px);
+    font-weight: 300; color: #FFFFFF;
+    line-height: 1.12; margin-bottom: 26px;
+  }
+  .rr-story__heading em { font-style: italic; color: #D4B896; }
+  .rr-story__text {
+    font-size: 14px; line-height: 1.95;
+    color: rgba(255,255,255,0.48); margin-bottom: 34px; max-width: 460px;
+  }
+  .rr-story__ingredients { display: flex; gap: 14px; margin-bottom: 40px; }
+  .rr-story__ingredient {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px; padding: 20px 18px;
+    text-align: center; transition: all 0.3s; flex: 1;
+  }
+  .rr-story__ingredient:hover {
+    border-color: rgba(184,149,106,0.3);
+    background: rgba(184,149,106,0.06);
+    transform: translateY(-3px);
+  }
+  .rr-story__ingredient-emoji { font-size: 28px; margin-bottom: 10px; }
+  .rr-story__ingredient-name { font-size: 11px; font-weight: 500; color: #FFFFFF; letter-spacing: 0.5px; }
+  .rr-story__ingredient-desc { font-size: 10px; color: rgba(255,255,255,0.38); margin-top: 3px; }
+
+  .rr-btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid #B8956A; color: #D4B896;
+    padding: 15px 36px; font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 11.5px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+    transition: all 0.35s; position: relative; overflow: hidden;
+  }
+  .rr-btn-outline::after {
+    content: ''; position: absolute; inset: 0;
+    background: #B8956A; transform: scaleX(0);
+    transform-origin: left; transition: transform 0.35s ease; z-index: 0;
+  }
+  .rr-btn-outline span { position: relative; z-index: 1; }
+  .rr-btn-outline:hover { color: #FFFFFF; }
+  .rr-btn-outline:hover::after { transform: scaleX(1); }
+
+  @media (max-width: 1024px) {
+    .rr-story__inner { grid-template-columns: 1fr; gap: 48px; }
+    .rr-story__visual { display: none; }
+  }
+  @media (max-width: 768px) {
+    .rr-story { padding: 70px 20px; }
+  }
+</style>
+
+<section class="rr-story" id="shopify-section-{{ section.id }}">
+  <div class="rr-story__inner">
+
+    <div class="rr-story__visual">
+      <div class="rr-story__img-box">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 700
+            | image_tag: loading: 'lazy', widths: '400,600,700', alt: section.settings.heading
+          }}
+        {%- else -%}
+          <div class="rr-story__img-placeholder">🌿</div>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.badge_number != blank -%}
+        <div class="rr-story__badge-overlay">
+          <div class="rr-story__badge-num">{{ section.settings.badge_number }}</div>
+          <div class="rr-story__badge-text">{{ section.settings.badge_text }}</div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="rr-story__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="rr-story__eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="rr-story__heading">
+        {{ section.settings.heading }}
+        {%- if section.settings.heading_italic != blank -%}
+          <em>{{ section.settings.heading_italic }}</em>
+        {%- endif -%}
+      </h2>
+      {%- if section.settings.body_text != blank -%}
+        <p class="rr-story__text">{{ section.settings.body_text }}</p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="rr-story__ingredients">
+          {%- for block in section.blocks -%}
+            <div class="rr-story__ingredient" {{ block.shopify_attributes }}>
+              <div class="rr-story__ingredient-emoji">{{ block.settings.emoji }}</div>
+              <div class="rr-story__ingredient-name">{{ block.settings.name }}</div>
+              <div class="rr-story__ingredient-desc">{{ block.settings.desc }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.btn_text != blank -%}
+        <a href="{{ section.settings.btn_link }}" class="rr-btn-outline">
+          <span>{{ section.settings.btn_text }}</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position:relative;z-index:1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "RR Story / Ingredients",
+  "tag": "section",
+  "class": "section-rr-story",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why Radéant"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Nature's Most Powerful"
+    },
+    {
+      "type": "text",
+      "id": "heading_italic",
+      "label": "Heading italic part",
+      "default": "Hair Revival Formula"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "Every Radéant product is crafted with carefully sourced botanical ingredients that work in harmony to nourish your scalp, strengthen each strand, and restore your hair's natural radiance."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text",
+      "default": "Our Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Section image"
+    },
+    {
+      "type": "header",
+      "content": "Stats Badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_number",
+      "label": "Badge number",
+      "default": "97%"
+    },
+    {
+      "type": "textarea",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "of users reported visibly healthier hair within 30 days"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Padding top/bottom",
+      "min": 40, "max": 160, "step": 8,
+      "default": 112, "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding horizontal",
+      "min": 0, "max": 80, "step": 4,
+      "default": 52, "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Rosemary"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description",
+          "default": "Stimulates growth"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR Story / Ingredients",
+      "blocks": [
+        { "type": "ingredient", "settings": { "emoji": "", "name": "Rosemary",  "desc": "Stimulates growth" } },
+        { "type": "ingredient", "settings": { "emoji": "", "name": "Keratin",   "desc": "Repairs damage" } },
+        { "type": "ingredient", "settings": { "emoji": "", "name": "Castor Oil","desc": "Deep moisture" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
