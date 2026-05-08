@@ -66,9 +66,9 @@
     "rr_story": {
       "type": "rr-story",
       "blocks": {
-        "i1": { "type": "ingredient", "settings": { "emoji": "🌿", "name": "Rosemary",  "desc": "Stimulates growth" } },
-        "i2": { "type": "ingredient", "settings": { "emoji": "🧬", "name": "Keratin",   "desc": "Repairs damage" } },
-        "i3": { "type": "ingredient", "settings": { "emoji": "🫒", "name": "Castor Oil","desc": "Deep moisture" } }
+        "i1": { "type": "ingredient", "settings": { "emoji": "", "name": "Rosemary",  "desc": "Stimulates growth" } },
+        "i2": { "type": "ingredient", "settings": { "emoji": "", "name": "Keratin",   "desc": "Repairs damage" } },
+        "i3": { "type": "ingredient", "settings": { "emoji": "", "name": "Castor Oil","desc": "Deep moisture" } }
       },
       "block_order": ["i1","i2","i3"],
       "settings": {
@@ -98,7 +98,7 @@
         "vt_1": {
           "type": "side_video",
           "settings": {
-            "quote": "Best shampoo I've ever used — my scalp has never felt healthier.",
+            "quote": "Best shampoo I've ever used  -  my scalp has never felt healthier.",
             "author_name": "Jessica L.",
             "duration": "0:58",
             "verified": true
@@ -140,7 +140,7 @@
         "bg_color": "#F7F3EE",
         "show_stats": true,
         "stat1_number": "137K+", "stat1_label": "Happy Customers",
-        "stat2_number": "4.8★", "stat2_label": "Average Rating",
+        "stat2_number": "4.8 Stars", "stat2_label": "Average Rating",
         "stat3_number": "97%",  "stat3_label": "Would Recommend",
         "stat4_number": "30",   "stat4_label": "Day Results Guarantee",
         "padding_vertical": 110,
@@ -169,10 +169,10 @@
       "settings": {
         "heading": "Get",
         "heading_italic": "10% Off Your First Order",
-        "subtext": "Join 137,000+ customers who've transformed their hair. Sign up and your discount code arrives instantly.",
+        "subtext": "Join 137,000+ customers who have transformed their hair. Sign up and your discount code arrives instantly.",
         "placeholder": "Enter your email address",
         "btn_text": "Claim 10% Off",
-        "success_message": "🎉 You're in! Check your inbox for your discount code.",
+        "success_message": "You are in! Check your inbox for your discount code.",
         "bg_color": "#EDE7DF",
         "heading_color": "#1A1A1A",
         "padding_vertical": 90,
