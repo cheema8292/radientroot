@@ -76,7 +76,7 @@
       <input type="hidden" name="contact[tags]" value="newsletter">
       {%- if form.posted_successfully? -%}
         <p class="rr-newsletter__success">
-          {{ section.settings.success_message | default: '🎉 You\'re in! Check your inbox for your discount code.' }}
+          {{ section.settings.success_message | default: 'You are in! Check your inbox for your discount code.' }}
         </p>
       {%- elsif form.errors -%}
         <div style="width:100%">
@@ -129,7 +129,7 @@
       "type": "textarea",
       "id": "subtext",
       "label": "Subtext",
-      "default": "Join 137,000+ customers who've transformed their hair. Sign up and your discount code arrives instantly."
+      "default": "Join 137,000+ customers who have transformed their hair. Sign up and your discount code arrives instantly."
     },
     {
       "type": "text",
@@ -166,7 +166,7 @@
       "id": "padding_vertical",
       "label": "Padding top/bottom",
       "min": 40, "max": 160, "step": 8,
-      "default": 90, "unit": "px"
+      "default": 88, "unit": "px"
     },
     {
       "type": "range",
