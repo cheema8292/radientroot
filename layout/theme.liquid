@@ -672,9 +672,9 @@
     {% if settings.type_accent_font != 'inherit' and settings.type_accent_font != 'serif' %}
       <span class="accent-font-loader" aria-hidden="true"></span>
     {% endif %}
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+    {% comment %} <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
-    </a>
+    </a> {% endcomment %}
 
     {%- if settings.cart_type == 'drawer' -%}
       {%- section 'cart-drawer' -%}
