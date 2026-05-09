@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "rr_about": {
+      "type": "rr-about",
+      "blocks": {
+        "mp1": { "type": "mission_text", "settings": { "text": "We believe that every person deserves access to hair care that truly works without compromising on safety or sustainability. Our founders spent years researching the most powerful botanical ingredients before creating formulas that deliver real, visible results." } },
+        "mp2": { "type": "mission_text", "settings": { "text": "Rosemary has been used for centuries to promote hair growth and scalp health. We combined this ancient wisdom with modern science to create a line of products that are as effective as they are clean." } },
+        "v1": { "type": "value", "settings": { "title": "Clean Formulas", "text": "Every ingredient is chosen for a reason. We never use sulfates, parabens, or synthetic fragrances in any of our products." } },
+        "v2": { "type": "value", "settings": { "title": "Proven Results", "text": "97% of our customers report visibly healthier hair within 30 days. We back every product with our results guarantee." } },
+        "v3": { "type": "value", "settings": { "title": "Sustainably Made", "text": "Our packaging is recyclable and our formulas are cruelty-free. We care about the planet as much as we care about your hair." } }
+      },
+      "block_order": ["mp1","mp2","v1","v2","v3"],
+      "settings": {}
+    }
+  },
+  "order": ["rr_about"]
+}

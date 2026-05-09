@@ -168,6 +168,18 @@
                   {%- endif -%}
                 </li>
               {%- endfor -%}
+              <li>
+                <a href="/collections/all" class="menu-drawer__menu-item list-menu__item link link--text focus-inset" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">Shop All</a>
+              </li>
+              <li>
+                <a href="/pages/about" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if request.path contains '/pages/about' %} menu-drawer__menu-item--active{% endif %}" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">About</a>
+              </li>
+              <li>
+                <a href="/pages/contact" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if request.path contains '/pages/contact' %} menu-drawer__menu-item--active{% endif %}" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">Contact</a>
+              </li>
+              <li>
+                <a href="/pages/track-order" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if request.path contains '/pages/track' %} menu-drawer__menu-item--active{% endif %}" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">Track My Order</a>
+              </li>
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">

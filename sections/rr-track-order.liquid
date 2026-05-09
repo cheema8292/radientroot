@@ -1,0 +1,231 @@
+<style>
+  .rr-track {
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+  }
+
+  .rr-track__hero {
+    background: #111111;
+    padding: 100px 52px 90px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .rr-track__hero::before {
+    content: '';
+    position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .rr-track__eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase;
+    color: #B8956A; margin-bottom: 16px;
+  }
+  .rr-track__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(38px, 5vw, 58px); font-weight: 300;
+    color: #FFFFFF; line-height: 1.1; margin-bottom: 18px;
+  }
+  .rr-track__heading em { font-style: italic; color: #D4B896; }
+  .rr-track__sub { font-size: 14px; color: rgba(255,255,255,0.45); max-width: 460px; margin: 0 auto; line-height: 1.8; }
+
+  .rr-track__body {
+    background: {{ section.settings.body_bg }};
+    padding: 104px 52px;
+  }
+  .rr-track__body-inner {
+    max-width: 640px; margin: 0 auto;
+  }
+
+  .rr-track__card {
+    background: #FFFFFF;
+    border: 1px solid rgba(184,149,106,0.12);
+    border-radius: 20px; padding: 48px 44px;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.06);
+  }
+  .rr-track__card-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px; font-weight: 400; color: #1A1A1A;
+    margin-bottom: 8px;
+  }
+  .rr-track__card-sub { font-size: 13px; color: #8A8A8A; margin-bottom: 32px; line-height: 1.6; }
+
+  .rr-track__field { margin-bottom: 20px; }
+  .rr-track__label {
+    display: block; font-size: 11px; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; color: #555555; margin-bottom: 8px;
+  }
+  .rr-track__input {
+    width: 100%; padding: 15px 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 13px; color: #1A1A1A;
+    background: #FFFFFF; outline: none;
+    transition: border-color 0.3s; box-sizing: border-box;
+  }
+  .rr-track__input:focus { border-color: #B8956A; }
+  .rr-track__btn {
+    width: 100%; padding: 17px;
+    background: #1A1A1A; color: #FFFFFF;
+    border: 1.5px solid #1A1A1A;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 11.5px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.35s;
+    position: relative; overflow: hidden; margin-top: 8px;
+  }
+  .rr-track__btn::after {
+    content: ''; position: absolute; inset: 0;
+    background: #B8956A; transform: translateX(-101%);
+    transition: transform 0.35s ease; z-index: 0;
+  }
+  .rr-track__btn span { position: relative; z-index: 1; }
+  .rr-track__btn:hover { border-color: #B8956A; color: #fff; }
+  .rr-track__btn:hover::after { transform: translateX(0); }
+
+  .rr-track__divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 28px 0; color: #BBBBBB; font-size: 12px;
+  }
+  .rr-track__divider::before, .rr-track__divider::after {
+    content: ''; flex: 1; height: 1px; background: rgba(0,0,0,0.08);
+  }
+
+  .rr-track__alt-link {
+    display: block; text-align: center;
+    font-size: 13px; color: #B8956A; text-decoration: none;
+    border-bottom: 1px solid rgba(184,149,106,0.3); padding-bottom: 2px;
+    transition: all 0.3s; width: fit-content; margin: 0 auto;
+  }
+  .rr-track__alt-link:hover { color: #96754A; border-color: #96754A; }
+
+  .rr-track__steps {
+    margin-top: 64px;
+  }
+  .rr-track__steps-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px; font-weight: 400; color: #1A1A1A; margin-bottom: 32px; text-align: center;
+  }
+  .rr-track__step-list { display: flex; flex-direction: column; gap: 16px; }
+  .rr-track__step {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 20px 24px; background: #FFFFFF;
+    border: 1px solid rgba(184,149,106,0.1); border-radius: 14px;
+  }
+  .rr-track__step-num {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: rgba(184,149,106,0.1); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px; font-weight: 500; color: #B8956A;
+  }
+  .rr-track__step-title { font-size: 13px; font-weight: 600; color: #1A1A1A; margin-bottom: 4px; }
+  .rr-track__step-text { font-size: 12px; color: #8A8A8A; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .rr-track__hero { padding: 72px 20px; }
+    .rr-track__body { padding: 64px 20px; }
+    .rr-track__card { padding: 32px 24px; }
+  }
+</style>
+
+<div class="rr-track">
+
+  <div class="rr-track__hero">
+    <div class="rr-track__eyebrow">{{ section.settings.eyebrow }}</div>
+    <h1 class="rr-track__heading">
+      {{ section.settings.heading }}
+      {%- if section.settings.heading_italic != blank -%}
+        <br><em>{{ section.settings.heading_italic }}</em>
+      {%- endif -%}
+    </h1>
+    {%- if section.settings.subtext != blank -%}
+      <p class="rr-track__sub">{{ section.settings.subtext }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="rr-track__body">
+    <div class="rr-track__body-inner">
+
+      <div class="rr-track__card">
+        <div class="rr-track__card-title">Track Your Package</div>
+        <div class="rr-track__card-sub">Enter your order number or tracking number below to see the latest status of your shipment.</div>
+
+        <div class="rr-track__field">
+          <label class="rr-track__label" for="rr-order-number">Order Number</label>
+          <input type="text" id="rr-order-number" class="rr-track__input" placeholder="#1234">
+        </div>
+        <div class="rr-track__field">
+          <label class="rr-track__label" for="rr-email-track">Email Address</label>
+          <input type="email" id="rr-email-track" class="rr-track__input" placeholder="your@email.com" autocomplete="email">
+        </div>
+        <button type="button" class="rr-track__btn" onclick="document.getElementById('rr-track-result').style.display='block'"><span>{{ section.settings.btn_text }}</span></button>
+
+        <div id="rr-track-result" style="display:none; margin-top:20px; padding:16px 20px; background:rgba(184,149,106,0.06); border:1px solid rgba(184,149,106,0.2); border-radius:10px; font-size:13px; color:#555;">
+          Please log in to your account or contact us at <a href="mailto:{{ section.settings.support_email }}" style="color:#B8956A;">{{ section.settings.support_email }}</a> to track your order.
+        </div>
+
+        {%- if section.settings.account_url != blank -%}
+          <div class="rr-track__divider">or</div>
+          <a href="{{ section.settings.account_url }}" class="rr-track__alt-link">Log in to your account</a>
+        {%- endif -%}
+      </div>
+
+      <div class="rr-track__steps">
+        <div class="rr-track__steps-title">How Tracking Works</div>
+        <div class="rr-track__step-list">
+          <div class="rr-track__step">
+            <div class="rr-track__step-num">1</div>
+            <div>
+              <div class="rr-track__step-title">Order Confirmed</div>
+              <div class="rr-track__step-text">You receive an order confirmation email immediately after purchase.</div>
+            </div>
+          </div>
+          <div class="rr-track__step">
+            <div class="rr-track__step-num">2</div>
+            <div>
+              <div class="rr-track__step-title">Order Shipped</div>
+              <div class="rr-track__step-text">We ship within 1-2 business days. You will receive a tracking number by email.</div>
+            </div>
+          </div>
+          <div class="rr-track__step">
+            <div class="rr-track__step-num">3</div>
+            <div>
+              <div class="rr-track__step-title">Out for Delivery</div>
+              <div class="rr-track__step-text">Standard delivery takes 3-7 business days depending on your location.</div>
+            </div>
+          </div>
+          <div class="rr-track__step">
+            <div class="rr-track__step-num">4</div>
+            <div>
+              <div class="rr-track__step-title">Delivered</div>
+              <div class="rr-track__step-text">Your Radiant Root products arrive at your door, ready to transform your hair.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "RR Track Order",
+  "tag": "section",
+  "class": "section-rr-track",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Order Status" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Track" },
+    { "type": "text", "id": "heading_italic", "label": "Heading italic", "default": "My Order" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Stay up to date on your delivery. Enter your details below to check your order status." },
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "Track Order" },
+    { "type": "text", "id": "support_email", "label": "Support email", "default": "hello@radiantroot.com" },
+    { "type": "url", "id": "account_url", "label": "Account login URL" },
+    { "type": "color", "id": "body_bg", "label": "Body background", "default": "#F7F3EE" }
+  ],
+  "presets": [
+    { "name": "RR Track Order" }
+  ]
+}
+{% endschema %}

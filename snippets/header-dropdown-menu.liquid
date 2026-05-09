@@ -117,5 +117,25 @@
         {%- endif -%}
       </li>
     {%- endfor -%}
+    <li>
+      <a href="/collections/all" class="header__menu-item list-menu__item link link--text focus-inset" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">
+        <span>Shop All</span>
+      </a>
+    </li>
+    <li>
+      <a href="/pages/about" class="header__menu-item list-menu__item link link--text focus-inset{% if request.path contains '/pages/about' %} list-menu__item--active{% endif %}" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">
+        <span>About</span>
+      </a>
+    </li>
+    <li>
+      <a href="/pages/contact" class="header__menu-item list-menu__item link link--text focus-inset{% if request.path contains '/pages/contact' %} list-menu__item--active{% endif %}" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">
+        <span>Contact</span>
+      </a>
+    </li>
+    <li>
+      <a href="/pages/track-order" class="header__menu-item list-menu__item link link--text focus-inset{% if request.path contains '/pages/track' %} list-menu__item--active{% endif %}" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">
+        <span>Track My Order</span>
+      </a>
+    </li>
   </ul>
 </nav>

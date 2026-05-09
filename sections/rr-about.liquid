@@ -1,0 +1,253 @@
+<style>
+  .rr-about {
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+  }
+
+  /* Hero */
+  .rr-about__hero {
+    background: {{ section.settings.hero_bg }};
+    padding: 110px 52px 100px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .rr-about__hero::before {
+    content: '';
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .rr-about__hero-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase;
+    color: #B8956A; margin-bottom: 18px;
+  }
+  .rr-about__hero-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(40px, 5vw, 64px); font-weight: 300;
+    color: #FFFFFF; line-height: 1.1; margin-bottom: 22px;
+  }
+  .rr-about__hero-heading em { font-style: italic; color: #D4B896; }
+  .rr-about__hero-sub {
+    font-size: 15px; color: rgba(255,255,255,0.5);
+    max-width: 520px; margin: 0 auto; line-height: 1.8;
+  }
+
+  /* Mission */
+  .rr-about__mission {
+    background: {{ section.settings.mission_bg }};
+    padding: 104px 52px;
+  }
+  .rr-about__mission-inner {
+    max-width: 1340px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .rr-about__mission-img {
+    aspect-ratio: 4/5; border-radius: 24px; overflow: hidden;
+    background: linear-gradient(160deg, #EDE7DF, #D4C5B0);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rr-about__mission-img img { width: 100%; height: 100%; object-fit: cover; }
+  .rr-about__mission-img-placeholder {
+    font-size: 100px; opacity: 0.15;
+  }
+  .rr-about__mission-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase;
+    color: #B8956A; margin-bottom: 16px;
+  }
+  .rr-about__mission-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 3.5vw, 48px); font-weight: 300;
+    color: #1A1A1A; line-height: 1.12; margin-bottom: 24px;
+  }
+  .rr-about__mission-heading em { font-style: italic; color: #B8956A; }
+  .rr-about__mission-text {
+    font-size: 14px; line-height: 1.9; color: #555555; margin-bottom: 16px;
+  }
+
+  /* Values */
+  .rr-about__values {
+    background: #111111;
+    padding: 104px 52px;
+  }
+  .rr-about__values-inner { max-width: 1340px; margin: 0 auto; }
+  .rr-about__values-heading-wrap { text-align: center; margin-bottom: 64px; }
+  .rr-about__values-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase;
+    color: #B8956A; margin-bottom: 14px;
+  }
+  .rr-about__values-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(30px, 3.5vw, 44px); font-weight: 300;
+    color: #FFFFFF; line-height: 1.12;
+  }
+  .rr-about__values-heading em { font-style: italic; color: #D4B896; }
+  .rr-about__values-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .rr-about__value-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; padding: 36px 30px;
+    transition: all 0.35s;
+  }
+  .rr-about__value-card:hover {
+    border-color: rgba(184,149,106,0.2);
+    background: rgba(184,149,106,0.05);
+    transform: translateY(-4px);
+  }
+  .rr-about__value-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 40px; font-weight: 300; color: rgba(184,149,106,0.3);
+    line-height: 1; margin-bottom: 16px;
+  }
+  .rr-about__value-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-weight: 500; color: #FFFFFF;
+    margin-bottom: 10px;
+  }
+  .rr-about__value-text { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+  @media (max-width: 1024px) {
+    .rr-about__mission-inner { grid-template-columns: 1fr; }
+    .rr-about__mission-img { display: none; }
+    .rr-about__values-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .rr-about__hero { padding: 80px 20px; }
+    .rr-about__mission { padding: 70px 20px; }
+    .rr-about__values { padding: 70px 20px; }
+    .rr-about__values-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="rr-about">
+
+  <div class="rr-about__hero">
+    {%- if section.settings.hero_eyebrow != blank -%}
+      <div class="rr-about__hero-eyebrow">{{ section.settings.hero_eyebrow }}</div>
+    {%- endif -%}
+    <h1 class="rr-about__hero-heading">
+      {{ section.settings.hero_heading }}
+      {%- if section.settings.hero_heading_italic != blank -%}
+        <br><em>{{ section.settings.hero_heading_italic }}</em>
+      {%- endif -%}
+    </h1>
+    {%- if section.settings.hero_sub != blank -%}
+      <p class="rr-about__hero-sub">{{ section.settings.hero_sub }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="rr-about__mission">
+    <div class="rr-about__mission-inner">
+      <div class="rr-about__mission-img">
+        {%- if section.settings.mission_image != blank -%}
+          {{ section.settings.mission_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: 'About' }}
+        {%- else -%}
+          <div class="rr-about__mission-img-placeholder">🌿</div>
+        {%- endif -%}
+      </div>
+      <div>
+        {%- if section.settings.mission_eyebrow != blank -%}
+          <div class="rr-about__mission-eyebrow">{{ section.settings.mission_eyebrow }}</div>
+        {%- endif -%}
+        <h2 class="rr-about__mission-heading">
+          {{ section.settings.mission_heading }}
+          {%- if section.settings.mission_heading_italic != blank -%}
+            <em>{{ section.settings.mission_heading_italic }}</em>
+          {%- endif -%}
+        </h2>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'mission_text' -%}
+            <p class="rr-about__mission-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="rr-about__values">
+    <div class="rr-about__values-inner">
+      <div class="rr-about__values-heading-wrap">
+        {%- if section.settings.values_eyebrow != blank -%}
+          <div class="rr-about__values-eyebrow">{{ section.settings.values_eyebrow }}</div>
+        {%- endif -%}
+        <h2 class="rr-about__values-heading">
+          {{ section.settings.values_heading }}
+          {%- if section.settings.values_heading_italic != blank -%}
+            <em>{{ section.settings.values_heading_italic }}</em>
+          {%- endif -%}
+        </h2>
+      </div>
+      <div class="rr-about__values-grid">
+        {%- assign val_num = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'value' -%}
+            {%- assign val_num = val_num | plus: 1 -%}
+            <div class="rr-about__value-card" {{ block.shopify_attributes }}>
+              <div class="rr-about__value-num">0{{ val_num }}</div>
+              <div class="rr-about__value-title">{{ block.settings.title }}</div>
+              <div class="rr-about__value-text">{{ block.settings.text }}</div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "RR About Page",
+  "tag": "section",
+  "class": "section-rr-about",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Born From a Belief" },
+    { "type": "text", "id": "hero_heading_italic", "label": "Heading italic", "default": "That Nature Knows Best." },
+    { "type": "textarea", "id": "hero_sub", "label": "Subtext", "default": "Radiant Root was founded on a simple principle: the best hair care comes from the earth, not a laboratory." },
+    { "type": "color", "id": "hero_bg", "label": "Hero background", "default": "#111111" },
+    { "type": "header", "content": "Mission Section" },
+    { "type": "image_picker", "id": "mission_image", "label": "Image" },
+    { "type": "text", "id": "mission_eyebrow", "label": "Eyebrow", "default": "Our Mission" },
+    { "type": "text", "id": "mission_heading", "label": "Heading", "default": "Rooted in" },
+    { "type": "text", "id": "mission_heading_italic", "label": "Heading italic", "default": "Nature, Backed by Science" },
+    { "type": "color", "id": "mission_bg", "label": "Background", "default": "#FFFFFF" },
+    { "type": "header", "content": "Values Section" },
+    { "type": "text", "id": "values_eyebrow", "label": "Eyebrow", "default": "What We Stand For" },
+    { "type": "text", "id": "values_heading", "label": "Heading", "default": "Our Core" },
+    { "type": "text", "id": "values_heading_italic", "label": "Heading italic", "default": "Values" }
+  ],
+  "blocks": [
+    {
+      "type": "mission_text",
+      "name": "Mission paragraph",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Paragraph", "default": "We believe that every person deserves access to hair care that truly works without compromising on safety or sustainability." }
+      ]
+    },
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Clean Formulas" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Every ingredient is chosen for a reason. We never use sulfates, parabens, or synthetic fragrances." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR About Page",
+      "blocks": [
+        { "type": "mission_text", "settings": { "text": "We believe that every person deserves access to hair care that truly works without compromising on safety or sustainability. Our founders spent years researching the most powerful botanical ingredients before creating formulas that deliver real, visible results." } },
+        { "type": "mission_text", "settings": { "text": "Rosemary has been used for centuries to promote hair growth and scalp health. We combined this ancient wisdom with modern science to create a line of products that are as effective as they are clean." } },
+        { "type": "value", "settings": { "title": "Clean Formulas", "text": "Every ingredient is chosen for a reason. We never use sulfates, parabens, or synthetic fragrances in any of our products." } },
+        { "type": "value", "settings": { "title": "Proven Results", "text": "97% of our customers report visibly healthier hair within 30 days. We back every product with our results guarantee." } },
+        { "type": "value", "settings": { "title": "Sustainably Made", "text": "Our packaging is recyclable and our formulas are cruelty-free. We care about the planet as much as we care about your hair." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

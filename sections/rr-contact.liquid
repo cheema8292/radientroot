@@ -1,0 +1,222 @@
+<style>
+  .rr-contact {
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+  }
+
+  .rr-contact__hero {
+    background: #111111;
+    padding: 100px 52px 90px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .rr-contact__hero::before {
+    content: '';
+    position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .rr-contact__eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase;
+    color: #B8956A; margin-bottom: 16px;
+  }
+  .rr-contact__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(38px, 5vw, 58px); font-weight: 300;
+    color: #FFFFFF; line-height: 1.1; margin-bottom: 18px;
+  }
+  .rr-contact__heading em { font-style: italic; color: #D4B896; }
+  .rr-contact__sub { font-size: 14px; color: rgba(255,255,255,0.45); max-width: 460px; margin: 0 auto; line-height: 1.8; }
+
+  .rr-contact__body {
+    background: {{ section.settings.body_bg }};
+    padding: 104px 52px;
+  }
+  .rr-contact__body-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px;
+  }
+
+  /* Info column */
+  .rr-contact__info { }
+  .rr-contact__info-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px; font-weight: 400; color: #1A1A1A; margin-bottom: 28px;
+  }
+  .rr-contact__info-item {
+    display: flex; gap: 16px; margin-bottom: 28px; align-items: flex-start;
+  }
+  .rr-contact__info-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: rgba(184,149,106,0.08); border: 1px solid rgba(184,149,106,0.2);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+  .rr-contact__info-icon svg { width: 18px; height: 18px; stroke: #B8956A; }
+  .rr-contact__info-label { font-size: 11px; color: #8A8A8A; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .rr-contact__info-value { font-size: 14px; color: #1A1A1A; line-height: 1.6; }
+  .rr-contact__info-value a { color: #B8956A; text-decoration: none; }
+
+  /* Form column */
+  .rr-contact__form-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px; font-weight: 400; color: #1A1A1A; margin-bottom: 28px;
+  }
+  .rr-contact__field { margin-bottom: 20px; }
+  .rr-contact__label {
+    display: block; font-size: 11px; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; color: #555555; margin-bottom: 8px;
+  }
+  .rr-contact__input,
+  .rr-contact__textarea {
+    width: 100%; padding: 15px 18px;
+    border: 1px solid rgba(0,0,0,0.1); border-radius: 0;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 13px; color: #1A1A1A;
+    background: #FFFFFF; outline: none;
+    transition: border-color 0.3s; box-sizing: border-box;
+  }
+  .rr-contact__input:focus,
+  .rr-contact__textarea:focus { border-color: #B8956A; }
+  .rr-contact__textarea { height: 140px; resize: vertical; }
+  .rr-contact__btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #1A1A1A; color: #FFFFFF;
+    border: 1.5px solid #1A1A1A; padding: 16px 44px;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 11.5px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.35s;
+    position: relative; overflow: hidden;
+  }
+  .rr-contact__btn::after {
+    content: ''; position: absolute; inset: 0;
+    background: #B8956A; transform: translateX(-101%);
+    transition: transform 0.35s ease; z-index: 0;
+  }
+  .rr-contact__btn span { position: relative; z-index: 1; }
+  .rr-contact__btn:hover { border-color: #B8956A; color: #fff; }
+  .rr-contact__btn:hover::after { transform: translateX(0); }
+  .rr-contact__success {
+    padding: 16px 20px; background: rgba(74,222,128,0.08);
+    border: 1px solid rgba(74,222,128,0.2); border-radius: 8px;
+    font-size: 13px; color: #1A1A1A; margin-bottom: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    .rr-contact__body-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+  @media (max-width: 768px) {
+    .rr-contact__hero { padding: 72px 20px; }
+    .rr-contact__body { padding: 64px 20px; }
+  }
+</style>
+
+<div class="rr-contact">
+
+  <div class="rr-contact__hero">
+    <div class="rr-contact__eyebrow">{{ section.settings.eyebrow }}</div>
+    <h1 class="rr-contact__heading">
+      {{ section.settings.heading }}
+      {%- if section.settings.heading_italic != blank -%}
+        <br><em>{{ section.settings.heading_italic }}</em>
+      {%- endif -%}
+    </h1>
+    {%- if section.settings.subtext != blank -%}
+      <p class="rr-contact__sub">{{ section.settings.subtext }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="rr-contact__body">
+    <div class="rr-contact__body-inner">
+
+      <div class="rr-contact__info">
+        <div class="rr-contact__info-title">Get in Touch</div>
+        {%- if section.settings.email != blank -%}
+          <div class="rr-contact__info-item">
+            <div class="rr-contact__info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="rr-contact__info-label">Email</div>
+              <div class="rr-contact__info-value"><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></div>
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.hours != blank -%}
+          <div class="rr-contact__info-item">
+            <div class="rr-contact__info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="rr-contact__info-label">Hours</div>
+              <div class="rr-contact__info-value">{{ section.settings.hours }}</div>
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.response_time != blank -%}
+          <div class="rr-contact__info-item">
+            <div class="rr-contact__info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="rr-contact__info-label">Response Time</div>
+              <div class="rr-contact__info-value">{{ section.settings.response_time }}</div>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="rr-contact__form-wrap">
+        <div class="rr-contact__form-title">Send a Message</div>
+        {%- form 'contact', id: 'rr-contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="rr-contact__success">Thank you! We will get back to you within 24 hours.</div>
+          {%- endif -%}
+          <div class="rr-contact__field">
+            <label class="rr-contact__label" for="rr-contact-name">Your Name</label>
+            <input type="text" id="rr-contact-name" name="contact[name]" class="rr-contact__input" value="{{ form.name }}" required>
+          </div>
+          <div class="rr-contact__field">
+            <label class="rr-contact__label" for="rr-contact-email">Email Address</label>
+            <input type="email" id="rr-contact-email" name="contact[email]" class="rr-contact__input" value="{{ form.email }}" required autocomplete="email">
+          </div>
+          <div class="rr-contact__field">
+            <label class="rr-contact__label" for="rr-contact-subject">Subject</label>
+            <input type="text" id="rr-contact-subject" name="contact[subject]" class="rr-contact__input">
+          </div>
+          <div class="rr-contact__field">
+            <label class="rr-contact__label" for="rr-contact-message">Message</label>
+            <textarea id="rr-contact-message" name="contact[body]" class="rr-contact__textarea" required></textarea>
+          </div>
+          <button type="submit" class="rr-contact__btn"><span>{{ section.settings.btn_text }}</span></button>
+        {%- endform -%}
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "RR Contact Page",
+  "tag": "section",
+  "class": "section-rr-contact",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "We'd Love to Hear From You" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Contact" },
+    { "type": "text", "id": "heading_italic", "label": "Heading italic", "default": "Us" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Our team is here to help. Reach out with questions about your order, products, or anything else." },
+    { "type": "header", "content": "Contact Info" },
+    { "type": "text", "id": "email", "label": "Email", "default": "hello@radiantroot.com" },
+    { "type": "text", "id": "hours", "label": "Business hours", "default": "Mon - Fri, 9am - 6pm EST" },
+    { "type": "text", "id": "response_time", "label": "Response time", "default": "We typically respond within 24 hours." },
+    { "type": "header", "content": "Form" },
+    { "type": "text", "id": "btn_text", "label": "Submit button text", "default": "Send Message" },
+    { "type": "color", "id": "body_bg", "label": "Body background", "default": "#F7F3EE" }
+  ],
+  "presets": [
+    { "name": "RR Contact Page" }
+  ]
+}
+{% endschema %}
