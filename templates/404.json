@@ -1,1 +1,9 @@
-﻿{"sections": {}, "order": []}
+{
+  "sections": {
+    "rr_404": {
+      "type": "rr-404",
+      "settings": {}
+    }
+  },
+  "order": ["rr_404"]
+}

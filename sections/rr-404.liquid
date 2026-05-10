@@ -1,0 +1,131 @@
+<style>
+  .rr-404 {
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    background: #111111; min-height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 80px 52px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .rr-404::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(184,149,106,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .rr-404__inner { position: relative; z-index: 1; max-width: 600px; }
+
+  .rr-404__number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(100px, 18vw, 180px); font-weight: 300; line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(184,149,106,0.3);
+    letter-spacing: -4px; margin-bottom: 0;
+    user-select: none;
+  }
+  .rr-404__eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase;
+    color: #B8956A; margin-bottom: 18px; margin-top: -10px;
+  }
+  .rr-404__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 300;
+    color: #FFFFFF; line-height: 1.15; margin-bottom: 18px;
+  }
+  .rr-404__heading em { font-style: italic; color: #D4B896; }
+  .rr-404__sub {
+    font-size: 14px; color: rgba(255,255,255,0.42);
+    max-width: 400px; margin: 0 auto 40px; line-height: 1.8;
+  }
+  .rr-404__actions { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+  .rr-404__btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #B8956A; color: #FFFFFF;
+    border: 1.5px solid #B8956A; padding: 15px 36px;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .rr-404__btn-primary::after {
+    content: ''; position: absolute; inset: 0;
+    background: #96754A; transform: translateX(-101%);
+    transition: transform 0.35s ease; z-index: 0;
+  }
+  .rr-404__btn-primary span { position: relative; z-index: 1; }
+  .rr-404__btn-primary:hover { border-color: #96754A; }
+  .rr-404__btn-primary:hover::after { transform: translateX(0); }
+
+  .rr-404__btn-secondary {
+    font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none;
+    font-weight: 400; letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px;
+    transition: all 0.3s;
+  }
+  .rr-404__btn-secondary:hover { color: #D4B896; border-color: #B8956A; }
+
+  .rr-404__links {
+    margin-top: 60px; padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+  }
+  .rr-404__link {
+    font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none;
+    letter-spacing: 0.5px; transition: color 0.2s;
+  }
+  .rr-404__link:hover { color: #B8956A; }
+
+  @media (max-width: 768px) {
+    .rr-404 { padding: 60px 24px; }
+    .rr-404__actions { flex-direction: column; }
+  }
+</style>
+
+<section class="rr-404">
+  <div class="rr-404__inner">
+    <div class="rr-404__number">404</div>
+    <div class="rr-404__eyebrow">{{ section.settings.eyebrow }}</div>
+    <h1 class="rr-404__heading">
+      {{ section.settings.heading }}
+      {%- if section.settings.heading_italic != blank -%}
+        <br><em>{{ section.settings.heading_italic }}</em>
+      {%- endif -%}
+    </h1>
+    <p class="rr-404__sub">{{ section.settings.subtext }}</p>
+
+    <div class="rr-404__actions">
+      <a href="{{ routes.root_url }}" class="rr-404__btn-primary">
+        <span>{{ section.settings.btn_primary_text }}</span>
+      </a>
+      <a href="{{ routes.collections_url }}" class="rr-404__btn-secondary">{{ section.settings.btn_secondary_text }}</a>
+    </div>
+
+    <div class="rr-404__links">
+      <a href="/pages/about"       class="rr-404__link">About</a>
+      <a href="/pages/contact"     class="rr-404__link">Contact</a>
+      <a href="/pages/faq"         class="rr-404__link">FAQ</a>
+      <a href="/pages/track-order" class="rr-404__link">Track My Order</a>
+      <a href="/collections/all"   class="rr-404__link">Shop All</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "RR 404 Page",
+  "tag": "section",
+  "class": "section-rr-404",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",            "label": "Eyebrow",            "default": "Page Not Found" },
+    { "type": "text",     "id": "heading",             "label": "Heading",            "default": "Oops, This Page" },
+    { "type": "text",     "id": "heading_italic",      "label": "Heading italic",     "default": "Has Gone Missing" },
+    { "type": "textarea", "id": "subtext",             "label": "Subtext",            "default": "The page you were looking for has been moved, deleted, or never existed. Let us help you find your way back." },
+    { "type": "text",     "id": "btn_primary_text",    "label": "Primary button",     "default": "Back to Home" },
+    { "type": "text",     "id": "btn_secondary_text",  "label": "Secondary button",   "default": "Shop All Products" }
+  ],
+  "presets": [
+    { "name": "RR 404 Page" }
+  ]
+}
+{% endschema %}

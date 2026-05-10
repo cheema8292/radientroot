@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "rr_wishlist": {
+      "type": "rr-wishlist",
+      "settings": {}
+    }
+  },
+  "order": ["rr_wishlist"]
+}

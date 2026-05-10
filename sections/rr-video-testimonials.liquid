@@ -32,7 +32,12 @@
     display: flex; align-items: center; justify-content: center;
   }
   .rr-video-main__bg img { width: 100%; height: 100%; object-fit: cover; }
-  .rr-video-main__bg-placeholder { font-size: 120px; opacity: 0.08; user-select: none; }
+  .rr-video-main__bg-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, #2a2520, #1a1510);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 72px; opacity: 0.12;
+  }
   .rr-video-main__overlay {
     position: absolute; inset: 0;
     background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0) 100%);
@@ -46,7 +51,7 @@
     border: 1.5px solid rgba(255,255,255,0.25);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    transition: all 0.3s;
+    transition: all 0.3s; z-index: 2;
   }
   .rr-video-play svg { width: 26px; height: 26px; color: #fff; margin-left: 4px; }
   .rr-video-main:hover .rr-video-play { background: #B8956A; border-color: #B8956A; transform: translate(-50%, -50%) scale(1.1); }
@@ -54,11 +59,11 @@
     position: absolute; top: 16px; right: 16px;
     background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
     color: #fff; font-size: 11px; font-weight: 500;
-    padding: 4px 10px; border-radius: 8px;
+    padding: 4px 10px; border-radius: 8px; z-index: 2;
   }
   .rr-video-main__info {
     position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 28px;
+    padding: 28px; z-index: 2;
   }
   .rr-video-main__stars { color: #B8956A; font-size: 12px; letter-spacing: 2px; margin-bottom: 10px; }
   .rr-video-main__quote {
@@ -80,7 +85,17 @@
   .rr-video-author-sub { font-size: 10.5px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 5px; }
   .rr-video-author-sub svg { width: 10px; height: 10px; }
 
-  /* Side cards column */
+  /* Video badge */
+  .rr-video-badge {
+    position: absolute; top: 16px; left: 16px; z-index: 2;
+    background: #B8956A; color: #fff;
+    font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .rr-video-badge svg { width: 9px; height: 9px; fill: #fff; }
+
+  /* Side cards */
   .rr-video-side { display: flex; flex-direction: column; gap: 16px; }
   .rr-video-card {
     background: #fff; border-radius: 20px; overflow: hidden;
@@ -143,9 +158,39 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 40px; font-weight: 300; color: #1A1A1A; letter-spacing: -1px; margin-bottom: 4px;
   }
-  .rr-stat__number span { color: #B8956A; }
   .rr-stat__label { font-size: 11px; color: #8A8A8A; letter-spacing: 1.5px; text-transform: uppercase; }
   .rr-stat__divider { width: 1px; height: 48px; background: rgba(0,0,0,0.06); }
+
+  /* Video lightbox modal */
+  .rr-video-modal {
+    display: none;
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.88);
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .rr-video-modal.is-open { display: flex; }
+  .rr-video-modal__inner {
+    position: relative;
+    width: 100%; max-width: 860px;
+    aspect-ratio: 9/16;
+    max-height: 80vh;
+    background: #000;
+    border-radius: 16px; overflow: hidden;
+  }
+  .rr-video-modal__inner.is-landscape { aspect-ratio: 16/9; max-height: 80vh; }
+  .rr-video-modal__iframe {
+    width: 100%; height: 100%; border: none;
+  }
+  .rr-video-modal__close {
+    position: absolute; top: -48px; right: 0;
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.12); border: none;
+    border-radius: 50%; cursor: pointer; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; font-size: 22px; line-height: 1;
+  }
+  .rr-video-modal__close:hover { background: #B8956A; }
 
   @media (max-width: 1200px) {
     .rr-video-t__grid { grid-template-columns: 1fr 1fr; }
@@ -157,6 +202,7 @@
     .rr-video-t__header { flex-direction: column; align-items: flex-start; }
     .rr-video-stats { gap: 32px; padding: 30px 20px; flex-wrap: wrap; }
     .rr-stat__divider { width: 60px; height: 1px; }
+    .rr-video-modal__inner { aspect-ratio: 9/16; max-height: 85vh; }
   }
 </style>
 
@@ -181,15 +227,29 @@
     <div class="rr-video-t__grid">
 
       {%- if main_block -%}
-        <div class="rr-video-main">
+        {%- assign main_embed = '' -%}
+        {%- if main_block.settings.video_url != blank -%}
+          {%- if main_block.settings.video_url.type == 'youtube' -%}
+            {%- assign main_embed = 'https://www.youtube.com/embed/' | append: main_block.settings.video_url.id | append: '?autoplay=1&rel=0' -%}
+          {%- elsif main_block.settings.video_url.type == 'vimeo' -%}
+            {%- assign main_embed = 'https://player.vimeo.com/video/' | append: main_block.settings.video_url.id | append: '?autoplay=1' -%}
+          {%- endif -%}
+        {%- endif -%}
+        <div class="rr-video-main" {% if main_embed != blank %}data-video="{{ main_embed }}" data-video-orient="portrait"{% endif %} {{ main_block.shopify_attributes }}>
           <div class="rr-video-main__bg">
             {%- if main_block.settings.thumbnail != blank -%}
               {{ main_block.settings.thumbnail | image_url: width: 600 | image_tag: loading: 'lazy' }}
             {%- else -%}
-              <div class="rr-video-main__bg-placeholder">👤</div>
+              <div class="rr-video-main__bg-placeholder">▶</div>
             {%- endif -%}
           </div>
           <div class="rr-video-main__overlay"></div>
+          {%- if main_embed != blank -%}
+            <div class="rr-video-badge">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Video
+            </div>
+          {%- endif -%}
           <div class="rr-video-play">
             <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           </div>
@@ -222,12 +282,20 @@
       {%- if side_blocks.size > 0 -%}
         <div class="rr-video-side">
           {%- for block in side_blocks limit: 2 -%}
-            <div class="rr-video-card" {{ block.shopify_attributes }}>
+            {%- assign side_embed = '' -%}
+            {%- if block.settings.video_url != blank -%}
+              {%- if block.settings.video_url.type == 'youtube' -%}
+                {%- assign side_embed = 'https://www.youtube.com/embed/' | append: block.settings.video_url.id | append: '?autoplay=1&rel=0' -%}
+              {%- elsif block.settings.video_url.type == 'vimeo' -%}
+                {%- assign side_embed = 'https://player.vimeo.com/video/' | append: block.settings.video_url.id | append: '?autoplay=1' -%}
+              {%- endif -%}
+            {%- endif -%}
+            <div class="rr-video-card" {% if side_embed != blank %}data-video="{{ side_embed }}" data-video-orient="portrait"{% endif %} {{ block.shopify_attributes }}>
               <div class="rr-video-card__top">
                 {%- if block.settings.thumbnail != blank -%}
                   {{ block.settings.thumbnail | image_url: width: 400 | image_tag: loading: 'lazy' }}
                 {%- else -%}
-                  <div class="rr-video-card__placeholder">👤</div>
+                  <div class="rr-video-card__placeholder">▶</div>
                 {%- endif -%}
                 <div class="rr-video-card__overlay"></div>
                 <div class="rr-video-card__play">
@@ -266,12 +334,20 @@
         {%- if side_blocks.size > 2 -%}
           <div class="rr-video-side">
             {%- for block in side_blocks offset: 2 limit: 2 -%}
-              <div class="rr-video-card" {{ block.shopify_attributes }}>
+              {%- assign side_embed2 = '' -%}
+              {%- if block.settings.video_url != blank -%}
+                {%- if block.settings.video_url.type == 'youtube' -%}
+                  {%- assign side_embed2 = 'https://www.youtube.com/embed/' | append: block.settings.video_url.id | append: '?autoplay=1&rel=0' -%}
+                {%- elsif block.settings.video_url.type == 'vimeo' -%}
+                  {%- assign side_embed2 = 'https://player.vimeo.com/video/' | append: block.settings.video_url.id | append: '?autoplay=1' -%}
+                {%- endif -%}
+              {%- endif -%}
+              <div class="rr-video-card" {% if side_embed2 != blank %}data-video="{{ side_embed2 }}" data-video-orient="portrait"{% endif %} {{ block.shopify_attributes }}>
                 <div class="rr-video-card__top">
                   {%- if block.settings.thumbnail != blank -%}
                     {{ block.settings.thumbnail | image_url: width: 400 | image_tag: loading: 'lazy' }}
                   {%- else -%}
-                    <div class="rr-video-card__placeholder">👤</div>
+                    <div class="rr-video-card__placeholder">▶</div>
                   {%- endif -%}
                   <div class="rr-video-card__overlay"></div>
                   <div class="rr-video-card__play">
@@ -286,9 +362,7 @@
                   <div class="rr-video-card__text">"{{ block.settings.quote }}"</div>
                   <div class="rr-video-card__author">
                     <div class="rr-video-card__avatar">{{ block.settings.author_name | slice: 0 | upcase }}</div>
-                    <div>
-                      <div class="rr-video-card__name">{{ block.settings.author_name }}</div>
-                    </div>
+                    <div><div class="rr-video-card__name">{{ block.settings.author_name }}</div></div>
                   </div>
                 </div>
               </div>
@@ -333,6 +407,56 @@
   </div>
 </section>
 
+<!-- Video lightbox modal (shared for all cards) -->
+<div class="rr-video-modal" id="rr-video-modal-{{ section.id }}" role="dialog" aria-modal="true">
+  <div class="rr-video-modal__inner" id="rr-video-modal-inner-{{ section.id }}">
+    <button class="rr-video-modal__close" id="rr-video-modal-close-{{ section.id }}" aria-label="Close video">&#x2715;</button>
+    <iframe class="rr-video-modal__iframe" id="rr-video-modal-iframe-{{ section.id }}"
+      src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+(function () {
+  var sectionId = {{ section.id | json }};
+  var modal     = document.getElementById('rr-video-modal-' + sectionId);
+  var inner     = document.getElementById('rr-video-modal-inner-' + sectionId);
+  var iframe    = document.getElementById('rr-video-modal-iframe-' + sectionId);
+  var closeBtn  = document.getElementById('rr-video-modal-close-' + sectionId);
+  var section   = document.getElementById('shopify-section-' + sectionId);
+
+  if (!modal || !section) return;
+
+  function openModal(url, orient) {
+    iframe.src = url;
+    inner.classList.toggle('is-landscape', orient !== 'portrait');
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  section.querySelectorAll('[data-video]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var url = el.getAttribute('data-video');
+      var orient = el.getAttribute('data-video-orient') || 'portrait';
+      if (url) openModal(url, orient);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+})();
+</script>
+
 {% schema %}
 {
   "name": "RR Video Testimonials",
@@ -340,107 +464,23 @@
   "class": "section-rr-video-t",
   "max_blocks": 8,
   "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Real Stories"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Hear It From Our Customers"
-    },
-    {
-      "type": "text",
-      "id": "link_text",
-      "label": "Link text",
-      "default": "View All Reviews"
-    },
-    {
-      "type": "url",
-      "id": "link_url",
-      "label": "Link URL"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background",
-      "default": "#F7F3EE"
-    },
-    {
-      "type": "range",
-      "id": "padding_vertical",
-      "label": "Padding top/bottom",
-      "min": 40, "max": 160, "step": 8,
-      "default": 112, "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_horizontal",
-      "label": "Padding horizontal",
-      "min": 0, "max": 80, "step": 4,
-      "default": 52, "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Stats Bar"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_stats",
-      "label": "Show stats bar",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "stat1_number",
-      "label": "Stat 1 number",
-      "default": "137K+"
-    },
-    {
-      "type": "text",
-      "id": "stat1_label",
-      "label": "Stat 1 label",
-      "default": "Happy Customers"
-    },
-    {
-      "type": "text",
-      "id": "stat2_number",
-      "label": "Stat 2 number",
-      "default": "4.8 Stars"
-    },
-    {
-      "type": "text",
-      "id": "stat2_label",
-      "label": "Stat 2 label",
-      "default": "Average Rating"
-    },
-    {
-      "type": "text",
-      "id": "stat3_number",
-      "label": "Stat 3 number",
-      "default": "97%"
-    },
-    {
-      "type": "text",
-      "id": "stat3_label",
-      "label": "Stat 3 label",
-      "default": "Would Recommend"
-    },
-    {
-      "type": "text",
-      "id": "stat4_number",
-      "label": "Stat 4 number",
-      "default": "30"
-    },
-    {
-      "type": "text",
-      "id": "stat4_label",
-      "label": "Stat 4 label",
-      "default": "Day Results Guarantee"
-    }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Real Stories" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Hear It From Our Customers" },
+    { "type": "text", "id": "link_text", "label": "Link text", "default": "View All Reviews" },
+    { "type": "url",  "id": "link_url",  "label": "Link URL" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F7F3EE" },
+    { "type": "range", "id": "padding_vertical",   "label": "Padding top/bottom", "min": 40, "max": 160, "step": 8,  "default": 112, "unit": "px" },
+    { "type": "range", "id": "padding_horizontal",  "label": "Padding horizontal", "min": 0,  "max": 80,  "step": 4,  "default": 52,  "unit": "px" },
+    { "type": "header", "content": "Stats Bar" },
+    { "type": "checkbox", "id": "show_stats", "label": "Show stats bar", "default": true },
+    { "type": "text", "id": "stat1_number", "label": "Stat 1 number", "default": "137K+" },
+    { "type": "text", "id": "stat1_label",  "label": "Stat 1 label",  "default": "Happy Customers" },
+    { "type": "text", "id": "stat2_number", "label": "Stat 2 number", "default": "4.8 Stars" },
+    { "type": "text", "id": "stat2_label",  "label": "Stat 2 label",  "default": "Average Rating" },
+    { "type": "text", "id": "stat3_number", "label": "Stat 3 number", "default": "97%" },
+    { "type": "text", "id": "stat3_label",  "label": "Stat 3 label",  "default": "Would Recommend" },
+    { "type": "text", "id": "stat4_number", "label": "Stat 4 number", "default": "30" },
+    { "type": "text", "id": "stat4_label",  "label": "Stat 4 label",  "default": "Day Results Guarantee" }
   ],
   "blocks": [
     {
@@ -448,23 +488,29 @@
       "name": "Main Video (large)",
       "limit": 1,
       "settings": [
+        { "type": "header", "content": "Video" },
+        { "type": "video_url", "id": "video_url", "label": "Video URL (YouTube or Vimeo)", "accept": ["youtube", "vimeo"] },
+        { "type": "header", "content": "Card" },
         { "type": "image_picker", "id": "thumbnail", "label": "Thumbnail image" },
-        { "type": "text", "id": "duration", "label": "Duration", "default": "1:24" },
-        { "type": "textarea", "id": "quote", "label": "Quote", "default": "I saw real results within two weeks. My hair is thicker, stronger and actually growing back." },
-        { "type": "text", "id": "author_name", "label": "Author name", "default": "Emily R." },
-        { "type": "image_picker", "id": "avatar", "label": "Author avatar" }
+        { "type": "text",         "id": "duration",  "label": "Duration label", "default": "1:24" },
+        { "type": "textarea",     "id": "quote",     "label": "Quote", "default": "I saw real results within two weeks. My hair is thicker, stronger and actually growing back." },
+        { "type": "text",         "id": "author_name","label": "Author name", "default": "Emily R." },
+        { "type": "image_picker", "id": "avatar",    "label": "Author avatar" }
       ]
     },
     {
       "type": "side_video",
       "name": "Side Video (small)",
       "settings": [
-        { "type": "image_picker", "id": "thumbnail", "label": "Thumbnail image" },
-        { "type": "text", "id": "duration", "label": "Duration", "default": "0:58" },
-        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Best shampoo I've ever used  -  hands down." },
-        { "type": "text", "id": "author_name", "label": "Author name", "default": "Jessica L." },
-        { "type": "image_picker", "id": "avatar", "label": "Author avatar" },
-        { "type": "checkbox", "id": "verified", "label": "Show verified badge", "default": true }
+        { "type": "header", "content": "Video" },
+        { "type": "video_url", "id": "video_url", "label": "Video URL (YouTube or Vimeo)", "accept": ["youtube", "vimeo"] },
+        { "type": "header", "content": "Card" },
+        { "type": "image_picker", "id": "thumbnail",  "label": "Thumbnail image" },
+        { "type": "text",         "id": "duration",   "label": "Duration label", "default": "0:58" },
+        { "type": "textarea",     "id": "quote",      "label": "Quote", "default": "Best shampoo I've ever used  -  hands down." },
+        { "type": "text",         "id": "author_name","label": "Author name", "default": "Jessica L." },
+        { "type": "image_picker", "id": "avatar",     "label": "Author avatar" },
+        { "type": "checkbox",     "id": "verified",   "label": "Show verified badge", "default": true }
       ]
     }
   ],

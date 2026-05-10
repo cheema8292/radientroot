@@ -1,1 +1,17 @@
-﻿{"sections": {}, "order": []}
+{
+  "sections": {
+    "rr_search": {
+      "type": "rr-search",
+      "blocks": {
+        "s1": { "type": "suggestion", "settings": { "term": "Rosemary Shampoo" } },
+        "s2": { "type": "suggestion", "settings": { "term": "Hair Growth" } },
+        "s3": { "type": "suggestion", "settings": { "term": "Scalp Treatment" } },
+        "s4": { "type": "suggestion", "settings": { "term": "Conditioner" } },
+        "s5": { "type": "suggestion", "settings": { "term": "Hair Oil" } }
+      },
+      "block_order": ["s1","s2","s3","s4","s5"],
+      "settings": {}
+    }
+  },
+  "order": ["rr_search"]
+}

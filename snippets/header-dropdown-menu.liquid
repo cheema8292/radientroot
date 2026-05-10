@@ -137,5 +137,10 @@
         <span>Track My Order</span>
       </a>
     </li>
+    <li>
+      <a href="/pages/faq" class="header__menu-item list-menu__item link link--text focus-inset{% if request.path contains '/pages/faq' %} list-menu__item--active{% endif %}" style="{% if use_theme_colors %}color: {{ settings.global_section_text_color }};{% endif %}">
+        <span>FAQ</span>
+      </a>
+    </li>
   </ul>
 </nav>

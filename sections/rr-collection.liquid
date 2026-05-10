@@ -1,0 +1,297 @@
+<style>
+  .rr-col { font-family: 'Jost', var(--font-body-family), sans-serif; }
+
+  /* ── Hero Banner ── */
+  .rr-col__hero {
+    background: #111111; padding: 72px 52px 60px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .rr-col__hero::before {
+    content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .rr-col__hero-eyebrow {
+    font-size: 10px; font-weight: 500; letter-spacing: 3.5px;
+    text-transform: uppercase; color: #B8956A; margin-bottom: 12px;
+  }
+  .rr-col__hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(34px, 5vw, 56px); font-weight: 300;
+    color: #FFFFFF; line-height: 1.1; margin-bottom: 12px;
+  }
+  .rr-col__hero-desc {
+    font-size: 13px; color: rgba(255,255,255,0.42);
+    max-width: 480px; margin: 0 auto; line-height: 1.8;
+  }
+  .rr-col__hero-count {
+    font-size: 11px; color: rgba(255,255,255,0.3);
+    margin-top: 16px; letter-spacing: 0.5px;
+  }
+
+  /* ── Toolbar ── */
+  .rr-col__toolbar {
+    background: #F7F3EE; border-bottom: 1px solid rgba(0,0,0,0.07);
+    padding: 16px 52px;
+  }
+  .rr-col__toolbar-inner {
+    max-width: 1340px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .rr-col__filters-toggle {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; color: #555;
+    background: none; border: none; cursor: pointer;
+    transition: color 0.2s; padding: 0;
+  }
+  .rr-col__filters-toggle:hover { color: #B8956A; }
+  .rr-col__filters-toggle svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+  .rr-col__sort {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; color: #555;
+  }
+  .rr-col__sort label { font-weight: 500; letter-spacing: 0.5px; white-space: nowrap; }
+  .rr-col__sort select {
+    background: transparent; border: 1px solid rgba(0,0,0,0.15);
+    padding: 7px 32px 7px 12px;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 12px; color: #1A1A1A;
+    cursor: pointer; outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color 0.2s;
+  }
+  .rr-col__sort select:focus { border-color: #B8956A; }
+  .rr-col__count { font-size: 12px; color: #8A8A8A; white-space: nowrap; }
+
+  /* ── Body layout ── */
+  .rr-col__body {
+    background: #F7F3EE; padding: 40px 52px 80px;
+  }
+  .rr-col__body-inner {
+    max-width: 1340px; margin: 0 auto;
+  }
+
+  /* ── Product grid ── */
+  .rr-col__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    gap: 24px;
+  }
+  .rr-col__card {
+    background: #FFFFFF; border-radius: 16px; overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    text-decoration: none; display: block; position: relative;
+  }
+  .rr-col__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 72px rgba(0,0,0,0.12);
+    border-color: rgba(184,149,106,0.15);
+  }
+  .rr-col__card-img {
+    aspect-ratio: 3/4; overflow: hidden; position: relative;
+    background: linear-gradient(160deg, #EDE7DF, #e8e0d6);
+  }
+  .rr-col__card-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+  .rr-col__card:hover .rr-col__card-img img { transform: scale(1.04); }
+  .rr-col__badge {
+    position: absolute; top: 14px; left: 14px;
+    font-size: 8px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px; z-index: 2;
+  }
+  .rr-col__badge--best { background: #B8956A; color: #fff; }
+  .rr-col__badge--new  { background: #1A1A1A; color: #fff; }
+  .rr-col__badge--sale { background: #c0392b; color: #fff; }
+  .rr-col__card-info { padding: 18px 18px 20px; }
+  .rr-col__card-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px; font-weight: 500; color: #1A1A1A;
+    margin-bottom: 3px; line-height: 1.2;
+  }
+  .rr-col__card-type { font-size: 11px; color: #8A8A8A; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .rr-col__card-bottom { display: flex; align-items: center; justify-content: space-between; }
+  .rr-col__card-price { font-size: 15px; font-weight: 600; color: #1A1A1A; }
+  .rr-col__card-price del { color: #8A8A8A; font-weight: 400; font-size: 12px; margin-left: 5px; }
+  .rr-col__card-stars { font-size: 11px; color: #B8956A; letter-spacing: 1px; }
+
+  /* ── Quick add overlay ── */
+  .rr-col__quick-add {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: #1A1A1A; color: #fff;
+    text-align: center; padding: 11px;
+    font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 3; text-decoration: none; display: block;
+  }
+  .rr-col__card:hover .rr-col__quick-add { transform: translateY(0); }
+
+  /* ── Empty state ── */
+  .rr-col__empty {
+    text-align: center; padding: 80px 20px;
+  }
+  .rr-col__empty-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 32px; font-weight: 300; color: #1A1A1A; margin-bottom: 12px;
+  }
+  .rr-col__empty-sub { font-size: 14px; color: #8A8A8A; margin-bottom: 28px; }
+  .rr-col__empty-btn {
+    display: inline-block; background: #1A1A1A; color: #fff;
+    padding: 14px 36px; font-size: 11px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; transition: background 0.3s;
+  }
+  .rr-col__empty-btn:hover { background: #B8956A; }
+
+  /* ── Pagination ── */
+  .rr-col__pagination {
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; margin-top: 56px;
+  }
+  .rr-col__pagination a,
+  .rr-col__pagination span {
+    width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500; color: #555;
+    text-decoration: none; border: 1px solid rgba(0,0,0,0.12);
+    transition: all 0.2s;
+  }
+  .rr-col__pagination a:hover { border-color: #B8956A; color: #B8956A; }
+  .rr-col__pagination .current { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
+
+  @media (max-width: 1200px) { .rr-col__grid { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 1024px) { .rr-col__toolbar, .rr-col__body { padding-left: 24px; padding-right: 24px; } }
+  @media (max-width: 768px)  {
+    .rr-col__hero { padding: 56px 20px 48px; }
+    .rr-col__toolbar, .rr-col__body { padding-left: 20px; padding-right: 20px; }
+    .rr-col__grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  }
+  @media (max-width: 480px)  { .rr-col__grid { grid-template-columns: 1fr; } }
+</style>
+
+<div class="rr-col">
+
+  <div class="rr-col__hero">
+    <div class="rr-col__hero-eyebrow">{{ section.settings.eyebrow }}</div>
+    <h1 class="rr-col__hero-title">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <p class="rr-col__hero-desc">{{ collection.description }}</p>
+    {%- endif -%}
+    <div class="rr-col__hero-count">{{ collection.products_count }} Products</div>
+  </div>
+
+  <div class="rr-col__toolbar">
+    <div class="rr-col__toolbar-inner">
+      <span class="rr-col__count">{{ collection.products_count }} products</span>
+      <div class="rr-col__sort">
+        <label for="rr-sort-{{ section.id }}">Sort:</label>
+        <select id="rr-sort-{{ section.id }}"
+                onchange="window.location.href = '{{ collection.url }}?sort_by=' + this.value">
+          <option value="manual"             {% if collection.sort_by == 'manual' %}selected{% endif %}>Featured</option>
+          <option value="best-selling"       {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Best Selling</option>
+          <option value="price-ascending"    {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Price: Low to High</option>
+          <option value="price-descending"   {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Price: High to Low</option>
+          <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
+          <option value="title-ascending"    {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>A - Z</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="rr-col__body">
+    <div class="rr-col__body-inner">
+      {%- if collection.products.size > 0 -%}
+        <div class="rr-col__grid">
+          {%- paginate collection.products by section.settings.products_per_page -%}
+            {%- for product in collection.products -%}
+              <a href="{{ product.url }}" class="rr-col__card">
+                <div class="rr-col__card-img">
+                  {%- if product.tags contains 'bestseller' or product.tags contains 'Bestseller' -%}
+                    <span class="rr-col__badge rr-col__badge--best">Bestseller</span>
+                  {%- elsif product.tags contains 'new' or product.tags contains 'New' -%}
+                    <span class="rr-col__badge rr-col__badge--new">New</span>
+                  {%- elsif product.compare_at_price > product.price -%}
+                    <span class="rr-col__badge rr-col__badge--sale">Sale</span>
+                  {%- endif -%}
+                  {%- if product.featured_image != blank -%}
+                    {{ product.featured_image | image_url: width: 600
+                       | image_tag: loading: 'lazy', widths: '300,400,600',
+                                    sizes: '(max-width:768px) 50vw, 25vw', alt: product.title }}
+                  {%- endif -%}
+                  <a href="{{ product.url }}" class="rr-col__quick-add">Quick View</a>
+                </div>
+                <div class="rr-col__card-info">
+                  <div class="rr-col__card-name">{{ product.title }}</div>
+                  <div class="rr-col__card-type">{{ product.type }}</div>
+                  <div class="rr-col__card-bottom">
+                    <div class="rr-col__card-price">
+                      {{ product.price | money }}
+                      {%- if product.compare_at_price > product.price -%}
+                        <del>{{ product.compare_at_price | money }}</del>
+                      {%- endif -%}
+                    </div>
+                    {%- if section.settings.show_rating -%}
+                      <div class="rr-col__card-stars">★★★★★</div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </a>
+            {%- endfor -%}
+          {%- endpaginate -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <div class="rr-col__pagination">
+            {%- if paginate.previous -%}
+              <a href="{{ paginate.previous.url }}">&#8592;</a>
+            {%- endif -%}
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <a href="{{ part.url }}">{{ part.title }}</a>
+              {%- else -%}
+                <span class="current">{{ part.title }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if paginate.next -%}
+              <a href="{{ paginate.next.url }}">&#8594;</a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="rr-col__empty">
+          <div class="rr-col__empty-title">No products here yet</div>
+          <p class="rr-col__empty-sub">Check back soon or explore our other collections.</p>
+          <a href="/collections/all" class="rr-col__empty-btn">Shop All Products</a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "RR Collection",
+  "tag": "section",
+  "class": "section-rr-collection",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",           "label": "Eyebrow",           "default": "Collection" },
+    { "type": "range",    "id": "products_per_page",  "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 24 },
+    { "type": "select",   "id": "columns",            "label": "Columns (desktop)",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ], "default": "4" },
+    { "type": "checkbox", "id": "show_rating",        "label": "Show star rating",  "default": true }
+  ],
+  "presets": [{ "name": "RR Collection" }]
+}
+{% endschema %}

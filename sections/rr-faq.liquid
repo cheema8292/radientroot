@@ -1,0 +1,206 @@
+<style>
+  .rr-faq-page { font-family: 'Jost', var(--font-body-family), sans-serif; }
+
+  .rr-faq-page__hero {
+    background: #111111; padding: 100px 52px 90px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .rr-faq-page__hero::before {
+    content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .rr-faq-page__eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase;
+    color: #B8956A; margin-bottom: 16px;
+  }
+  .rr-faq-page__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(38px, 5vw, 58px); font-weight: 300;
+    color: #FFFFFF; line-height: 1.1; margin-bottom: 18px;
+  }
+  .rr-faq-page__heading em { font-style: italic; color: #D4B896; }
+  .rr-faq-page__sub { font-size: 14px; color: rgba(255,255,255,0.45); max-width: 460px; margin: 0 auto; line-height: 1.8; }
+
+  .rr-faq-page__body {
+    background: {{ section.settings.body_bg }};
+    padding: 104px 52px;
+  }
+  .rr-faq-page__inner { max-width: 860px; margin: 0 auto; }
+
+  .rr-faq-page__category { margin-bottom: 56px; }
+  .rr-faq-page__category-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px; font-weight: 500; color: #1A1A1A;
+    margin-bottom: 24px; padding-bottom: 14px;
+    border-bottom: 1px solid rgba(184,149,106,0.2);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .rr-faq-page__category-title::before {
+    content: ''; width: 4px; height: 20px;
+    background: #B8956A; border-radius: 2px; flex-shrink: 0;
+  }
+
+  .rr-faq-item { border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .rr-faq-item:last-child { border-bottom: none; }
+
+  .rr-faq-item__summary {
+    list-style: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 0; gap: 20px;
+    font-size: 15px; font-weight: 500; color: #1A1A1A;
+    transition: color 0.2s; user-select: none;
+  }
+  .rr-faq-item__summary::-webkit-details-marker { display: none; }
+  .rr-faq-item__summary:hover { color: #B8956A; }
+
+  .rr-faq-item__icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    border: 1px solid rgba(184,149,106,0.3); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s; color: #B8956A;
+  }
+  .rr-faq-item__icon svg { width: 12px; height: 12px; transition: transform 0.3s; }
+  details[open] .rr-faq-item__icon { background: #B8956A; border-color: #B8956A; color: #fff; }
+  details[open] .rr-faq-item__icon svg { transform: rotate(45deg); }
+
+  .rr-faq-item__body {
+    padding: 0 0 22px 0;
+    font-size: 14px; line-height: 1.85; color: #555555;
+    animation: rr-faq-open 0.25s ease;
+  }
+  @keyframes rr-faq-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .rr-faq-page__cta {
+    margin-top: 64px; padding: 48px 44px;
+    background: #111111; border-radius: 20px;
+    text-align: center;
+  }
+  .rr-faq-page__cta-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px; font-weight: 300; color: #FFFFFF; margin-bottom: 10px;
+  }
+  .rr-faq-page__cta-title em { font-style: italic; color: #D4B896; }
+  .rr-faq-page__cta-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+  .rr-faq-page__cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: #D4B896;
+    border: 1px solid #B8956A; padding: 14px 36px;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .rr-faq-page__cta-btn::after {
+    content: ''; position: absolute; inset: 0;
+    background: #B8956A; transform: translateX(-101%);
+    transition: transform 0.35s ease; z-index: 0;
+  }
+  .rr-faq-page__cta-btn span { position: relative; z-index: 1; }
+  .rr-faq-page__cta-btn:hover { color: #fff; }
+  .rr-faq-page__cta-btn:hover::after { transform: translateX(0); }
+
+  @media (max-width: 768px) {
+    .rr-faq-page__hero { padding: 72px 20px; }
+    .rr-faq-page__body { padding: 64px 20px; }
+  }
+</style>
+
+<div class="rr-faq-page">
+  <div class="rr-faq-page__hero">
+    <div class="rr-faq-page__eyebrow">{{ section.settings.eyebrow }}</div>
+    <h1 class="rr-faq-page__heading">{{ section.settings.heading }}{%- if section.settings.heading_italic != blank -%}<br><em>{{ section.settings.heading_italic }}</em>{%- endif -%}</h1>
+    {%- if section.settings.subtext != blank -%}<p class="rr-faq-page__sub">{{ section.settings.subtext }}</p>{%- endif -%}
+  </div>
+
+  <div class="rr-faq-page__body">
+    <div class="rr-faq-page__inner">
+
+      {%- assign current_category = '' -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' -%}
+          {%- if current_category != '' -%}</div></div>{%- endif -%}
+          <div class="rr-faq-page__category" {{ block.shopify_attributes }}>
+            <div class="rr-faq-page__category-title">{{ block.settings.title }}</div>
+          {%- assign current_category = block.settings.title -%}
+        {%- elsif block.type == 'faq' -%}
+          <details class="rr-faq-item" {{ block.shopify_attributes }}>
+            <summary class="rr-faq-item__summary">
+              {{ block.settings.question }}
+              <span class="rr-faq-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </summary>
+            <div class="rr-faq-item__body">{{ block.settings.answer }}</div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if current_category != '' -%}</div></div>{%- endif -%}
+
+      {%- if section.settings.cta_show -%}
+        <div class="rr-faq-page__cta">
+          <div class="rr-faq-page__cta-title">Still have <em>questions?</em></div>
+          <div class="rr-faq-page__cta-sub">{{ section.settings.cta_sub }}</div>
+          <a href="{{ section.settings.cta_url }}" class="rr-faq-page__cta-btn"><span>{{ section.settings.cta_text }}</span></a>
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RR FAQ Page",
+  "tag": "section",
+  "class": "section-rr-faq",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",          "label": "Eyebrow",          "default": "Got Questions?" },
+    { "type": "text",     "id": "heading",           "label": "Heading",          "default": "Frequently Asked" },
+    { "type": "text",     "id": "heading_italic",    "label": "Heading italic",   "default": "Questions" },
+    { "type": "textarea", "id": "subtext",           "label": "Subtext",          "default": "Everything you need to know about our products, shipping, and returns." },
+    { "type": "color",    "id": "body_bg",           "label": "Body background",  "default": "#F7F3EE" },
+    { "type": "header",   "content": "CTA Block" },
+    { "type": "checkbox", "id": "cta_show",          "label": "Show CTA block",   "default": true },
+    { "type": "textarea", "id": "cta_sub",           "label": "CTA subtext",      "default": "Our team is available Mon-Fri, 9am-6pm EST. We respond within 24 hours." },
+    { "type": "text",     "id": "cta_text",          "label": "CTA button text",  "default": "Contact Us" },
+    { "type": "url",      "id": "cta_url",           "label": "CTA button URL" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Heading",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Category title", "default": "Products" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text",     "id": "question", "label": "Question", "default": "What makes Radiant Root different?" },
+        { "type": "textarea", "id": "answer",   "label": "Answer",   "default": "Our formulas combine centuries-old botanical wisdom with modern science, using only clean, clinically-tested ingredients." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR FAQ Page",
+      "blocks": [
+        { "type": "category", "settings": { "title": "About Our Products" } },
+        { "type": "faq", "settings": { "question": "What makes Radiant Root different from other hair care brands?", "answer": "Our formulas are built around rosemary extract, clinically shown to match minoxidil for hair regrowth. Every ingredient is clean, sulfate-free, and paraben-free. We never use fillers or synthetic fragrances." } },
+        { "type": "faq", "settings": { "question": "Are your products safe for color-treated hair?", "answer": "Yes. All Radiant Root products are formulated to be safe for color-treated, chemically processed, and natural hair. Our sulfate-free formulas will not strip color." } },
+        { "type": "faq", "settings": { "question": "How long until I see results?", "answer": "Most customers notice a difference in texture and shine within 2 weeks. Significant hair growth results are typically visible at the 30-90 day mark with consistent use." } },
+        { "type": "category", "settings": { "title": "Orders and Shipping" } },
+        { "type": "faq", "settings": { "question": "How long does shipping take?", "answer": "We ship within 1-2 business days. Standard shipping takes 3-7 business days. Express 2-day shipping is available at checkout." } },
+        { "type": "faq", "settings": { "question": "Do you offer free shipping?", "answer": "Yes! Orders over $50 qualify for free standard shipping within the US." } },
+        { "type": "faq", "settings": { "question": "Can I track my order?", "answer": "Absolutely. Once your order ships you will receive an email with your tracking number. You can also visit our Track My Order page anytime." } },
+        { "type": "category", "settings": { "title": "Returns and Refunds" } },
+        { "type": "faq", "settings": { "question": "What is your return policy?", "answer": "We offer a 30-day satisfaction guarantee. If you are not completely happy with your purchase, contact us within 30 days for a full refund, no questions asked." } },
+        { "type": "faq", "settings": { "question": "How do I start a return?", "answer": "Email us at hello@radiantroot.com with your order number and reason for return. We will send you a prepaid return label within 24 hours." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

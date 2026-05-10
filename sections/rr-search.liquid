@@ -1,0 +1,300 @@
+<style>
+  .rr-search { font-family: 'Jost', var(--font-body-family), sans-serif; }
+
+  /* Hero */
+  .rr-search__hero {
+    background: #111111; padding: 72px 52px 60px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .rr-search__hero::before {
+    content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(184,149,106,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .rr-search__eyebrow {
+    font-size: 10px; font-weight: 500; letter-spacing: 3.5px;
+    text-transform: uppercase; color: #B8956A; margin-bottom: 14px;
+  }
+  .rr-search__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(30px, 4vw, 48px); font-weight: 300;
+    color: #FFFFFF; line-height: 1.12; margin-bottom: 28px;
+  }
+  .rr-search__title em { font-style: italic; color: #D4B896; }
+
+  /* Search bar */
+  .rr-search__form {
+    max-width: 580px; margin: 0 auto;
+    display: flex; position: relative; z-index: 1;
+  }
+  .rr-search__input {
+    flex: 1; padding: 16px 24px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-right: none;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 14px; color: #fff; outline: none;
+    transition: border-color 0.3s;
+  }
+  .rr-search__input::placeholder { color: rgba(255,255,255,0.35); }
+  .rr-search__input:focus { border-color: #B8956A; }
+  .rr-search__btn {
+    padding: 16px 28px;
+    background: #B8956A; border: 1px solid #B8956A;
+    color: #fff; cursor: pointer;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    transition: background 0.3s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .rr-search__btn:hover { background: #96754A; border-color: #96754A; }
+  .rr-search__btn svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; }
+
+  /* Body */
+  .rr-search__body { background: #F7F3EE; padding: 52px 52px 80px; }
+  .rr-search__body-inner { max-width: 1340px; margin: 0 auto; }
+
+  /* Results meta */
+  .rr-search__meta {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 36px; padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08); flex-wrap: wrap; gap: 12px;
+  }
+  .rr-search__meta-text {
+    font-size: 14px; color: #555;
+  }
+  .rr-search__meta-text strong { color: #1A1A1A; font-weight: 600; }
+  .rr-search__meta-count { font-size: 12px; color: #8A8A8A; }
+
+  /* Tabs */
+  .rr-search__tabs {
+    display: flex; gap: 4px; margin-bottom: 32px;
+  }
+  .rr-search__tab {
+    padding: 8px 20px;
+    font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    background: none; border: 1px solid rgba(0,0,0,0.12);
+    cursor: pointer; color: #555; transition: all 0.2s;
+  }
+  .rr-search__tab.active,
+  .rr-search__tab:hover { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
+
+  /* Product grid */
+  .rr-search__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .rr-search__card {
+    background: #fff; border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.35s; text-decoration: none; display: block;
+  }
+  .rr-search__card:hover { transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0,0,0,0.1); border-color: rgba(184,149,106,0.15); }
+  .rr-search__card-img {
+    aspect-ratio: 3/4; overflow: hidden;
+    background: linear-gradient(160deg, #EDE7DF, #e8e0d6);
+  }
+  .rr-search__card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .rr-search__card:hover .rr-search__card-img img { transform: scale(1.04); }
+  .rr-search__card-info { padding: 14px 14px 16px; }
+  .rr-search__card-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 17px; font-weight: 500; color: #1A1A1A; margin-bottom: 6px;
+  }
+  .rr-search__card-price { font-size: 14px; font-weight: 600; color: #1A1A1A; }
+  .rr-search__card-price del { color: #8A8A8A; font-weight: 400; font-size: 12px; margin-left: 4px; }
+
+  /* Page results */
+  .rr-search__pages { margin-top: 40px; }
+  .rr-search__pages-title {
+    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #8A8A8A; margin-bottom: 16px;
+  }
+  .rr-search__page-item {
+    background: #fff; border-radius: 12px; padding: 20px 24px;
+    margin-bottom: 10px; text-decoration: none; display: block;
+    border: 1px solid rgba(0,0,0,0.06); transition: all 0.25s;
+  }
+  .rr-search__page-item:hover { border-color: rgba(184,149,106,0.25); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .rr-search__page-name { font-size: 15px; font-weight: 500; color: #1A1A1A; margin-bottom: 4px; }
+  .rr-search__page-excerpt { font-size: 12px; color: #8A8A8A; line-height: 1.6; }
+
+  /* Empty / no query */
+  .rr-search__empty {
+    text-align: center; padding: 60px 20px;
+  }
+  .rr-search__empty-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px; font-weight: 300; color: #1A1A1A; margin-bottom: 10px;
+  }
+  .rr-search__empty-sub { font-size: 13px; color: #8A8A8A; margin-bottom: 24px; }
+
+  /* Suggestions */
+  .rr-search__suggestions { margin-top: 48px; }
+  .rr-search__suggestions-title {
+    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #8A8A8A; margin-bottom: 20px; text-align: center;
+  }
+  .rr-search__suggestion-tags {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  }
+  .rr-search__suggestion-tags a {
+    padding: 8px 18px;
+    border: 1px solid rgba(184,149,106,0.25); color: #555;
+    font-size: 12px; text-decoration: none; transition: all 0.2s;
+  }
+  .rr-search__suggestion-tags a:hover { border-color: #B8956A; color: #B8956A; }
+
+  @media (max-width: 1024px) { .rr-search__grid { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 768px)  {
+    .rr-search__hero { padding: 56px 20px 48px; }
+    .rr-search__body { padding: 40px 20px 60px; }
+    .rr-search__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .rr-search__form { flex-direction: column; }
+    .rr-search__input { border-right: 1px solid rgba(255,255,255,0.15); }
+  }
+  @media (max-width: 480px) { .rr-search__grid { grid-template-columns: 1fr; } }
+</style>
+
+<div class="rr-search">
+
+  <div class="rr-search__hero">
+    <div class="rr-search__eyebrow">{{ section.settings.eyebrow }}</div>
+    <h1 class="rr-search__title">
+      {%- if search.performed and search.terms != blank -%}
+        Results for <em>"{{ search.terms | escape }}"</em>
+      {%- else -%}
+        {{ section.settings.heading }}
+      {%- endif -%}
+    </h1>
+    <form action="{{ routes.search_url }}" method="get" class="rr-search__form" role="search">
+      <input type="hidden" name="type" value="product,page">
+      <input type="search" name="q" class="rr-search__input"
+             placeholder="{{ section.settings.placeholder }}"
+             value="{{ search.terms | escape }}"
+             autocomplete="off">
+      <button type="submit" class="rr-search__btn">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Search
+      </button>
+    </form>
+  </div>
+
+  <div class="rr-search__body">
+    <div class="rr-search__body-inner">
+
+      {%- if search.performed -%}
+        {%- assign product_results = search.results | where: 'object_type', 'product' -%}
+        {%- assign page_results    = search.results | where: 'object_type', 'page' -%}
+
+        <div class="rr-search__meta">
+          <div class="rr-search__meta-text">
+            {%- if search.results_count == 0 -%}
+              No results for <strong>"{{ search.terms | escape }}"</strong>
+            {%- else -%}
+              <strong>{{ search.results_count }}</strong> results for <strong>"{{ search.terms | escape }}"</strong>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if search.results_count > 0 -%}
+          {%- if product_results.size > 0 -%}
+            <div class="rr-search__grid">
+              {%- for product in product_results -%}
+                <a href="{{ product.url }}" class="rr-search__card">
+                  <div class="rr-search__card-img">
+                    {%- if product.featured_image -%}
+                      {{ product.featured_image | image_url: width: 400
+                         | image_tag: loading: 'lazy', alt: product.title }}
+                    {%- endif -%}
+                  </div>
+                  <div class="rr-search__card-info">
+                    <div class="rr-search__card-name">{{ product.title }}</div>
+                    <div class="rr-search__card-price">
+                      {{ product.price | money }}
+                      {%- if product.compare_at_price > product.price -%}
+                        <del>{{ product.compare_at_price | money }}</del>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </a>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- if page_results.size > 0 -%}
+            <div class="rr-search__pages">
+              <div class="rr-search__pages-title">Pages</div>
+              {%- for page in page_results -%}
+                <a href="{{ page.url }}" class="rr-search__page-item">
+                  <div class="rr-search__page-name">{{ page.title }}</div>
+                  {%- if page.content != blank -%}
+                    <div class="rr-search__page-excerpt">{{ page.content | strip_html | truncate: 120 }}</div>
+                  {%- endif -%}
+                </a>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+        {%- else -%}
+          <div class="rr-search__empty">
+            <div class="rr-search__empty-title">No results found</div>
+            <p class="rr-search__empty-sub">Try a different search term or browse our collections below.</p>
+          </div>
+        {%- endif -%}
+
+      {%- endif -%}
+
+      <div class="rr-search__suggestions">
+        <div class="rr-search__suggestions-title">Popular Searches</div>
+        <div class="rr-search__suggestion-tags">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'suggestion' -%}
+              <a href="{{ routes.search_url }}?q={{ block.settings.term | url_encode }}&type=product" {{ block.shopify_attributes }}>
+                {{ block.settings.term }}
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "RR Search",
+  "tag": "section",
+  "class": "section-rr-search",
+  "settings": [
+    { "type": "text", "id": "eyebrow",     "label": "Eyebrow",             "default": "Search" },
+    { "type": "text", "id": "heading",     "label": "Heading (no query)",  "default": "What are you looking for?" },
+    { "type": "text", "id": "placeholder", "label": "Input placeholder",   "default": "Search products, ingredients..." }
+  ],
+  "blocks": [
+    {
+      "type": "suggestion",
+      "name": "Search Suggestion",
+      "settings": [
+        { "type": "text", "id": "term", "label": "Search term", "default": "Rosemary Shampoo" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR Search",
+      "blocks": [
+        { "type": "suggestion", "settings": { "term": "Rosemary Shampoo" } },
+        { "type": "suggestion", "settings": { "term": "Hair Growth" } },
+        { "type": "suggestion", "settings": { "term": "Scalp Treatment" } },
+        { "type": "suggestion", "settings": { "term": "Conditioner" } },
+        { "type": "suggestion", "settings": { "term": "Hair Oil" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

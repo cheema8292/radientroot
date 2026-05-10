@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(findstr /i footer)",
+      "Bash(Get-ChildItem -Path \"d:\\\\CLients\\\\Arslan\\\\radientroot\\\\sections\" -Filter \"*footer*\")",
+      "Bash(Select-Object Name)",
+      "Bash(grep -v \"//\")"
     ]
   }
 }

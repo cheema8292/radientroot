@@ -1,1 +1,9 @@
-﻿{"sections": {}, "order": []}
+{
+  "sections": {
+    "rr_collection": {
+      "type": "rr-collection",
+      "settings": {}
+    }
+  },
+  "order": ["rr_collection"]
+}

@@ -1,0 +1,357 @@
+<style>
+  /* ===== ANNOUNCEMENT BAR ===== */
+  .rr-announce {
+    background: #1A1A1A;
+    text-align: center;
+    padding: 11px 20px;
+    font-size: 11.5px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #D4B896;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+  }
+  .rr-announce::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(184,149,106,0.06) 50%, transparent 100%);
+    animation: rr-shimmer 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes rr-shimmer {
+    0%, 100% { opacity: 0; }
+    50%       { opacity: 1; }
+  }
+
+  /* ===== NAV ===== */
+  .rr-nav {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.055);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    font-family: 'Jost', var(--font-body-family), sans-serif;
+  }
+  .rr-nav__inner {
+    max-width: 1340px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 52px;
+  }
+
+  /* Logo */
+  .rr-nav__logo {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 29px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #1A1A1A;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .rr-nav__logo span { color: #B8956A; }
+  .rr-nav__logo img {
+    height: 44px; width: auto; display: block;
+  }
+
+  /* Nav links */
+  .rr-nav__links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  .rr-nav__links a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #555555;
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .rr-nav__links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: #B8956A;
+    transition: width 0.3s;
+  }
+  .rr-nav__links a:hover       { color: #B8956A; }
+  .rr-nav__links a:hover::after,
+  .rr-nav__links a.rr-active::after { width: 100%; }
+  .rr-nav__links a.rr-active   { color: #B8956A; }
+
+  /* Icons */
+  .rr-nav__icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .rr-nav__icons a {
+    color: #1A1A1A;
+    transition: color 0.3s;
+    display: flex; align-items: center;
+    text-decoration: none;
+  }
+  .rr-nav__icons a:hover { color: #B8956A; }
+  .rr-nav__icons svg {
+    width: 20px; height: 20px;
+    stroke: currentColor; fill: none; stroke-width: 1.5;
+  }
+
+  /* Cart badge */
+  .rr-nav__cart { position: relative; }
+  .rr-nav__cart-count {
+    position: absolute;
+    top: -7px; right: -9px;
+    width: 17px; height: 17px;
+    background: #B8956A;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 9px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1;
+  }
+
+  /* Mobile hamburger */
+  .rr-nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none; border: none;
+    cursor: pointer; padding: 4px;
+  }
+  .rr-nav__hamburger span {
+    display: block;
+    width: 22px; height: 1.5px;
+    background: #1A1A1A;
+    transition: all 0.3s;
+  }
+
+  /* Mobile drawer */
+  .rr-nav__drawer {
+    display: none;
+    position: fixed; inset: 0; z-index: 300;
+  }
+  .rr-nav__drawer.open { display: block; }
+  .rr-nav__drawer-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.45);
+  }
+  .rr-nav__drawer-panel {
+    position: absolute; top: 0; left: 0; bottom: 0;
+    width: 290px;
+    background: #fff;
+    display: flex; flex-direction: column;
+    box-shadow: 4px 0 40px rgba(0,0,0,0.13);
+  }
+  .rr-nav__drawer-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 24px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+  .rr-nav__drawer-logo {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 24px; font-weight: 400; letter-spacing: 3px;
+    color: #1A1A1A; text-decoration: none;
+  }
+  .rr-nav__drawer-logo span { color: #B8956A; }
+  .rr-nav__drawer-close {
+    background: none; border: none; cursor: pointer;
+    color: #555; font-size: 20px; line-height: 1;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    transition: color 0.2s;
+  }
+  .rr-nav__drawer-close:hover { color: #B8956A; }
+  .rr-nav__drawer-links {
+    list-style: none; padding: 8px 0; margin: 0;
+    flex: 1; overflow-y: auto;
+  }
+  .rr-nav__drawer-links li a {
+    display: block;
+    padding: 15px 24px;
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: #555555; text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: color 0.2s, background 0.2s;
+  }
+  .rr-nav__drawer-links li:last-child a { border-bottom: none; }
+  .rr-nav__drawer-links li a:hover { color: #B8956A; background: rgba(184,149,106,0.04); }
+
+  @media (max-width: 1024px) {
+    .rr-nav__inner { padding: 16px 24px; }
+    .rr-nav__links { gap: 24px; }
+  }
+  @media (max-width: 768px) {
+    .rr-nav__links    { display: none; }
+    .rr-nav__hamburger { display: flex; }
+    .rr-nav__inner    { padding: 16px 20px; }
+  }
+</style>
+
+{%- assign cart_count = cart.item_count -%}
+
+{%- if section.settings.show_announcement and section.settings.announcement_text != blank -%}
+  <div class="rr-announce">{{ section.settings.announcement_text }}</div>
+{%- endif -%}
+
+<nav class="rr-nav" id="rr-nav-{{ section.id }}" role="navigation">
+  <div class="rr-nav__inner">
+
+    {%- assign logo_h = section.settings.logo_height | default: 44 -%}
+    {%- assign logo_w = section.settings.logo_width  | default: 160 -%}
+    {%- assign logo_src = section.settings.logo_image | default: settings.logo -%}
+    <a href="{{ routes.root_url }}" class="rr-nav__logo" aria-label="{{ shop.name }}"
+       style="max-width: {{ logo_w }}px;">
+      {%- if logo_src != blank -%}
+        {{ logo_src | image_url: height: logo_h | times: 2 | round
+           | image_tag: loading: 'eager',
+                        height: logo_h,
+                        style: 'height:' | append: logo_h | append: 'px;width:auto;max-width:' | append: logo_w | append: 'px;display:block;',
+                        alt: shop.name }}
+      {%- else -%}
+        {%- assign logo_parts = shop.name | split: 'é' -%}
+        {%- if logo_parts.size > 1 -%}
+          {{ logo_parts[0] }}<span>é</span>{{ logo_parts[1] }}
+        {%- else -%}
+          {{ shop.name }}
+        {%- endif -%}
+      {%- endif -%}
+    </a>
+
+    <ul class="rr-nav__links">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <li {{ block.shopify_attributes }}>
+            <a href="{{ block.settings.url }}"
+               {% if request.path == block.settings.url %}class="rr-active"{% endif %}>
+              {{ block.settings.label }}
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    <div class="rr-nav__icons">
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </a>
+      {%- endif -%}
+
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+           aria-label="Account" rel="nofollow">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+      {%- endif -%}
+
+      <a href="{{ routes.cart_url }}" class="rr-nav__cart" aria-label="Cart ({{ cart_count }} items)">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        {%- if cart_count > 0 -%}
+          <span class="rr-nav__cart-count">{{ cart_count }}</span>
+        {%- endif -%}
+      </a>
+
+      <button class="rr-nav__hamburger"
+              id="rr-ham-{{ section.id }}"
+              aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<div class="rr-nav__drawer" id="rr-drawer-{{ section.id }}" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="rr-nav__drawer-overlay" id="rr-overlay-{{ section.id }}"></div>
+  <div class="rr-nav__drawer-panel">
+    <div class="rr-nav__drawer-head">
+      <a href="{{ routes.root_url }}" class="rr-nav__drawer-logo">
+        {%- assign lp = shop.name | split: 'é' -%}
+        {%- if lp.size > 1 -%}{{ lp[0] }}<span>é</span>{{ lp[1] }}{%- else -%}{{ shop.name }}{%- endif -%}
+      </a>
+      <button class="rr-nav__drawer-close" id="rr-close-{{ section.id }}" aria-label="Close menu">&#x2715;</button>
+    </div>
+    <ul class="rr-nav__drawer-links">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <li><a href="{{ block.settings.url }}">{{ block.settings.label }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+<script>
+(function(){
+  var sid     = {{ section.id | json }};
+  var ham     = document.getElementById('rr-ham-'     + sid);
+  var drawer  = document.getElementById('rr-drawer-'  + sid);
+  var overlay = document.getElementById('rr-overlay-' + sid);
+  var close   = document.getElementById('rr-close-'   + sid);
+
+  function open()  { drawer.classList.add('open');    ham.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+  function shut()  { drawer.classList.remove('open'); ham.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+
+  if (ham)     ham.addEventListener('click', open);
+  if (close)   close.addEventListener('click', shut);
+  if (overlay) overlay.addEventListener('click', shut);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') shut(); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "RR Header",
+  "tag": "section",
+  "class": "section-rr-header",
+  "settings": [
+    { "type": "header",   "content": "Announcement Bar" },
+    { "type": "checkbox", "id": "show_announcement", "label": "Show announcement bar", "default": true },
+    { "type": "text",     "id": "announcement_text",  "label": "Announcement text",
+      "default": "Free shipping on orders over $50  |  Use code RADIANT15 for 15% off your first order" },
+    { "type": "header",   "content": "Logo" },
+    { "type": "image_picker", "id": "logo_image", "label": "Logo image" },
+    { "type": "range", "id": "logo_height", "label": "Logo height (px)", "min": 20, "max": 80, "step": 4, "default": 44, "unit": "px" },
+    { "type": "range", "id": "logo_width",  "label": "Logo max width (px)", "min": 60, "max": 320, "step": 8, "default": 160, "unit": "px" },
+    { "type": "header",   "content": "Navigation" },
+    { "type": "checkbox", "id": "show_search",  "label": "Show search icon",  "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Nav Link",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Shop All" },
+        { "type": "url",  "id": "url",   "label": "URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR Header",
+      "blocks": [
+        { "type": "nav_link", "settings": { "label": "Shop All",       "url": "/collections/all" } },
+        { "type": "nav_link", "settings": { "label": "About",          "url": "/pages/about" } },
+        { "type": "nav_link", "settings": { "label": "Contact",        "url": "/pages/contact" } },
+        { "type": "nav_link", "settings": { "label": "Track My Order", "url": "/pages/track-order" } },
+        { "type": "nav_link", "settings": { "label": "FAQ",            "url": "/pages/faq" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
